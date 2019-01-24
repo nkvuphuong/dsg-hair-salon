@@ -1,0 +1,150 @@
+<div class="art-main">
+    <header class="header">
+        <div class="header-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h1 class="logo wow bounceInLeft"><a href="index.html" itemprop="url"><img class="imgrps"
+                                                                                                   [src]="globalVariables?.logoWebsite"
+                                                                                                   alt="logo"
+                                                                                                   itemprop="image"></a>
+                        </h1>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="header-step">
+                            <div class="item">
+                                <h3 class="step-nameinfo">Thông tin khách hàng<b>{{phone | vietnamesePhoneNumber}}</b></h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .header-main -->
+    </header>
+
+    <main>
+        <div class="pmain">
+            <div class="container">
+                <ngx-loading [show]="mainLoading"></ngx-loading>
+                <div class="in-container">
+                    <form id="stepform" action="step3.html" method="post">
+                        <h3 class="shop-name">Danh sách Lịch hẹn</h3>
+
+                        <div class="step-info" *ngIf="orders">
+                            <div class="item" *ngFor="let order of orders">
+                                <div class="info-books">
+                                    <div class="info-books-fl">
+                                        <div class="shop-address">{{order?.store?.name}}</div>
+                                        <div class="shop-city">Vào lúc: <b>{{order.time}}</b> - Dịch vụ:
+                                            <b>{{order.items.length}}</b> - Tổng tiền: <span>{{order.total | currency: 'VND'}}</span><small *ngIf="order.total != order.amount" style="text-decoration: line-through "> {{order.amount | currency: 'VND'}}</small></div>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                    <div class="info-books-fr">
+                                        <ng-container *ngIf="+order.data_bk.status == 0">
+                                            <button type="button" class="btn-cancel" data-toggle="modal"
+                                                    data-target="#cancelModal" (click)="selectedOrdId = +order.id">
+                                                Hủy
+                                            </button> |
+                                            <button type="button" class="btn-cancel bg-success" data-toggle="modal"
+                                                    data-target="#ratingModal" (click)="selectedOrdId = +order.id; currentRate = 100">
+                                                Xong
+                                            </button>
+                                        </ng-container>
+                                        <b *ngIf="+order.data_bk.status != 0">{{order.status}}</b>
+                                    </div>
+                                </div>
+                                <div class="info-books-more" *ngIf="order.items">
+                                    <div class="item-sub" *ngFor="let item of order.items">
+                                        Dịch vụ: {{item.name}} <b>(Giá: {{item.total | currency: 'VND'}})</b> - Thời gian:
+                                        <strong>{{item.bookingTime}}</strong> - Nhân viên: <strong>{{item.staff.name}}</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!orders || orders.length == 0">Không tìm thấy thông tin ...</div>
+                        <div class="btn-step">
+                            <button routerLink="/" type="button" class="btn-next" id="btn-step2">TRỞ VỀ</button>
+                        </div>
+                    </form>
+                </div><!-- .in-container -->
+            </div>
+        </div><!-- .pmain -->
+    </main>
+
+
+    <div class="modal fade" id="cancelModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <ngx-loading [show]="cancelModalLoading"></ngx-loading>
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <div class="text-center"><img src="assets/images/icon-hoi.png" alt="" class="imgrps"></div>
+                    <h3 class="text-center">Bạn có chắc chắn muốn hủy dịch vụ?</h3>
+                    <div class="btn-group">
+                        <button type="button" class="btn-modal btn-ok" (click)="cancel()">XÁC NHẬN</button>
+                        <button type="button" class="btn-modal btn-back" data-dismiss="modal">QUAY LẠI</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- .art-main -->
+
+<!-- RATING MODAL HTML -->
+<div class="modal fade feedback-modal" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="ratingModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg rating-modal" role="document">
+        <div class="modal-content">
+            <ngx-loading [show]="rateModalLoading"></ngx-loading>
+            <div class="modal-body text-center">
+                <div class="container" *ngIf="store">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class=" text-center">
+                                <h6 class="modal-shop-name">{{store.name}}</h6>
+                                <i class="fa fa-2x fa-times modal-close" data-dismiss="modal" aria-label="Close"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="FeedbackChecksWrap" class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="modal-lg-title">Chỉ với 3 giây đánh giá</h1>
+                            <h3 class="modal-md-title">bạn sẽ giúp chúng tôi cải thiện chất lượng dịch vụ tốt hơn</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-1">
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="row" *ngIf="ratings">
+                                <div *ngFor="let rating of ratings" class="col">
+                                    <div class="feebback-wrap" [class.active]="+rating.value === +currentRate" [innerHtml]="rating.label" (click)="currentRate = +rating.value">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1">
+                        </div>
+                        <div class="col-md-12"><button id="confirmFeedbackBtn" class="btn btn-lg btn-rounded btn-primary" (click)="rateOrder()">Xác nhận đánh giá</button></div>
+                    </div>
+
+                </div>
+                <div id="FeedbackthankyouWrap" class="container thankyou-wrap">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heart-ico"></div>
+                        </div>
+                        <div class="col-md-12">
+                            <h1 class="modal-lg-title">Cảm ơn Nguyễn Văn A đã đánh giá</h1>
+                            <p class="">Nhưng nhận xét chân thành của bạn sẽ giúp chũng tôi hoàn thiện dịch vụ được tốt hơn<br>Hạn gặp lại lần sau</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END RATING MODAL HTML -->

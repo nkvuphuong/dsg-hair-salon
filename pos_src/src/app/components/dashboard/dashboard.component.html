@@ -1,0 +1,891 @@
+<div class="main-wrapper" *ngIf="currentStaff?.storeId && selectedBill">
+    <div class="top-menu">
+        <div class="right-menu">
+            <ul class="nav navbar-nav navbar-menu">
+                <!--<li role="presentation" class="active"><a href="#"><i class="fa fa-map-marker"></i></a></li>
+                <li role="presentation"><a href="#"><i class="fa fa-exclamation"></i></a></li>
+
+                <li role="presentation"><a href="#"><i class="fa fa-reply-all"></i></a></li>-->
+                <li role="presentation"><a [title]="(connectNetworkService.isConnected | async) ? 'Online' : 'Offline   '"><i class="fa fa-wifi"
+                                                       [ngStyle]="{'color': (connectNetworkService.isConnected | async) ? '#53e253' : '#ff5757'}"></i></a>
+                </li>
+                <li role="presentation"><a title="Đồng bộ hóa đơn" data-toggle="modal" data-target="#printBillModalNeedSync"><i
+                        class="fa fa-refresh"
+                        [ngStyle]="{'color': (printBillComponent.countSyncableBills) ? '#53e253' : ''}"></i> <span
+                        class="badge"
+                        [ngStyle]="{'background-color': (printBillComponent.countSyncableBills) ? '#53e253' : ''}">{{printBillComponent.countSyncableBills}}</span></a>
+                </li>
+                <li role="presentation"><a title="Hóa đơn" data-toggle="modal" data-target="#printBillModal"><i class="fa fa-list-alt" aria-hidden="true"></i></a>
+                </li>
+                <li role="presentation"><a title="Toàn màn hình" (click)="fullscreenToggle()"><i class="fa" [class.fa-expand]="!isFullscreen"
+                                                                           [class.fa-compress]="isFullscreen"></i></a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-menu navbar-right">
+                <li role="presentation"><a href="#"><i class="fa fa-user"></i> <span class="staff-menu-item">{{currentStaff.name}}</span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"><i class="fa fa-bars"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{appConfig.ROOT_DOMAIN}}/acp"><i class="fa fa-archive"></i> Quản lý</a></li>
+                        <li><a (click)="logout();"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="left-menu">
+            <div class="input-group input-group-sm">
+			  <span class="input-group-btn">
+			    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+			  </span>
+                <ng-select class="search-product-results" *ngIf="products" [items]="products"
+                           bindValue="id"
+                           bindLabel="name"
+                           (add)="selectedBill.isOffline ? false : addItem($event)">
+                </ng-select>
+            </div>
+        </div>
+
+        <div class="middle-menu">
+            <div class="left-tabs-wrapper">
+                <mat-tab-group [selectedIndex]="getIndexSelectedBill()" class="nav nav-tabs nav-sm-tab" *ngIf="bills"
+                               (selectedTabChange)="onTabClick($event)">
+                    <mat-tab *ngFor="let bill of bills; let i = index;" label="Hoá đơn {{i+1}}">
+                        <ng-template mat-tab-label>
+                            <a>Hoá đơn {{i+1}} </a>
+                            <a class="close-tab" (click)="removeBill(bill)"><i class="fa fa-times"></i></a>
+                        </ng-template>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+            <div class="right-add-tab">
+                <ul class="nav navbar-nav navbar-menu navbar-right">
+                    <li class="dropdown plus-btn-wrap">
+                        <a class="dropdown-toggle plus-btn" title="Thêm Hoá đơn" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus-circle"></i></a>
+                        <ul class="dropdown-menu">
+                            <li (click)="addBill(0)"><a>Sản phẩm</a></li>
+                            <li (click)="addBill(1)"><a>Dịch vụ</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="right-panel">
+            <div class="right-panel-container">
+                <ngx-loading [show]="billPaymentLoading"></ngx-loading>
+                <div class="row price-li">
+                    <div class="col-xs-12">
+                        <div class="form-with-icon">
+                            <i class="fa fa-building"></i>
+                            Cửa hàng: {{selectedBill?.store?.name}}
+                        </div>
+                    </div>
+                </div>
+                <div class="row price-li">
+                    <div class="col-xs-6">
+                        <div class="form-with-icon">
+                            <i class="fa fa-user-circle-o"></i>
+                            <ng-select *ngIf="!selectedBill.isOffline"
+                                       [items]="staffs"
+                                       bindLabel="name"
+                                       bindValue="id"
+                                       placeholder="Chọn nhân viên"
+                                       (change)="addStaffToBill($event)"
+                                       (clear)="clearSelectedStaff()"
+                                       [ngModel]="selectedBill.staff.id"
+                            >
+                            </ng-select>
+                            <ng-select *ngIf="selectedBill.isOffline"
+                                       [items]="staffs"
+                                       bindLabel="name"
+                                       bindValue="id"
+                                       placeholder="Chọn nhân viên"
+                                       [ngModel]="selectedBill.staff.id"
+                                       disabled=""
+                            >
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="date-time-wrapper">
+                            <span class="date">{{now | amLocale:'vi' | amDateFormat: 'DD/MM/YYYY HH:mm:ss'}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row price-li">
+                    <div class="col-xs-12">
+                        <div class="form-with-icon form-with-2icon">
+                            <i class="fa fa-user"></i>
+                            <ng-select *ngIf="!selectedBill.isOffline"
+                                       [items]="selectedBill.customers"
+                                       bindLabel="name"
+                                       bindValue="id"
+                                       [typeahead]="typeaheadCustomer"
+                                       [virtualScroll]=true
+                                       [markFirst]=false
+                                       placeholder="Chọn khách hàng"
+                                       (scrollToEnd)="loadMoreCustomers()"
+                                       (change)="addCustomerToBill($event)"
+                                       (clear)="clearSelectedCustomer()"
+                                       [ngModel]="selectedBill.customer.id"
+                            >
+                            </ng-select>
+                            <ng-select *ngIf="selectedBill.isOffline"
+                                       disabled=""
+                                       [items]="selectedBill.customers"
+                                       bindLabel="name"
+                                       bindValue="id"
+                                       [typeahead]="typeaheadCustomer"
+                                       [virtualScroll]=true
+                                       [markFirst]=false
+                                       placeholder="Chọn khách hàng"
+                                       [ngModel]="selectedBill.customer.id"
+                            >
+                            </ng-select>
+                            <a class="right-btn" href="#" title="Thêm Khách hàng" data-toggle="modal"
+                               data-target=".add-customer-modal-sm" (click)="loadCustomerToAdd()"><i class="fa fa-plus"></i></a>
+                            <a *ngIf="selectedBill.customer.id" (click)="loadCustomerToEdit()" style="top: 21px" class="right-btn" href="#" title="Cập nhật thông tin khách hàng" data-toggle="modal"
+                               data-target=".add-customer-modal-sm"><i class="fa fa-edit"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row price-li" [hidden]="selectedBill.productType != 1">
+                    <div class="col-xs-12">
+                        <div class="form-with-icon form-with-2icon">
+                            <i class="fa fa-phone"></i>
+                            <input name="bill-phone" #billPhone="ngModel"
+                                   type="text" class="form-control"
+                                   autocomplete="false"
+                                   mask="0000.000.0009" [maxlength]="setMaxLengPhoneInput(billPhone.value)"
+                                   [ngModel]="selectedBill.phone"
+                                   (keyup)="setBillPhone(billPhone.value)"
+                                    placeholder="Số điện thoại">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row price-li">
+                    <div class="col-xs-8">
+                        <div class="form-with-icon">
+                            <i class="fa fa-tags"></i>
+                            <ng-select *ngIf="!selectedBill.isOffline"
+                                       [items]="prices"
+                                       bindLabel="name"
+                                       bindValue="id"
+                                       placeholder="Chọn bảng giá"
+                                       (change)="changePriceBook($event)"
+                                       [ngModel]="selectedBill?.price?.id"
+                            >
+                            </ng-select>
+                            <ng-select *ngIf="selectedBill.isOffline"
+                                       [items]="prices"
+                                       bindLabel="name"
+                                       bindValue="id"
+                                       placeholder="Chọn bảng giá"
+                                       disabled=""
+                                       [ngModel]="selectedBill?.price?.id"
+                            >
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="row price-li">
+                    <div class="col-xs-6">
+                        <div class="form-with-icon">
+                            <i class="fa fa-tag"></i>
+                            <select data-placeholder="Bang gia chung..." class="chosen-select form-control" tabindex="2">
+                                <option value="United States" selected>Bang gia chung</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Afghanistan">Afghanistan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-with-icon">
+                            <i class="fa fa-shopping-basket"></i>
+                            <select data-placeholder="Bang gia chung..." class="chosen-select form-control" tabindex="2">
+                                <option value="United States" selected>Truc tiep</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Afghanistan">Afghanistan</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>-->
+                <h4 class="bill-title">Hoá đơn</h4>
+
+                <form class="form-horizontal small-form cart-form">
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Tổng tiền hàng:</label>
+                        <div class="col-sm-6">
+                            <div class="number-price">{{selectedBill.subTotal | appCurrency}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Giảm giá
+                            <span *ngIf="selectedBill.discountType==0">({{selectedBill.discountValue | number}}%)</span>:
+                            <a [hidden]="!selectedBill.disabledDiscount" style="color: red; cursor: pointer"
+                               data-trigger="focus" data-toggle="popover" tabindex="0"
+                               data-content="Để có thể nhập giảm giá trên hóa đơn thì phần trăm thuế ở các items phải giống nhau"><i
+                                    class="fa fa-question-circle"></i></a>
+                        </label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input [popover]="myPopoverBill" type="number"
+                                       class="form-control input-sm discount-total-price-input"
+                                       placeholder="0" name="billDiscountAmount" [(ngModel)]="selectedBill.discountAmount"
+                                       (keyup)="changeBillDiscountAmount()"
+                                       [disabled]="selectedBill.isOffline || selectedBill.disabledDiscount">
+                                <span class="input-group-addon">đ</span>
+                            </div>
+
+                            <popover-content #myPopoverBill
+                                             [animation]="true"
+                                             [closeOnClickOutside]="true">
+                                <div class="form-horizontal small-form">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="input-group input-group-sm">
+                                                <input type="number" name="billDiscountValue" class="form-control"
+                                                       [(ngModel)]="selectedBill.discountValue"
+                                                       (change)="changeBillDiscountValue()">
+                                                <div class="input-group-btn discount-type-btn">
+                                                    <button type="button"
+                                                            class="btn btn-warning"
+                                                            [class.active]="selectedBill.discountType == 0"
+                                                            aria-label="Italic">
+                                                        <b>%</b>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </popover-content>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Thuế:</label>
+                        <div class="col-sm-6">
+                            <div class="number-price">{{selectedBill.taxAmount | appCurrency}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Khách cần trả:</label>
+                        <div class="col-sm-6">
+                            <div class="number-price nedd-pay">{{selectedBill.total | appCurrency}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Khách thanh toán:</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input [(ngModel)]="selectedBill.paymentAmount" [ngModelOptions]="{standalone: true}"
+                                       (keyup)="updatePaymentAmount()" type="number" class="form-control input-sm"
+                                       placeholder="0" [disabled]="selectedBill.isOffline">
+                                <span class="input-group-addon">đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Tiền thừa trả khách:</label>
+                        <div class="col-sm-6">
+                            <div class="number-price extra-money">{{selectedBill.excessCash | appCurrency}}</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Phương thức thanh toán:</label>
+                        <div class="col-sm-6">
+                            <select name="payment_method" id="payment_method" class="form-control"
+                                    (change)="saveBill(selectedBill)" [(ngModel)]="selectedBill.paymentMethod"
+                                    [disabled]="selectedBill.isOffline">
+                                <ng-container *ngIf="selectedBill.paymentMethods">
+                                    <option *ngFor="let x of selectedBill.paymentMethods" [value]="x.id"
+                                            [selected]="x.id == selectedBill.paymentMethod">{{x.name}}
+                                    </option>
+                                </ng-container>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="form-with-icon">
+                                <textarea class="form-control " type="text" spellcheck="false" placeholder="Ghi chú"
+                                          maxlength="4000" [disabled]="selectedBill.isOffline"[(ngModel)]="selectedBill.note" name="bill_note" (change)="saveBill(selectedBill)"></textarea>
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="right-panel-footer">
+                <button (click)="doPaymentBill()" type="button" class="btn btn-success btn-block btn-check-out" [disabled]="!checkBookingHourIncomplete()">Tạo đơn hàng</button>
+                <p class="Hotline"><i class="fa fa-phone"></i> Hotline: 028.7300.5252</p>
+            </div>
+
+
+        </div>
+        <div class="left-content">
+            <div class="tab-content main-cart-tabs-wrapper">
+                <div *ngIf="selectedBill.productType==0" role="tabpanel" class="tab-pane active">
+                    <div class="cart-wrap" *ngIf="selectedBill.items">
+                        <div class="row-cart-list" style="font-weight: bold">
+                            <div class="column-stt">#</div>
+                            <div class="column-close"></div>
+                            <div class="column-code">Mã SP</div>
+                            <div class="column-name">Tên SP</div>
+                            <div class="column-quatity">Số lượng</div>
+                            <div class="column-discount-price">Đơn giá</div>
+                            <div class="column-warning"></div>
+                            <div class="column-price">Thành tiền</div>
+                        </div>
+                        <div class="row-cart-list" *ngFor="let item of selectedBill.items; let i = index;"
+                             (click)="selectItem(item)">
+                            <div class="column-stt">{{i+1}}</div>
+                            <div style="cursor: pointer" [hidden]="selectedBill.isOffline" (click)="removeItem(item)"
+                                 class="column-close"><i class="fa fa-times"></i></div>
+                            <div class="column-code">{{item.product.code}}</div>
+                            <div class="column-name">
+                                <p>{{item.product.name}}</p>
+                            </div>
+                            <div class="column-quatity">
+                                <div class="input-group input-group-sm">
+                                    <span (click)="adjustQuantity(item, '-')" class="input-group-btn"><button
+                                            type="button" class="btn btn-default up-down-btn"
+                                            [disabled]="selectedBill.isOffline">-</button></span>
+                                    <input (change)="updateQuantity(item)"
+                                           class="form-control input-sm quatity-form-control" type="number"
+                                           style="text-align: center;" [(ngModel)]="item.quantity"
+                                           [disabled]="selectedBill.isOffline">
+                                    <span (click)="adjustQuantity(item, '+')" class="input-group-btn"><button
+                                            type="button" class="btn btn-default up-down-btn"
+                                            [disabled]="selectedBill.isOffline">+</button></span>
+                                </div>
+                            </div>
+                            <div class="column-discount-price">
+                                <input type="number" [popover]="myPopover" popoverPlacement="auto"
+                                       (change)="updatePrice(item)"
+                                       class="form-control input-sm discount-price-input" [(ngModel)]="item.price"
+                                       [disabled]="selectedBill.isOffline">
+                                <div *ngIf="item.discountValue" class="item-discount-show">Giảm: <strong>{{item.discountType
+                                    == 0 ? (item.discountValue*-1 | number)+'%' : (item.discountValue*-1 | appCurrency)}}</strong></div>
+                                <div *ngIf="item.taxValue" class="item-discount-show">Thuế: <strong>{{item.taxType ==
+                                    0 ? (item.taxValue*1 | number)+'%' : (item.taxValue*1 | appCurrency)}}</strong></div>
+                            </div>
+                            <div class="column-warning">
+                                <a class="btn btn-link btn-warn">đ</a>
+                            </div>
+                            <div class="column-price">
+                                <div class="number-price number-price-1">{{item.subTotal | appCurrency}}</div>
+                            </div>
+                        </div>
+
+                        <popover-content #myPopover
+                                         placement="left"
+                                         [animation]="true"
+                                         [closeOnClickOutside]="true">
+                            <div *ngIf="selectedItem" class="form-horizontal small-form">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Giá cũ:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control input-sm" placeholder="0"
+                                               [value]="selectedItem.oldPrice | appCurrency" disabled
+                                               style="border-bottom: none !important;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Giá mới:</label>
+                                    <div class="col-sm-9">
+                                        <input [(ngModel)]="selectedItem.price" (change)="updatePrice(selectedItem)"
+                                               type="number" class="form-control input-sm" placeholder="0" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Giảm giá:</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group input-group-sm">
+                                            <input type="number" class="form-control"
+                                                   [(ngModel)]="selectedItem.discountValue"
+                                                   (change)="changDiscountValue()">
+                                            <div class="input-group-btn discount-type-btn">
+                                                <button (click)="changeItemDiscountType(1)" type="button"
+                                                        class="btn btn-success"
+                                                        [class.active]="selectedItem.discountType == 1"
+                                                        aria-label="Bold">
+                                                    <b>VND</b>
+                                                </button>
+                                                <button (click)="changeItemDiscountType(0)" type="button"
+                                                        class="btn btn-warning"
+                                                        [class.active]="selectedItem.discountType == 0"
+                                                        aria-label="Italic">
+                                                    <b>%</b>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Thuế:</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group input-group-sm">
+                                            <input type="number" class="form-control"
+                                                   [(ngModel)]="selectedItem.taxValue"
+                                                   (change)="updateTax()">
+                                            <div class="input-group-btn discount-type-btn">
+                                                <button type="button" (click)="changeTaxType(0)" class="btn btn-warning"
+                                                        [class.active]="selectedItem.taxType == 0" aria-label="Italic">
+                                                    <b>%</b>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </popover-content>
+                    </div>
+                </div>
+
+                <div *ngIf="selectedBill.productType==1" role="tabpanel" class="tab-pane active">
+                    <div class="cart-wrap" *ngIf="selectedBill.items">
+                        <table class="table cart-wrap-table table-condensed">
+                            <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th></th>
+                                <th>Tên DV</th>
+                                <th>Ngày</th>
+                                <th>Nhân viên phụ trách</th>
+                                <th>Giờ</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of selectedBill.items; let i = index;"
+                                (click)="selectItem(item)">
+                                <td><p>{{i+1}}</p></td>
+                                <td><a style="cursor: pointer" [hidden]="selectedBill.isOffline"
+                                       (click)="removeItem(item)"><i class="fa del-icon fa-times"></i></a></td>
+                                <td>
+                                    <p class="no-mg-bt">{{item.product.name}}</p>
+                                </td>
+                                <td>
+                                    <label class="icon-after">
+                                        <select [disabled]="selectedBill.isOffline" class="form-control" *ngIf="daysOfWeek" name="day[]" [(ngModel)]="item.date" (ngModelChange)="getBookingHours(item);">
+                                            <option *ngFor="let day of daysOfWeek" [value]="day">{{day}}</option>
+                                        </select>
+                                    </label>
+                                </td>
+                                <td>
+                                    <select [disabled]="selectedBill.isOffline" class="form-control" (ngModelChange)="addStaffToItem($event, item)" [ngModel]="item?.staff?.id">
+                                        <option [ngValue]="null">Chọn nhân viên</option>
+                                        <ng-container *ngIf="item.staffs">
+                                            <option *ngFor="let staff of item.staffs" [ngValue]="staff.id">{{staff.name}}</option>
+                                        </ng-container>
+                                    </select>
+                                </td>
+                                <td>
+                                    <label class="icon-after">
+                                        <select [disabled]="selectedBill.isOffline" class="form-control" name="hour[]" *ngIf="item.bookingHours" [(ngModel)]="item.hour" (ngModelChange)="setHourItem()" [class.incomplete-hour]="!item.hour || item.hour == null || item.hour == 'null'" [disabled]="!item.bookingHours">
+                                            <option [value]="null">-- Chọn thời gian --</option>
+                                            <option *ngFor="let bookingHour of item.bookingHours;" [hidden]="bookingHour.slots.length - bookingHour.booked.length - bookingHour.bookedOthers.length <= 0" [value]="bookingHour.hour">{{bookingHour.hour}} ({{bookingHour.slots.length - bookingHour.booked.length - bookingHour.bookedOthers.length}})</option>
+                                        </select>
+                                    </label>
+                                </td>
+                                <td [popover]="myPopover">
+                                    <div class="mini-price">{{item.subTotal | appCurrency}}</div>
+                                    <div *ngIf="item.discountValue" class="item-discount-show" style="text-align: left">
+                                        Giảm: <strong>{{item.discountType
+                                        == 0 ? (item.discountValue*-1 | number)+'%' : (item.discountValue*-1 | appCurrency)}}</strong></div>
+                                    <div *ngIf="item.taxValue" class="item-discount-show" style="text-align: left">Thuế:
+                                        <strong>{{item.taxType
+                                            ==
+                                            0 ? (item.taxValue*1 | number)+'%' : (item.taxValue*1 | appCurrency)}}</strong></div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <popover-content #myPopover
+                                         placement="left"
+                                         [animation]="true"
+                                         [closeOnClickOutside]="true">
+                            <div *ngIf="selectedItem" class="form-horizontal small-form">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Giá cũ:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control input-sm" placeholder="0"
+                                               [value]="selectedItem.oldPrice | appCurrency" disabled
+                                               style="border-bottom: none !important;">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Giá mới:</label>
+                                    <div class="col-sm-9">
+                                        <input [(ngModel)]="selectedItem.price" (change)="updatePrice(selectedItem)"
+                                               type="number" class="form-control input-sm" placeholder="0" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Giảm giá:</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group input-group-sm">
+                                            <input type="number" class="form-control"
+                                                   [(ngModel)]="selectedItem.discountValue"
+                                                   (change)="changDiscountValue()">
+                                            <div class="input-group-btn discount-type-btn">
+                                                <button (click)="changeItemDiscountType(1)" type="button"
+                                                        class="btn btn-success"
+                                                        [class.active]="selectedItem.discountType == 1"
+                                                        aria-label="Bold">
+                                                    <b>VND</b>
+                                                </button>
+                                                <button (click)="changeItemDiscountType(0)" type="button"
+                                                        class="btn btn-warning"
+                                                        [class.active]="selectedItem.discountType == 0"
+                                                        aria-label="Italic">
+                                                    <b>%</b>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Thuế:</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group input-group-sm">
+                                            <input type="number" class="form-control"
+                                                   [(ngModel)]="selectedItem.taxValue"
+                                                   (change)="updateTax()">
+                                            <div class="input-group-btn discount-type-btn">
+                                                <button type="button" (click)="changeTaxType(0)" class="btn btn-warning"
+                                                        [class.active]="selectedItem.taxType == 0" aria-label="Italic">
+                                                    <b>%</b>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </popover-content>
+                    </div>
+                </div>
+            </div>
+            <div class="products-slider">
+                <div class="product-toolbar">
+                    <div class="toolbar-nav-left">
+                        <a title="Thay đổi thứ tự sắp xếp hàng hóa" (click)="getProducts()">
+                            <i class="fa {{productSlideSort=='asc' ? 'fa-arrow-down' : 'fa-arrow-up'}}"></i>
+                        </a>
+                        <!--<a title="Tách hàng hóa liên quan" ><i class="fa fa-cubes"></i></a>-->
+                        <a title="Lọc theo thuộc tính hàng hóa" data-toggle="modal"
+                           data-target=".product-filter-modal-sm" href="#"><i class="fa fa-filter"></i></a>
+                        <!--<a title="Lọc theo nhóm hàng" class=""><i class="fa fa-list"></i></a>-->
+
+                        <ng-container
+                                *ngIf="checkedCategories && checkedCategories.length != oriProductCategories.length">
+                            <span style="margin-left:5px" *ngFor="let x of checkedCategories"
+                                  class="label label-success" (click)="removeCheckedCategory(x.id)"><i
+                                    class="fa fa-times"></i> {{x.name}}</span>
+                        </ng-container>
+                    </div>
+                    <div class="toolbar-nav-right">
+                        <span id="product-swiper-pagination"></span>
+                        <a title="Trang trước" id="product-swiper-button-prev"><i class="fa fa-chevron-left"></i></a>
+                        <a title="Trang sau" id="product-swiper-button-next"><i class="fa fa-chevron-right"></i></a>
+                    </div>
+                </div>
+                <div class="swiper-container">
+                    <ngx-loading [show]="productLoading"></ngx-loading>
+                    <div class="swiper-wrapper" *ngIf="products">
+                        <div class="swiper-slide" *ngFor="let product of products"
+                             (click)="selectedBill.isOffline ? false : addItem(product)">
+                            <div class="product-img">
+                                <img src="{{product.image_S}}">
+                                <span class="product-price">{{product.price | appCurrency}}</span>
+                            </div>
+                            <div class="product-info">
+                                <span class="product-name">{{product.name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade product-filter-modal-sm" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Thuộc tính hàng hoá</h4></div>
+            <div class="modal-body">
+                <form class="form-horizontal small-form small-modal-formn">
+                    <div class="row price-li">
+                        <div class="col-md-12">
+                            <div class="input-group input-group-sm">
+						  <span class="input-group-btn">
+						    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+						  </span>
+                                <input (keyup)="filterCheckedCategories(categoryTerm.value)" #categoryTerm
+                                       name="categoryTerm" type="text" class="form-control not-line-input"
+                                       placeholder="Search for...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row price-li">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" (change)="checkedAllCategories($event)">
+                                    Tất cả
+                                </label>
+                            </div>
+                            <ng-container *ngIf="productCategories">
+                                <div class="checkbox" *ngFor="let cat of productCategories">
+                                    <label>
+                                        <input name="pro_cat" type="checkbox" [checked]="cat.checked"
+                                               (change)="changeCheckedCategory($event, cat.id)">
+                                        {{cat.name}}
+                                    </label>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <hr>
+                            <button class="btn btn-success" (click)="filterProducts()" data-dismiss="modal">ÁP DỤNG
+                            </button>
+                            <button class="btn btn-warning" data-dismiss="modal">BỎ QUA</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade add-customer-modal-sm" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <ngx-loading [show]="customerLoading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="mySmallModalLabel">{{customer.action=='edit' ? 'Cập nhật thông tin khách hàng' : 'Thêm khách hàng'}}</h4></div>
+
+            <div class="modal-body">
+                <form *ngIf="customer" (ngSubmit)="submitCustomer(customerForm)" #customerForm="ngForm"
+                      class="form-horizontal small-form small-form-border" novalidate>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-2 ">
+                            <div class="row">
+                                <div class="col-sm-8 col-sm-push-4 col-md-12 col-md-push-0">
+                                    <div class="upload-btn-wrapper">
+                                        <input type="file" name="avatar" (change)="changeAvatar($event)"/>
+                                        <div class="customer-avartar-wrap">
+                                            <img [src]="customerAvatar ? customerAvatar : noAvatarurl">
+                                        </div>
+                                        <button class="btn btn-default">Chọn ảnh</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Tên khách hàng:</label>
+                                <div class="col-sm-8">
+                                    <input required name="name" #name="ngModel" [value]="" [(ngModel)]="customer.name"
+                                           type="text" class="form-control" placeholder="Tên khách hàng" minlength="3"
+                                           autocomplete="false">
+                                    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                         class="alert alert-danger">
+
+                                        <div *ngIf="name.errors.required">
+                                            Name is required.
+                                        </div>
+                                        <div *ngIf="name.errors.minlength">
+                                            Name must be at least 3 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Điện thoại:</label>
+                                <div class="col-sm-8">
+                                    <input name="phone" #phone="ngModel" [value]="" [(ngModel)]="customer.phone"
+                                           type="text" class="form-control" placeholder="Điện thoại:"
+                                           autocomplete="false"
+                                           (change)="setCustomerPhone(phone.value)"
+                                           mask="0000.000.0009" [maxlength]="setMaxLengPhoneInput(phone.value)">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Ngày sinh</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="dd/mm/yyyy" name="dp"
+                                               [(ngModel)]="customer.birthday" ngbDatepicker #d="ngbDatepicker"
+                                               maxDate="" autocomplete="false">
+                                        <span (click)="d.toggle()" class="input-group-addon" id="basic-addon2"><i
+                                                class="fa fa-calendar"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Địa chỉ</label>
+                                <div class="col-sm-8">
+                                    <input name="address" #address="ngModel" [value]="" [(ngModel)]="customer.address"
+                                           type="text" class="form-control" placeholder="Địa chỉ" autocomplete="false">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Tỉnh thành</label>
+                                <div class="col-sm-8">
+                                    <ng-select
+                                            name="city"
+                                            [items]="cities"
+                                            bindLabel="name"
+                                            bindValue="id"
+                                            placeholder="Chọn tỉnh/thành"
+                                            [ngModel]="customer.city?.id"
+                                            (change)="chooseCity($event)">
+                                    </ng-select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Quận huyện</label>
+                                <div class="col-sm-8">
+                                    <ng-select
+                                            name="district"
+                                            [items]="districts"
+                                            bindLabel="name"
+                                            bindValue="id"
+                                            [ngModel]="customer.district?.id"
+                                            (change)="chooseDistrict($event)"
+                                            placeholder="Chọn Quận/huyện"
+                                            [disabled]="districtLoading"
+                                    >
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Mã số thuế:</label>
+                                <div class="col-sm-8">
+                                    <input name="taxcode" [value]="" [(ngModel)]="customer.taxcode" type="text"
+                                           class="form-control" placeholder="Mã số thuế" autocomplete="false">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Giới tính</label>
+                                <div class="col-sm-8">
+                                    <label class="radio-inline"><input [checked]="customer.gender!=0" type="radio"
+                                                                       name="gender" [value]="1"
+                                                                       [(ngModel)]="customer.gender">Nam</label>
+                                    <label class="radio-inline"><input [checked]="customer.gender==1" type="radio"
+                                                                       name="gender" [value]="0"
+                                                                       [(ngModel)]="customer.gender">Nữ</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Email:</label>
+                                <div class="col-sm-8">
+                                    <input type="email" name="email" [value]="" [(ngModel)]="customer.email"
+                                           class="form-control" placeholder="Email" appEmailCustom="true" minlength="0"
+                                           #email="ngModel" autocomplete="false">
+                                    <div *ngIf="email.invalid   "
+                                         class="alert alert-danger">
+                                        <div *ngIf="email.errors.emailCustom">
+                                            Email is invalid.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Ghi chú:</label>
+                                <div class="col-sm-8">
+                                    <textarea name="note" [value]="" [(ngModel)]="customer.note" class="form-control"
+                                              cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <button [disabled]="!customerForm.form.valid" type="submit" class="btn btn-primary"
+                                            style="float: right">{{customer.action == 'edit' ? 'Cập nhật' : 'Tạo'}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<app-print-bill [globalVariables]="globalVariables" [selectedBill]="selectedPrintingBill" [currentStaff]="currentStaff"
+                (onSyncBill)="onSyncBill($event)" [socket]="socket"></app-print-bill>
+
+<div id="preloader" [hidden]="!reloader">
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_four"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_one"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="chooseStoreModal" class="modal fade" role="dialog">
+    <div class="modal-dialog brand-option-modal modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <ngx-loading [show]="loadingChooseStore"></ngx-loading>
+            <div class="modal-header">
+                <h4 class="modal-title">Chọn Cửa hàng</h4>
+            </div>
+            <div class="modal-body">
+                <div class="formgroup">
+                    <p>Chọn khu vực</p>
+                    <div class="input-w-ico">
+                        <select class="select" [(ngModel)]="selectedCity" (ngModelChange)="filterStoresByCity($event)">
+                            <ng-container *ngIf="storeCities">
+                                <option *ngFor="let city of storeCities" [ngValue]="city">{{city.name}}</option>
+                            </ng-container>
+                        </select>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                </div>
+                <p>Chọn địa chỉ cửa hàng</p>
+                <div style="max-height: 300px; overflow-y: auto" class="row" myMatchHeight="col-md-6" *ngIf="stores">
+                    <div *ngFor="let store of stores" class="col-md-6">
+                        <input type="radio" name="radio-1" class="option-brand" id="option-{{store.id}}" [value]="store" [(ngModel)]="selectedStore">
+                        <label class="brand-option-home" for="option-{{store.id}}">
+                            {{store.name}}<br>{{store.address}}
+                        </label>
+                    </div>
+                </div>
+                <button (click)="chooseStore()" type="button" class="btn btn-primary-1">TIẾP TỤC</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="full-container">
+  <div class="container">
+    <div class="in-container">
+      <div class="step-final">
+        <div class="row justify-content-md-center">
+          <div class="col-md-4">
+            <div class="sfl-img"><img src="assets/images/icon-final.png" class="imgrps" alt=""></div>
+          </div>
+          <div class="col-md-8">
+            <div class="step-final-info">
+              <h3>Đặt lịch thành công</h3>
+              <div class="sfl-address"><b>Cửa hàng {{orderShow.store.name}}</b> cảm ơn bạn đã tin tưởng vào dịch vụ của chúng tôi</div>
+              <div class="sfl-phone">Số điện thoại: <b>{{orderShow.phone}}</b></div>
+              <div class="sfl-list-order" *ngIf="orderShow.orderItems">
+                <div class="item" *ngFor="let item of orderShow.orderItems">
+                  <p>Dịch vụ: {{item.product.name}}  <span>(Giá: {{item.product.price | currency:'VND'}})</span></p>
+                  <p>Thời gian: <b>{{item.date.format('DD/MM/YYYY')}} {{item.hour}}</b>  -  Nhân viên: <b>{{item?.staff?.name ? item.staff.name : 'Mặc định'}}</b></p>
+                </div>
+              </div>
+              <div class="sfl-sum">
+                Tổng tiền Dịch vụ: <span>{{getTotal() | currency: 'VND'}}</span>
+              </div>
+              <div class="text-note">Nếu quý khách đến trễ quá <b>10 phút</b> salon sẽ hủy lịch đặt hẹn. <br>Mong quý khách thông cảm và báo lễ tân đặt lịch khác.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-step-final d-flex justify-content-center">
+        <button class="btn-back" (click)="cancel()">HỦY LỊCH</button><button class="btn-back bg-primary" [routerLink]="['/']">Trở về</button>
+      </div>
+
+
+    </div><!-- .in-container -->
+  </div>
+</div>

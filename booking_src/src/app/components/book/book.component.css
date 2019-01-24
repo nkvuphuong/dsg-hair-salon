@@ -1,0 +1,25 @@
+a.close-custom {
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    -webkit-appearance: none;
+}
+
+.close-custom {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+}
+
+.close-custom i {
+    font-style: normal;
+}
+
+.full-height {
+    min-height: 100vh;
+}

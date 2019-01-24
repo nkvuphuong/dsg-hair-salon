@@ -1,0 +1,183 @@
+<div class="art-main">
+    <ngx-loading [show]="loading"></ngx-loading>
+    <header class="header">
+        <div class="header-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h1 class="logo wow bounceInLeft"><a href="index.html" itemprop="url"><img class="imgrps"
+                                                                                                   [src]="globalVariables?.logoWebsite"
+                                                                                                   alt="logo"
+                                                                                                   itemprop="image"></a>
+                        </h1>
+                    </div>
+                    <div class="col-sm-8">
+                        <app-step-menu [step]="step"></app-step-menu>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .header-main -->
+    </header>
+
+    <main>
+        <div class="pmain">
+            <div class="container">
+                <div class="in-container full-height">
+                    <form id="stepform" action="step4.html" method="post">
+                        <h3 class="shop-name">Cửa hàng: {{order?.store?.address}}</h3>
+                        <div class="nav-date">
+                            <ul class="nav nav-tabs flex-row" id="stepDate" role="tablist" *ngIf="selectedItem">
+                                <li *ngFor="let day of daysOfWeek"><a data-toggle="tab"
+                                                                      [class.active]="selectedItem.date.format('YYYY-MM-DD') == day.format('YYYY-MM-DD')"
+                                                                      href="#"
+                                                                      (click)="selectedItem.date = day; setSelectedCalendar(); loadOrderStaffs(); updateOrderItem(selectedItem); filterWorkSchedules();">{{day.format("ddd")}}<span>{{day.format("DD/MM")}}</span></a>
+                                </li>
+                                <!--<li class="ml-md-auto">
+                                    <a href="#" (click)="d.toggle(); false;">...<span>Khác</span></a>
+                                    <input class="date-popup" placeholder="yyyy-mm-dd"
+                                           name="dp" [(ngModel)]="selectedCalendar"
+                                           (ngModelChange)="selectCalendar()" ngbDatepicker #d="ngbDatepicker"
+                                           [minDate]="calendarMindate"
+                                           [startDate]="calendarMindate"
+                                    >
+                                </li>-->
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="stepDateContent" *ngIf="order.orderItems">
+                            <div class="tab-pane fade show active" id="12042018">
+                                <div class="list-service" *ngIf="order.orderItems.length > 1">
+                                    <input id="bok-service" type="hidden" name="">
+                                    <div class="row">
+                                        <div class="col-md-10 col-sm-9 book-tab-item">
+                                            <mat-tab-group [selectedIndex]="getIndexSelectedItem()" (selectedTabChange)="onLinkClick($event)">
+                                                <mat-tab *ngFor="let item of order.orderItems">
+                                                    <ng-template mat-tab-label>
+                                                        <span class="remove_ord_item" (click)="removeOrderItem(item); filterWorkSchedules(); false;"><i class="fa fa-times" aria-hidden="true"></i></span><span class="numberCircle" [class.invalid]="!itemIsValid(item)">{{item.index}}</span> <span class="ord_item_name">{{item?.product?.name ? item?.product?.name : '...'}}</span>
+                                                    </ng-template>
+                                                </mat-tab>
+                                            </mat-tab-group>
+                                        </div>
+                                        <div class="col-md-2 col-sm-3 book-tab-item">
+                                            <button style="width: 100%" class="btn btn-lg rounded-0 float-right btnAddItem" (click)="addOrderItem(); loadOrderStaffs();"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-service" *ngIf="order.orderItems.length > 1 && selectedItem">
+                                    <div class="row">
+                                        <div [ngClass]="{'col-md-7' : selectedItem.prices, 'col-md-12' : !selectedItem.prices}">
+                                            <select class="form-control" name="services[]"
+                                                    [(ngModel)]="selectedItem.product"
+                                                    (ngModelChange)="updateOrderItem(selectedItem); loadOrderStaffs(); filterPrices( order.store.priceId );">
+                                                <option [ngValue]="null">Chọn Dịch vụ tại đây</option>
+                                                <ng-container>
+                                                    <option *ngFor="let p of products" [ngValue]="p">{{p.name}}</option>
+                                                </ng-container>
+                                            </select>
+                                        </div>
+                                        <div [ngClass]="{'col-md-5' : selectedItem.prices}" *ngIf="selectedItem.prices">
+                                            <select class="form-control" name="choose-price" [(ngModel)]="selectedItem.price" (ngModelChange)="overwriteProductByPrice()">
+                                                <option *ngFor="let price of selectedItem.prices" [ngValue]="price">{{price.name}} ({{showPriceOption(price) | currency:'VND'}})</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="list-service" *ngIf="order.orderItems.length == 1 && selectedItem">
+                                    <div class="d-flex">
+                                        <div class="item flex-grow-1">
+                                            <div class="row">
+                                                <div [ngClass]="{'col-md-7' : selectedItem.prices, 'col-md-12' : !selectedItem.prices}">
+                                                    <select class="form-control" name="services[]"
+                                                            [(ngModel)]="selectedItem.product"
+                                                            (ngModelChange)="updateOrderItem(selectedItem); loadOrderStaffs(); filterPrices(order.store.priceId);">
+                                                        <option [ngValue]="null">Chọn Dịch vụ tại đây</option>
+                                                        <ng-container>
+                                                            <option *ngFor="let p of products" [ngValue]="p">{{p.name}}</option>
+                                                        </ng-container>
+                                                    </select>
+                                                </div>
+                                                <div [ngClass]="{'col-md-5' : selectedItem.prices}" *ngIf="selectedItem.prices">
+                                                    <select class="form-control" name="choose-price" [(ngModel)]="selectedItem.price" (ngModelChange)="overwriteProductByPrice()">
+                                                        <option *ngFor="let price of selectedItem.prices" [ngValue]="price">{{price.name}} ({{showPriceOption(price) | currency:'VND'}})</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item" *ngIf="globalVariables.multiBookingEnabed">
+                                            <a class="addservice" (click)="addOrderItem(); loadOrderStaffs();">Chọn thêm
+                                                dịch vụ</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sd-members d-md-flex">
+                                    <input id="bok-members" type="hidden" name="" value="">
+                                    <div class="info-member">
+                                        <h4>Chọn Nhân viên:</h4>
+                                        <h3>{{selectedItem?.staff?.name ? selectedItem?.staff?.name : 'Mặc định'}}</h3>
+                                        <p class="d-none d-sm-block">Nếu Nhân viên hết khung giờ ưng ý, để mặc định chúng tôi chọn cho bạn</p>
+                                    </div>
+                                    <div class="list-members owl-carousel" *ngIf="orderStaffs">
+                                        <div *ngFor="let s of orderStaffs" class="item"
+                                             (click)="selectedItem.staff = s; updateOrderItem(selectedItem); filterWorkSchedules();"
+                                             [class.active]="selectedItem?.staff?.id == s?.id">
+                                            <img class="imgrps" [src]="s?.avatar" alt="" itemprop="image">
+                                            <h3>{{s.name}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sd-time">
+                                    <input id="bok-time" type="hidden" name="" value="">
+                                    <ul class="d-flex flex-wrap justify-content-between" *ngIf="shiftworksTable">
+                                        <li *ngFor="let item of shiftworksTable" [hidden]="!item?.slots"
+                                            [class.active]="selectedItem?.hour == item.hour"
+                                            (click)="selectedItem.hour = item?.slots ? item.hour : null; updateOrderItem(selectedItem)">
+                                            {{item.hour}}<span>Đặt chỗ</span></li>
+                                    </ul>
+                                </div>
+                                <div class="sd-text">
+                                    <h3>Mỗi Số điện thoại chỉ đăng ký được cho 1 người</h3>
+                                    <p>(*) Nếu Booking cho nhiều người, bạn vui lòng dùng SĐT khác để đặt thêm 1 lần nữa
+                                        hoặc gọi tới hotline để được tư vấn</p>
+                                </div>
+                                <div class="sd-text sd-ask">
+                                    <h3>Yêu cầu đặc biệt khác</h3>
+                                    <textarea class="form-control"
+                                              name="note"
+                                              placeholder="Nhập ghi chú của bạn tại đây ..." [(ngModel)]="order.note"></textarea>
+                                </div>
+                                <div class="sd-text sd-sum">Tổng tiền Dịch vụ:
+                                    <span>{{getTotal() | currency:'VND'}}</span></div>
+                                <div class="sd-text sd-sum">Tổng thời gian dự kiến:
+                                    <span>{{getTotalEstimatedTime() | minToHuman}}</span></div>
+                            </div>
+
+
+                            <div class="btn-step-all d-md-flex" style="visibility: hidden;">
+                                <div class="container">
+                                    <div class="row">
+                                        <button class="btn-back col" routerLink="/store">QUAY LẠI</button>
+                                        <button (click)="add()" [disabled]="!orderIsValid(order)" class="btn-next col d-none d-sm-inline" type="button">ĐẶT LỊCH GIỮ CHỖ</button>
+                                        <button (click)="add()" [disabled]="!orderIsValid(order)" class="btn-next col d-inline d-sm-none" type="button">ĐẶT LỊCH</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="fixed-booking-bottom" [hidden]="!showFixedBtn || loading">
+                                <div class="btn-step-all d-md-flex fixed-bottom">
+                                    <div class="container">
+                                        <div class="row">
+                                            <button class="btn-back col" routerLink="/store">QUAY LẠI</button>
+                                            <button (click)="add()" [disabled]="!orderIsValid(order)" class="btn-next col d-none d-sm-inline" type="button">ĐẶT LỊCH GIỮ CHỖ</button>
+                                            <button (click)="add()" [disabled]="!orderIsValid(order)" class="btn-next col d-inline d-sm-none" type="button">ĐẶT LỊCH</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div><!-- .in-container -->
+            </div>
+        </div><!-- .pmain -->
+    </main>
+</div><!-- .art-main -->

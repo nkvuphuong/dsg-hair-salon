@@ -1,0 +1,20 @@
+.incomplete-hour {
+    border-bottom: 1px solid red !important;
+    color: red !important;
+}
+
+.product-old-price {
+    color: #ddd;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+.products-slider .product-img .product-price {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+[hidden] {
+    display: none;
+}

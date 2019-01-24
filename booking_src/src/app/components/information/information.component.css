@@ -1,0 +1,169 @@
+/*FEEDBACK MODAL*/
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 17px;
+    color: #adb7be;
+    background: 0 0;
+    border: none;
+}
+
+.feedback-modal {
+    color: #000;
+}
+
+.feebback-wrap {
+    display: block;
+    cursor: pointer;
+}
+
+.feedback-img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    max-width: 150px;
+}
+
+.feedback-img1 {
+    background-image: url("/assets/images/ico-heart-bw.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.feedback-img2 {
+    background-image: url("/assets/images/ico-like-bw.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.feedback-img3 {
+    background-image: url("/assets/images/ico-sad-bw.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.feebback-wrap.active .feedback-img1, .feebback-wrap:hover .feedback-img1 {
+    background-image: url("/assets/images/ico-heart.png");
+}
+
+.feebback-wrap.active .feedback-img2, .feebback-wrap:hover .feedback-img2 {
+    background-image: url("/assets/images/ico-like.png");
+}
+
+.feebback-wrap.active .feedback-img3, .feebback-wrap:hover .feedback-img3 {
+    background-image: url("/assets/images/ico-sad.png");
+}
+
+.feedback-title {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+    color: #8d8d8d;
+}
+
+#FeedbackthankyouWrap {
+    display: none;
+}
+
+.feebback-wrap.active .feedback-title1, .feebback-wrap:hover .feedback-title1 {
+    color: #f65066;
+}
+
+.feebback-wrap.active .feedback-title2, .feebback-wrap:hover .feedback-title2 {
+    color: #558dfd;
+}
+
+.feebback-wrap.active .feedback-title3, .feebback-wrap:hover .feedback-title3 {
+    color: #e1af1f;
+}
+
+.feedback-text {
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+}
+
+.feedback-modal {
+    font-family: "arial", sans-serif;
+    background-color: #fff;
+}
+
+.feedback-modal .modal-content {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    font-family: "arial", sans-serif;
+    padding: 50px 0;
+}
+
+.feedback-modal.modal.fade .modal-dialog.modal-lg {
+    margin-top: 0;
+}
+
+.modal-md-title {
+    font-family: "Roboto", sans-serif;
+    font-size: 26px;
+    margin-bottom: 50px;
+}
+
+.rating-modal {
+    width: 100%;
+    max-width: unset;
+}
+
+.btn-lg.btn-modal {
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-top: 40px;
+}
+
+.modal-lg-title {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.modal-shop-name {
+    display: inline-block;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    padding: 12px 30px;
+    margin-bottom: 10px;
+    background-color: #f3feff;
+    border: 1px solid #cfeaff;
+}
+
+.heart-ico {
+    margin-top: 65px;
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    background-image: url("/assets/images/ico-heart.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.thankyou-wrap {
+    margin-top: 50px;
+}
+
+@media (min-width: 768px) {
+    .feedback-img {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        max-width: 100px;
+    }
+}
+
+@media (min-width: 992px) {
+    .feedback-img {
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        max-width: 150px;
+    }
+}
+
+/*END FEEDBACK MODAL*/

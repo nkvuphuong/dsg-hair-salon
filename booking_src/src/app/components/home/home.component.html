@@ -1,0 +1,104 @@
+<div class="home-full">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 d-flex  align-items-center justify-content-start">
+                <h1 class="logo wow bounceInLeft">
+                    <a href="index.html" itemprop="url"><img class="imgrps" [src]="globalVariables?.logoWebsite" alt="logo"
+                                                             itemprop="image"></a>
+                </h1>
+            </div>
+            <div class="col-md-5 d-flex  align-items-center justify-content-center ">
+                <div class="books-white">
+                    <div class="books-number">
+                        <div class="tab-content">
+                            <div class="tab-pane active container" id="tabbook">
+                                <form id="stepform" (ngSubmit)="submitPhoneFrm()">
+                                    <div class="form-number">
+                                        <div class="form-group">
+                                            <input id="bok-phone" class="form-control" type="tel" pattern="[0-9]*"
+                                                   name="book-phone" placeholder="Nhập Số điện thoại của bạn"
+                                                   #orderPhone (keyup)="setPhone(orderPhone.value)"
+                                                   [ngModel]="order.phone"
+                                                   mask="0000.000.0009"
+                                                   [maxlength]="setMaxLengPhoneInput(orderPhone.value)"
+                                                   [class.phone-invalid]="!checkInvalidPhone()"
+                                                   autocomplete="off"
+                                                   autofocus
+                                            >
+                                            <button type="button" class="btn-del" (click)="removeLastNumberOfPhone()"></button>
+                                        </div>
+                                        <div class="form-group" [hidden]="device.isMobile()">
+                                            <div id="bok-phone-list"
+                                                 class="d-flex flex-wrap justify-content-center form-nphone">
+                                                <div *ngFor="let val of [1,2,3,4,5,6,7,8,9];" class="item"
+                                                     (click)="clickNumber(val.toString())"><span>{{val}}</span></div>
+                                                <div class="item"></div>
+                                                <div class="item" (click)="clickNumber('0')"><span>0</span></div>
+                                                <div class="item"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div [ngClass]="{'col-6': isLogin, 'col-12': !isLogin}">
+                                                    <button [disabled]="!checkInvalidPhone()"
+                                                            (click)="mode = 'book'"
+                                                            type="submit"
+                                                            class="btn-next"
+                                                            id="btn-step1">ĐẶT LỊCH
+                                                    </button>
+                                                </div>
+                                                <div class="col-6" [hidden]="!isLogin">
+                                                    <button [disabled]="!checkInvalidPhone()"
+                                                            (click)="mode = 'search'"
+                                                            type="submit"
+                                                            class="btn-next"
+                                                            id="btn-step2">TRA CỨU
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .books-white -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog brand-option-modal modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Chọn Cửa hàng</h4>
+            </div>
+            <div class="modal-body">
+                <ngx-loading [show]="chooseBrandLoading"></ngx-loading>
+                <div class="formgroup">
+                    <p>Chọn khu vực</p>
+                    <div class="input-w-ico">
+                        <select class="select" *ngIf="cities" [(ngModel)]="selectedCity" (ngModelChange)="filterByLocation($event)">
+                            <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+                        </select>
+                        <i class="fa fa-caret-down"></i>
+                    </div>
+                </div>
+                <p>Chọn địa chỉ cửa hàng</p>
+                <div class="row" *ngIf="storesByLocation" style="max-height: 300px; overflow-x: scroll">
+                    <div *ngFor="let store of storesByLocation" class="col-md-6 store-col">
+                        <input type="radio" name="radio-store" class="option-brand" id="radio-store-{{store.id}}" [(ngModel)]="order.store" [value]="store">
+                        <label class="brand-option-home" for="radio-store-{{store.id}}">
+                            <strong>{{store.name}}</strong><br>
+                            {{store.address}}
+                        </label>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary-1" (click)="updateStoreForStaff()">TIẾP TỤC</button>
+            </div>
+        </div>
+    </div>
+</div>

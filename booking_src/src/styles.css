@@ -1,0 +1,9 @@
+@import "assets/css/font-awesome.min.css";
+@import "assets/css/ie10-viewport-bug-workaround.css";
+@import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900&amp;subset=vietnamese";
+@import "assets/css/owl.carousel.css";
+@import "assets/css/animate.css";
+@import "assets/css/toastr.css";
+@import "assets/css/responsive.css";
+@import "assets/css/preloader.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

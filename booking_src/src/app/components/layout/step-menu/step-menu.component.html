@@ -1,0 +1,11 @@
+<div class="header-step">
+    <div class="item" routerLink="/" [class.success-step]="step>1" style="cursor: pointer">
+        <h3 class="step-name">Bước 1<span>Nhập Số điện thoại</span></h3>
+    </div>
+    <div class="item" routerLink="/store" [class.success-step]="step>2" [class.next-step]="step<2"  style="cursor: pointer">
+        <h3 class="step-name">Bước 2<span>Chọn cửa hàng</span></h3>
+    </div>
+    <div class="item next-step" routerLink="/book"  style="cursor: pointer">
+        <h3 class="step-name">Bước 3<span>Chọn ngày giờ</span></h3>
+    </div>
+</div>

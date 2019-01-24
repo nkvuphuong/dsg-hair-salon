@@ -1,0 +1,60 @@
+<div class="art-main">
+    <ngx-loading [show]="loading"></ngx-loading>
+    <header class="header">
+        <div class="header-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h1 class="logo wow bounceInLeft"><a href="index.html" itemprop="url"><img class="imgrps"
+                                                                                                   [src]="globalVariables?.logoWebsite"
+                                                                                                   alt="logo"
+                                                                                                   itemprop="image"></a>
+                        </h1>
+                    </div>
+                    <div class="col-sm-8">
+                        <app-step-menu [step]="step"></app-step-menu>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .header-main -->
+    </header>
+
+    <main>
+        <div class="pmain">
+            <div class="container">
+                <div class="in-container">
+                    <form id="stepform">
+                        <div class="nav-shop">
+                            <mat-tab-group (selectedIndexChange)="filterByLocationIndex($event)">
+                                <mat-tab *ngFor="let city of cities" label="{{city.name}}"></mat-tab>
+                            </mat-tab-group>
+                        </div>
+                        <!--<a [class.active]="selectedCity == city" href="#city{{city.id}}" (click)="filterByLocation(city);">{{city.name}}</a>-->
+                        <div class="step-shop tab-content" id="stepShopContent">
+                            <input id="bok-address" type="hidden" name="">
+                            <div class="tab-pane fade show active">
+                                <div myMatchHeight="{{device?.isMobile() ? '' : 'store-col'}}" class="row" *ngIf="storesByLocation">
+                                    <div class="col-sm-6 store-col" *ngFor="let store of storesByLocation" (click)="order.store = store">
+                                        <div class="item" [class.active]="store == order.store">
+                                            <div class="shop-address">{{store.name}}</div>
+                                            <div class="shop-city">{{store.address}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="fixed-bottom container-fluid store-next-step">
+                                <div class="btn-step">
+                                    <button [disabled]="!order.store" routerLink="/book" type="button" class="btn-next" id="btn-step21">TIẾP THEO</button>
+                                </div>
+                            </div>
+                            <div class="btn-step" style="visibility: hidden">
+                                <button [disabled]="!order.store" routerLink="/book" type="button" class="btn-next" id="btn-step22">TIẾP THEO</button>
+                            </div>
+                        </div>
+                    </form>
+                </div><!-- .in-container -->
+            </div>
+        </div><!-- .pmain -->
+    </main>
+</div><!-- .art-main -->
