@@ -1,0 +1,1 @@
+ALTER TABLE `nh_customer` ADD `cus_email_invoice` VARCHAR(255) NULL DEFAULT NULL AFTER `cus_total_order`;

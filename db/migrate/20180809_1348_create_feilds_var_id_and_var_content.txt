@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order_item` ADD `var_id` INT(11) NOT NULL DEFAULT '0' COMMENT 'variant id' AFTER `ordi_staff`, ADD `var_content` TEXT NULL DEFAULT NULL COMMENT 'variant content' AFTER `var_id`;

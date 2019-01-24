@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS `nh_migrationphp` (
+  `migrate_id` int(11) NOT NULL,
+  `migrate_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `migrate_desc` text COLLATE utf8_unicode_ci,
+  `migrate_time` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `nh_migrationphp` ADD PRIMARY KEY (`migrate_id`);
+
+ALTER TABLE `nh_migrationphp` MODIFY `migrate_id` int(11) NOT NULL AUTO_INCREMENT;

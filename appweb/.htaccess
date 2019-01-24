@@ -1,0 +1,13 @@
+AddDefaultCharset UTF-8
+DirectoryIndex index.html index.php
+ 
+RewriteEngine on
+Options +FollowSymlinks
+Options -Indexes
+
+RewriteRule ^tinh-nang-noi-bat.html$ features [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^.*\.(ico|css|js|gif|jpg|jpeg|png|pdf|eot|ttf|woff|woff2|svg)$ [NC]
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]

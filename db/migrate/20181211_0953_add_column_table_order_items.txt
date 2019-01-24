@@ -1,0 +1,3 @@
+alter table nh_order_item
+	add ordi_emit char(32) null comment 'Call emit client event';
+

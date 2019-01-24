@@ -1,0 +1,1 @@
+ALTER TABLE nh_order ADD ord_commission_rating FLOAT DEFAULT 100 NULL COMMENT 'Commission percent by rating';

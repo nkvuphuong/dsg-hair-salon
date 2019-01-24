@@ -1,0 +1,1 @@
+ALTER TABLE test MODIFY name CHAR(255);

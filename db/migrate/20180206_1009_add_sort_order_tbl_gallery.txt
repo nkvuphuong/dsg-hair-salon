@@ -1,0 +1,1 @@
+ALTER TABLE nh_gallery ADD gallery_sort_order INT(11) DEFAULT 0 NOT NULL;

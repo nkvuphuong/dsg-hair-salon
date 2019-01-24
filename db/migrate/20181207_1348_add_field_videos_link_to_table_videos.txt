@@ -1,0 +1,1 @@
+ALTER TABLE nh_videos ADD videos_link varchar(255) DEFAULT '' NULL;

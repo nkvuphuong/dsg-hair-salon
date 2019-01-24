@@ -1,0 +1,1 @@
+ALTER TABLE `nh_user_group` ADD `userg_token_key` CHAR(32) NULL DEFAULT NULL AFTER `userg_email`;

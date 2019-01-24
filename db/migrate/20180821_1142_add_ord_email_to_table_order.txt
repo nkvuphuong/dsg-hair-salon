@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order` ADD `ord_email` VARCHAR(255) NULL DEFAULT NULL COMMENT 'Email owned order' AFTER `custom_status_id`;

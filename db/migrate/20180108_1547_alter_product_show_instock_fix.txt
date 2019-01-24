@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_show_instock` TINYINT(1) NOT NULL DEFAULT '0' COMMENT 'Hiển thị tồn kho trên website';

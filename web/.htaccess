@@ -1,0 +1,17 @@
+AddDefaultCharset UTF-8
+DirectoryIndex index.html index.php
+
+# Mod rewrite
+RewriteEngine on
+Options +FollowSymlinks
+Options -Indexes
+
+# Ezy Framework Init
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+# Prevent load assets as controller
+RewriteCond %{REQUEST_URI} !^.*\.(ico|css|js|gif|jpg|jpeg|png|pdf|eot|ttf|woff|woff2|svg)$ [NC]
+RewriteRule ^ index.php [L]
+
+
+ 

@@ -1,0 +1,1 @@
+ALTER TABLE `nh_transaction` ADD `trx_attachment_number` INT(11) UNSIGNED NOT NULL DEFAULT '0' COMMENT 'Số lượng files attach' AFTER `trx_balance`;

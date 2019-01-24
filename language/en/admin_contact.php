@@ -1,0 +1,30 @@
+<?php
+$lang = array (
+	"con_title" => "Contact",
+	"con_header" => "List contact",
+	"con_id" => "ID",
+	"con_name" => "Name",
+	"con_email" => "Email",
+	"con_subject" => "Subject",
+	"con_content" => "Content",
+	"con_time" => "Time",
+	"con_update_time" => "Update time",
+	"con_ipaddress" => "Ip",
+	"con_show" => "Contact",
+	"con_info" => "Information contact",
+	"con_status" => "Status",
+	"con_status_0" => "Not view",
+	"con_status_1" => "viewed",
+	"con_status_color_0" => "red", 
+	"con_status_color_1" => "blue", 
+	"con_type" => "Type", 
+	"con_type_0" => "Contact", 
+	"con_type_1" => "Regiter", 
+	"con_phone" => "Phone",
+	"con_address" => "Address",
+
+	"con_deleted" => "Deleted success", 
+	"con_delete_failed" => "Have no contact to delete",
+	"con_updated_status" => "Updated status", 
+);
+?>

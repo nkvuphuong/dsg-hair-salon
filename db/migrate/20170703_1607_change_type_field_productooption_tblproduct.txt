@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` CHANGE `product_option` `product_option` VARCHAR(250) NULL DEFAULT NULL COMMENT '1:sản phẩm nổi bật, 2: sản phẩm xem nhiều, 3: Xu hướng thị trường, 4: Bán chạy, 5: sản phẩm mới';

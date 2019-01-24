@@ -1,0 +1,2 @@
+UPDATE nh_transaction_item SET tri_type=2 WHERE ass_key IS NOT NULL AND ass_key!='';
+UPDATE nh_transaction_item SET tri_type=1 WHERE product_id IN(SELECT product_id FROM nh_product WHERE product_type=1);

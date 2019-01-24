@@ -1,0 +1,12 @@
+CREATE TABLE nh_rating
+(
+    rating_id INT PRIMARY KEY AUTO_INCREMENT,
+    rating_name VARCHAR(255),
+    rating_value FLOAT(3) DEFAULT 100 NOT NULL COMMENT 'Phân trăm huê hồng được hưởng',
+    rating_status TINYINT(1) DEFAULT 0 NOT NULL COMMENT '0: hide, 1: show',
+    rating_deleted TINYINT(1) DEFAULT 0 NOT NULL,
+    user_id INT(11) DEFAULT 0 NOT NULL,
+    rating_created_time INT(11) DEFAULT 0 NOT NULL,
+    rating_updated_time INT(11) DEFAULT 0,
+    rating_token_key CHAR(32)
+);

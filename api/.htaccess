@@ -1,0 +1,14 @@
+AddDefaultCharset UTF-8
+DirectoryIndex index.html index.php
+
+#------------------------------------
+# MOD REWRITE
+#------------------------------------
+
+RewriteEngine on
+Options +FollowSymlinks
+
+#Main
+RewriteRule ^autom?  autom.php
+#RewriteRule ^register/([a-zA-Z0-9-]*)/([a-zA-Z0-9-]*)/(.*)  index.php?act=register&service_name=$1&key=$2&continue=$3
+

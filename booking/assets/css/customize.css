@@ -1,0 +1,117 @@
+:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+#stepDateContent li.invalid {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+#stepDateContent li.active {
+    background-color: #5aba47;
+}
+
+.list-members .item img{
+    width: 85px;
+    height: 85px;
+}
+
+.phone-invalid {
+    /*border-bottom-color: red !important;*/
+    color: red !important;
+}
+
+.date-popup {
+    opacity: 0;
+    width: 0;
+}
+
+.home-full, .home-full .row, .home-full .container-fluid{
+    /*height: auto;*/
+}
+
+.shop-address {
+    font-size: 16px !important;
+}
+
+.shop-city {
+    font-size: 14px !important;
+}
+
+.store-col {
+    padding: 0px 5px 10px 5px !important;
+}
+
+.store-col .item {
+    height: 100%;
+}
+
+.mat-tab-label-content {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mat-tab-label {
+    min-width: 130px !important;
+}
+
+.mat-ink-bar {
+    height: 3px !important;
+}
+
+#stepDateContent .mat-tab-label {
+    justify-content: left !important;
+    margin-right: 2px;
+    padding: 0 10px;
+    min-width: fit-content !important;
+}
+
+#stepDateContent .mat-tab-label .mat-tab-label-content{
+    font-weight: 300;
+    font-size: 14px;
+}
+
+#stepDateContent .mat-tab-header{
+    border-bottom: none !important;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+    text-align: center;
+    font: 14px Arial, sans-serif;
+    margin-right: 5px;
+}
+
+#stepDateContent .ord_item {
+    padding: 0 24px;
+}
+
+#stepDateContent .remove_ord_item {
+    height: 100%;
+    padding: 14px 7px;
+    margin-left: -10px;
+    margin-right: 5px;
+}
+
+.ord_item_name {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-tab-item {
+    margin-bottom: 5px;
+}
+
+#back-top {
+    z-index: 1050 !important;
+}
+
+.btn-next, .btn-back {
+    font-size: 2vw !important;
+}

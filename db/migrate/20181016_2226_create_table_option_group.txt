@@ -1,0 +1,9 @@
+CREATE TABLE nh_option_group
+(
+    option_group_id int(11) PRIMARY KEY AUTO_INCREMENT,
+    option_group_name varchar(255) DEFAULT null,
+    option_group_time int(11) DEFAULT 0,
+    option_group_time_update int(11) DEFAULT 0,
+    option_group_deleted tinyint(1) DEFAULT 0
+);
+CREATE UNIQUE INDEX nh_option_group_option_group_id_uindex ON nh_option_group (option_group_id);

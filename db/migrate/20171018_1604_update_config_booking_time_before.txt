@@ -1,0 +1,2 @@
+UPDATE `nh_conf_settings` SET `conf_value` = '1' WHERE `nh_conf_settings`.`conf_key` = 'booking_before_hours';
+DELETE FROM `nh_cache` WHERE `nh_cache`.`cache_name` = 'config';

@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order` ADD `ord_discount_info` TEXT NULL DEFAULT NULL COMMENT 'Thông tin chi tiết về mã giảm giá';

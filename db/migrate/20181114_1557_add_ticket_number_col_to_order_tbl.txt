@@ -1,0 +1,1 @@
+ALTER TABLE nh_order ADD ord_ticket_number int(11) DEFAULT 0 NULL COMMENT 'Số bàn/phiếu để xác định khách hàng cần phục vụ tại cửa hàng';

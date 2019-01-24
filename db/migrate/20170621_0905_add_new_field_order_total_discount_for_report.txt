@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order` ADD `ord_total_discount` INT(11) NOT NULL DEFAULT '0' COMMENT 'Value off discount final calculate' AFTER `ord_quantity_items`;

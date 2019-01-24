@@ -1,0 +1,1 @@
+ALTER TABLE nh_order_item ADD parent_id int(11) DEFAULT 0 NULL COMMENT 'Mã item món ăn chính (Khi item hiện tại là toping)';

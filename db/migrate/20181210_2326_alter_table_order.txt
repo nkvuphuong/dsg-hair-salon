@@ -1,0 +1,2 @@
+alter table nh_order modify ord_emit char(32) default 0 null comment 'Gọi sự kiện emit';
+

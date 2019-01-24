@@ -1,0 +1,3 @@
+ALTER TABLE nh_price_item ADD var_id int(11) DEFAULT 0 NULL COMMENT 'Variant';
+ALTER TABLE nh_price_item
+  MODIFY COLUMN var_id int(11) DEFAULT 0 COMMENT 'Variant' AFTER product_id;

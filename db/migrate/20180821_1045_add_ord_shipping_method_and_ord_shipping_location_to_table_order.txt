@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order` ADD `ord_shipping_method` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0: Standard; 1: Express' AFTER `ord_fee_shipping`, ADD `ord_shipping_location` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0: nội địa , 1 quốc tế' AFTER `ord_shipping_method`;

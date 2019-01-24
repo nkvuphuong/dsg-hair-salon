@@ -1,0 +1,1 @@
+ALTER TABLE nh_store ADD menu_id smallint(3) DEFAULT '0' NULL COMMENT '/*Thực đơn áp dụng (mặc định là thực đơn chung = 0)*/';

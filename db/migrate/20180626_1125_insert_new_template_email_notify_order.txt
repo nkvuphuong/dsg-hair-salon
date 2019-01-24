@@ -1,0 +1,3 @@
+DELETE FROM nh_email_template WHERE emailtpl_code='notify_customer';
+INSERT INTO `nh_email_template` (`emailtpl_from`, `emailtpl_fromname`, `emailtpl_name`, `emailtpl_title`, `emailtpl_content`, `emailtpl_note`, `emailtpl_time`, `emailtpl_time_update`, `emailtpl_code`, `user_id`, `emailtpl_protected`, `emailtpl_status`, `emailtpl_deleted`) VALUES
+('', '', 'Notify customer', 'You receive a notify from [website_name]', '<br />Hi, [cus_name].<br /><br />[content_email]<br /><br />Thanks you so much<br /><br /><br /><div style="text-align: center;"><strong>© [website_name]</strong></div>', '', 1529983333, 1529985863, 'notify_customer', '1', 1, 1, 0);

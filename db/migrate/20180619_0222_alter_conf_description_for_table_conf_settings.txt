@@ -1,0 +1,2 @@
+ALTER TABLE `nh_conf_settings` CHANGE `conf_description` `conf_description` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL;
+ALTER TABLE `nh_conf_settings` CHANGE `conf_lisence` `conf_lisence` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL;

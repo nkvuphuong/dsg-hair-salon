@@ -1,0 +1,17 @@
+CREATE TABLE nh_screens
+(
+    screen_id INT PRIMARY KEY AUTO_INCREMENT,
+    screen_code varchar(32) DEFAULT '' COMMENT 'Device Code ID',
+    screen_pincode char(32) DEFAULT '' COMMENT 'Device Code Pin',
+    screen_name VARCHAR(255) DEFAULT '',
+    screen_location varchar(255) DEFAULT '',
+    screen_description VARCHAR(255) DEFAULT '',
+    screen_is_actived tinyint(1) DEFAULT '0',
+    screen_is_online tinyint(1) DEFAULT '0',
+    screen_last_connect int(11) DEFAULT '0',
+    screen_time int(11) DEFAULT '0',
+    screen_token CHAR(32) DEFAULT '',
+    user_id int(11) DEFAULT '0',
+    cus_id int(11) DEFAULT '0'
+);
+CREATE UNIQUE INDEX nh_screens_screen_id_uindex ON nh_screens (screen_id);

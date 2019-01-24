@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order_item` ADD `ordi_price_add` DECIMAL(20,2) NOT NULL DEFAULT '0' COMMENT 'Dung cho giftcard khi nguoi dung tu nhap gia muon mua' AFTER `ordi_total`;

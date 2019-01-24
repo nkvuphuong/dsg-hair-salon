@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `meta_title` VARCHAR(255) NOT NULL, ADD `meta_keywords` VARCHAR(255) NOT NULL, ADD `meta_description` VARCHAR(255) NOT NULL;

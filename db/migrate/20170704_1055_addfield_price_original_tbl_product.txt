@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_price_original` DECIMAL(20,2) NOT NULL COMMENT 'Giá gốc ' AFTER `product_price`;

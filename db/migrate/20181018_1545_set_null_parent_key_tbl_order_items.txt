@@ -1,0 +1,1 @@
+UPDATE nh_order_item SET parent_key=null WHERE parent_key=0

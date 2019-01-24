@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl("error_404", "layouts");?>

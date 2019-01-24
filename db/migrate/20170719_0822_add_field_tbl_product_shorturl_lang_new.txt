@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_shorturl_lang` VARCHAR(255) NOT NULL AFTER `product_information_2_lang`;

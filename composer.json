@@ -1,0 +1,25 @@
+{
+    "require": {
+        "nexmo/client": "@beta",
+        "facebook/graph-sdk" : "~5.0",
+        "google/apiclient": "^2.0",
+        "picqer/php-barcode-generator": "v0.2.1",
+        "phpoffice/phpexcel": "1.8.1",
+        "paypal/rest-api-sdk-php": "1.11.0",
+        "gufy/cpanel-whm":"v1.0.2",
+        "aferrandini/phpqrcode": "1.0.1",
+        "mrclay/minify": "3.0.0",
+        "davgothic/smushit": "v2.0.0",
+        "phpmailer/phpmailer": "^5.2",
+        "zendesk/zendesk_api_client_php": "2.0.9",
+        "maknz/slack": "^1.7",
+        "zaloplatform/zalo-php-sdk": "^1.0",
+        "authorizenet/authorizenet": "~1.9.5",
+        "firebase/php-jwt": "^5.0",
+        "automattic/woocommerce": "2.0.1",
+        "allejo/php-pulse": "^0.3.3",
+        "stripe/stripe-php": "^6.10",
+        "slince/shopify-api-php": "2.0.2",
+        "mpdf/mpdf": "^7.1"
+    }
+}

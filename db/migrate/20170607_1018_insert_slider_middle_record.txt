@@ -1,0 +1,1 @@
+INSERT INTO `nh_logo_positions` (`pos_id`, `pos_name`, `pos_key`, `pos_width`, `pos_height`, `pos_mode`, `pos_interval`, `pos_type`, `pos_deleted`, `pos_status`, `pos_time`, `user_id`, `pos_token_key`, `pos_desc`) VALUES (NULL, 'Slider Middle', 'slider_middle', '0', '0', 'always', '0', 'all', '0', '1', '0', '0', MD5('3fslidermiddle'), NULL);

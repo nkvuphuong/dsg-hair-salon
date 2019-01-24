@@ -1,0 +1,301 @@
+a:hover {
+    color: #FFFF2C;
+    text-decoration: underline;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+.header-wrap {
+    background-color: #000;
+}
+
+.main-wrap, .section-title-wrapper h1, .ps-testimonitals h2 {
+    color: #000;
+}
+
+.service-div {
+    color: #fff;
+}
+
+.p-product .ps-service a {
+    color: #000;
+}
+
+.ps-why-choose-us, .ps-service a {
+    color: #fff;
+}
+
+.post-thumbnail, a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.ps-why-choose-us > section {
+    background-color: #666 !important;
+}
+
+.section-title-wrapper {
+    color: #fff;
+}
+
+#desktop-nav a:hover {
+    color: #fff;
+}
+
+#desktop-nav a.nav-btn:hover {
+    color: #000;
+}
+
+.icon-div.phone a:hover {
+    color: #fff;
+}
+
+.main-nav.navbar ul.nav.navbar-nav > li.active > a {
+    color: #fff !important;
+}
+
+.box-payment, .box-payment h3, .box-payment .media-heading a, .price-well {
+    color: #000
+}
+
+.panel-account {
+    background-color: #ccc
+}
+
+.databooktime, .time-booking-container h4 {
+    color: #fff
+}
+
+.home-service h2 {
+    color: #000
+}
+
+.footer-copyright-text {
+    color: #fff
+}
+
+.testimonial-text {
+    color: #fff
+}
+
+.btn-default:hover {
+    background-color: #CCCCCC;
+}
+
+.title_style h2, .title_style h3, .title_style h4 {
+    background-color: #AEAEAE;
+}
+
+.view-style .btn-view.active {
+    color: #f5f5f5;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+.header-wrap {
+    background-color: #000;
+}
+
+.main-wrap, .section-title-wrapper h1, .ps-testimonitals h2 {
+    color: #000;
+}
+
+.service-div {
+    color: #fff;
+}
+
+.contact-brand-item, .footer-wrapper, .footer-wrapper .post-description {
+    color: #fff;
+}
+
+.footer-wrapper .post-description:hover {
+    color: #ffff00;
+    text-decoration: underline;
+}
+
+.p-product .ps-service a {
+    color: #000;
+}
+
+.ps-why-choose-us, .ps-service a {
+    color: #fff;
+}
+
+.post-thumbnail, a:hover {
+    color: #000;
+}
+
+.ps-why-choose-us > section {
+    background-color: #666 !important;
+}
+
+.section-title-wrapper {
+    color: #fff;
+}
+
+#desktop-nav a:hover {
+    color: #fff;
+}
+
+#desktop-nav a.nav-btn:hover {
+    color: #000;
+}
+
+.icon-div.phone a:hover {
+    color: #fff;
+}
+
+.main-nav.navbar ul.nav.navbar-nav > li.active > a {
+    color: #fff !important;
+}
+
+.box-payment, .box-payment h3, .box-payment .media-heading a, .price-well {
+    color: #000
+}
+
+.panel-account {
+    background-color: #ccc
+}
+
+.databooktime, .time-booking-container h4 {
+    color: #fff
+}
+
+.home-service h2 {
+    color: #000
+}
+
+.footer-copyright-text {
+    color: #fff
+}
+
+.testimonial-text {
+    color: #fff
+}
+
+.btn-default:hover {
+    background-color: #CCCCCC;
+}
+
+.price-table.table-bordered > tbody > tr.head-tr > td {
+    background-color: #ffff00;
+    border-color: #CCCCCC;
+}
+
+.title_style h2, .title_style h3, .title_style h4 {
+    background-color: #AEAEAE;
+}
+
+.whyus-div:hover {
+    color: #ddd;
+}
+
+.page-section, .page-section h3 {
+    color: #000;
+}
+
+.table-title {
+    color: #000;
+}
+
+.bottom-bar {
+    background-color: #555;
+}
+
+.home-service > .container, .main-wrap > .container, .p-contact-us > .container, .ps-service > .container, .pa-about-us > .container, .ps-testimonitals > .container, .p-gallery > .container, .page-section > .container, .box_module > .container, .box-payment > .container, .service-detail > .container, .pp-pages > .container {
+    background-color: #F0F0F0;
+}
+
+.contact-brand-container {
+    background-color: #e7e7e7;
+}
+
+.contact-brand-container *, .pagination * {
+    color: #000 !important;
+}
+
+.main-wrap > .container, .pa-about-us > .container, .ps-testimonitals > .container, .p-gallery > .container, .page-section > .container, .box-payment > .container {
+    padding-top: 12px;
+    margin-bottom: 12px;
+}
+
+.ps-testimonitals > .container {
+    margin-top: 12px;
+}
+
+.box_module > .container {
+    padding: 12px 0;
+}
+
+.panel-account {
+    background-color: #fff;
+}
+
+.item-product.style-view-2 .img {
+    background-color: #fff;
+}
+
+.font-small {
+    color: #000;
+}
+
+.form-control, .register-form .form-control {
+    background-color: #fff;
+    color: #000;
+}
+
+.left-article {
+    padding-top: 20px;
+}
+
+.right-panel-content, .recent_area_bar, .category_news_v1 {
+    padding-left: 10px;
+    padding-bottom: 12px;
+    background-color: #f9f9f9;
+}
+
+.mybreadcrumb h2.pull-left {
+    float: initial !important;
+    text-align: center;
+    color: #000;
+}
+
+.btn, .read_more {
+    background-color: #e4e426;
+    color: #fff !important;
+    border-color: #F0F0F0;
+}
+
+.btn:hover, .read_more:hover {
+    background-color: #FFFF2C;
+    color: #000 !important;
+}
+
+.main-nav.navbar ul.nav.navbar-nav > li > a.nav-btn {
+    background-color: #e4e426;
+    color: #fff;
+}
+
+.main-nav.navbar ul.nav.navbar-nav > li > a.nav-btn:hover {
+    background-color: #FFFF2C;
+    color: #000;
+}
+
+.post-thumbnail:hover, .category_news_v1 ul li a:hover {
+    color: initial;
+    text-decoration: underline;
+}
+
+.right-panel-content .post-description p {
+    font-weight: normal !important;
+}
+
+.social-switch-v1:hover > span.text {
+    text-decoration: underline;
+}

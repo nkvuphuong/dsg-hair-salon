@@ -1,0 +1,23 @@
+CREATE TABLE `nh_addressbook` (
+  `addr_id` int(11) NOT NULL,
+  `addr_first_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `addr_last_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `addr_full_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `addr_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `addr_city` int(11) NOT NULL,
+  `addr_district` int(11) NOT NULL,
+  `addr_zipcode` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `addr_phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `addr_email` varchar(255) NOT NULL,
+  `addr_deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `addr_default_shipping` tinyint(1) NOT NULL DEFAULT '0',
+  `addr_default_billing` tinyint(1) NOT NULL DEFAULT '0',
+  `addr_time` int(11) NOT NULL,
+  `addr_time_update` int(11) NOT NULL,
+  `cus_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ALTER TABLE `nh_addressbook`
+  ADD PRIMARY KEY (`addr_id`);
+ALTER TABLE `nh_addressbook`
+  MODIFY `addr_id` int(11) NOT NULL AUTO_INCREMENT;

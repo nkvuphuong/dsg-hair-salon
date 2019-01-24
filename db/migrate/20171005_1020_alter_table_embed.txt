@@ -1,0 +1,7 @@
+ALTER TABLE nh_embed CHANGE embled_time embed_time INT(11) DEFAULT '0';
+ALTER TABLE nh_embed ADD embed_interval INT(11) DEFAULT 0 NULL COMMENT 'Thời gian giữa mỗi lần hiển thị (Khi embed_mode=1)';
+ALTER TABLE nh_embed ADD embed_mode TINYINT(1) DEFAULT 0 NULL COMMENT '0: luôn hiển thị, 1: theo chu kỳ (n phút/lần)';
+ALTER TABLE nh_embed
+  MODIFY COLUMN embed_mode TINYINT(1) DEFAULT 0 COMMENT '0: luôn hiển thị, 1: theo chu kỳ (n phút/lần)' AFTER embed_js,
+  MODIFY COLUMN embed_interval INT(11) DEFAULT 0 COMMENT 'Thời gian giữa mỗi lần hiển thị (Khi embed_mode=1)' AFTER embed_mode;
+ALTER TABLE `nh_embed` ENGINE = MYISAM DEFAULT CHARSET=utf8  COLLATE utf8_unicode_ci;

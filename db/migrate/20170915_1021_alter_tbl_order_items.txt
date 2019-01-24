@@ -1,0 +1,13 @@
+ALTER TABLE nh_order_item MODIFY ordi_total DECIMAL(20,2) NOT NULL DEFAULT '0.00' COMMENT 'Tiền thanh toán';
+ALTER TABLE nh_order_item ADD ordi_total_discount DECIMAL(20,2) DEFAULT 0 NULL COMMENT 'Tông tiền chiết khấu';
+ALTER TABLE nh_order_item ADD ordi_discount_value FLOAT DEFAULT 0 NULL;
+ALTER TABLE nh_order_item ADD ordi_discount_type TINYINT DEFAULT 0 NULL COMMENT '0: percent, 1: amount';
+ALTER TABLE nh_order_item ADD ordi_subtotal DECIMAL(20,2) DEFAULT 0 NULL COMMENT 'Tiền gốc không thuế không chiết khấu';
+ALTER TABLE nh_order_item
+  MODIFY COLUMN ordi_subtotal DECIMAL(20,2) DEFAULT 0 COMMENT 'Tiền gốc không thuế không chiết khấu' AFTER ordi_price,
+  MODIFY COLUMN ordi_discount_type TINYINT DEFAULT 0 COMMENT '0: percent, 1: amount' AFTER ordi_tax,
+  MODIFY COLUMN ordi_discount_value FLOAT DEFAULT 0 AFTER ordi_discount_type,
+  MODIFY COLUMN ordi_total_discount DECIMAL(20,2) DEFAULT 0 COMMENT 'Tông tiền chiết khấu' AFTER ordi_discount_value,
+  MODIFY COLUMN ordi_cycle INT(11) NOT NULL DEFAULT '0' AFTER ordi_price,
+  MODIFY COLUMN cycle_type TINYINT(2) NOT NULL DEFAULT '0' AFTER ordi_cycle,
+  MODIFY COLUMN ordi_total DECIMAL(20,2) NOT NULL DEFAULT '0.00' COMMENT 'Tiền thanh toán' AFTER ordi_total_discount;

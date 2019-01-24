@@ -1,0 +1,9 @@
+CREATE TABLE `nh_validate_ip` (
+  `val_id` int(11) NOT NULL,
+  `val_module` varchar(255) NOT NULL,
+  `val_action` varchar(255) NOT NULL,
+  `val_time` int(11) NOT NULL,
+  `val_ip` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+ALTER TABLE `nh_validate_ip` ADD PRIMARY KEY (`val_id`);
+ALTER TABLE `nh_validate_ip` MODIFY `val_id` int(11) NOT NULL AUTO_INCREMENT;

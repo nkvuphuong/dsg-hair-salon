@@ -1,0 +1,1 @@
+ALTER TABLE nh_transaction_item MODIFY tri_type TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0:product, 1: service, 2: asset';

@@ -1,0 +1,12 @@
+CREATE TABLE nh_api_logs
+(
+    log_id int PRIMARY KEY AUTO_INCREMENT,
+    access_key char COMMENT 'access_key của thiết bị',
+    log_url varchar(255),
+    log_request_method char(5),
+    log_request text,
+    log_response text,
+    log_request_time int(11) DEFAULT 0 NOT NULL,
+    log_response_time int(11) DEFAULT 0 NOT NULL,
+    log_ip char(255)
+);

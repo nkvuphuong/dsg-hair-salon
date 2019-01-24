@@ -1,0 +1,1 @@
+ALTER TABLE nh_product ADD product_time_update int(11) DEFAULT 0 NULL;

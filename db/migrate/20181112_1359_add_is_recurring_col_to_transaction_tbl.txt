@@ -1,0 +1,1 @@
+ALTER TABLE nh_transaction ADD trx_is_recurring tinyint(1) DEFAULT 0 NULL COMMENT 'Giao dịch định kỳ (0 | 1)';

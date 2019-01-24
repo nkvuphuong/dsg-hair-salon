@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_series` VARCHAR(255) NOT NULL COMMENT 'Mã chung cho sản phẩm cùng loại, nhóm';

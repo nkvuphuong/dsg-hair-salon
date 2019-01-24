@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product_group` ADD `product_group_order` INT NOT NULL DEFAULT '1' COMMENT 'Sắp xếp danh mục' AFTER `pg_shorturl`;

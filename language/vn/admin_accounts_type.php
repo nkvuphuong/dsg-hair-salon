@@ -1,0 +1,45 @@
+<?php
+$lang = array (
+	"at_title"					=>	"Tài khoản kế toán",
+	"at_list"					=>	"Danh sách tài khoản kế toán",
+	"at_add"					=>	"Thêm tài khoản kế toán mới",
+	"at_edit"					=>	"Chỉnh sửa tài khoản kế toán",
+	"at_info"					=>	"Thông tin tài khoản kế toán",
+	"at_add_button"				=>	"Thêm mới",
+	"at_edit_button"			=>	"Chỉnh sửa",
+	"at_add_success"			=>	"Tạo tài khoản kế toán mới thành công",
+	"at_deleted_success"		=>	"Xoá tài khoản kế toán thành công",
+	"at_edit_success"			=>	"Chỉnh sửa tài khoản kế toán thành công",
+	"at_parent"					=>	"Tài khoản cha",
+	"at_code"					=>	"Mã tài khoản",
+	"at_group"					=>	"Loại tài khoản",
+	"at_group_0"				=>	"Kế toán Việt Nam",
+	"at_group_1"				=>	"Tùy chỉnh",
+	"at_name"					=>	"Tên tài khoản",
+	"at_status"					=>	"Trạng thái",
+	"at_time"					=>	"Thời gian tạo",
+	"at_status_00"				=>	"Ẩn",
+	"at_status_01"				=>	"Hiện",
+	"at_code_err"				=>	"Vui lòng nhập mã tài khoản",
+	"at_name_err"				=>	"Vui lòng nhập tên tài khoản",
+	"at_duplicated"				=>	"Mã đã tồn tại",
+
+    //Import
+    "export" => "Xuất",
+    "import" => "Nhập",
+    "import_file" => "Nhập dữ liệu",
+    "choose_file_upload" => "Chọn file",
+    "download_file_sample" => "Tải file mẫu",
+    "sample_file" => "File mẫu",
+    "title_cancel_button" => "Hủy",
+    "error_ext_file_upload" => "Định dạng file không hợp lệ (xls)",
+    "import_file_success" => "Nhập dữ liệu thành công",
+    "import_file_empty" => "Không có dữ liệu để cập nhật",
+    "emsg_not_empty_file" => "Vui lòng chọn file!",
+
+    "invalid_import_data" => "Có dữ liệu không hợp lệ. Vui lòng download và nhập lại dữ liệu cho các <strong>ô tô màu xám (ở các dòng có màu đỏ)</strong>. Sau đó upload và thử lại.",
+
+    "note_overwrite_data" => "Ghi đè lên dữ liệu có cùng mã",
+    "warning_overwrite_data" => "<i class=\"fa fa-exclamation-triangle\" aria-hidden=\"true\"></i> Lưu ý: Dữ liệu sau khi bị ghi đè sẽ không thể phục hồi.",
+);
+?>

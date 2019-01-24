@@ -1,0 +1,4 @@
+DELETE FROM nh_conf_settings WHERE conf_key='instagram_user_id' OR conf_key='instagram_access_token' ;
+INSERT INTO `nh_conf_settings` ( `conf_title`, `conf_key`, `conf_data`, `conf_value`, `conf_group`, `conf_type`, `conf_order`, `conf_protected`, `conf_description`, `conf_lisence`, `conf_expried`) VALUES('Instagram user id', 'instagram_user_id', NULL, '', 1, 'select', 0, 0, '', '', 0);
+INSERT INTO `nh_conf_settings` ( `conf_title`, `conf_key`, `conf_data`, `conf_value`, `conf_group`, `conf_type`, `conf_order`, `conf_protected`, `conf_description`, `conf_lisence`, `conf_expried`) VALUES('Instagram access token', 'instagram_access_token', NULL, '', 1, 'select', 0, 0, '', '', 0);
+TRUNCATE nh_cache;

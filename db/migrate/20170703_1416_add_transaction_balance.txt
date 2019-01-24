@@ -1,0 +1,1 @@
+ALTER TABLE `nh_transaction` ADD `trx_balance` FLOAT NOT NULL DEFAULT '0' COMMENT 'Lưu số dư sau khi thu hoặc chị , có thể là đầu kỳ hoặc cuối kỳ' AFTER `at_id`;

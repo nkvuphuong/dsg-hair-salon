@@ -1,0 +1,1 @@
+ALTER TABLE nh_transaction ADD trx_credit_memo_id INT(11) DEFAULT 0 NULL COMMENT 'Các recveive payment được tạo bởi credit memo sẽ chứa id của credit memo đó';

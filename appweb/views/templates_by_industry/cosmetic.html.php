@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('cosmetic', 'templates_by_industry');?>

@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('../fonts/Proxima_Nova_Regular.ttf'); /* Safari, Android, iOS */
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('../fonts/Proxima_Nova_Bold.ttf'); /* Safari, Android, iOS */
+  font-weight: bold;
+}
+/*@font-face {
+  font-family: 'ProximaNova';
+  src: url('../fonts/Proxima_Nova_Light.ttf'); 
+}
+*/

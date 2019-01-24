@@ -1,0 +1,2 @@
+UPDATE nh_order_item SET ordi_old_price = ordi_price + ordi_total_discount WHERE ordi_old_price=0;
+UPDATE nh_transaction_item SET tri_old_price=tri_price+(tri_total_discount / tri_quantity) WHERE tri_old_price = 0;

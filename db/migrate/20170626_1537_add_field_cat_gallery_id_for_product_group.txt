@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product_group` ADD `cat_gallery_id` INT NOT NULL COMMENT 'Danh mục gallery' AFTER `product_group_order`;

@@ -1,0 +1,2 @@
+ALTER TABLE nh_order_item ADD ordi_booking_time int(11) DEFAULT 0 NULL COMMENT 'thời gian booking dịch vụ';
+ALTER TABLE nh_order_item ADD ordi_staff int(11) DEFAULT 0 NULL COMMENT 'Nhân viên phụ trách';

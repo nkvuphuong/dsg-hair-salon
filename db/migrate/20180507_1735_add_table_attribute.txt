@@ -1,0 +1,22 @@
+CREATE TABLE `nh_attribute` (
+  `attr_id` int(11) NOT NULL,
+  `attr_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `attr_key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `attr_unit` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `attr_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1: select; 2:input',
+  `attr_order` int(11) NOT NULL COMMENT 'sắp xêp',
+  `attr_description` text COLLATE utf8_unicode_ci NOT NULL,
+  `attr_value` text COLLATE utf8_unicode_ci NOT NULL COMMENT 'json value',
+  `attr_required` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0: not required; 1: yes',
+  `attr_search` tinyint(1) NOT NULL DEFAULT '1' COMMENT '0: no search: 1: yes',
+  `attr_time` int(11) NOT NULL,
+  `attr_time_update` int(11) NOT NULL,
+  `attr_deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `group_id` int(11) NOT NULL COMMENT 'attribute_group'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `nh_attribute`
+  ADD PRIMARY KEY (`attr_id`);
+
+ALTER TABLE `nh_attribute`
+  MODIFY `attr_id` int(11) NOT NULL AUTO_INCREMENT;

@@ -1,0 +1,3 @@
+ALTER TABLE nh_devices MODIFY device_id int(11) auto_increment;
+CREATE UNIQUE INDEX nh_devices_device_id_uindex ON nh_devices (device_id);
+ALTER TABLE nh_devices ADD device_code char(64) DEFAULT '' NULL COMMENT 'Code ID of device' AFTER device_id;

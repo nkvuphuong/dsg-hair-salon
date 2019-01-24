@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('detail', 'news');?>

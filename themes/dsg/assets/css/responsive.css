@@ -1,0 +1,186 @@
+@media screen and (max-width: 767px)
+{
+    .table-responsive1  {
+        min-height: .01%;
+        overflow-x: auto;
+    }
+    .table-responsive1 {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: none;
+    }
+}
+@media (min-width: 420px){
+    .price-table.table-bordered>tbody>tr.head-tr>td{
+        padding: 5px 15px;
+    }
+    .price-table.table-bordered>tbody>tr>td{
+        padding: 5px 15px;
+    }
+    .btn-md.btn-primary {
+        padding: 0 20px;
+    }
+}
+@media (min-width: 768px){
+    
+    .time-booking-container,.contact-brand-container{
+        padding: 20px;
+        background-color: #0f0e0e;
+    }
+    .left-article{
+        padding-top: 70px;
+    }
+    .mean-container .mean-bar {
+        width: 750px;
+        float: none;
+        position: relative;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+	/*HOVER DROPDOWN IN TABLET & DESKTOP*/
+	li.dropdown:hover>a {
+
+	}
+	li.dropdown:hover>.dropdown-menu {
+	    display: block;
+	    border-radius: 0;
+	}
+	.footer-copyright-text{
+	    text-align: right;
+	}
+	.sp-horizontal .sp-next-arrow {
+        right:0;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+    }
+        .sp-horizontal .sp-previous-arrow {
+        left:0;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+    }
+    .sp-slide-content{
+    	display: table;
+    }
+    .sp-slide-text-wrapper h3{
+        margin-top: 0;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .top-logo{
+	    width: auto;
+	}
+    .testimonial {
+        height: 420px;
+        width: 100%;
+    }
+    .testimonial-text{
+        padding: 10px;
+        bottom: 98px;
+        left: 0;
+    }
+    .testimonial>img{
+        top: 0;
+    }
+    .testimonial-btm {
+        height: 88px;
+        font-size: 20px;
+    }
+    .sp-caption-container {
+        position: absolute;
+        bottom:0;
+        padding-left: 35px;
+        padding-right: 35px;
+        padding-bottom: 60px;
+    }
+    .sp-buttons {
+        position: absolute;
+        bottom: 0;
+    }
+    .slider-pro {
+        margin-bottom: 15px;
+        margin-top: 0;
+    }
+    .text-center-sm{
+        text-align: left;
+    }
+    .hair-img{
+        text-align: right;
+    }
+    .btn-md {
+        font-size: 16px;
+        padding: 10px;
+    }
+    .footer {text-align: left}
+    ul.service-list-ul>li {
+        display: block;
+        width: 100%;
+    }
+    .post-thumbnail {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .icon-div {
+        padding-left: 25px;
+        background-image: url(../images/house.png);
+    }
+    .icon-div.phone {
+        background-image: url(../images/phone.png);
+    }
+    select.form-control.black-form-control {
+        display: block;
+        width: 100%;
+    }
+    .h1, h1 {
+        font-size: 36px;
+        font-weight: 300;
+    }
+
+}
+@media (min-width: 992px){ 
+    .contact-brand-item{
+        padding-bottom: 0;
+        text-align: left;
+    }
+    .search-btn-01{
+        margin-top: 0;
+    }
+    .top-edu-img-wrap{
+        text-align: right;
+    }
+    .right-col{
+        text-align: left;
+    }
+    .testimonial {
+        height: 336px;
+        width: 100%;
+    }
+    .slider-pro {
+        padding-bottom: 0;
+    }
+    .text-center-md{
+        text-align: inherit;
+    }
+}
+@media (min-width: 1200px)
+{
+    .testimonial {
+        height: 410px;
+        width: 100%;
+    }  
+    .customer-div > .bottom-text-wrapper{
+        padding: 15px;
+    }
+}
+@media (min-width: 1500px)
+{
+    .testimonial {
+        height: 420px;
+        width: 100%;
+    }   
+}

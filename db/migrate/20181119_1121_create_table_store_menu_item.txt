@@ -1,0 +1,10 @@
+CREATE TABLE nh_store_menu_item
+(
+    storemi_id int(11) PRIMARY KEY AUTO_INCREMENT,
+    storemi_time int(11) DEFAULT 0,
+    storem_id int(11) DEFAULT 0,
+    product_id int(11) DEFAULT 0,
+    var_id int(11) DEFAULT 0,
+    user_id int(11) DEFAULT 0
+);
+CREATE UNIQUE INDEX nh_store_menu_item_storemi_id_uindex ON nh_store_menu_item (storemi_id);

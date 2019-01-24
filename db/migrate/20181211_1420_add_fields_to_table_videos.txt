@@ -1,0 +1,5 @@
+ALTER TABLE nh_videos ADD videos_size int(11) DEFAULT '0' NULL COMMENT 'bytes';
+ALTER TABLE nh_videos ADD videos_width int(11) DEFAULT '0' NULL COMMENT 'pixel';
+ALTER TABLE nh_videos ADD videos_height int(11) DEFAULT '0' NULL COMMENT 'pixel';
+ALTER TABLE nh_videos ADD videos_duration int(11) DEFAULT '0' NULL COMMENT 'second';
+ALTER TABLE nh_videos ADD videos_ext char(8) DEFAULT '' NULL COMMENT 'mp4...';

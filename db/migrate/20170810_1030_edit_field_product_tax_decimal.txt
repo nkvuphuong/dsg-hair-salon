@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` CHANGE `product_tax` `product_tax` DECIMAL(9,3) NULL DEFAULT '0.00';

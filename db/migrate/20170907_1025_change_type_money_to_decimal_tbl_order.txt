@@ -1,0 +1,3 @@
+ALTER TABLE `nh_order` CHANGE `ord_tax` `ord_tax` DECIMAL(20,2) NOT NULL DEFAULT '0' COMMENT 'VAT';
+ALTER TABLE `nh_order` CHANGE `ord_discount` `ord_discount` DECIMAL(20,2) NOT NULL DEFAULT '0';
+ALTER TABLE `nh_order` CHANGE `ord_total_discount` `ord_total_discount` DECIMAL(20,2) NOT NULL DEFAULT '0' COMMENT 'Value off discount final calculate';

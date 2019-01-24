@@ -1,0 +1,7 @@
+source:
+    - src
+destination: api
+templateTheme: bootstrap
+internal: true
+accessLevels:
+    - public

@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_real_type` TINYINT(1) NOT NULL DEFAULT '1' COMMENT 'Dung cho bds: 1: sell, 2: rent' AFTER `product_attribute`;

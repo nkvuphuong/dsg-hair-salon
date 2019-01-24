@@ -1,0 +1,3 @@
+ALTER TABLE nh_order_item ADD ordi_old_price decimal(20,2) DEFAULT 0 NULL COMMENT 'Giá bán cũ';
+ALTER TABLE nh_order_item
+  MODIFY COLUMN ordi_old_price decimal(20,2) DEFAULT 0 COMMENT 'Giá bán cũ' AFTER ordi_description;

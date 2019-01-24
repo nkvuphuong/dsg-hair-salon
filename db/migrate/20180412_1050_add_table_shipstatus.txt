@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS `nh_shipstatus` (
+  `ship_id` int(11) NOT NULL,
+  `ship_active` tinyint(1) DEFAULT '1',
+  `ship_deleted` tinyint(1) DEFAULT '0',
+  `ship_time` int(11) NOT NULL,
+  `ship_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ship_description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `ship_token_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ship_sort` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ALTER TABLE `nh_shipstatus`
+  ADD PRIMARY KEY (`ship_id`);
+ALTER TABLE `nh_shipstatus`
+  MODIFY `ship_id` int(11) NOT NULL AUTO_INCREMENT;

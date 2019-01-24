@@ -1,0 +1,4 @@
+ALTER TABLE nh_videos ADD videos_token char(32) DEFAULT '' NULL;
+ALTER TABLE nh_videos ALTER COLUMN videos_tags_id SET DEFAULT '';
+ALTER TABLE nh_videos ALTER COLUMN videos_time_display SET DEFAULT 0;
+ALTER TABLE nh_videos ALTER COLUMN algolia_sync_time SET DEFAULT 0;

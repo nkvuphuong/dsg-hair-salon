@@ -1,0 +1,4 @@
+ALTER TABLE nh_order_item ADD ordi_extra_parent varchar(255) NULL COMMENT 'Xác định item chính liên kết với item này thông qua field ordi_extra_key';
+ALTER TABLE nh_order_item CHANGE parent_key ordi_extra_key varchar(255) COMMENT 'Key để xác định item này là item chính';
+ALTER TABLE nh_order_item
+  MODIFY COLUMN ordi_menu_options text COMMENT 'Các tùy chọn cho thực đơn ăn uống' AFTER ordi_extra_parent;

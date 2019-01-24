@@ -1,0 +1,7 @@
+INSERT INTO `nh_conf_settings` ( `conf_title`, `conf_key`, `conf_data`, `conf_value`, `conf_group`, `conf_type`, `conf_order`, `conf_protected`, `conf_description`, `conf_lisence`, `conf_expried`) 
+VALUES('Color theme 1', 'free_theme_color_1', NULL, '#20de00', 1, 'input', 0, 0, '', '', 0) ON DUPLICATE KEY UPDATE conf_value='free_theme_color_1';
+INSERT INTO `nh_conf_settings` ( `conf_title`, `conf_key`, `conf_data`, `conf_value`, `conf_group`, `conf_type`, `conf_order`, `conf_protected`, `conf_description`, `conf_lisence`, `conf_expried`) 
+VALUES('Color theme 2', 'free_theme_color_2', NULL, '#000000', 1, 'input', 0, 0, '', '', 0) ON DUPLICATE KEY UPDATE conf_value='free_theme_color_2';
+INSERT INTO `nh_conf_settings` ( `conf_title`, `conf_key`, `conf_data`, `conf_value`, `conf_group`, `conf_type`, `conf_order`, `conf_protected`, `conf_description`, `conf_lisence`, `conf_expried`) 
+VALUES('Color theme 3', 'free_theme_color_3', NULL, '#fff', 1, 'input', 0, 0, '', '', 0) ON DUPLICATE KEY UPDATE conf_value='free_theme_color_3';
+TRUNCATE nh_cache;

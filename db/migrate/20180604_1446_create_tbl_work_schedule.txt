@@ -1,0 +1,10 @@
+create table nh_work_schedule
+(
+  work_schedule_id   int auto_increment
+    primary key,
+  shift_work_id      int default '0' not null,
+  staff_id           int default '0' not null,
+  store_id           int default '0' not null,
+  user_id            int default '0' null,
+  work_schedule_date int default '0' null
+);

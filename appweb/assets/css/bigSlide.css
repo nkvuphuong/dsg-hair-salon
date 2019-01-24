@@ -1,0 +1,157 @@
+/*
+Nav Panel
+======================================
+*/
+.mobile-menu {
+  background: #2C3E50;
+  z-index: 9999;
+  position: fixed;
+  left: -15.625em; /*or width of your navigation panel*/
+  width: 15.625em; /*should match the above value*/
+}
+
+.mobile-menu ul {
+  border-top: 2px solid #34495D;
+}
+
+.mobile-menu ul>li>a {
+  display: block;
+  border-bottom: 2px solid #34495D;
+  padding: 1em;
+}
+
+.mobile-menu ul>li>a:link,
+.mobile-menu ul>li>a:visited {
+  color: #fff;
+}
+
+.mobile-menu ul>li>a:hover,
+.mobile-menu ul>li>a:active {
+  background: #25B89A;
+}
+
+.nav-icon {
+  margin-right: 6px;
+}
+
+
+
+/*mobile menu*/
+.slideout-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 420px;
+  min-height: 100vh;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+  display: none;
+}
+
+.slideout-menu-left {
+  left: 0;
+}
+
+.slideout-menu-right {
+  right: 0;
+}
+
+.slideout-panel {
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+  min-height: 100vh;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+  /*overflow: hidden;*/
+}
+
+.slideout-open .slideout-menu {
+  display: block;
+}
+
+#mobilemenu{
+    text-align: center;
+    background-color: #222;
+}
+.nav.dark-theme>li>a{
+    color: #fff;
+}
+.nav.dark-theme>li>a:hover, .nav.dark-theme>li>a:focus {
+    background-color: #000;
+    color: #81bda4;
+}
+#mobilemenu .main-logo {
+    width: 100%;
+    display: inline-block;
+    height: 50px;
+    margin: 15px 0;
+    border: none;
+}
+.slideout-panel.panel:before {
+  content: '';
+  display: block;
+  background-color: rgba(0,0,0,0);
+  transition: background-color 1.5s ease-in-out;
+}
+
+.slideout-panel.panel-open:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,.5);
+  z-index: 99;
+}
+.js-slideout-close{
+    border-radius: 20px;
+    background:none;
+    border: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 0;
+}
+.close-btn {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+.close-btn::before, .close-btn::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #fff;
+}
+.close-btn::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.close-btn::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.close-btn.thick::before, .close-btn.thick::after {
+    height: 4px;
+    margin-top: -2px;
+}
+.close-btn.rounded::before, .close-btn.rounded::after {
+    border-radius: 5px;
+}
+

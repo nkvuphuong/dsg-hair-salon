@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('privacy_policy', 'information');?>

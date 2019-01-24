@@ -1,0 +1,1 @@
+ALTER TABLE nh_order_item ADD ordi_menu_type tinyint DEFAULT 0 NULL COMMENT 'Loại thực đơn (0: foods, 1: drinks, 2: others)';

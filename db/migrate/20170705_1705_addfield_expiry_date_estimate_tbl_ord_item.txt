@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order_item` ADD `ordi_expiry_date_estimate` INT(11) NOT NULL DEFAULT '0' COMMENT 'Ngay het han du kiến cua gia hạn' AFTER `ordi_expiry_date`;

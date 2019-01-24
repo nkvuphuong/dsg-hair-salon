@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_option` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0:sản phẩm nổi bật, 1: sản phẩm xem nhiều, 2: Xu hướng thị trường' AFTER `product_show`;

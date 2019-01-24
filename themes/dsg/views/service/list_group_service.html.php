@@ -1,0 +1,1 @@
+<?=\core\ezy::render('main', 'service');?>

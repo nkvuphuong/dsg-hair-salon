@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('da_lat', 'templates_travel');?>

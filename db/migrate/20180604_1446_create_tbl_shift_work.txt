@@ -1,0 +1,17 @@
+create table nh_shift_work
+(
+  shift_work_id         int auto_increment
+    primary key,
+  shift_work_name       varchar(255)        null,
+  shift_work_in         int default '0'     not null,
+  shift_work_out        int default '0'     not null,
+  shift_work_deleted    tinyint default '0' not null,
+  user_id               int default '0'     not null,
+  shift_work_created_at int default '0'     null,
+  shift_work_updated_at int default '0'     not null,
+  shift_work_order      int default '0'     not null
+  comment 'Thứ tự sắp xếp',
+  shift_work_token_key  char(32)            null
+)
+  comment 'Ca trực';
+

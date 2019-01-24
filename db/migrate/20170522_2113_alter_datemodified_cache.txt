@@ -1,0 +1,1 @@
+ALTER TABLE `nh_cache` ADD `cache_date_modified` INT(11) NOT NULL DEFAULT '0' AFTER `cache_is_protect`;

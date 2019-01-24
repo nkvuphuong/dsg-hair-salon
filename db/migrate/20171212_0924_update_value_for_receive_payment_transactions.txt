@@ -1,0 +1,1 @@
+UPDATE nh_transaction SET trx_amount = trx_total, trx_receive_payment = trx_total WHERE trx_subtype = 2 AND trx_status = 3

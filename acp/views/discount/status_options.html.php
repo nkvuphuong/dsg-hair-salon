@@ -1,0 +1,2 @@
+<option <?= $tpl->selected['discount_status'][1]; ?> value="1"><?= $CMS->lang['discount_status_1']; ?></option>
+<option <?= $tpl->selected['discount_status'][0]; ?> value="0"><?=$CMS->lang['discount_status_0'];?></option>

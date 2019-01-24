@@ -1,0 +1,7 @@
+CREATE TABLE nh_product_extra
+(
+    product_extra_id int(11) PRIMARY KEY AUTO_INCREMENT,
+    product_extra_main int(11) DEFAULT 0 COMMENT 'sản phẩm chính',
+    product_extra_topping int(11) DEFAULT 0 COMMENT 'sản phẩm thêm'
+);
+CREATE UNIQUE INDEX nh_product_extra_product_extra_id_uindex ON nh_product_extra (product_extra_id);

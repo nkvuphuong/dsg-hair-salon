@@ -1,0 +1,2 @@
+ALTER TABLE `nh_product` ADD `product_order` INT NOT NULL COMMENT 'sắp xếp' AFTER `product_shorturl`;
+ALTER TABLE `nh_product` ADD `product_up` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '1: hien thi phan &up hoac + ben canh gia service';

@@ -1,0 +1,1 @@
+ALTER TABLE nh_order_item ADD ordi_commission_rating FLOAT DEFAULT 100 NULL COMMENT '% huê hồng dựa trên đánh giá';

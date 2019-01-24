@@ -1,0 +1,53 @@
+<?php
+
+$lang = array (
+    "abandoned_title" => "Abandoned",
+    "detail_abandoned" => "Detail Abandoned",
+    "abandoned_id" => "ID",
+    "abandoned_email" => "Email", 
+    "abandoned_name" => "Name", 
+    "abandoned_phone" => "Phone", 
+    "abandoned_company" => "Company", 
+    "abandoned_time" => "Date created", 
+    "abandoned_city" => "City",
+    "abandoned_ip" => "IP",
+    "abandoned_address" => "Address",
+    "abandoned_total" => "Total",
+    "abandoned_sent_email" => "Sent",
+    "abandoned_status" => "Recovery",
+    "abandoned_province" => "Province",
+    "abandoned_country" => "Country",
+    "abandoned_zipcode" => "Postal code",
+    "data_not_found" => "Data Not found",
+    "status_0" => "Not Recovered",
+    "status_1" => "Recovered",
+    "abandoned_next_time" => "Next time sent ",
+    "sent_email_0" => "Not Sent",
+    "sent_email_1" => "Sent",
+    "abandoned_sent_mail_success" => "Sent email Abandoned Order Success.",
+    "abandoned_sent_mail_error" => "Sent email Abandoned Order Faild.",
+    "abandoned_count_sent" => "Count", 
+    "abandoned_deleted" => "Deleted abandoned", 
+    "abandoned_delete_failed" => "Delete abandoned failure", 
+
+    "abandoned_items" => "List items", 
+    "item_no." => "No.", 
+    "item_name" => "Product", 
+    "item_price" => "Price", 
+    "item_tax" => "Tax", 
+    "item_quantity" => "Quantity", 
+    "item_total" => "Total", 
+    "item_subtotal" => "Subtotal", 
+
+    "abandoned_emails" => 'List emails', 
+    "email_no." => "No.", 
+    "email_id" => "ID", 
+    "email_title" => "Title", 
+    "email_date" => "Date", 
+
+    "abandoned_bill" => 'Billing information', 
+    "abandoned_ship" => 'Shipping information', 
+    "abandoned_more" => 'More information', 
+);
+
+?>

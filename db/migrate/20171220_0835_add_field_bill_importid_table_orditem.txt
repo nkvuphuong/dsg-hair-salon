@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order_item` ADD `bill_import_id` INT(11) NOT NULL DEFAULT '0' COMMENT 'Bill import product' AFTER `bill_export_id`;

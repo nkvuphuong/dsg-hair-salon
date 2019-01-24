@@ -1,0 +1,1 @@
+ALTER TABLE `nh_contact` ADD `con_phone` VARCHAR(255) NULL DEFAULT NULL AFTER `con_type`, ADD `con_address` VARCHAR(255) NULL DEFAULT NULL AFTER `con_phone`;

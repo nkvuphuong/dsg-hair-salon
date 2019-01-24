@@ -1,0 +1,1 @@
+ALTER TABLE nh_order_item CHANGE parent_id parent_key varchar(255) COMMENT 'Mã item món ăn chính (Khi item hiện tại là toping)';

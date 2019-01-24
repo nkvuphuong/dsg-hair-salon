@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order_item` ADD `ass_id` INT(11) NOT NULL DEFAULT '0' COMMENT 'ID assets' AFTER `ass_key`;

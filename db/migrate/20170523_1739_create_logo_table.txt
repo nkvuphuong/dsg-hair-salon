@@ -1,0 +1,16 @@
+-- auto-generated definition
+create table nh_logos
+(
+	logo_id int auto_increment
+		primary key,
+	logo_name varchar(255) null,
+	logo_desc text null,
+	logo_src varchar(255) null,
+	logo_position tinyint(3) unsigned not null,
+	logo_start_time int default '0' not null,
+	logo_end_time int default '0' not null,
+	logo_deleted tinyint(1) unsigned default '0' not null,
+	logo_status tinyint(1) unsigned default '0' not null,
+	logo_time int default '0' not null
+)
+;

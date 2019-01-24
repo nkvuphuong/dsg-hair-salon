@@ -1,0 +1,2 @@
+ALTER TABLE nh_embed MODIFY embed_interval INT(11) DEFAULT '0' COMMENT 'Thời gian giữa mỗi lần hiển thị (0: luôn hiển thị)';
+ALTER TABLE nh_embed DROP embed_mode;

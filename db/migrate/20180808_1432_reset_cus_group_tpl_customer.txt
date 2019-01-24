@@ -1,0 +1,1 @@
+UPDATE nh_customer SET cus_group = ""

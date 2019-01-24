@@ -1,0 +1,30 @@
+<?php
+$lang = array (
+	"website_title" => "Đăng ký website bán hàng - doanh nghiệp - bất động sản giá rẻ",
+	"seo_description" => "Autom Đăng ký dùng thử dịch vụ thiết kế website bán hàng, website doanh nghiệp, website bất động sản giá rẻ, đạt chuẩn SEO, tích hợp quản lý sản phẩm, thanh toán online",
+	"seo_keyword" => "thiết kế website, website bán hàng, website doanh nghiệp, website bất động sản, website giá rẻ, seo website, website trọn gói",
+	"seo_author" => "",
+	
+	"res_name_err" => "Họ và tên không được trống",
+	"res_email_err" => "Email sai định dạng",
+	"res_phone_err" => "Số điện thoại sai định dạng",
+	"res_address_err" => "Địa chỉ quá dài",
+	"res_content_err" => "Nội dung không được trống",
+	"res_pass_err" => "Vui lòng nhập mật khẩu từ 5 đến 150 ký tự",
+	"res_confirm_err" => "Mật khẩu và xác nhận không trùng",
+	"res_error" => "Không tạo được tài khoản khách hàng",
+	"res_site_error" => "Email này đã đăng ký dùng thử. Quý khách vui lòng chọn địa chỉ email khác",
+	"res_email_exist_err" => "Email đã tồn tại. Vui lòng <a href='/login'>đăng nhập</a> hoặc <a href='/login/?forgot=1'>đặt mật khẩu</a>",
+	"change_info_error" => "Lỗi trong quá trình cập nhật",
+	"change_info_success" => "Cập nhật thông tin thành công",
+	"change_pass_pass_err" => "Sai thông tin mật khẩu",
+	"change_pass_new_err" => "Mật khẩu mới không hợp lệ",
+	"change_pass_confirm_err" => "Xác nhận mật khẩu không trùng khớp",
+	"change_pass_success" => "Cập nhật thông tin thành công",
+	"res_template_err" => "không tìn thấy giao diện",
+	"res_nhanhoa_error" => "Email đã được sử dụng. Quý khách vui lòng chọn địa chỉ email khác",
+	"res_nhanhoa_success" => "Quý khách đã đăng ký tài khoản thành công. Vui lòng kiểm tra email để kích hoạt tài khoản",
+	"change_nhanhoa_success" => "Mật khẩu đã được thay đổi",
+	"res_addon_service_err" => "Chọn dịch vụ dùng thử",
+);
+?>

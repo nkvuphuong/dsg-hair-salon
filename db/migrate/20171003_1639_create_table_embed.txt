@@ -1,0 +1,20 @@
+CREATE TABLE nh_embed
+(
+    embed_id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    embed_name VARCHAR(255),
+    embed_code CHAR(64),
+    embed_html TEXT,
+    embed_css TEXT,
+    embed_js TEXT,
+    embed_start_date INT(11) DEFAULT 0,
+    embed_end_date INT(11) DEFAULT 0,
+    embed_deleted TINYINT(1) DEFAULT 0,
+    embed_status TINYINT(1) DEFAULT 1 COMMENT '0: hide, 1: show',
+    user_id INT(11) DEFAULT 0,
+    embled_time INT(11) DEFAULT 0
+);
+ALTER TABLE nh_embed COMMENT = 'Quản lý mã nhúng (html, css, js)';
+ALTER TABLE nh_embed ADD embed_token_key CHAR(32) NULL;
+ALTER TABLE nh_embed ADD embed_update_time INT(11) DEFAULT 0 NULL;
+ALTER TABLE nh_embed
+  MODIFY COLUMN embed_token_key CHAR(32) AFTER embed_update_time;

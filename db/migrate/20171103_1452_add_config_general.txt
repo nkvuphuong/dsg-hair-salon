@@ -1,0 +1,3 @@
+INSERT INTO `nh_conf_settings` ( `conf_title`, `conf_key`, `conf_data`, `conf_value`, `conf_group`, `conf_type`, `conf_order`, `conf_protected`, `conf_description`, `conf_lisence`, `conf_expried`) VALUES('Enable cache', 'is_cache', NULL, 0, 1, 'yes_no', 0, 0, '', '', 0) ON DUPLICATE KEY UPDATE conf_value=1;
+INSERT INTO `nh_conf_settings` ( `conf_title`, `conf_key`, `conf_data`, `conf_value`, `conf_group`, `conf_type`, `conf_order`, `conf_protected`, `conf_description`, `conf_lisence`, `conf_expried`) VALUES('Cache engine', 'cache_type', NULL, 'file', 1, 'select', 0, 0, '', '', 0) ON DUPLICATE KEY UPDATE conf_value='file';
+TRUNCATE nh_cache;

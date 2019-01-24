@@ -1,0 +1,8 @@
+CREATE TABLE nh_playlists
+(
+    playlist_id int(11) PRIMARY KEY AUTO_INCREMENT,
+    playlist_name varchar(255) DEFAULT '',
+    playlist_time int(11) DEFAULT '0',
+    playlist_token varchar(32) DEFAULT ''
+);
+CREATE UNIQUE INDEX nh_playlists_playlist_id_uindex ON nh_playlists (playlist_id);

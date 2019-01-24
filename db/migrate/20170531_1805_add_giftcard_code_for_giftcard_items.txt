@@ -1,0 +1,1 @@
+ALTER TABLE `nh_giftcard_items` ADD `giftcard_code` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'Mã giftcard: VD G150' AFTER `gitem_id`;

@@ -1,0 +1,2 @@
+alter table nh_store
+	add store_display tinyint(1) default 1 null comment 'hiển thị ngoài web';

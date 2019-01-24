@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('carrier_bag', 'templates_by_industry');?>

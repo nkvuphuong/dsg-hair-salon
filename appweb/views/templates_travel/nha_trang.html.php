@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('nha_trang', 'templates_travel');?>

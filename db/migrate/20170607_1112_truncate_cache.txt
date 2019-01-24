@@ -1,0 +1,1 @@
+TRUNCATE `nh_cache`

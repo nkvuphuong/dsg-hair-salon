@@ -1,0 +1,4 @@
+ALTER TABLE `nh_customer` ADD `cus_first_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL AFTER `cus_full_name`, ADD `cus_last_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL AFTER `cus_first_name`;
+ALTER TABLE `nh_customer` ADD `cus_address2` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL AFTER `cus_address`;
+ALTER TABLE `nh_customer` CHANGE `cus_country` `cus_country` VARCHAR(255) NOT NULL;
+ALTER TABLE `nh_customer` ADD `cus_total_spend` DECIMAL(20,2) NOT NULL COMMENT 'Tong chi tieu' AFTER `cus_tags`, ADD `cus_total_order` INT NOT NULL COMMENT 'Tong đon hang' AFTER `cus_total_spend`;

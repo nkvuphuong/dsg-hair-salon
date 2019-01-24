@@ -1,0 +1,1 @@
+ALTER TABLE `nh_contact`  ADD `con_update_time` INT(11) NULL DEFAULT NULL  AFTER `con_address`,  ADD `con_status` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0: Chưa xem; 1: đã xem'  AFTER `con_update_time`;

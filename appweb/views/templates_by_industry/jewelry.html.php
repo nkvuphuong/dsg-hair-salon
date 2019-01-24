@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('jewelry', 'templates_by_industry');?>

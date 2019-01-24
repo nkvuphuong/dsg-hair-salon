@@ -1,0 +1,1 @@
+ALTER TABLE nh_order MODIFY ord_ticket_number varchar(16) COMMENT 'Số bàn/phiếu để xác định khách hàng cần phục vụ tại cửa hàng';

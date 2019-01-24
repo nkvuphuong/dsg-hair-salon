@@ -1,0 +1,1 @@
+ALTER TABLE nh_group_customer ADD gc_token char(32) DEFAULT '' NULL;

@@ -1,0 +1,13 @@
+CREATE TABLE nh_store_menu
+(
+    storem_id int(11) PRIMARY KEY AUTO_INCREMENT,
+    storem_name varchar(255) DEFAULT NULL,
+    storem_owner varchar(255) DEFAULT NULL  COMMENT 'json of store id is owner this menu',
+    storem_status tinyint(1) DEFAULT 0,
+    storem_token varchar(255) DEFAULT null ,
+    storem_time int(11) DEFAULT 0,
+    storem_time_update int(11) DEFAULT 0,
+    storem_deleted tinyint(1) DEFAULT 0,
+    user_id int(11) DEFAULT 0
+);
+CREATE UNIQUE INDEX nh_store_menu_storem_id_uindex ON nh_store_menu (storem_id);

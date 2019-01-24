@@ -1,0 +1,117 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "1ab0d4d5fb22fb55f93d66ed12b7291b",
+    "packages": [
+        {
+            "name": "allejo/php-pulse",
+            "version": "0.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/allejo/PhpPulse.git",
+                "reference": "ef42676f17d92531b8449b9d95957a00e2744d60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/allejo/PhpPulse/zipball/ef42676f17d92531b8449b9d95957a00e2744d60",
+                "reference": "ef42676f17d92531b8449b9d95957a00e2744d60",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "apigen/apigen": "dev-master",
+                "php-vcr/php-vcr": "^1.3",
+                "phpunit/phpunit": "^4.8.31"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "tests/",
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vladimir Jimenez",
+                    "homepage": "https://allejo.io",
+                    "role": "Project Maintainer"
+                }
+            ],
+            "description": "A wrapper for working with the monday.com (formerly known as DaPulse) API",
+            "homepage": "http://docs.allejo.io/PhpPulse/",
+            "keywords": [
+                "api",
+                "dapulse",
+                "monday.com"
+            ],
+            "time": "2018-02-26T20:03:23+00:00"
+        },
+        {
+            "name": "zaloplatform/zalo-php-sdk",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zaloplatform/zalo-php-sdk.git",
+                "reference": "3a7ed1ccf136f0c747d587eb6e798f7daf759e7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zaloplatform/zalo-php-sdk/zipball/3a7ed1ccf136f0c747d587eb6e798f7daf759e7b",
+                "reference": "3a7ed1ccf136f0c747d587eb6e798f7daf759e7b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.2.*"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "Zalo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Zalo Platform"
+            ],
+            "authors": [
+                {
+                    "name": "zaloplatform",
+                    "email": "zaloplatform@gmail.com"
+                }
+            ],
+            "description": "sdk for zalo developers",
+            "keywords": [
+                "composer",
+                "sdk",
+                "zalo",
+                "zalosdk"
+            ],
+            "time": "2017-12-22T09:36:22+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

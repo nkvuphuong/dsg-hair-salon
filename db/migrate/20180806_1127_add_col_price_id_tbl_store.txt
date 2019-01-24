@@ -1,0 +1,1 @@
+ALTER TABLE nh_store ADD price_id smallint(3) DEFAULT 0 NOT NULL COMMENT 'Bảng giá áp dụng (mặc định là bảng giá chung = 0)';

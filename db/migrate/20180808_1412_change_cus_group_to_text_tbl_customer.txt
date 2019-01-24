@@ -1,0 +1,1 @@
+ALTER TABLE nh_customer MODIFY cus_group text NOT NULL;

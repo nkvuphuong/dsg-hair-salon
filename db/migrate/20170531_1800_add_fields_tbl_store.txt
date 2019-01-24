@@ -1,0 +1,1 @@
+ALTER TABLE `nh_store` ADD `store_phone` CHAR(32) NULL DEFAULT NULL AFTER `store_name`, ADD `store_address` VARCHAR(255) NULL DEFAULT NULL AFTER `store_phone`;

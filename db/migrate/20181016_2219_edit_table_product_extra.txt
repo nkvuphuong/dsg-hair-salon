@@ -1,0 +1,5 @@
+ALTER TABLE nh_product_extra ADD product_extra_time int(11) DEFAULT 0 NULL;
+ALTER TABLE nh_product_extra ADD product_extra_time_update int(11) DEFAULT 0 NULL;
+ALTER TABLE nh_product_extra ADD product_extra_deleted tinyint(1) DEFAULT 0 NULL;
+ALTER TABLE nh_product_extra CHANGE product_extra_main main_id int(11) DEFAULT '0' COMMENT 'sản phẩm chính';
+ALTER TABLE nh_product_extra CHANGE product_extra_topping extra_id int(11) DEFAULT '0' COMMENT 'sản phẩm thêm';

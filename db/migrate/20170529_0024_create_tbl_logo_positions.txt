@@ -1,0 +1,20 @@
+-- auto-generated definition
+create table nh_logo_positions
+(
+	pos_id int auto_increment
+		primary key,
+	pos_name varchar(255) null,
+	pos_key char(255) null,
+	pos_width tinyint(3) unsigned default '0' not null,
+	pos_height tinyint(3) unsigned default '0' not null,
+	pos_mode char(16) null comment 'session: Ẩn hiện theo thời gian, always: luôn hiển thị',
+	pos_interval mediumint(11) unsigned default '0' not null comment 'Thời gian xác định để ẩn hiện theo session (phút)',
+	pos_type char(16) null comment 'all: hiển thị tất cả, random: hiển thị ngẫu nhiên ',
+	pos_deleted tinyint(1) unsigned default '0' not null,
+	pos_status tinyint(1) unsigned default '0' not null,
+	pos_time int default '0' not null,
+	user_id int default '0' not null,
+	pos_token_key char(32) null,
+	pos_desc varchar(255) null
+);
+

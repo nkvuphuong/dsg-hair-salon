@@ -1,0 +1,1 @@
+ALTER TABLE `nh_shift_work` CHANGE `shift_work_name` `shift_work_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL, CHANGE `shift_work_token_key` `shift_work_token_key` CHAR(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;

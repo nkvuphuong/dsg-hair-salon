@@ -1,0 +1,21 @@
+create table nh_devices
+(
+	device_id char(64) null,
+	device_name varchar(255) not null,
+	device_description varchar(255) null,
+	device_pincode char(16) null,
+	device_is_actived tinyint(1) default 0 not null comment '0: not activated; 1: activated',
+	device_is_online tinyint(1) default 0 not null comment '0: offline; 1: online',
+	user_id int default 0 null,
+	cus_id int default 0 null,
+	device_last_connect int default 0 null,
+	device_time int default 0 null,
+	constraint nh_devices_pk
+		primary key (device_id)
+);
+
+create index nh_devices_cus_id_index
+	on nh_devices (cus_id);
+
+create index nh_devices_user_id_index
+	on nh_devices (user_id);

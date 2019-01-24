@@ -1,0 +1,6 @@
+ALTER TABLE `nh_news` ADD `news_image_alt` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `news_image`;
+ALTER TABLE `nh_product` ADD `product_image_alt` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `product_image`;
+ALTER TABLE `nh_giftcard` ADD `giftcard_image_alt` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `giftcard_image`;
+ALTER TABLE `nh_coupon` ADD `coupon_image_alt` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `coupon_image`;
+ALTER TABLE `nh_gallery` ADD `gallery_image_alt` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `gallery_image`;
+ALTER TABLE `nh_logos` ADD `logo_src_alt` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `logo_src`;

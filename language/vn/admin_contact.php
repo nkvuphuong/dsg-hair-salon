@@ -1,0 +1,30 @@
+<?php
+$lang = array (
+	"ticket_title" => "Liên hệ",
+	"ticket_header" => "Danh sách liên hệ",
+	"ticket_id" => "ID",
+	"ticket_name" => "Tên",
+	"ticket_email" => "Email",
+	"ticket_subject" => "Tiêu đề",
+	"ticket_content" => "Nội dung",
+	"ticket_time" => "Thời gian",
+	"ticket_update_time" => "Thời gian cập nhật",
+	"ticket_ipaddress" => "Ip",
+	"ticket_show" => "Liên hệ",
+	"ticket_info" => "Thông tin liên hệ",
+	"ticket_status" => "Tình trạng",
+	"ticket_status_0" => "Chưa xem",
+	"ticket_status_1" => "Đã xem",
+	"ticket_status_color_0" => "red", 
+	"ticket_status_color_1" => "blue", 
+	"ticket_type" => "Loại", 
+	"ticket_type_0" => "Liên hệ", 
+	"ticket_type_1" => "Đăng ký", 
+	"ticket_phone" => "Số điện thoại",
+	"ticket_address" => "Địa chỉ",
+
+	"ticket_deleted" => "Đã xoá",
+	"ticket_delete_failed" => "Không có liên hệ nào được xoá", 
+	"ticket_updated_status" => "Đã cập nhật trạng thái", 
+);
+?>

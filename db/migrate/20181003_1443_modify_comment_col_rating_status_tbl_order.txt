@@ -1,0 +1,1 @@
+ALTER TABLE nh_order MODIFY ord_rating_status tinyint(1) NOT NULL DEFAULT '0' COMMENT '0: Chưa đánh giá, 1: Đã đánh giá';

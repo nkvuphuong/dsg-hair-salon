@@ -1,0 +1,2 @@
+ALTER TABLE nh_order_item CHANGE ordi_extra_key ordi_key varchar(255) COMMENT 'Key để xác định item này là item chính';
+ALTER TABLE nh_order_item CHANGE ordi_extra_parent ordi_parent_key varchar(255) COMMENT 'Xác định item chính liên kết với item này thông qua field ordi_extra_key';

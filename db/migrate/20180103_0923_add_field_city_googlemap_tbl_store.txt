@@ -1,0 +1,1 @@
+ALTER TABLE `nh_store` ADD `city_id` INT(5) NOT NULL DEFAULT '0' , ADD `googlemap_code` TEXT NULL DEFAULT NULL;

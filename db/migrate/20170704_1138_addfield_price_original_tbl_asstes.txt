@@ -1,0 +1,1 @@
+ALTER TABLE `nh_assets` ADD `ass_original_price` DECIMAL(20,2) NULL DEFAULT NULL COMMENT 'Giá gốc' AFTER `ass_purchase_price`;

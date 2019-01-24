@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('clock', 'templates_by_industry');?>

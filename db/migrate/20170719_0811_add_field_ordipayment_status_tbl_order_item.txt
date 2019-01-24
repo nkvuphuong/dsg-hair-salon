@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order_item` ADD `ordi_payment_status` TINYINT(2) NOT NULL DEFAULT '0' COMMENT '0:Chưa thanh toán,1: đã thanh toán, 2: nợ thanh toán' AFTER `ordi_status`;

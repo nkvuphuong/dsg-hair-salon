@@ -1,0 +1,2 @@
+ALTER TABLE  `nh_conf_settings` ADD INDEX (  `conf_group` );
+ALTER TABLE  `nh_user_sessions` ADD INDEX (  `session_ip_address` );

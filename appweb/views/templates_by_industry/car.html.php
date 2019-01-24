@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('car', 'templates_by_industry');?>

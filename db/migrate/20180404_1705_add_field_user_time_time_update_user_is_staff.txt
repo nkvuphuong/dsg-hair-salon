@@ -1,0 +1,3 @@
+ALTER TABLE `nh_user` ADD `user_time` INT(11) NOT NULL DEFAULT '0', ADD `user_time_update` INT(11) NOT NULL DEFAULT '0';
+ALTER TABLE `nh_user` ADD `user_is_staff` TINYINT(1) NOT NULL DEFAULT '0' COMMENT 'Là nhân viên';
+ALTER TABLE `nh_user` ADD `user_range` INT NOT NULL DEFAULT '0';

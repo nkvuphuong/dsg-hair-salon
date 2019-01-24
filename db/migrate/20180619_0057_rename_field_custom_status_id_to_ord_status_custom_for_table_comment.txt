@@ -1,0 +1,1 @@
+ALTER TABLE `nh_comment` CHANGE `custom_status_id` `ord_status_custom` INT(1) NOT NULL COMMENT 'ID custom status';

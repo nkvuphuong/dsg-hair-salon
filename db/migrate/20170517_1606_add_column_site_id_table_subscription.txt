@@ -1,0 +1,1 @@
+ALTER TABLE `nh_subscription` ADD `site_id` INT(11) NOT NULL DEFAULT '0' AFTER `sub_id`;

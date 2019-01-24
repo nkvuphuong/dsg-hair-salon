@@ -1,0 +1,1 @@
+ALTER TABLE `nh_customer` ADD `cus_company_address` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `cus_company`, ADD `cus_company_email` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `cus_company_address`;

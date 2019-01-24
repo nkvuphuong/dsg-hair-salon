@@ -1,0 +1,1 @@
+ALTER TABLE nh_transaction ADD trx_credit_memo_info TEXT NULL COMMENT 'Thông tin credit info liên quan đến giao dịch';

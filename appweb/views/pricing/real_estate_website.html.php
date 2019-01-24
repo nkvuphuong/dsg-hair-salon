@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('real_estate_website', 'pricing');?>

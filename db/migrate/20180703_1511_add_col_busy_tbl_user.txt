@@ -1,0 +1,2 @@
+ALTER TABLE nh_user ADD user_busy_from int(11) DEFAULT 0 NULL COMMENT 'Khoảng thời gian nhân viên đang bận (Bắt đầu)';
+ALTER TABLE nh_user ADD user_busy_to int(11) DEFAULT 0 NULL COMMENT 'Khoảng thời gian nhân viên đang bận (kết thúc)';

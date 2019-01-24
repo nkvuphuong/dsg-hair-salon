@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order_item` ADD `trx_id` INT(11) NOT NULL DEFAULT '0' COMMENT 'Invoice ID' AFTER `tri_id`;

@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('ecommerce_website', 'pricing');?>

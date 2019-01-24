@@ -1,0 +1,2 @@
+UPDATE nh_customer set cus_birthday=0;
+ALTER TABLE nh_customer MODIFY cus_birthday int(11) DEFAULT 0;

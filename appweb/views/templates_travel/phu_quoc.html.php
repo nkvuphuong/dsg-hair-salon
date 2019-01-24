@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('phu_quoc', 'templates_travel');?>

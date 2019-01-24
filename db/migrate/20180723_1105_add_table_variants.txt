@@ -1,0 +1,45 @@
+CREATE TABLE `nh_variants` (
+  `var_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Đây là exp_id',
+  `var_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Shopify: title, var name',
+  `var_price` float NOT NULL DEFAULT '0' COMMENT 'Tương đương var_basecost',
+  `var_sku` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `var_position` int(11) NOT NULL DEFAULT '1',
+  `var_inventory_policy` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `var_compare_at_price` float DEFAULT NULL,
+  `var_fulfillment_service` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `var_inventory_management` int(11) NOT NULL DEFAULT '0',
+  `var_option1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Tương đương var_color',
+  `var_option2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Tương đương var_size',
+  `var_option3` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `var_created_at` datetime DEFAULT NULL,
+  `var_updated_at` datetime DEFAULT NULL,
+  `var_taxable` tinyint(1) NOT NULL DEFAULT '0',
+  `var_barcode` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `var_grams` int(11) NOT NULL DEFAULT '0',
+  `var_image_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `var_inventory_quantity` int(11) NOT NULL DEFAULT '0',
+  `var_weight` float NOT NULL DEFAULT '0',
+  `var_weight_unit` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `var_inventory_item_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `var_old_inventory_quantity` int(11) NOT NULL DEFAULT '0',
+  `var_requires_shipping` tinyint(1) NOT NULL DEFAULT '0',
+  `var_admin_graphql_api_id` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `var_stock` int(11) NOT NULL DEFAULT '0',
+  `var_available` int(11) NOT NULL DEFAULT '0' COMMENT 'Số lượng khả dụng	',
+  `var_extra_charge` float NOT NULL DEFAULT '0',
+  `var_price_buy` float NOT NULL DEFAULT '0',
+  `var_re_price` float NOT NULL DEFAULT '0' COMMENT 'Giá recommend',
+  `var_hex` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Mã màu hex',
+  `var_gtin` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `var_time` int(11) NOT NULL DEFAULT '0',
+  `var_time_update` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `var_deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `var_status` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `nh_variants`
+  ADD PRIMARY KEY (`var_id`);
+ALTER TABLE `nh_variants`
+  MODIFY `var_id` int(11) NOT NULL AUTO_INCREMENT;

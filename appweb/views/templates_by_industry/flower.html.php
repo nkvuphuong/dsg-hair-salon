@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('flower', 'templates_by_industry');?>

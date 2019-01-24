@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order` ADD `ord_fee_shipping` DECIMAL(20,2) NOT NULL DEFAULT '0.00' COMMENT 'Value off shipping fee final calculate ' AFTER `shipping_info`;

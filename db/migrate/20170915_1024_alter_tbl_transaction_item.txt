@@ -1,0 +1,14 @@
+ALTER TABLE nh_transaction_item MODIFY tri_total DECIMAL(20,2) DEFAULT '0.00' COMMENT 'Thành tiền';
+ALTER TABLE nh_transaction_item ADD tri_total_tax DECIMAL(20,2) DEFAULT 0 NULL COMMENT 'Thuế (Số tiền)';
+ALTER TABLE nh_transaction_item MODIFY tri_tax FLOAT DEFAULT 0 COMMENT 'Thuế (%)';
+ALTER TABLE nh_transaction_item ADD tri_total_discount DECIMAL(20,2) DEFAULT 0 NULL COMMENT 'Tổng tiền KM';
+ALTER TABLE nh_transaction_item ADD tri_discount_value DECIMAL(20,2) DEFAULT 0 NULL;
+ALTER TABLE nh_transaction_item ADD tri_discount_type INT(1) DEFAULT 0 NULL COMMENT 'Loại khuyến mãi (0: phần trăm, 1: số tiền)';
+ALTER TABLE nh_transaction_item ADD tri_subtotal DECIMAL(20,2) DEFAULT 0 NULL COMMENT 'Tổng tiền (Chưa bao gồm giảm giá, thuế)';
+ALTER TABLE nh_transaction_item
+  MODIFY COLUMN tri_subtotal DECIMAL(20,2) DEFAULT 0 COMMENT 'Tổng tiền (Chưa bao gồm giảm giá, thuế)' AFTER cycle_type,
+  MODIFY COLUMN tri_discount_type INT(1) DEFAULT 0 COMMENT 'Loại khuyến mãi (0: phần trăm, 1: số tiền)' AFTER tri_subtotal,
+  MODIFY COLUMN tri_discount_value DECIMAL(20,2) DEFAULT 0 AFTER tri_discount_type,
+  MODIFY COLUMN tri_total_discount DECIMAL(20,2) DEFAULT 0 COMMENT 'Tổng tiền KM' AFTER tri_discount_value,
+  MODIFY COLUMN tri_total_tax DECIMAL(20,2) DEFAULT 0 COMMENT 'Thuế (Số tiền)' AFTER tri_tax,
+  MODIFY COLUMN tri_total DECIMAL(20,2) DEFAULT '0.00' COMMENT 'Thành tiền' AFTER tri_total_tax;

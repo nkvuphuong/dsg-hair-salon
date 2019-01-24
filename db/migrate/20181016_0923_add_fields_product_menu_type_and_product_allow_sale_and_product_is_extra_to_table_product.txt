@@ -1,0 +1,3 @@
+ALTER TABLE nh_product ADD product_menu_type tinyint(1) DEFAULT 0 NULL COMMENT '0: đồ ăn; 1: đồ uống; 2:khác';
+ALTER TABLE nh_product ADD product_allow_sale tinyint(1) DEFAULT 0 NULL COMMENT 'sản phẩm được bán trực tiếp, 0: không, 1: có';
+ALTER TABLE nh_product ADD product_is_extra tinyint(1) DEFAULT 0 NULL COMMENT 'sản phẩm bán kèm,  0: không; 1: có';

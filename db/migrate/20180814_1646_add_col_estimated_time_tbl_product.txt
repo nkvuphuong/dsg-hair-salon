@@ -1,0 +1,1 @@
+ALTER TABLE nh_product ADD product_estimated_time int(11) DEFAULT 0 NOT NULL COMMENT 'Thời gian dự kiến hoàn thành dịch vụ';

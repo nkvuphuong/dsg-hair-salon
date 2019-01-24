@@ -1,0 +1,24 @@
+create table nh_discount_items
+(
+	di_id int auto_increment
+		primary key,
+	discount_id int default '0' null,
+	di_code char(32) null,
+	di_start_time int default '0' null,
+	di_end_time int default '0' null,
+	di_type tinyint default '0' null comment '0:percent, 1:amount',
+	di_value float default '0' null,
+	di_times int default '0' null comment 'Số lần sử dụng (0: không giới hạn)',
+	di_used_times int default '0' null comment 'Số lần đã sử dụng',
+	di_apply_for char(16) default 'all' null comment 'Đối tượng áp dụng (all: tất cả; amount_from: giá đơn hàng từ; product: sản phẩm; product_group: nhóm sp; customer_group: nhóm kh)
+	',
+	di_apply_rules text null,
+	user_id int default '0' null,
+	di_deleted tinyint default '0' null,
+	di_time int default '0' null
+)
+;
+
+create index nh_discount_items_di_code_index
+	on nh_discount_items (di_code)
+;

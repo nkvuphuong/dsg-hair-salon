@@ -1,0 +1,1 @@
+ALTER TABLE nh_api_logs MODIFY access_token char(255) COMMENT 'access_key của thiết bị';

@@ -1,0 +1,4 @@
+ALTER TABLE nh_order_item ADD ordi_total_tax DECIMAL(20,2) DEFAULT 0 NULL COMMENT 'Tiền thuế (Số tiền)';
+ALTER TABLE nh_order_item MODIFY ordi_tax INT(5) NOT NULL DEFAULT '0' COMMENT 'Tiền thuế (%)';
+ALTER TABLE nh_order_item
+  MODIFY COLUMN ordi_total_tax DECIMAL(20,2) DEFAULT 0 COMMENT 'Tiền thuế (Số tiền)' AFTER ordi_tax;

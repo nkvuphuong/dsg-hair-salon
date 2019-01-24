@@ -1,0 +1,29 @@
+CREATE TABLE `nh_order_abandoned` (
+  `id` int(11) NOT NULL,
+  `time` int(11) NOT NULL DEFAULT '0',
+  `next_time` int(11) NOT NULL DEFAULT '0' COMMENT 'next time send email',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `ip` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `email` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `address` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `address2` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `phone` varchar(50) NOT NULL,
+  `city` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `province` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `postal_code` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `country` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `cam_id` varchar(11) NOT NULL DEFAULT '0',
+  `cart_content` text,
+  `total` decimal(20,2) NOT NULL DEFAULT '0.00',
+  `session_id` varchar(50) DEFAULT NULL,
+  `sent_email` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:Not Recovered, 1: Recovered ',
+  `count_sent` tinyint(2) NOT NULL DEFAULT '0',
+  `list_mail` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `nh_order_abandoned` ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `nh_order_abandoned` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

@@ -1,0 +1,1 @@
+ALTER TABLE `nh_transaction_item` ADD `tri_type` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0:asset, 1: product, 2: service' AFTER `tri_id`;

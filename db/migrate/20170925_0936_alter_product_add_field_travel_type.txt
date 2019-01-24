@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_tra_type` TINYINT(1) NOT NULL DEFAULT '0' COMMENT 'Loại tour' AFTER `parent_id`;

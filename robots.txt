@@ -1,0 +1,22 @@
+User-agent: *
+
+Disallow: /themes/
+Disallow: /acp/
+Disallow: /api/
+Disallow: /cron/
+Disallow: /db/
+Disallow: /vendor/
+Disallow: /api/
+Disallow: /language/
+Disallow: /public/
+Disallow: /kernel/
+Disallow: /web/
+Disallow: /tools/
+Disallow: /whm/
+Disallow: /uploads/
+Disallow: *.js
+Disallow: *.css
+
+User-Agent: Googlebot
+Allow: .js
+Allow: .css

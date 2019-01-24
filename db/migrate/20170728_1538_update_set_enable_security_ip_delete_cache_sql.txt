@@ -1,0 +1,2 @@
+UPDATE `nh_conf_settings` SET conf_value=1 WHERE conf_key='enable_security_ip';
+DELETE FROM `nh_cache` WHERE cache_name='config';

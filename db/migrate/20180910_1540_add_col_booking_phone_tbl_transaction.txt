@@ -1,0 +1,1 @@
+ALTER TABLE nh_transaction ADD trx_booking_phone VARCHAR(32) NULL COMMENT 'Số điện thoại đặt lịch';

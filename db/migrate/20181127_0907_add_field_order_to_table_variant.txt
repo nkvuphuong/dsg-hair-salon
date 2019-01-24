@@ -1,0 +1,1 @@
+ALTER TABLE nh_variants ADD var_order int(11) DEFAULT '0' NULL;

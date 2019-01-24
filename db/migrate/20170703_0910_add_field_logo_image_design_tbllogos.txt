@@ -1,0 +1,1 @@
+ALTER TABLE `nh_logos` ADD `logo_upload_option` TINYINT(1) NOT NULL DEFAULT '0' COMMENT ' 0:upload multi, 1: upload and design' AFTER `logo_link`, ADD `logo_style_content` TEXT NULL DEFAULT NULL AFTER `logo_upload_option`, ADD `logo_image_original` TEXT NULL DEFAULT NULL AFTER `logo_style_content`;

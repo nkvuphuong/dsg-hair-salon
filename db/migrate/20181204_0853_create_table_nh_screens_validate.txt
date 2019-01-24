@@ -1,0 +1,8 @@
+CREATE TABLE nh_screens_validate
+(
+    val_id int(11) PRIMARY KEY AUTO_INCREMENT,
+    val_deviceid char(32) DEFAULT '',
+    val_pincode char(32) DEFAULT '',
+    val_time int(11) DEFAULT 0
+);
+CREATE UNIQUE INDEX nh_screens_validate_val_id_uindex ON nh_screens_validate (val_id);

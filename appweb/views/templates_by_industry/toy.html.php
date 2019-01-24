@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('toy', 'templates_by_industry');?>

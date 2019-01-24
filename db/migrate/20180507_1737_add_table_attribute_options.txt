@@ -1,0 +1,16 @@
+CREATE TABLE `nh_attribute_options` (
+  `options_id` int(11) NOT NULL,
+  `options_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `options_value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `options_key` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `options_time` int(11) NOT NULL,
+  `options_time_update` int(11) NOT NULL,
+  `options_deleted` tinyint(1) NOT NULL,
+  `attr_id` int(11) NOT NULL COMMENT 'ID attribute_id'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `nh_attribute_options`
+  ADD PRIMARY KEY (`options_id`);
+
+ALTER TABLE `nh_attribute_options`
+  MODIFY `options_id` int(11) NOT NULL AUTO_INCREMENT;

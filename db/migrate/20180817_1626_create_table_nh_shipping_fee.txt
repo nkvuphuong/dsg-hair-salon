@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS `nh_shipping_fee` (
+  `ship_id` int(11) NOT NULL,
+  `ship_type_service` tinyint(1) DEFAULT '0' COMMENT '0:Standard; 1: Express',
+  `ship_price` float NOT NULL DEFAULT '0',
+  `ship_price_extra` float NOT NULL DEFAULT '0',
+  `ship_time` int(11) NOT NULL DEFAULT '0',
+  `ship_time_update` int(11) NOT NULL DEFAULT '0',
+  `ship_location` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0: nội địa , 1 quốc tế',
+  `product_id` int(11) NOT NULL DEFAULT '0',
+  `ship_service_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Mã carrier|mã services',
+  `ship_deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `nh_shipping_fee` ADD PRIMARY KEY (`ship_id`);
+
+ALTER TABLE `nh_shipping_fee` MODIFY `ship_id` int(11) NOT NULL AUTO_INCREMENT;

@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('step1', 'register');?>

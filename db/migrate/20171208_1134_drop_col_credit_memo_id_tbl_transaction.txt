@@ -1,0 +1,1 @@
+ALTER TABLE eco_db.nh_transaction DROP trx_credit_memo_id;

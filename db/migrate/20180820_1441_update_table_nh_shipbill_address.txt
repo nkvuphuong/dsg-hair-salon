@@ -1,0 +1,6 @@
+ALTER TABLE `nh_shipbill_address` CHANGE `ship_city` `ship_city` VARCHAR(255) NULL DEFAULT NULL;
+ALTER TABLE `nh_shipbill_address` CHANGE `bill_city` `bill_city` VARCHAR(255) NULL DEFAULT NULL;
+ALTER TABLE `nh_shipbill_address` ADD `bill_province` VARCHAR(255) NULL DEFAULT NULL AFTER `bill_city`;
+ALTER TABLE `nh_shipbill_address` ADD `ship_province` VARCHAR(255) NULL DEFAULT NULL AFTER `ship_city`;
+ALTER TABLE `nh_shipbill_address` ADD `bill_country` VARCHAR(255) NULL DEFAULT NULL AFTER `bill_zipcode`;
+ALTER TABLE `nh_shipbill_address` ADD `ship_country` VARCHAR(255) NULL DEFAULT NULL AFTER `ship_zipcode`;

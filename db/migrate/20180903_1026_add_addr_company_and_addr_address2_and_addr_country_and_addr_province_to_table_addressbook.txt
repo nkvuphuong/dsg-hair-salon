@@ -1,0 +1,4 @@
+ALTER TABLE `nh_addressbook` ADD `addr_company` VARCHAR(255) NULL DEFAULT NULL;
+ALTER TABLE `nh_addressbook` ADD `addr_address2` VARCHAR(255) NULL DEFAULT NULL;
+ALTER TABLE `nh_addressbook` ADD `addr_country` VARCHAR(255) NULL DEFAULT NULL;
+ALTER TABLE `nh_addressbook` ADD `addr_province` VARCHAR(255) NULL DEFAULT NULL;

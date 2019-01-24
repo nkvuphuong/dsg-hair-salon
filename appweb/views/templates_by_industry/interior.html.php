@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('interior', 'templates_by_industry');?>

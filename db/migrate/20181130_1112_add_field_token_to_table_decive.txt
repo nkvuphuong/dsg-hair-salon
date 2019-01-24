@@ -1,0 +1,1 @@
+ALTER TABLE nh_devices ADD device_token char(32) DEFAULT '' NULL;

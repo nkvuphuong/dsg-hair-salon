@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_name_lang` VARCHAR(255) NOT NULL AFTER `product_up`, ADD `product_description_lang` TEXT NOT NULL AFTER `product_name_lang`, ADD `product_information_1_lang` TEXT NOT NULL AFTER `product_description_lang`, ADD `product_information_2_lang` TEXT NOT NULL AFTER `product_information_1_lang`;

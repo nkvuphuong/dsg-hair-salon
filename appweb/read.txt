@@ -1,0 +1,3 @@
+https://beta.web4s.vn/template -> /templates
+https://beta.web4s.vn/action -> /features 
+https://beta.web4s.vn/price_list -> /pricing

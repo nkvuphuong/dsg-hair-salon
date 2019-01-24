@@ -1,0 +1,53 @@
+<?php
+$lang = array(
+	'setting'=>'Cấu hình',
+	'setting_submit'=>'Cập nhật cấu hình',
+	'setting_cp_01'=>'Ẩn nút Pinterest trên các trang chiến dịch',
+	'setting_cp_02'=>'Ẩn chiến dịch khi kết thúc',
+	'setting_fb'=>'Địa chỉ facebook',
+	'setting_pp_01'=>'Thông tin thẻ visa/master dể nhận tiền',
+	'setting_bank_number_card'=>'Số thẻ visa/master',
+	'setting_bank_fullname'=>'Họ tên',
+	'setting_pp_last'=>'Last name',
+	'setting_fb_url_err'=>'Địa chỉ facebook không hợp lệ',
+	'setting_bank_number_err'=>'Số thẻ visa/master là bắt buộc',
+	'setting_req_err'=>'Họ tên là bắt buộc',
+	
+	'setting_cam_text'=>'Chiến dịch',
+	'setting_fb_text'=>'Facebook',
+	'setting_bank_text'=>'Thẻ visa/ master',
+	'setting_page_text'=>'Trang',
+	'setting_page_text_01'=>'CHÍNH SÁCH BẢO MẬT',
+	'setting_page_text_02'=>'ĐIỀU KHOẢN DỊCH VỤ',
+	'setting_page_text_03'=>'HỖ TRỢ',
+	'setting_title'=>'Tiêu đề',
+	'setting_title_err'=>'Tiêu đề là bắt buộc',
+	'setting_title_incomplete'=>'Tiêu đề không đúng định dạng',
+	'setting_content'=>'Nội dung',
+	'setting_success'=>'Thành công! Cập nhập cấu hình thành công ',
+	
+	'setting_email_text'=>'Email',
+	'setting_email_timeline'=>'Mốc thời gian',
+	'setting_email_text_01'=>'Thông tin email',
+	'setting_email_title'=>'Tiêu đề email',
+	'setting_email_content'=>'Nội dung email',
+	'setting_email_title_err'=>'Tiêu đề là bắt buộc',
+	
+	'setting_google_text'=>'Google',
+	'setting_google_analytics_text'=>'Analytics',
+	'setting_google_analytics_err'=>'Id google analytics la bắt buộc',
+	'setting_google_tag_text'=>'Tag manager',
+	'setting_google_tag_err'=>'Tag google manager là bắt buộc',
+	'script_google_analytics'=>'Script google analytics',
+	'script_google_tag'=>'Script google tag manager',
+	
+	'setting_page_privacy_text'=>'Chính sách bảo mật',
+	'setting_page_terms_text'=>'Điều khoản dịch vụ',
+	'setting_page_support_text'=>'Hỗ trợ',
+	
+	'setting_key_text'=>'Khoá',
+	'setting_key_key_text'=>'Khoá',
+	'setting_key_key_err'=>'Lưu ý: Nhập ký tự, số, gạch ngang hoặc gạch dưới',
+	'setting_key_value_text'=>'giá trị',
+);
+?>

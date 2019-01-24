@@ -1,0 +1,74 @@
+DROP TABLE IF EXISTS `nh_sync`;
+CREATE TABLE `nh_sync` (
+  `sync_id` int(11) NOT NULL,
+  `sync_code` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `store_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Store ID in CRM',
+  `sync_store_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Store URL',
+  `sync_store_backend` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Ex: woocommerce, shopify...',
+  `sync_module` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Ex: products, orders',
+  `sync_content` mediumtext COLLATE utf8_unicode_ci COMMENT 'Response body (json)',
+  `sync_original` text COLLATE utf8_unicode_ci COMMENT 'Store orginal data to dobule check array data',
+  `sync_header` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Response header (text)',
+  `sync_header_status` smallint(4) NOT NULL DEFAULT '0' COMMENT 'Ex: 200, 304, 500...',
+  `sync_message` text COLLATE utf8_unicode_ci,
+  `sync_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = Pending, 1 = Processing, 2 = ok, 3 = Error',
+  `sync_method` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Ex: download, upload, merge',
+  `sync_time` int(11) NOT NULL DEFAULT '0' COMMENT 'Unix timestamp'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nh_sync_records`
+--
+
+DROP TABLE IF EXISTS `nh_sync_records`;
+CREATE TABLE `nh_sync_records` (
+  `rec_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Id of table store',
+  `sync_module` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Ex: products, orders',
+  `local_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Local table record id',
+  `local_checksum` int(11) NOT NULL DEFAULT '0' COMMENT 'This field will store value now() of local record, ex: time update',
+  `online_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Online table record id',
+  `rec_content` text COLLATE utf8_unicode_ci,
+  `rec_content_old` text COLLATE utf8_unicode_ci,
+  `rec_time` int(11) NOT NULL DEFAULT '0',
+  `rec_update_time` int(11) NOT NULL DEFAULT '0',
+  `rec_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0 = Added; 1 = Edited',
+  `rec_status_msg` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `rec_log` text COLLATE utf8_unicode_ci,
+  `rec_checksum` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'md5 hash to verify data'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `nh_sync`
+--
+ALTER TABLE `nh_sync`
+  ADD PRIMARY KEY (`sync_id`);
+
+--
+-- Indexes for table `nh_sync_records`
+--
+ALTER TABLE `nh_sync_records`
+  ADD PRIMARY KEY (`rec_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `nh_sync`
+--
+ALTER TABLE `nh_sync`
+  MODIFY `sync_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `nh_sync_records`
+--
+ALTER TABLE `nh_sync_records`
+  MODIFY `rec_id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;

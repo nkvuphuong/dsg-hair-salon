@@ -1,0 +1,2 @@
+alter table nh_order change ord_new_emitted ord_emit tinyint(1) default 0 null comment 'Đánh dấu xem đã gửi emit đến client chưa';
+

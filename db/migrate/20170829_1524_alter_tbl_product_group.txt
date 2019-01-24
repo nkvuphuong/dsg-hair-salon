@@ -1,0 +1,8 @@
+ALTER TABLE `nh_product_group` CHANGE `product_group_parent` `product_group_parent` INT(11) NULL DEFAULT '0';
+ALTER TABLE `nh_product_group` CHANGE `product_group_avatar` `product_group_avatar` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '';
+ALTER TABLE `nh_product_group` CHANGE `product_group_time_update` `product_group_time_update` INT(11) NOT NULL DEFAULT '0';
+ALTER TABLE `nh_product_group` CHANGE `product_group_name` `product_group_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+ALTER TABLE `nh_product_group` CHANGE `product_group_code` `product_group_code` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+ALTER TABLE `nh_product_group` CHANGE `product_group_description` `product_group_description` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+ALTER TABLE `nh_product_group` CHANGE `pg_shorturl` `pg_shorturl` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '';
+ALTER TABLE `nh_product_group` CHANGE `cat_gallery_id` `cat_gallery_id` INT(11) NOT NULL DEFAULT '0' COMMENT 'Danh mục gallery';

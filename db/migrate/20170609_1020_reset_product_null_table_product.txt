@@ -1,0 +1,1 @@
+UPDATE `nh_product` SET `product_up`='' WHERE product_up = 0

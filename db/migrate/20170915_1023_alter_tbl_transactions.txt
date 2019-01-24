@@ -1,0 +1,6 @@
+ALTER TABLE nh_transaction ADD trx_total_discount DECIMAL(20,2) DEFAULT 0 NULL COMMENT 'Số tiền giảm giá';
+ALTER TABLE nh_transaction MODIFY trx_discount_value DECIMAL(20,2) unsigned NOT NULL DEFAULT '0.00' COMMENT 'Không dùng nữa. ';
+ALTER TABLE nh_transaction MODIFY trx_discount_type TINYINT(1) unsigned NOT NULL DEFAULT '0' COMMENT 'Không dùng nữa. 0: theo %, 1: theo số tiền';
+ALTER TABLE nh_transaction
+  MODIFY COLUMN trx_total_discount DECIMAL(20,2) DEFAULT 0 COMMENT 'Số tiền giảm giá' AFTER trx_amount,
+  MODIFY COLUMN trx_tax DECIMAL(20,2) AFTER trx_total_discount;

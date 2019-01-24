@@ -1,0 +1,2 @@
+drop table nh_devices;
+drop table nh_device_video;

@@ -1,0 +1,1 @@
+<a href="/"><img itemprop="logo" src="<?=$tpl->logo_website;?>" alt="<?=$tpl->seo['title']?>"></a>

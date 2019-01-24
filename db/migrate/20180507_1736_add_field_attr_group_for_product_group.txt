@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product_group` ADD `attr_group` INT NOT NULL DEFAULT '0' COMMENT 'attribute group_id';

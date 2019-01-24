@@ -1,0 +1,31 @@
+CREATE TABLE `nh_shipbill_address` (
+  `sp_id` int(11) NOT NULL,
+  `ord_id` int(11) NOT NULL,
+  `bill_first_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `bill_last_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `bill_full_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `bill_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `bill_phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `bill_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `bill_zipcode` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `bill_city` int(11) NOT NULL,
+  `bill_district` int(11) NOT NULL,
+  `ship_first_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ship_last_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ship_full_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ship_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ship_phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ship_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ship_zipcode` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `ship_city` int(11) NOT NULL,
+  `ship_district` int(11) NOT NULL,
+  `sp_time` int(11) NOT NULL,
+  `sp_deleted` tinyint(1) NOT NULL,
+  `sp_deliver` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Vd: Tín Thành, Giao hàng nhanh',
+  `sp_deliver_fee` decimal(10,0) NOT NULL,
+  `cus_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ALTER TABLE `nh_shipbill_address`
+  ADD PRIMARY KEY (`sp_id`);
+ALTER TABLE `nh_shipbill_address`
+  MODIFY `sp_id` int(11) NOT NULL AUTO_INCREMENT;

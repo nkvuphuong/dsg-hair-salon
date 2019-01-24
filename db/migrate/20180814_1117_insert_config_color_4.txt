@@ -1,0 +1,1 @@
+INSERT INTO `eco_db`.`nh_conf_settings` (`conf_id`, `conf_title`, `conf_key`, `conf_data`, `conf_value`, `conf_group`, `conf_type`, `conf_order`, `conf_protected`, `conf_description`, `conf_lisence`, `conf_expried`) VALUES (NULL, 'Color in background primary', 'free_theme_color_4', NULL, '#fff', '1', 'input', '0', '0', '', '', '0');

@@ -1,0 +1,5 @@
+ALTER TABLE `nh_embed` CHANGE `embed_name` `embed_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;
+ALTER TABLE `nh_embed` CHANGE `embed_code` `embed_code` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;
+ALTER TABLE `nh_embed` CHANGE `embed_html` `embed_html` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;
+ALTER TABLE `nh_embed` CHANGE `embed_css` `embed_css` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;
+ALTER TABLE `nh_embed` CHANGE `embed_js` `embed_js` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;

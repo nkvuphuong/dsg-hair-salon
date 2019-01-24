@@ -1,0 +1,1 @@
+ALTER TABLE `nh_price` CHANGE `price_name` `price_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL;

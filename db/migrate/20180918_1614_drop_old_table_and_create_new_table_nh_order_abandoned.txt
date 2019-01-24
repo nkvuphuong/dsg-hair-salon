@@ -1,0 +1,43 @@
+DROP TABLE IF EXISTS `nh_order_abandoned`;
+CREATE TABLE `nh_order_abandoned` (
+  `id` int(11) NOT NULL,
+  `time` int(11) NOT NULL DEFAULT '0',
+  `next_time` int(11) NOT NULL DEFAULT '0' COMMENT 'next time send email',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `ip` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `bill_first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `bill_last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `bill_full_name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `bill_email` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `bill_phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `bill_company` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `bill_address` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `bill_address2` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `bill_city` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `bill_province` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `bill_zipcode` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `bill_country` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `ship_first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_full_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_company` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_address2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_city` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_province` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_zipcode` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ship_country` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cart_content` text COLLATE utf8_unicode_ci,
+  `total` decimal(20,2) NOT NULL DEFAULT '0.00',
+  `session_id` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sent_email` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0:Not Recovered, 1: Recovered ',
+  `count_sent` tinyint(2) NOT NULL DEFAULT '0',
+  `list_mail` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE `nh_order_abandoned` ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `nh_order_abandoned` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;

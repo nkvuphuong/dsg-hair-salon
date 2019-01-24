@@ -1,0 +1,12 @@
+create table nh_event_logs
+(
+	log_id int auto_increment,
+	log_event char(12) null,
+	log_room char(64) null,
+	log_data text null,
+	log_time int default 0 null,
+	log_ip char(32) null,
+	constraint nh_event_logs_pk
+		primary key (log_id)
+)
+comment 'Logs cho socket';

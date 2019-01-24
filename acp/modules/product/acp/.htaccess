@@ -1,0 +1,7 @@
+# Mod rewrite
+RewriteEngine on
+
+RewriteRule ^billing/invoice/(.+) ?subact=download&mod=invoice&file=$1
+RewriteRule "^subscription-payment-cancel.html"  "?site=subscription&act=payment_cancel"
+RewriteRule "^subscription-payment-success.html(.*)"  "?site=subscription&act=payment_success$1"
+RewriteRule "^subscription-payment-bpn.html"  "/tools/baokim_payment_bpn.php"

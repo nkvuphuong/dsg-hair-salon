@@ -1,0 +1,1 @@
+ALTER TABLE nh_group_customer ADD price_id int(11) DEFAULT 0 NOT NULL COMMENT 'Bảng giá mặc định';

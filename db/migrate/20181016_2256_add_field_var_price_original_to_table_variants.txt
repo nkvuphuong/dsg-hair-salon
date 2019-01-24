@@ -1,0 +1,1 @@
+ALTER TABLE nh_variants ADD var_price_original decimal(20,2) DEFAULT 0.00;

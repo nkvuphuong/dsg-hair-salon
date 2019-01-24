@@ -1,0 +1,1 @@
+ALTER TABLE `nh_email` ADD `email_attachment` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `shopify_order_id`;

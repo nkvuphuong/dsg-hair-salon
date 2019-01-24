@@ -1,0 +1,2 @@
+ALTER TABLE `nh_shift_work` DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;
+ALTER TABLE `nh_work_schedule` DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;

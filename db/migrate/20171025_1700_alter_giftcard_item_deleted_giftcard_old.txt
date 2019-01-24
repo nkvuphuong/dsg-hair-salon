@@ -1,0 +1,1 @@
+ALTER TABLE `nh_giftcard_items` ADD `gitem_code_old` VARCHAR(255) NOT NULL COMMENT 'used for gift card old' AFTER `cus_id`, ADD `gitem_deleted` TINYINT(1) NOT NULL DEFAULT '0' AFTER `gitem_code_old`;

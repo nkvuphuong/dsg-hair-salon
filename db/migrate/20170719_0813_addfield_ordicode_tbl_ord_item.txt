@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order_item` ADD `ordi_code` VARCHAR(250) NULL DEFAULT NULL COMMENT 'Order item code' AFTER `ordi_id`;

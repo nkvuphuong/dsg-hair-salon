@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_price_old` DECIMAL(20,2) NOT NULL DEFAULT '0' COMMENT 'Giá cũ dùng đề show ở các theme nails' AFTER `product_price_sell`;

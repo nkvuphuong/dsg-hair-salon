@@ -1,0 +1,5 @@
+INSERT INTO `nh_conf_settings` ( `conf_title`, `conf_key`, `conf_data`, `conf_value`, `conf_group`, `conf_type`, `conf_order`, `conf_protected`, `conf_description`, `conf_lisence`, `conf_expried`) VALUES
+('', 'giftcard_buy_custom', NULL, '1', 1, 'yes_no', 0, 0, '', '', 0),
+( 'Mô tả cho trang gift card', 'giftcard_description', NULL, 'Let your sweetheart know how much you love and care for him/her by sending our love cards! Buy our gift card for your loved one.', 1, 'textarea', 0, 0, '', '', 0),
+( 'Giá tối đa cho phép khách hàng mua', 'giftcard_max_price', NULL, '250', 1, 'input', 0, 0, '', '', 0),
+( 'Tiêu đề cho trang gift card', 'giftcard_title', NULL, 'Lifetime Nails & Spa e-Gift Cards', 1, 'input', 0, 0, '', '', 0);

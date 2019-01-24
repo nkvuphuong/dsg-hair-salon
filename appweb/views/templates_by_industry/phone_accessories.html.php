@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('phone_accessories', 'templates_by_industry');?>

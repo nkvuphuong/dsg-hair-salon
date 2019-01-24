@@ -1,0 +1,1 @@
+DELETE FROM `nh_migration` WHERE migrate_id>( SELECT * FROM (SELECT `migrate_id` FROM `nh_migration` WHERE `migrate_name`= '20170706_1022_add_field_tbl_email.txt' ORDER BY migrate_id LIMIT 1) AS p )

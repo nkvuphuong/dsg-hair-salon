@@ -1,0 +1,6 @@
+{
+    "require": {
+        "zaloplatform/zalo-php-sdk": "^1.0",
+        "allejo/php-pulse": "^0.3.3"
+    }
+}

@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS `nh_giftcard_items` (
+  `gitem_id` int(11) NOT NULL,
+  `giftcard_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL COMMENT 'Mã giftcard: VD G150',
+  `product_id` int(11) NOT NULL,
+  `gitem_code` varchar(255) NOT NULL,
+  `gitem_amount` decimal(20,2) NOT NULL,
+  `gitem_amount_remain` decimal(20,2) NOT NULL,
+  `gitem_time` int(11) NOT NULL,
+  `gitem_time_update` int(11) NOT NULL,
+  `ord_id` int(11) NOT NULL,
+  `cus_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+ALTER TABLE `nh_giftcard_items`
+  ADD PRIMARY KEY (`gitem_id`);
+ALTER TABLE `nh_giftcard_items`
+  MODIFY `gitem_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;

@@ -1,0 +1,1 @@
+ALTER TABLE nh_transaction ADD trx_excess_cash decimal(10,2) DEFAULT 0 NULL COMMENT 'Tiền thừa trả khách';

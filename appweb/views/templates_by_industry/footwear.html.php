@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('footwear', 'templates_by_industry');?>

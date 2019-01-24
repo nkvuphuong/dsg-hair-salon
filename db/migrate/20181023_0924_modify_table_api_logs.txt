@@ -1,0 +1,2 @@
+ALTER TABLE nh_api_logs CHANGE access_key access_token char(1) COMMENT 'access_key của thiết bị';
+ALTER TABLE nh_api_logs MODIFY log_response mediumtext;

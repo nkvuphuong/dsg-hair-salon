@@ -1,0 +1,3 @@
+ALTER TABLE `nh_customer` ADD `cus_country` INT(4) NOT NULL AFTER `cus_district`;
+ALTER TABLE `nh_customer` ADD `cus_postalcode` VARCHAR(255) NOT NULL AFTER `cus_last_action`, ADD `cus_zip` VARCHAR(255) NOT NULL AFTER `cus_postalcode`, ADD `receive_email` TINYINT(1) NOT NULL AFTER `cus_zip`;
+ALTER TABLE `nh_customer` ADD `have_account` TINYINT(1) NOT NULL COMMENT 'Ða co tai khoan' AFTER `receive_email`, ADD `cus_tags` VARCHAR(255) NOT NULL COMMENT 'danh sach tag cach mau boi dau phay' AFTER `have_account`;

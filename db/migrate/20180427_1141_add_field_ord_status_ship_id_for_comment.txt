@@ -1,0 +1,1 @@
+ALTER TABLE `nh_comment` ADD `ord_status` TINYINT(1) NOT NULL, ADD `ship_id` TINYINT(1) NOT NULL;

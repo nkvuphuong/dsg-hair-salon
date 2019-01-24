@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('snacks', 'templates_by_industry');?>

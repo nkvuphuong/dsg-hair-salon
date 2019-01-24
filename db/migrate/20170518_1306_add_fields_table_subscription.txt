@@ -1,0 +1,1 @@
+ALTER TABLE `nh_subscription` ADD `sub_license_package` CHAR(16) NULL DEFAULT NULL AFTER `payment_method`, ADD `sub_license_expired` INT(11) NOT NULL DEFAULT '0' AFTER `sub_license_package`, ADD `sub_license_cycle` TINYINT(3) NOT NULL DEFAULT '0' AFTER `sub_license_expired`, ADD `sub_total` INT(11) NOT NULL DEFAULT '0' AFTER `sub_license_cycle`;

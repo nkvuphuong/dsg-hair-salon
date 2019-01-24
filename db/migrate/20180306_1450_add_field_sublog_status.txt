@@ -1,0 +1,1 @@
+ALTER TABLE `nh_subscription_logs` ADD `sublog_status` VARCHAR(255) NOT NULL;

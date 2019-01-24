@@ -1,0 +1,1 @@
+UPDATE nh_email_template SET emailtpl_fromname='Admin';

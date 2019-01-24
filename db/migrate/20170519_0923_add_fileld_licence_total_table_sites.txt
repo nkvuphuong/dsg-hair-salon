@@ -1,0 +1,1 @@
+ALTER TABLE eco_system.`nh_sites` ADD `site_license_total` INT(11) NOT NULL DEFAULT '0' AFTER `site_license_cycle`;

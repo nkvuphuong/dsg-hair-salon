@@ -1,0 +1,2 @@
+ALTER TABLE nh_api_logs CHANGE log_request_time log_time int(11) NOT NULL DEFAULT '0';
+ALTER TABLE nh_api_logs DROP log_response_time;

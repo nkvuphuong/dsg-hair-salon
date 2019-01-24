@@ -1,0 +1,1 @@
+ALTER TABLE `nh_pages` ADD `use_layouts` TINYINT(1) NOT NULL DEFAULT '1' AFTER `meta_description`;

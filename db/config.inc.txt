@@ -1,0 +1,25 @@
+<?php
+$info["db_host"] = "localhost";
+$info["db_port"] = "3306";
+$info["db_name"] = 'db_name_rp';
+$info["db_username"] = 'db_username_rp';
+$info["db_password"] = 'db_password_rp';
+$info["db_debug"] = 0;
+
+// Cache
+$info['is_cache'] = 1;
+$info["is_cachesql"] = 1;
+
+// Memcache
+$info["memcache_server"] = "";
+$info["memcache_port"] = "";
+
+// Environment
+$info["ezy_env"] = "mode_debug";
+
+// Security for admin/cron
+$info['whitelist_cron_enable'] = true;
+$info['whitelist_cron'] = ""; // Ex: 127.0.0.1,192.168.0.1
+$info['whitelist_acp_enable'] = false;
+$info['whitelist_acp'] = ""; // Ex: 127.0.0.1,192.168.0.1
+?>

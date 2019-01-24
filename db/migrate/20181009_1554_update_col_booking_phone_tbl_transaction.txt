@@ -1,0 +1,1 @@
+UPDATE nh_order O, nh_transaction TX SET TX.trx_booking_phone = O.ord_booking_phone WHERE O.transaction_id = TX.trx_id

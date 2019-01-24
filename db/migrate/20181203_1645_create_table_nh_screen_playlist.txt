@@ -1,0 +1,9 @@
+CREATE TABLE nh_screen_playlist
+(
+    screen_playlist_id int(11) PRIMARY KEY AUTO_INCREMENT,
+    screen_playlist_order int(11) DEFAULT '0',
+    screen_playlist_time int(11) DEFAULT '0',
+    screen_id int(11) DEFAULT '0',
+    playlist_id int(11) DEFAULT '0'
+);
+CREATE UNIQUE INDEX nh_screen_playlist_screen_playlist_id_uindex ON nh_screen_playlist (screen_playlist_id);

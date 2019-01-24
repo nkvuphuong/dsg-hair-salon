@@ -1,0 +1,20 @@
+create table nh_discount
+(
+	discount_id int auto_increment
+		primary key,
+	discount_name varchar(255) null,
+	discount_description varchar(255) null,
+	discount_content text null,
+	discount_num_items int default '0' null comment 'Số lượng items',
+	discount_type tinyint default '0' null comment '0: percent | 1: amount',
+	discount_value float default '0' null,
+	discount_num_chars tinyint default '0' null comment 'Số ký tự',
+	discount_start_time int default '0' null,
+	discount_end_time int default '0' null,
+	discount_time int default '0' null,
+	discount_deleted tinyint default '0' null,
+	user_id int default '0' null,
+	discount_token_key char(32) null,
+	discount_status tinyint default '1' null
+)
+;

@@ -1,0 +1,1 @@
+ALTER TABLE `nh_coupon` ADD `coupon_status` TINYINT(1) NOT NULL DEFAULT '1', ADD `coupon_end_date` INT NOT NULL DEFAULT '0';

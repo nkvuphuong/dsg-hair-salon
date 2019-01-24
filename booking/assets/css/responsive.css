@@ -1,0 +1,155 @@
+@media (min-width: 992px){
+	.col-md-right 	{ width: 27%;}
+	.col-md-left 	{ width: 73%;}
+	.col-md-right.col-md-pull-8 { right:73%; }
+	.col-md-left.col-md-push-4 { left:27%; }
+
+}
+
+@media (min-width: 1200px){
+	.container { max-width: 1170px;}
+	.art-main .container { max-width: 800px;}
+	.full-container .container {max-width: 900px;}
+	.info-member { width: 30%; }
+	.list-members { width:70%;}
+} 
+
+
+@media (max-width: 990px){
+	.form-nphone .item { width: 33%; }
+	.books-number .nav li a { font-size: 20px; line-height: 75px;}
+
+ 
+}
+
+@media (max-width: 768px){
+	.home-full { background: #fff; }
+	.home-full .logo { width: 100%; padding-left: 0;text-align: center;}
+	.logo{ text-align: center;}
+	.header-step {justify-content: center;
+	}
+	.header-step .item { width: 33%; }
+	
+	.books-number .form-control { font-size: 17px; }
+	.form-number { padding: 20px 0; }
+	.books-number h2 { font-size: 34px; }
+	.nav-date li a { font-size: 16px; margin-right: 5px; }
+	.sd-time li { width: 32%; }
+	.list-members { margin: 15px 0;  }
+
+	.nav-shop li { width: 33%; }
+	.nav-shop li a { font-size: 16px; }
+
+	
+	
+	
+}
+
+@media (max-width: 480px){
+	.btn-step-all .btn-back { width: 100%; margin: 10px 0; }
+	.btn-step-all .btn-next { padding: 15px; width: 100%; margin: 0 0 10px; line-height: 1.4; }
+	.btn-next span { display: block; }
+	.info-member { width: 100%; }
+	.list-service li { width: 49.6%; margin-bottom: 10px; }
+	.btn-step-final .btn-back { font-size: 14px; }
+	.full-container { margin-top: 50px; }
+
+	.nav-shop li { width: 48%; }
+	.nav-shop li a { font-size: 14px; padding: 10px 0;}
+
+	.list-service .addservice { text-indent: -999px; padding: 15px 0; }
+	.list-service li:nth-child(5n) {margin-right: 3px;}
+	.list-service li:nth-child(2n) {margin-right: 0;}
+	
+
+	.step-info .info-books { display: block; padding-left: 35px; }
+	.step-info .info-books-fr { margin-top: 5px; }
+	.step-info .info-books-fr b { line-height: 1; }
+	.step-info .item { padding: 15px; }
+	.step-info .shop-address { font-size: 16px; }
+	.step-info .btn-cancel { font-size: 12px; line-height: 35px;}
+	.step-info .shop-city { font-size: 13px; }
+	.step-info .info-books i {top: 55px;left: 4px; }
+
+
+}
+@media (max-width: 380px){
+	.nav-date li a { font-size: 15px; }
+	.sd-time li { width: 48%; }
+	.books-number h2 {font-size: 24px;}
+	.books-number .form-control { font-size: 14px; }
+	.form-nphone .item span { width: 60px; height: 60px; line-height: 60px; font-size: 24px; }
+
+}
+
+
+
+
+/*===================================================================================*/
+/*  BOOTSTRAP CONFIG
+/*===================================================================================*/
+@media (min-width: 1200px){
+	.hidden-lg {
+	    display: none!important;
+	}
+}
+@media (max-width: 1199px) and (min-width: 992px){
+	.hidden-md {
+    	display: none!important;
+	}
+}
+@media (max-width: 991px) and (min-width: 768px){
+	.hidden-sm {
+	    display: none!important;
+	}
+}
+@media (max-width: 767px){
+	.hidden-xs {
+	    display: none!important;
+	}
+}
+
+@media (min-width: 768px){
+   	li.dropdown:hover>a {}
+	li.dropdown:hover>.dropdown-menu {display: block;}
+	
+	.cart-product-description{max-width: 130px;}	
+	.table-row{border-bottom: none;}
+	.total_change{text-align: left;}
+	.thead {display: table-header-group;}
+	.quantity-label{display: block;}
+	.cart-product-image-cell{padding-bottom: 15px;}
+	.total-change-cell>p.total_change:before{display: none;}
+	.total-amount-label{display: block;}
+	.total-amount-cell{padding:15px;}
+	.quantity-label{color: rgba(0,0,0,0)}
+	.table-row{
+		display: table-row;
+		border:inherit;
+		vertical-align: inherit;
+	}
+	.table-head{
+		display: table-cell;
+		padding: 15px;
+		border:inherit;
+		vertical-align: inherit;
+	}
+	.table-data{
+		display: table-cell;
+		padding-top: 15px;
+		border:inherit;
+		vertical-align: inherit;
+	}	
+	.table-cart .tbody .table-data,.table-cart .tbody .table-data.quantity-cell,
+	.table-cart .tbody .table-data.price-cell,.table-cart .tbody .table-data.total-change-cell{
+		border-bottom:1px solid #bbbbbb;
+		vertical-align: top;
+		display: table-cell;
+	}
+	.table-cart .tbody .table-data.total-change-cell{vertical-align: bottom;}
+	.quantity-cell,.price-cell{display: table-cell;}
+	.total-amount{text-align: left;padding-top: 0;}
+	.total-amount:before{display: none;}
+
+
+}

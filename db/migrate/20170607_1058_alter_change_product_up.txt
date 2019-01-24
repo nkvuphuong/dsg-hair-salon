@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` CHANGE `product_up` `product_up` VARCHAR(15) NOT NULL COMMENT '1: hien thi phan &up hoac + ben canh gia service';

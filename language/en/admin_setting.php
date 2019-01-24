@@ -1,0 +1,53 @@
+<?php
+$lang = array(
+	'setting'=>'Setting',
+	'setting_submit'=>'Update setting',
+	'setting_cp_01'=>'Hide Pinterest button on campaign pages',
+	'setting_cp_02'=>'Hide campaign when ended',
+	'setting_fb'=>'Facebook url',
+	'setting_pp_01'=>'Information Visa / master used to receive money',
+	'setting_bank_number_card'=>'Visa/master number',
+	'setting_bank_fullname'=>'Full name',
+	'setting_pp_last'=>'Last name',
+	'setting_fb_url_err'=>'Facebook url must be valid',
+	'setting_bank_number_err'=>'Require visa/master number',
+	'setting_req_err'=>'Require full name',
+	
+	'setting_cam_text'=>'Campaign',
+	'setting_fb_text'=>'Facebook',
+	'setting_bank_text'=>'Visa/ master Card',
+	'setting_page_text'=>'Pages',
+	'setting_page_text_01'=>'PRIVACY POLICY',
+	'setting_page_text_02'=>'TERMS OF SERVICE',
+	'setting_page_text_03'=>'SUPPORT',
+	'setting_title'=>'Title',
+	'setting_title_err'=>'Required title',
+	'setting_title_incomplete'=>'Wrong title',
+	'setting_content'=>'Content',
+	'setting_success'=>'Success! Update setting success',
+	
+	'setting_email_text'=>'Email',
+	'setting_email_timeline'=>'Timeline',
+	'setting_email_text_01'=>'Info email',
+	'setting_email_title'=>'Email title',
+	'setting_email_content'=>'Email content',
+	'setting_email_title_err'=>'Required title',
+	
+	'setting_google_text'=>'Google',
+	'setting_google_analytics_text'=>'Analytics',
+	'setting_google_analytics_err'=>'Required id google analytics',
+	'setting_google_tag_text'=>'Tag manager',
+	'setting_google_tag_err'=>'Required google tag manager',
+	'script_google_analytics'=>'Script google analytics',
+	'script_google_tag'=>'Script google tag manager',
+	
+	'setting_page_privacy_text'=>'Privacy',
+	'setting_page_terms_text'=>'Terms',
+	'setting_page_support_text'=>'Support',
+	
+	'setting_key_text'=>'Key',
+	'setting_key_key_text'=>'Key',
+	'setting_key_key_err'=>'NOTE: Accept letters, numbers, dashes and underscores',
+	'setting_key_value_text'=>'Value',
+);
+?>

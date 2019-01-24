@@ -1,0 +1,2 @@
+ALTER TABLE nh_product ADD product_commission_type TINYINT DEFAULT 0 NULL COMMENT 'Loại huê hồng: 0 - phần trăm; 1 - số tiền cố định';
+ALTER TABLE nh_product ADD product_commission_value FLOAT DEFAULT 0 NULL COMMENT 'Giá trị huê hồng';

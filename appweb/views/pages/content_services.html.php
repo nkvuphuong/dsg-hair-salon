@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('content_services', 'pages');?>

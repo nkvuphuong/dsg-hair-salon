@@ -1,0 +1,5 @@
+ALTER TABLE nh_product_option RENAME TO nh_product_group_option;
+ALTER TABLE nh_product_group_option CHANGE product_option_id pg_option_id int(11) NOT NULL auto_increment;
+ALTER TABLE nh_product_group_option CHANGE product_option_time pg_option_time int(11) DEFAULT '0';
+ALTER TABLE nh_product_group_option CHANGE product_option_time_update pg_option_time_update int(11) DEFAULT '0';
+ALTER TABLE nh_product_group_option CHANGE product_option_deleted pg_option_deleted tinyint(1) DEFAULT '0';

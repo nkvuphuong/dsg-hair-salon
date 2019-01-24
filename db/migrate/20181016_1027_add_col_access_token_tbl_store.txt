@@ -1,0 +1,1 @@
+ALTER TABLE nh_store ADD store_access_token char(255) NULL COMMENT 'Mã truy cập vào API';

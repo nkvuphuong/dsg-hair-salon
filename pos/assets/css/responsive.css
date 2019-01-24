@@ -1,0 +1,46 @@
+@media (min-width: 768px){
+.column-name{
+	width: calc(100% - 170px);
+}
+
+}
+@media (min-width: 790px){
+.column-price{
+	width: 120px;
+}	
+	}
+@media (min-width: 1024px){	
+
+}
+
+@media (min-width: 1200px){
+
+.column-stt{
+	width: 35px;
+}
+.column-close{
+	width: 35px;
+}
+.column-code{
+	width: 140px;
+}
+.column-name{
+	width: calc(100% - 590px);
+}
+.column-quatity{
+	width: 120px;
+}
+.column-warning{
+	width: 40px;
+}
+.column-discount-price{
+	width: 100px;
+}
+.column-price{
+	width: 120px;
+}
+
+}
+@media (min-width: 1640px){
+
+}

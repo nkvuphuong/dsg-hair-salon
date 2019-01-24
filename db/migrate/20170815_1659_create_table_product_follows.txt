@@ -1,0 +1,1 @@
+CREATE TABLE `nh_product_follows` ( `p_follows_id` INT NOT NULL AUTO_INCREMENT , `product_id` INT NOT NULL , `customer_id` INT NOT NULL , PRIMARY KEY (`p_follows_id`)) ENGINE = InnoDB

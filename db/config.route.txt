@@ -1,0 +1,27 @@
+<?php
+
+// This file will be convert to load via Database when go live (Production Server).
+
+/**
+ * System routes
+ * Syntax: "domain" => array("domain", "database", "app name", "theme name")
+ * (Theme's name just apply only for ezyweb)
+ */
+define("is_web", false);
+$site_routes = array(
+    // Web
+    "root_domain_rp" => array(
+        "domain" => "url_domain_rp",
+        "db" => 'db_name_rp',
+        "app" => "web",
+        "theme" => "theme_rp",
+        "upload" => "hosting_username",
+    ),
+    "www.root_domain_rp" => array(
+        "domain" => "url_www_domain_rp",
+        "db" => 'db_name_rp',
+        "app" => "web",
+        "theme" => "theme_rp",
+        "upload" => "hosting_username",
+    )
+);

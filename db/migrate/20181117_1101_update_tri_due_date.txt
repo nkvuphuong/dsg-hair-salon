@@ -1,0 +1,2 @@
+UPDATE nh_transaction_item SET tri_due_date = unix_timestamp(DATE_ADD(from_unixtime(tri_time, '%Y-%m-%d'), INTERVAL tri_cycle MONTH)) WHERE tri_cycle_type=1 AND tri_due_date=0;
+UPDATE nh_transaction_item SET tri_due_date = unix_timestamp(DATE_ADD(from_unixtime(tri_time, '%Y-%m-%d'), INTERVAL tri_cycle YEAR)) WHERE tri_cycle_type=2 AND tri_due_date=0;

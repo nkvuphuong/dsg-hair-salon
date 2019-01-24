@@ -1,0 +1,1 @@
+UPDATE nh_transaction T RIGHT JOIN nh_order O ON T.trx_id = O.transaction_id SET T.store_id = O.store_id WHERE T.trx_id = O.transaction_id;

@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order` ADD `ord_quantity_items` INT(5) NOT NULL DEFAULT '0' COMMENT 'Add quantity of item for report' AFTER `store_id`;

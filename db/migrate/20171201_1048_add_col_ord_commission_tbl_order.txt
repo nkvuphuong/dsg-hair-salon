@@ -1,0 +1,1 @@
+ALTER TABLE nh_order ADD ord_commission DECIMAL(20,2) DEFAULT 0 NULL COMMENT 'Huê hồng';

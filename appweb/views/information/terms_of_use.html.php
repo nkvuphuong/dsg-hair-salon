@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('terms_of_use', 'information');?>

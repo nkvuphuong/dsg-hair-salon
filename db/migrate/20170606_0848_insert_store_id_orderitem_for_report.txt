@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order_item` ADD `store_id` INT(11) NOT NULL DEFAULT '0' COMMENT 'Insert store id for report' AFTER `bill_export_id`;

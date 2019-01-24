@@ -1,0 +1,1 @@
+ALTER TABLE nh_store MODIFY store_tax float(5) DEFAULT 0 COMMENT 'default tax of product in store';

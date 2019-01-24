@@ -1,0 +1,425 @@
+/*
+   Theme Name: ZEN
+   Description: One page professional theme.
+   Author: ICdesignMA
+   Version: 1.0
+   Designed & Handcrafted by ICdesignMA 
+   
+*/
+
+/*  T A B L E   O F   C O N T E N T S 
+    ........................................................................................................................................
+    
+    1. Smaller than standard 960 (devices and browsers) 
+    2. iPad Landscape
+    3. Tablet Portrait size to standard 960 (devices and browsers)
+    4. Mobile Landscape Size to Tablet Portrait (devices and browsers)
+    5. Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
+
+
+
+ /*-----------------------------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 1200px) { 
+
+    .da-slide .da-img {
+        bottom: 10px;
+    }
+}
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+    #header{
+        padding: 0;
+        margin-bottom:0;
+    }
+    #header .navbar-inner{
+        padding: 0px;
+    }
+    body{
+        padding-top: 0;
+    }
+    .da-slide{
+        width: 816px;
+        height: 114%;
+        left: 36%;
+    }
+    .da-slide h2{
+        width: auto;
+    }
+    .da-slide .da-img {
+        bottom: 41px;
+    }
+    #pricing .desc .packages-desc{
+        margin-left: auto;
+    }
+    #pricing header{
+        font-size: 20px;
+        padding: 14px !important;
+    }
+    #pricing .premium {
+        font-size: 20px;
+        padding: 14px !important;
+    }
+    #pricing .premium_footer {
+        padding: 11px 0;
+    }
+    #our_clients{
+        padding: 15px 0 0px;
+    }
+    #our_clients .clients {
+        position: relative;
+        margin: auto;
+        padding: 0;
+    }
+    #find_us .row-fluid .contact{
+        position: inherit;
+        padding: auto;
+        margin:  2px auto 10px;
+    }
+    .flex-control-nav{
+        width: 100%;
+    }
+    .featured{
+        position: relative;
+        bottom: -96px;
+    }
+
+}
+
+/* iPad Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) { 
+    .selectnav {
+        display: block;
+    }
+    #menu{
+        display: none;
+    }
+    .da-slide .da-img{
+        bottom: 41px;
+    }
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    #header .navigation{
+        display: block;
+    }
+    .da-slide h2 {
+        font-size: 36px;
+        width: auto;
+        left: 17%;
+        margin-left: 27px;
+    }
+    .da-slide p.desc{
+        margin-left: 18px;
+    }
+    #slider .flex-direction-nav a{
+        bottom: 2px;
+    }
+    #slider .flex-direction-nav .flex-prev {
+        left: auto;
+    }
+    #slider .flex-direction-nav .flex-next {
+        right: 1px;
+    }
+    .da-slide-current p, .da-slide-current .da-link {
+        left: 17%;
+        opacity: 1;
+    }
+    #pricing .desc .packages-desc {
+        margin-left: auto;
+        top: 53px;
+    }
+
+}/* END Smaller than standard 960 (devices and browsers) */
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    body{
+        padding: 0;
+    }
+    #header {
+        margin: 0;
+        padding: 0;
+    }
+    #menu{
+        display: none;
+    }
+    #header .navbar-inner{
+        padding: 0 27px;
+    }
+    .selectnav {
+        display: block;
+        margin:10px auto 0px
+    }
+    #header .social {
+        width: 100%;
+        text-align: center;
+    }
+    #header .social > li {
+        display: inline-block;
+        float: none;
+    }
+    .da-slide {
+        width: 100%;
+    }
+    .da-slide h2{
+        font-size: 18px;
+        top: 13px;
+        margin-left: -3px;
+        padding: 8px;
+    }
+    .da-slide p.second_title {
+        font-size: 13px;
+        top: 89px;
+        padding: 3px;
+        margin-left: -5px;
+    }
+    .da-slide p.desc {
+        width: 49%;
+        top: 92px;
+        font-size: 11px;
+        font-weight: normal;
+        line-height: 16px;
+        height: auto;
+        margin-left: 3px;
+    }
+
+    .da-slide .da-img {
+        display: block;
+        text-align: center;
+        width: 26%;
+        height: 350px;
+        line-height: 350px;
+        left: 72%;
+        margin-left: 52px;
+        bottom: -77px;
+    }
+    .da-dots {
+        z-index: 9999;
+    }
+    .flexslider .info{
+        width: 100%;
+    }
+    #services .flexslider .slides img {
+        float: none;
+        margin: auto;
+    }
+    .flex-direction-nav{
+        display: none;
+    }
+    #service,#pricing,#find_us,#our_clients{
+        padding: 41px 28px;
+    }
+    #find_us .simple_btn {
+        float: left;
+    }
+    #pricing .desc{
+        display: none;
+    }
+    #pricing header {
+        margin-top: 12px;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0; 
+        border-radius: 0;
+    }
+    #pricing .premium{
+        margin-top: 15px;
+    }
+    #footer .container{
+        padding: 0 42px;
+    }
+    #footer input {
+        width: 63%;
+    }
+    #footer .social {
+        width: 100%;
+        text-align: center;
+    }
+    #footer .social > li {
+        width: auto;
+        display: inline-block;
+        float: none;
+    }
+}/* END Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+    body{
+        padding: 0;
+    }
+    #header .container { 
+        width: 100%;
+    }
+    #header {
+        margin: 0;
+        padding: 0;
+    }
+    #header .navbar-inner .brand{
+        width: 89%;
+        text-align: center;
+    }
+    #menu{
+        display: none;
+    }
+    #header .navbar-inner{
+        padding: 0 27px;
+    }
+    #header .social{
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+    #header .social > li{
+        display: inline-block;
+        float: none;
+    }
+    .da-slide h2 {
+        font-size: 15px;
+        width: auto;
+        top: 18px;
+        padding: 3px 10px;
+        margin-left: -38px;
+    }
+
+    .da-slide p.second_title {
+        margin-left: -73px;
+        font-size: 13px;
+        line-height: 25px;
+        margin-left: -21px;
+        padding: 5px;
+        text-shadow: 0 0;
+        top: 82px;
+    }
+    .da-slide p.desc {
+        width: 31%;
+        padding: 0px;
+        top: 90px;
+        font-size: 9px;
+        color: #fff;
+        font-weight: normal;
+        line-height: 19px;
+        height: auto;
+        margin-left: -24px;
+    }
+
+    .da-slide .da-img {
+        display: block;
+        text-align: center;
+        width: 11%;
+        margin-left: -235px  !important;
+        bottom: -115px;
+        height: 373px;
+        position: absolute !important;
+        line-height: 350px;
+    }
+    .da-dots {
+        z-index: 9999;
+        bottom: -7px;
+    }
+    .da-dots span{
+        margin: 3px 3px;
+    }
+    #carousel .flex-viewport {
+        max-height: 2000px;
+        left: -36px;
+        width: 297px;
+        right: 11px;
+    }
+    #carousel li{
+        margin-right: 4px;
+    }
+    .flexslider .info {
+        float: left;
+        width: 100%;
+        text-align: justify;
+    }
+    .flexslider .slides img {
+        float: none;
+    }
+
+    #service,#pricing,#find_us,#our_clients{
+        padding: 41px 28px;
+    }
+    #pricing .desc{
+        display: none;
+    }
+    #footer input{
+        width: 44%;
+    }
+    .selectnav {
+        display: block;
+        width: 60%;
+        clear: both;
+        margin: 10px auto 4px;
+    }
+    #our_clients .clients{
+        position: relative;
+        margin: auto;
+        padding: 0;
+    }
+    #menu{
+        display: none;
+    }
+    .flex-direction-nav{
+        display: none;
+    }
+    #projects .flex-direction-nav{
+        display: block;
+        position: relative;
+        margin: 4px 42px;
+    }
+    #pricing header {
+        margin-top: 12px;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0; 
+        border-radius: 0;
+    }
+    #pricing .premium{
+        margin-top: 15px;
+    }
+    #find_us .row-fluid .contact{
+        position: inherit;
+        padding: auto;
+        margin: auto;
+    }
+    #footer .container{
+        padding: 0 17px;
+    }
+    #footer .flickr{
+        width: 100%;
+        text-align: center;
+    }
+    #footer ul.flickr li{
+        float: none;
+        display: inline-block;
+    }
+    #footer .nav-pills > li{
+        width: 100%;
+        text-align: center;
+    }
+    #footer .social > li{
+        width: auto;
+        display: inline-block;
+        float: none;
+    }
+    #footer .social{
+        width: 100%;
+        text-align: center;
+    }
+    #back-top{
+        right: 1px;
+    }
+    #back-top a {
+        width: 28px;
+        height: 28px;
+        display: block;
+        margin-bottom: 24px;
+        background:url(../img/mobile_Arrow_up.png) no-repeat center center;
+    }
+    #style_switcher{
+        display: none !important;
+    }
+}/* END Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */

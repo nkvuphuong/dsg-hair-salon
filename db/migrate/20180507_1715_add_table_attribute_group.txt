@@ -1,0 +1,16 @@
+CREATE TABLE `nh_attribute_group` (
+  `group_id` int(11) NOT NULL,
+  `group_name` varchar(255) NOT NULL,
+  `group_description` text NOT NULL,
+  `group_status` tinyint(1) NOT NULL DEFAULT '1',
+  `group_deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `group_time` int(11) NOT NULL,
+  `group_time_update` int(11) NOT NULL,
+  `group_attribute_list` text NOT NULL COMMENT 'Json list'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ALTER TABLE `nh_attribute_group`
+  ADD PRIMARY KEY (`group_id`);
+
+ALTER TABLE `nh_attribute_group`
+  MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT;

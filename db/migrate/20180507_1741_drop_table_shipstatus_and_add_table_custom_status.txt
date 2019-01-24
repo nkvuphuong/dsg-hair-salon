@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `nh_shipstatus`;
+
+CREATE TABLE `nh_custom_status` (
+ `status_id` int(11) NOT NULL AUTO_INCREMENT,
+ `status_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+ `status_description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+ `status_display` tinyint(1) NOT NULL DEFAULT '1',
+ `status_is_step` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'Hiển thị ở trang member step đơn hàng',
+ `ord_status` int(11) NOT NULL COMMENT 'status của order',
+ `status_time` int(11) NOT NULL,
+ `status_time_update` int(11) NOT NULL,
+ `status_deleted` tinyint(1) NOT NULL DEFAULT '0',
+ `status_sort` int(11) NOT NULL COMMENT 'Sắp xếp',
+ `user_id` int(11) NOT NULL,
+ PRIMARY KEY (`status_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8

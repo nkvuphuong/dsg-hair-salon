@@ -1,0 +1,5 @@
+alter table nh_order modify ord_emit char(16) default 0 null comment 'Gọi sự kiện emit';
+
+create index nh_order_ord_emit_index
+	on nh_order (ord_emit);
+

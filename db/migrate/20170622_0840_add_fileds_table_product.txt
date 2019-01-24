@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_infomation_1` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `product_description`, ADD `product_infomation_2` TEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `product_infomation_1`;

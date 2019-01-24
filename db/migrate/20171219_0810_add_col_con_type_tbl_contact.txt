@@ -1,0 +1,1 @@
+ALTER TABLE `nh_contact` ADD `con_type` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0: liên hệ; 1: đăng ký học viên' AFTER `con_deleted`;

@@ -1,0 +1,3 @@
+ALTER TABLE nh_transaction_item ADD tri_old_price decimal(20,2) DEFAULT 0 NULL COMMENT 'Giá bán cũ';
+ALTER TABLE nh_transaction_item
+  MODIFY COLUMN tri_old_price decimal(20,2) DEFAULT 0 COMMENT 'Giá bán cũ' AFTER tri_cycle;

@@ -1,0 +1,14 @@
+create table nh_device_video
+(
+	device_id int default 0 null,
+	video_id int default 0 null
+);
+
+create index nh_device_video_device_id_index
+	on nh_device_video (device_id);
+
+create unique index nh_device_video_device_id_video_id_uindex
+	on nh_device_video (device_id, video_id);
+
+create index nh_device_video_video_id_index
+	on nh_device_video (video_id);

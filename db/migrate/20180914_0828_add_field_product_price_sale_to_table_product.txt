@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `product_price_sale` DECIMAL(20,2) NOT NULL DEFAULT '0.00' COMMENT 'Giá khuyến mãi' AFTER `product_price_sell`;

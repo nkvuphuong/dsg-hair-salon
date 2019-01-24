@@ -1,0 +1,1 @@
+ALTER TABLE nh_store ADD store_tax char(255) NULL COMMENT 'default tax of product in store';

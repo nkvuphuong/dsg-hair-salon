@@ -1,0 +1,3 @@
+ALTER TABLE `nh_product` ADD `product_stock_available` TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1: available; 0: out of stock';
+ALTER TABLE `nh_product` ADD `product_first_remain` INT(11) NOT NULL DEFAULT '0' COMMENT 'Tồn đầu';
+ALTER TABLE `nh_product` ADD `product_show_instock` TINYINT(1) NOT NULL DEFAULT '0' COMMENT 'Hiển thị tồn kho trên website';

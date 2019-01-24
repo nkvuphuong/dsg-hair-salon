@@ -1,0 +1,3 @@
+ALTER TABLE nh_logos ADD logo_token_key CHAR(32) NULL;
+ALTER TABLE nh_logos
+  MODIFY COLUMN logo_link VARCHAR(255) AFTER logo_token_key;

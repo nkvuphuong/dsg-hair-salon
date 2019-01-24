@@ -1,0 +1,1 @@
+ALTER TABLE nh_transaction_item ADD tri_recurring_time int(11) DEFAULT 0 NULL COMMENT 'Tạo transaction theo thông tin item này nếu thời gian hiện tại vượt qua mốc này';

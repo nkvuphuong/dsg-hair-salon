@@ -1,0 +1,3 @@
+ALTER TABLE nh_logo_positions CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+INSERT INTO nh_logo_positions(pos_name, pos_key, pos_mode, pos_type, pos_token_key, pos_desc, pos_deleted, pos_status)
+  SELECT * FROM(SELECT 'Global popup' as pos_name, 'global_popup' as pos_key, 'session' as pos_mode, 'random' as pos_type, 'ace1ab33ec932ee83b2ef7159910fd09' as pos_token_key, '' as pos_desc,0 as pos_deleted,1 as pos_status) as tmp WHERE pos_key NOT IN (SELECT pos_key FROM nh_logo_positions WHERE pos_deleted=0)

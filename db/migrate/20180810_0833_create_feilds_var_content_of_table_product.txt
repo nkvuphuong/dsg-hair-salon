@@ -1,0 +1,1 @@
+ALTER TABLE `nh_product` ADD `var_content` TEXT NULL DEFAULT NULL COMMENT 'json variants info' AFTER `store_id`;

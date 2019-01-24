@@ -1,0 +1,1 @@
+ALTER TABLE eco_system.`nh_sites` ADD `db_name` VARCHAR(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `hosting_password`, ADD `db_username` VARCHAR(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `db_name`, ADD `db_password` VARCHAR(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL AFTER `db_username`;

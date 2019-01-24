@@ -1,0 +1,2 @@
+ALTER TABLE `nh_shipbill_address` ADD `ship_address2` VARCHAR(255) NULL DEFAULT NULL AFTER `ship_address`;
+ALTER TABLE `nh_shipbill_address` ADD `bill_address2` VARCHAR(255) NULL DEFAULT NULL AFTER `bill_address`;

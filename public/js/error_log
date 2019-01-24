@@ -1,0 +1,46 @@
+[28-Feb-2018 08:25:38 UTC] PHP Warning:  ini_set() has been disabled for security reasons in /home/dungsarkjxm1g/public_html/init.inc.php on line 48
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: is_login in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 17
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: alert_delete in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 18
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: alert_empty in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 19
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: required_field in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 20
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: create_random_password in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 30
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: close in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 31
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: login_require in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 34
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: allow_customer in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 35
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: validate_free_subdomain in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 36
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: loading in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 38
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: loading in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 39
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: title_check_color in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 40
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: processing_fee in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 41
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: success in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 43
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: error in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 44
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: lang_title_header_notify in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 46
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: cycle_once in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 50
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: cycle_monthly in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 51
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: cycle_yearly in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 52
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Undefined property: stdClass::$mysql in /home/dungsarkjxm1g/public_html/kernel/lib/security.php on line 148
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  Trying to get property of non-object in /home/dungsarkjxm1g/public_html/kernel/lib/security.php on line 148
+[28-Feb-2018 15:25:39 Asia/Ho_Chi_Minh] PHP Notice:  ob_end_clean(): failed to delete buffer. No buffer to delete in /home/dungsarkjxm1g/public_html/kernel/lib/security.php on line 155
+[28-Feb-2018 08:25:40 UTC] PHP Warning:  ini_set() has been disabled for security reasons in /home/dungsarkjxm1g/public_html/init.inc.php on line 48
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: is_login in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 17
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: alert_delete in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 18
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: alert_empty in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 19
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: required_field in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 20
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: create_random_password in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 30
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: close in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 31
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: login_require in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 34
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: allow_customer in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 35
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: validate_free_subdomain in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 36
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: loading in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 38
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: loading in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 39
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: title_check_color in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 40
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: processing_fee in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 41
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: success in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 43
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: error in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 44
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: lang_title_header_notify in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 46
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: cycle_once in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 50
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: cycle_monthly in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 51
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: cycle_yearly in /home/dungsarkjxm1g/public_html/public/js/js_var.php on line 52
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined property: stdClass::$mysql in /home/dungsarkjxm1g/public_html/kernel/lib/security.php on line 148
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  Trying to get property of non-object in /home/dungsarkjxm1g/public_html/kernel/lib/security.php on line 148
+[28-Feb-2018 15:25:40 Asia/Ho_Chi_Minh] PHP Notice:  ob_end_clean(): failed to delete buffer. No buffer to delete in /home/dungsarkjxm1g/public_html/kernel/lib/security.php on line 155

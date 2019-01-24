@@ -1,0 +1,1 @@
+ALTER TABLE `nh_order` CHANGE `ship_id` `custom_status_id` INT(1) NOT NULL COMMENT 'ID custom status';

@@ -1,0 +1,1 @@
+alter table nh_transaction_item drop column tri_recurring_time;

@@ -1,0 +1,10 @@
+CREATE TABLE nh_playlist_items
+(
+    playlisti_id int(11) PRIMARY KEY AUTO_INCREMENT,
+    playlisti_status tinyint(1) DEFAULT '0' COMMENT '0: hide; 1: show',
+    playlisti_order int(11) DEFAULT '0',
+    playlisti_time int(11) DEFAULT '0',
+    playlist_id int(11) DEFAULT '0',
+    videos_id int(11) DEFAULT '0'
+);
+CREATE UNIQUE INDEX nh_playlist_items_playlisti_id_uindex ON nh_playlist_items (playlisti_id);

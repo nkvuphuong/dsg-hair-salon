@@ -1,0 +1,1 @@
+<?=\core\ezy::tpl('main', 'templates_travel');?>

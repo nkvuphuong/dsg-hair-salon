@@ -1,0 +1,1 @@
+ALTER TABLE `nh_transaction` ADD `ord_id` INT(11) NOT NULL DEFAULT '0' COMMENT 'Order id' AFTER `request_id`;

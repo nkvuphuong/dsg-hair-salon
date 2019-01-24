@@ -1,0 +1,2 @@
+UPDATE `nh_email_template` SET emailtpl_from='' WHERE emailtpl_from='no-reply@3f.team';
+UPDATE `nh_email_template` SET emailtpl_fromname='' WHERE emailtpl_fromname='no-reply@3f.team';
