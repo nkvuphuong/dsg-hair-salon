@@ -1,4 +1,4 @@
-const socket = io.connect("https://myhair.com.vn:3000");
+const socket = io.connect(":3000");
 
 socket.on('open_rating_order', function (data) {
     let storeId = +$("#store_id").val();

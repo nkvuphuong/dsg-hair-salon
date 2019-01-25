@@ -135,7 +135,7 @@ export class BillService {
         bill.subTotal = 0;
         bill.total = 0;
         bill.taxAmount = 0;
-        bill.paymentAmount = 0;
+        bill.paymentAmount = bill.paymentAmount > 0 ? bill.paymentAmount : 0;
         bill.discountAmount = 0;
         bill.excessCash = 0;
         bill.items.forEach(x => {
@@ -155,7 +155,8 @@ export class BillService {
 
 
         bill.total = bill.subTotal - bill.discountAmount + bill.taxAmount;
-        bill.paymentAmount = bill.total;
+        bill.paymentAmount = bill.productType == 1 ? bill.paymentAmount :  bill.total;
+        bill.excessCash = bill.paymentAmount - bill.total;
 
         bill.discountValue = customNumberFormat(bill.discountValue);
         bill.discountAmount = customNumberFormat(bill.discountAmount);

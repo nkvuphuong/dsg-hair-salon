@@ -54,7 +54,7 @@ import {ValidatorService} from "./services/validator/validator.service";
 import {SocketIoModule, SocketIoConfig} from 'ng-socket-io';
 import {OrderService} from "./services/order/order.service";
 
-const config: SocketIoConfig = {url: 'http://localhost:3000', options: {}};
+const config: SocketIoConfig = {url: ":3000", options: {}};
 
 registerLocaleData(localesVi, localesViExtra);
 

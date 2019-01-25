@@ -1253,7 +1253,7 @@ export class DashboardComponent implements OnInit {
         /**
          * Update for bill items
          */
-        this.selectedBill.items.map((x: BillItem) => {
+        /*this.selectedBill.items.map((x: BillItem) => {
             let newPrice = this.selectedBill.price ? this.selectedBill.price.items.filter(y => y.productId == x.productId) : null;
             x.oldPrice = x.price = newPrice && newPrice[0] ? newPrice[0].price : x.product.commonPrice;
             this.updatePrice(x);
@@ -1261,7 +1261,7 @@ export class DashboardComponent implements OnInit {
             return x;
         });
 
-        this.billService.saveBill(this.selectedBill);
+        this.billService.saveBill(this.selectedBill);*/
     }
 
     overwriteProductByPrice() {
