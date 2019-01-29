@@ -468,11 +468,21 @@ export class DashboardComponent implements OnInit {
             }
         }
 
+        // Kiểm tra item cuối để gán nhân viên mặc định cho item vừa add
+        let lastItem = this.selectedBill.items[this.selectedBill.items.length-1];
+
         this.selectedBill = this.billService.addItem(item, this.selectedBill);
 
         if (product.type == 1) { //dich vu
             let addedItem = this.selectedBill.items[this.selectedBill.items.length - 1];
-            this.getBookingHours(addedItem);
+            let __this = this;
+            // this.getBookingHours(addedItem);
+            this.getBookingHours(addedItem, function () {
+              //Gán nhân viên mặc định cho item mới
+              if (lastItem.staff) {
+                __this.addStaffToItem(lastItem.staff.id, addedItem);
+              }
+            });
         }
 
         this.selectedBill = this.billService.calculateBill(this.selectedBill);
@@ -920,7 +930,7 @@ export class DashboardComponent implements OnInit {
      * Get hours to booking
      * @param {BillItem} item
      */
-    getBookingHours(item: BillItem) {
+    getBookingHours(item: BillItem, callback = null) {
         let day = moment(item.date, "DD/MM/YYYY");
         this.bookingHourService.getBookingHours(this.selectedBill.store.id, day.format('YYYY-MM-DD')).subscribe(
             (res: BookingHour[]) => {
@@ -930,6 +940,10 @@ export class DashboardComponent implements OnInit {
                 this.filterBookingHours(item);
                 this.setBookedHoursAllItems();
                 this.billService.saveBill(this.selectedBill);
+
+                if (callback) {
+                  callback();
+                }
             }
         )
     }
