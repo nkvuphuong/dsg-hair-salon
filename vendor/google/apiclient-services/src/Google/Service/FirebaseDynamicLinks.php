@@ -98,9 +98,17 @@ class Google_Service_FirebaseDynamicLinks extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'sdkVersion' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'installAttribution' => array(
               'path' => 'v1/installAttribution',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'reopenAttribution' => array(
+              'path' => 'v1/reopenAttribution',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),

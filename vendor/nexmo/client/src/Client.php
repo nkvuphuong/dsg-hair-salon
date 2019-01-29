@@ -91,6 +91,21 @@ class Client
             $this->validateAppOptions($options['app']);
         }
 
+        // Set the default URLs. Keep the constants for
+        // backwards compatibility
+        $this->apiUrl = static::BASE_API;
+        $this->restUrl = static::BASE_REST;
+
+        // If they've provided alternative URLs, use that instead
+        // of the defaults
+        if (isset($options['base_rest_url'])) {
+            $this->restUrl = $options['base_rest_url'];
+        }
+
+        if (isset($options['base_api_url'])) {
+            $this->apiUrl = $options['base_api_url'];
+        }
+
         $this->setFactory(new MapFactory([
             'account' => 'Nexmo\Account\Client',
             'insights' => 'Nexmo\Insights\Client',
@@ -104,6 +119,14 @@ class Client
             'user' => 'Nexmo\User\Collection',
             'redact' => 'Nexmo\Redact\Client',
         ], $this));
+    }
+
+    public function getRestUrl() {
+        return $this->restUrl;
+    }
+
+    public function getApiUrl() {
+        return $this->apiUrl;
     }
 
     /**
@@ -157,7 +180,7 @@ class Client
                 $content = $body->getContents();
                 $params = json_decode($content, true);
                 $params['api_key'] = $credentials['api_key'];
-                $signature = new Signature($params, $credentials['signature_secret']);
+                $signature = new Signature($params, $credentials['signature_secret'], $credentials['signature_method']);
                 $body->rewind();
                 $body->write(json_encode($signature->getSignedParams()));
                 break;
@@ -168,7 +191,7 @@ class Client
                 $params = [];
                 parse_str($content, $params);
                 $params['api_key'] = $credentials['api_key'];
-                $signature = new Signature($params, $credentials['signature_secret']);
+                $signature = new Signature($params, $credentials['signature_secret'], $credentials['signature_method']);
                 $params = $signature->getSignedParams();
                 $body->rewind();
                 $body->write(http_build_query($params, null, '&'));
@@ -177,7 +200,7 @@ class Client
                 $query = [];
                 parse_str($request->getUri()->getQuery(), $query);
                 $query['api_key'] = $credentials['api_key'];
-                $signature = new Signature($query, $credentials['signature_secret']);
+                $signature = new Signature($query, $credentials['signature_secret'], $credentials['signature_method']);
                 $request = $request->withUri($request->getUri()->withQuery(http_build_query($signature->getSignedParams())));
                 break;
         }
@@ -187,9 +210,12 @@ class Client
 
     public static function authRequest(RequestInterface $request, Basic $credentials)
     {
-        switch($request->getHeaderLine('content-type')){
-        case 'application/json':
-            if (static::requiresAuthInUrlNotBody($request)) {
+        switch($request->getHeaderLine('content-type')) {
+            case 'application/json':
+            if (static::requiresBasicAuth($request)) {
+                $c = $credentials->asArray();
+                $request = $request->withHeader('Authorization', 'Basic ' . base64_encode($c['api_key'] . ':' . $c['api_secret']));
+            } else if (static::requiresAuthInUrlNotBody($request)) {
                 $query = [];
                 parse_str($request->getUri()->getQuery(), $query);
                 $query = array_merge($query, $credentials->asArray());
@@ -453,6 +479,14 @@ class Client
         }
 
         return $this->factory->getApi($name);
+    }
+
+    protected static function requiresBasicAuth(\Psr\Http\Message\RequestInterface $request)
+    {
+        $path = $request->getUri()->getPath();
+        $isSecretManagementEndpoint = strpos($path, '/accounts') === 0 && strpos($path, '/secrets') !== false;
+
+        return $isSecretManagementEndpoint;
     }
 
     protected static function requiresAuthInUrlNotBody(\Psr\Http\Message\RequestInterface $request)

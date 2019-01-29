@@ -98,12 +98,12 @@ class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service
    * with the service accounts, such as `projects/my-project-123`.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string pageToken Optional pagination token returned in an earlier
+   * ListServiceAccountsResponse.next_page_token.
    * @opt_param int pageSize Optional limit on the number of service accounts to
    * include in the response. Further accounts can subsequently be obtained by
    * including the ListServiceAccountsResponse.next_page_token in a subsequent
    * request.
-   * @opt_param string pageToken Optional pagination token returned in an earlier
-   * ListServiceAccountsResponse.next_page_token.
    * @return Google_Service_Iam_ListServiceAccountsResponse
    */
   public function listProjectsServiceAccounts($name, $optParams = array())
@@ -111,6 +111,36 @@ class Google_Service_Iam_Resource_ProjectsServiceAccounts extends Google_Service
     $params = array('name' => $name);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Iam_ListServiceAccountsResponse");
+  }
+  /**
+   * Patches a ServiceAccount.
+   *
+   * Currently, only the following fields are updatable: `display_name` and
+   * `description`.
+   *
+   * Only fields specified in the request are garaunteed to be returned in the
+   * response. Other fields in the response may be empty.
+   *
+   * Note: The field mask is required. (serviceAccounts.patch)
+   *
+   * @param string $name The resource name of the service account in the following
+   * format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+   *
+   * Requests using `-` as a wildcard for the `PROJECT_ID` will infer the project
+   * from the `account` and the `ACCOUNT` value can be the `email` address or the
+   * `unique_id` of the service account.
+   *
+   * In responses the resource name will always be in the format
+   * `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`.
+   * @param Google_Service_Iam_PatchServiceAccountRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Iam_ServiceAccount
+   */
+  public function patch($name, Google_Service_Iam_PatchServiceAccountRequest $postBody, $optParams = array())
+  {
+    $params = array('name' => $name, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Iam_ServiceAccount");
   }
   /**
    * Sets the IAM access control policy for a ServiceAccount.

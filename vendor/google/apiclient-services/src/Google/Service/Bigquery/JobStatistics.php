@@ -15,8 +15,9 @@
  * the License.
  */
 
-class Google_Service_Bigquery_JobStatistics extends Google_Model
+class Google_Service_Bigquery_JobStatistics extends Google_Collection
 {
+  protected $collection_key = 'reservationUsage';
   public $completionRatio;
   public $creationTime;
   public $endTime;
@@ -26,8 +27,12 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   protected $loadDataType = '';
   protected $queryType = 'Google_Service_Bigquery_JobStatistics2';
   protected $queryDataType = '';
+  public $quotaDeferments;
+  protected $reservationUsageType = 'Google_Service_Bigquery_JobStatisticsReservationUsage';
+  protected $reservationUsageDataType = 'array';
   public $startTime;
   public $totalBytesProcessed;
+  public $totalSlotMs;
 
   public function setCompletionRatio($completionRatio)
   {
@@ -95,6 +100,28 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   {
     return $this->query;
   }
+  public function setQuotaDeferments($quotaDeferments)
+  {
+    $this->quotaDeferments = $quotaDeferments;
+  }
+  public function getQuotaDeferments()
+  {
+    return $this->quotaDeferments;
+  }
+  /**
+   * @param Google_Service_Bigquery_JobStatisticsReservationUsage
+   */
+  public function setReservationUsage($reservationUsage)
+  {
+    $this->reservationUsage = $reservationUsage;
+  }
+  /**
+   * @return Google_Service_Bigquery_JobStatisticsReservationUsage
+   */
+  public function getReservationUsage()
+  {
+    return $this->reservationUsage;
+  }
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
@@ -110,5 +137,13 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   public function getTotalBytesProcessed()
   {
     return $this->totalBytesProcessed;
+  }
+  public function setTotalSlotMs($totalSlotMs)
+  {
+    $this->totalSlotMs = $totalSlotMs;
+  }
+  public function getTotalSlotMs()
+  {
+    return $this->totalSlotMs;
   }
 }

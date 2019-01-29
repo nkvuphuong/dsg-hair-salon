@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Zendesk\\API\\' => array($vendorDir . '/zendesk/zendesk_api_client_php/src'),
     'Props\\' => array($vendorDir . '/mrclay/props-dic/src', $vendorDir . '/mrclay/props-dic/test'),
-    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src'),
     'PhpCollection' => array($vendorDir . '/phpcollection/phpcollection/src'),
@@ -25,6 +24,5 @@ return array(
     'Google_Service_' => array($vendorDir . '/google/apiclient-services/src'),
     'Google_' => array($vendorDir . '/google/apiclient/src'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib'),
-    'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Dflydev\\DotAccessData' => array($vendorDir . '/dflydev/dot-access-data/src'),
 );
