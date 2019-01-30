@@ -27,15 +27,11 @@
             <table class="table table-borderless present-table">
                 <tbody>
                 <tr>
-                    <td scope="col" width="183">Số tiền:</td>
+                    <td scope="col" width="183"><strong>Số tiền:</strong></td>
                     <td scope="col" id="ord-amount">###</td>
-                </tr>
-                <tr>
-                    <td scope="col">Giảm giá:</td>
+                    <td scope="col"><strong>Giảm giá:</strong></td>
                     <td scope="col" id="ord-discount">###</td>
-                </tr>
-                <tr>
-                    <td scope="col">Thuế:</td>
+                    <td scope="col"><strong>Thuế:</strong></td>
                     <td scope="col" id="ord-tax">###</td>
                 </tr>
                 </tbody>
