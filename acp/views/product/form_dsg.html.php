@@ -151,11 +151,20 @@
             </fieldset>  
 
             <fieldset class="form-group">
-                <label class="form-label" ><?=$CMS->lang['staff_id'];?></label>
-                <select class="select2" multiple="multiple" name="staff_id[]">
+                <label class="form-label" ><?=$CMS->lang['staff_id'];?> <br>
+                    <span class="btn btn-primary btn-sm" onclick="select2ChooseAllToggle(true)"><i class="fa fa-check-square" aria-hidden="true"></i> <?=\lib\input::lang('check_all')?></span>
+                    <span class="btn btn-secondary btn-sm" onclick="select2ChooseAllToggle(false)"><i class="fa fa-square-o" aria-hidden="true"></i> <?=\lib\input::lang('uncheck_all')?></span>
+                </label>
+                <select id="staff-select2" class="select2" multiple="multiple" name="staff_id[]">
                   <?=$tpl->option_staff;?>
                 </select>
-            </fieldset> 
+            </fieldset>
+              <script>
+                  function select2ChooseAllToggle(selected) {
+                      $("#staff-select2 option").prop("selected", selected);
+                      $("#staff-select2").trigger("change");
+                  }
+              </script>
 
           </div>
 

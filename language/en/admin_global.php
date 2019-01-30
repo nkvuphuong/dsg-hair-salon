@@ -790,4 +790,7 @@ $lang = array(
     "title_choose_customer_plz" => "--- Select customer ---",
 
     "display_status" => "Show/hide",
+
+    "check_all" => "Check all",
+    "uncheck_all" => "Uncheck all",
 );

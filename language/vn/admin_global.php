@@ -789,4 +789,7 @@ $lang = array(
     "title_choose_customer_plz" => "--- Chọn khách hàng ---",
 
     "display_status" => "Ẩn/hiện",
+
+    "check_all" => "Chọn tất cả",
+    "uncheck_all" => "Bỏ chọn tất cả",
 );
