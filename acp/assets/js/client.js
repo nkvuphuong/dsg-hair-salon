@@ -1,4 +1,4 @@
-const socket = io.connect("https://myhair.com.vn:3000");
+const socket = io.connect(":3000");
 const socketToken = LibExt.getCookie('PHPSESSID');
 var openRatingTimeout;
 
