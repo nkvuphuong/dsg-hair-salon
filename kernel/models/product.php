@@ -897,8 +897,7 @@ EOF;
 		$p_price_sell = $CMS->input['p_price_sell'];
 		$p_price_sale = $CMS->input['p_price_sale'];
 		$p_price_old = $CMS->input['p_price_old'];
-		$staff_id =  $CMS->input['staff_id'];
-		$staff_id = json_encode($staff_id);
+		$staff_id = json_encode(array_values(input::get('staff_id', [])));
 
         $p_img_alt =  $CMS->input['p_img_alt'];
         // Sắp xếp, giá trở lên dùng cho service
@@ -1509,8 +1508,7 @@ EOF;
 		$meta_description = isset($CMS->input['meta_description']) ? $CMS->input['meta_description'] : "";
 
 
-		$staff_id = $CMS->input['staff_id'];
- 		$staff_id = json_encode($staff_id);
+        $staff_id = json_encode(array_values(input::get('staff_id', [])));
 
  		$product_estimated_time = input::get('p_estimated_time') * 1;
 

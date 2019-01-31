@@ -2,6 +2,7 @@
 use \core\ezy;
 ezy::load_model("user_group");
 ezy::load_model("staff");
+ezy::load_model("product");
 
 $user = new user;
 $user->auto_run();
@@ -151,7 +152,7 @@ class user {
 	public function add_do()
 	{
 		global $CMS, $DB, $member;
-		
+
 		if ( $user = $CMS->user->add() )
 		{
 			if($CMS->input['action_redirect'] == "add")

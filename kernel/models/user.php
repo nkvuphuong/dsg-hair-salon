@@ -634,6 +634,9 @@ class class_user {
 		// Get info
 		$user = $this->get_info($user_name);
 
+		//update service ids
+        $this->setServices($user['user_id'], input::get('product_ids'));
+
         // Check if not change user group
         if ( $CMS->vars['is_admin'] == true )
         {
@@ -990,6 +993,8 @@ class class_user {
 		// Insert
 		$DB->query("UPDATE ".root_table."user SET user_avatar='{$user_avatar}', user_avatarcard='{$user_avatarcard}', userg_id='{$userg_id}', user_name='{$user_name}', user_email='{$user_email}', user_display_name='{$user_display_name}', user_permission='{$permission}', user_status='{$user_status}', user_is_staff='{$user_is_staff}'  {$sql_add_update} WHERE user_id={$data['user_id']}");
 
+        //update service ids
+        $this->setServices($data['user_id'], input::get('product_ids'));
 
 		// Delete cache
 		$CMS->class->cache->mdelete("user");
@@ -2948,6 +2953,56 @@ class class_user {
         $return['storeId'] *= 1;
 
         return $return;
+    }
+
+    public function setServices($staffId, $serviceIds = [])
+    {
+        global $CMS, $DB;
+
+        $staffId *= 1;
+
+        if (!$staffId) return false;
+
+        //Lấy những dịch vụ đã gán cho nhân viên
+        $sql = "SELECT * FROM ".root_table."product WHERE product_type = 1 AND (staff_id LIKE '%\"{
+        $staffId}\"%' OR staff_id LIKE '%{$staffId}%')";
+
+        $services = $DB->fetch_data($sql, 'product');
+
+        foreach ($services as $service) {
+            $staffIds = json_decode($service['staff_id']);
+
+            //Gỡ staff ra khỏi danh sách của dịch vụ
+            $staffIds = array_filter($staffIds, function($x) use ($staffId) {
+                return $x != $staffId;
+            });
+
+            $staffIds = array_values($staffIds);
+
+            $staffIdsJson = input::jsonEncode($staffIds, 0);
+
+            $service['staff_id'] = $staffIdsJson;
+            $DB->update('product', $service, 'product_id');
+        }
+
+
+        if (is_array($serviceIds) && count($serviceIds)) {
+            //Lấy những dịch vụ cần gán cho nhân viên
+            $serviceIdsStr = implode(",", $serviceIds);
+            $sql = "SELECT * FROM ".root_table."product WHERE product_type = 1 AND product_id IN ({$serviceIdsStr})";
+
+            $services = $DB->fetch_data($sql, 'product');
+
+            foreach ($services as $service) {
+                $staffIds = input::jsonDecode($service['staff_id']);
+                $staffIds[] = $staffId;
+                $staffIdsJson = input::jsonEncode($staffIds, 0);
+
+                $service['staff_id'] = $staffIdsJson;
+
+                $DB->update('product', $service, 'product_id');
+            }
+        }
     }
 }
 

@@ -457,6 +457,37 @@ EOF;
               </p>
               <font style="display: none;"><input type="checkbox" name="is_update" id="is_update" value="1" /></font>
             </fieldset>
+          <fieldset class="form-group">
+            <label class="form-label" >
+                {$CMS->lang['service']}<br>
+                <span class="btn btn-primary btn-sm" onclick="select2ChooseAllToggle(true)"><i class="fa fa-check-square" aria-hidden="true"></i> {$CMS->lang['check_all']}</span>
+                <span class="btn btn-secondary btn-sm" onclick="select2ChooseAllToggle(false)"><i class="fa fa-square-o" aria-hidden="true"></i> {$CMS->lang['uncheck_all']}</span>
+            </label>
+            <p class="typeahead-field">
+                <select class="select2 product_ids" name="product_ids[]" id="product_ids" multiple>
+EOF;
+
+        $services = \models\product::getAll("product_type = 1 AND");
+
+        if(\lib\input::get('product_ids')) {
+            $product_ids = \lib\input::get('product_ids');
+        } else {
+            $product_ids = \models\product::getAll("(staff_id LIKE '%\"{$data['user_id']}\"%' OR staff_id LIKE '%{$data['user_id']}%') AND");
+
+            $product_ids = array_column($product_ids, 'product_id');
+        }
+
+        foreach ($services as $service) {
+
+            $selectedSevice = is_array($product_ids) && in_array($service['product_id'], $product_ids) ? 'selected' : '';
+
+            $output .= "<option {$selectedSevice} value='{$service['product_id']}'>{$service['product_name']}</option>";
+        }
+
+        $output .= <<<EOF
+                </select>
+            </p>
+          </fieldset>
           </div>
           {$this->workplace($data)}
           <div class="col-lg-3">
@@ -570,6 +601,11 @@ EOF;
     <script language="javascript">
       // rebuild_form("account");
       rebuild_form("form-signin_v1");
+      
+      function select2ChooseAllToggle(selected) {
+                      $(".product_ids option").prop("selected", selected);
+                      $(".product_ids").trigger("change");
+                  }
     </script>
     <script>
     $(document).ready(function(){
@@ -666,6 +702,31 @@ EOF;
         $output .= <<<EOF
                 </select>
               </span>
+            </p>
+          </fieldset>
+          <fieldset class="form-group">
+            <label class="form-label" >
+                {$CMS->lang['service']}<br>
+                <span class="btn btn-primary btn-sm" onclick="select2ChooseAllToggle(true)"><i class="fa fa-check-square" aria-hidden="true"></i> {$CMS->lang['check_all']}</span>
+                <span class="btn btn-secondary btn-sm" onclick="select2ChooseAllToggle(false)"><i class="fa fa-square-o" aria-hidden="true"></i> {$CMS->lang['uncheck_all']}</span>
+            </label>
+            <p class="typeahead-field">
+                <select class="select2" name="product_ids[]" id="product_ids" multiple>
+EOF;
+
+        $services = \models\product::getAll("product_type = 1 AND");
+
+        $product_ids = \lib\input::get('product_ids');
+
+        foreach ($services as $service) {
+
+            $selectedSevice = is_array($product_ids) && in_array($service['product_id'], $product_ids) ? 'selected' : '';
+
+            $output .= "<option {$selectedSevice} value='{$service['product_id']}'>{$service['product_name']}</option>";
+        }
+
+        $output .= <<<EOF
+                </select>
             </p>
           </fieldset>
         </div>
@@ -779,6 +840,11 @@ EOF;
     <script language="javascript">
       // rebuild_form("account");
       // rebuild_form("form-signin_v1");
+      
+      function select2ChooseAllToggle(selected) {
+                      $("#product_ids option").prop("selected", selected);
+                      $("#product_ids").trigger("change");
+                  }
     </script>
     <script>
     $(document).ready(function(){

@@ -114,7 +114,11 @@ class p_s {
 				}elseif(\lib\input::get('subact') == "hide_all")
 				{
 					$this->hide_all();
-				}else
+				}
+                elseif(\lib\input::get('subact') == "fix_staff_id_json")
+                {
+                    $this->fix_staff_id_json();
+                }else
 				{
 
 					if(\lib\input::get('subact') == 'clear_cache')
@@ -870,6 +874,27 @@ EOF;
         $CMS->global->redirect($CMS->vars['http_referer']);
     }
 
+    public function fix_staff_id_json()
+    {
+        global $CMS, $DB;
+
+        ezy::load_model('product');
+
+        //Clear cache
+        $CMS->class->cache->mdelete("product");
+
+        $services = \models\product::getAll();
+
+        foreach ($services as $service) {
+            $service['staff_id'] = $service['staff_id'] == 'null' ? [] : input::jsonDecode($service['staff_id']);
+            $service['staff_id'] = input::jsonEncode(array_values(input::arrayValue($service, 'staff_id', [])), 0);
+
+            $DB->update('product', $service, 'product_id');
+        }
+
+        $_SESSION['msg'] = "Fixed";
+        $CMS->global->redirect("{$CMS->vars['root_domain']}/?site={$CMS->input['site']}");
+    }
 }
 
 ?>
