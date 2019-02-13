@@ -534,7 +534,7 @@ EOF;
 					    {$data['ord_name_bk']} 
 					    <div class="store-name-text color-initial display-flex">{$data['store_name']}</div>
 					</td>
-					<td><div class="customer-name-text">{$data['cus_name_bk']}</div></td>
+					<td><div class="customer-name-text" style='display: inline; max-width: 100%; width: 100%'>{$data['cus_name_bk']}</div></td>
 					<td>{$data['product_name']}</td>
 					<td> {$data['ord_total_n']}</td>	
 					<td>{$data['trx_name_ls']}</td>

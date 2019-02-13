@@ -164,7 +164,9 @@ class ClassCustomer {
 		$data['cus_last_order'] = $CMS->order->getOrderinfo($data['cus_id'],"last");
 	 
 
-		$data['cus_last_order'] = $data['cus_last_order'] ? "<a href='{$CMS->vars['root_domain']}/?site=order&act=show&id={$data['cus_last_order']}'>#{$data['cus_last_order']}</a>" : 'N/A';
+		$data['cus_last_order'] = $data['cus_last_order'] ? "<a href='{$CMS->vars['root_domain']}/?site=order&act=show&id={$data['cus_last_order']}'>#{$data['cus_last_order']} <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></a>" : 'N/A';
+
+        $data['cus_number_order'] = "<a href='{$CMS->vars['root_domain']}/?site=order&cus_id={$data_bk['cus_id']}' target='_blank'>{$data['cus_number_order']} <i class=\"fa fa-external-link\" aria-hidden=\"true\"></i></a>";
 
 //		$data['cus_order_paid'] = $CMS->order->getOrderinfo($data['cus_id'],"paid");
 //		$data['cus_order_unpaid'] = $CMS->order->getOrderinfo($data['cus_id'],"unpaid");
