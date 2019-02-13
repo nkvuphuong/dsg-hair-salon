@@ -3019,7 +3019,7 @@ EOF;
 		$customer = $CMS->customer->getInfo($data['cus_id']);
 		if($CMS->permit['customer_read'] == 1)
 		{
-			$data['cus_name_bk'] = "<a style='display: inline; max-width: 100%; width: 100%' class='link-text' href=\"{$CMS->vars['root_domain']}/?site=customer&act=show&id={$customer['cus_id']}\">{$customer['cus_full_name']}</a> <a style='display: inline' href='{$CMS->vars['root_domain']}/?site=order&cus_id={$customer['cus_id']}'><i class=\"fa fa-filter pull-right\" aria-hidden=\"true\"></i></a>";
+			$data['cus_name_bk'] = "<a style='display: inline; max-width: 100%; width: 100%' class='link-text' href=\"{$CMS->vars['root_domain']}/?site=customer&act=show&id={$customer['cus_id']}\">{$customer['cus_full_name']}</a> <a style='display: inline' href='{$CMS->vars['root_domain']}/?site=order&cus_id={$customer['cus_id']}'><i class=\"fa fa-history pull-right\" aria-hidden=\"true\"></i></a>";
 			$data['cus_name_show'] = $customer['cus_full_name'];
 		}
 		else
