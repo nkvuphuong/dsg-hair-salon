@@ -402,7 +402,7 @@ EOF;
 			<td>{$data['cus_phone']}</td>
 			<td>{$data['cus_email']}</td>
 			<!--td>{$data['cus_group_c']}</td-->
-			<td>{$data['cus_number_order']}</td>
+			<td><a href='{$CMS->vars['root_domain']}/?site=order&cus_id={$data['data_bk']['cus_id']}' target='_blank'>{$data['cus_number_order']} <i class="fa fa-external-link" aria-hidden="true"></i></a></td>
 			<td>{$data['cus_last_order']}</td>
 			<td>{$data['cus_total_order']}</td>
 			<!---<td>{$data['cus_time_c']}</td>-->
