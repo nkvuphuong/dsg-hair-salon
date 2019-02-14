@@ -30,39 +30,42 @@
                 </div>
             </div>
 
-            <div class="form-group col-xl-12 box_date_change">
-                <div class="row">
-                    <div class="col-xl-2">
-                        <label class="form-label">Từ ngày</label>
-                        <div class="input-group">
-                            <input type="text" name="time_from" id="time_from"
-                                   class="form-control date-picker" placeholder="Time from"
-                                   value="">
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
+            <form method="get" action="<?=$CMS->vars['root_domain']?>/?site=<?=\lib\input::get('site')?>&act=service_history">
+                <div class="form-group col-xl-12 box_date_change">
+                    <div class="row">
+                        <div class="col-xl-2">
+                            <label class="form-label">Từ ngày</label>
+                            <div class="input-group">
+                                <input type="text" name="ordi_time_from" id="time_from"
+                                       class="form-control date-picker" placeholder="Time from"
+                                       value="">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <label class="form-label">Đến ngày</label>
-                        <div class="input-group">
-                            <input type="text" name="time_to" id="time_to"  class="form-control date-picker"
-                                   placeholder="Time to" value="">
-                            <div class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
+                        <div class="col-xl-2">
+                            <label class="form-label">Đến ngày</label>
+                            <div class="input-group">
+                                <input type="text" name="ordi_time_to" id="time_to"  class="form-control date-picker"
+                                       placeholder="Time to" value="">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2">
-                        <label class="form-label" style="height: 18px;"></label>
-                        <div class="input-group">
-                            <button type="button"
-                                    class="btn btn-primary btn_view_report">Lọc
-                            </button>
+                        <div class="col-xl-2">
+                            <label class="form-label" style="height: 18px;"></label>
+                            <div class="input-group">
+                                <button type="button"
+                                        class="btn btn-primary btn_view_report">Lọc
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
         </div>
     </figure>
 
@@ -76,89 +79,61 @@
         <table id="table-edit" class="table table-bordered table-hover">
             <thead>
             <tr>
-                <th width="1">
-                    #
-                </th>
-                <th>Name</th>
-                <th>Description</th>
-                <th class="table-icon-cell">
-                    <i class="font-icon font-icon-heart"></i>
-                </th>
-                <th class="table-icon-cell">
-                    <i class="font-icon font-icon-comment"></i>
-                </th>
-                <th width="120">Date Created</th>
-                <th></th>
+                <th width="1">#</th>
+                <th>Mã đơn hàng</th>
+                <th>Dịch vụ</th>
+                <th>Lịch hẹn</th>
+                <th>NV phụ trách</th>
+                <th>Tổng tiền</th>
+                <th>Ngày đặt</th>
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>Last quarter revene</td>
-                <td class="color-blue-grey-lighter">Revene for last quarter in state America for year 2013, whith...</td>
-                <td class="table-icon-cell">5</td>
-                <td class="table-icon-cell">24</td>
-                <td class="table-date">6 minutes ago</td>
-                <td class="table-photo">
-                    <img src="img/photo-64-1.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="Nicholas<br/>Barrett">
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Last quarter revene</td>
-                <td class="color-blue-grey-lighter">Revene for last quarter in state America for year 2013, whith...</td>
-                <td class="table-icon-cell">5</td>
-                <td class="table-icon-cell">24</td>
-                <td class="table-date">6 minutes ago</td>
-                <td class="table-photo">
-                    <img src="img/photo-64-1.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="Nicholas<br/>Barrett">
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Last quarter revene</td>
-                <td class="color-blue-grey-lighter">Revene for last quarter in state America for year 2013, whith...</td>
-                <td class="table-icon-cell">5</td>
-                <td class="table-icon-cell">24</td>
-                <td class="table-date">6 minutes ago</td>
-                <td class="table-photo">
-                    <img src="img/photo-64-1.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="Nicholas<br/>Barrett">
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Last quarter revene</td>
-                <td class="color-blue-grey-lighter">Revene for last quarter in state America for year 2013, whith...</td>
-                <td class="table-icon-cell">5</td>
-                <td class="table-icon-cell">24</td>
-                <td class="table-date">6 minutes ago</td>
-                <td class="table-photo">
-                    <img src="img/photo-64-1.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="Nicholas<br/>Barrett">
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Last quarter revene</td>
-                <td class="color-blue-grey-lighter">Revene for last quarter in state America for year 2013, whith...</td>
-                <td class="table-icon-cell">5</td>
-                <td class="table-icon-cell">24</td>
-                <td class="table-date">6 minutes ago</td>
-                <td class="table-photo">
-                    <img src="img/photo-64-1.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="Nicholas<br/>Barrett">
-                </td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Last quarter revene</td>
-                <td class="color-blue-grey-lighter">Revene for last quarter in state America for year 2013, whith...</td>
-                <td class="table-icon-cell">5</td>
-                <td class="table-icon-cell">24</td>
-                <td class="table-date">6 minutes ago</td>
-                <td class="table-photo">
-                    <img src="img/photo-64-1.jpg" alt="" data-toggle="tooltip" data-placement="bottom" title="Nicholas<br/>Barrett">
-                </td>
-            </tr>
+            <tbody id="order-items-list">
+            <? if($tpl->data) { ?>
+                <?
+                    $bgcolor = '';
+                    $lastOrdId = 0;
+                    foreach ($tpl->data as $item) {
+
+                        $item = \models\order_item::convertValue($item);
+
+                        if ($lastOrdId != $item['data_bk']['ord_id']) {
+                            $bgcolor = $bgcolor == '#ddd' ? '' : '#ddd';
+                        }
+
+                        $lastOrdId = $item['data_bk']['ord_id'];
+
+                ?>
+                    <tr class="row-item-<?=$item['data_bk']['ord_id']?>" style="<?=$bgcolor ? "background-color: {$bgcolor}" : ""?>">
+                        <td>#<?=$item['ordi_id']?></td>
+                        <td class="order_group"><?=$item['ord_id']?></td>
+                        <td><?=$item['ordi_name']?></td>
+                        <td><?=$item['ordi_booking_time']?></td>
+                        <td><?=$item['staff_id']?></td>
+                        <td><?=$item['ordi_total']?></td>
+                        <td><?=$item['ordi_time']?></td>
+                    </tr>
+                <? } ?>
+            <? } ?>
             </tbody>
         </table>
     </figure>
 </section>
+<script>
+    let rows = $("#order-items-list tr");
+    let curClassRow = "";
+
+    $.each( rows, function( key, value ) {
+        let nextclassRow = $(value).attr("class");
+
+        if (curClassRow !== nextclassRow) {
+            curClassRow = nextclassRow;
+            let len = $("." + curClassRow).length;
+            if (len > 1) {
+                $("." + curClassRow + ":first").find("td.order_group").attr('rowspan', len);
+                $("." + curClassRow + ":gt(0)").find("td.order_group").remove();
+            }
+        }
+    });
+
+</script>

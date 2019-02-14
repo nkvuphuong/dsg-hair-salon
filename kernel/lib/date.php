@@ -119,6 +119,8 @@ class date {
 			$type = $CMS->vars['dateformat_php'][$CMS->vars['date_format']]." {$format_hours}:i {$subfix_hours}";
         } else if ( $type == "short") {
             $type = $CMS->vars['dateformat_php'][$CMS->vars['date_format']];
+        } else if ( $type == "full") {
+            $type = $CMS->vars['dateformat_php'][$CMS->vars['date_format']] . " H:i:s";
         } else {
             $type = $type;
         }

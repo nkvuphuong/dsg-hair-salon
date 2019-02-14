@@ -6,6 +6,7 @@ use models\dashboard;
 
 //Load models
 ezy::load_model("report");
+ezy::load_model("order_item");
 
 $customer = new Customer;
 $customer->auto_run();
@@ -602,6 +603,8 @@ class Customer {
         $tpl->last_month = $CMS->class->date->getFisrtLastInLastMonth('timestamp');
         $tpl->this_year = $CMS->class->date->getFisrtLastInThisYear('timestamp');
         $tpl->last_year = $CMS->class->date->getFisrtLastInLastYear('timestamp');
+
+        $tpl->data = \models\order_item::listing();
 
         // Output data
         $CMS->output .= ezy::html("service_history_list");

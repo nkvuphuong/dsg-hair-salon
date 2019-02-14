@@ -3,11 +3,12 @@
 namespace models;
 
 use core\ezy;
+use lib\date;
 use lib\db;
 use lib\input;
 use \lib\template;
 
-class order
+class order_item
 {
     /**
      * @param $record_cnt
@@ -57,25 +58,25 @@ class order
      * @param integer $disabled_paging
      * @return array
      */
-    static public function listing($sql_add = "", $disabled_paging = 0, $order_field = "ord_id", $order_desc = "desc")
+    static public function listing($sql_add = "", $disabled_paging = 0, $order_field = "ordi_id", $order_desc = "desc")
     {
         global $CMS, $DB;
 
         // Update Arrange Data
-        self::$arrangeData = trim("ord_id,ord_time,ord_time_update");
+        self::$arrangeData = trim("ordi_id,ordi_time");
 
         // Set default for Arrange
         $default_field = input::get('order', $order_field);
         $default_order = input::get('by', $order_desc);
 
         // SQL Condition
-        $sql_add .= " ord_deleted=0 AND ";
+        $sql_add .= " ordi_deleted=0 AND ";
 
         $CMS->input['keyword'] = input::get('keyword', input::get('term'));
 
         $sql_add .= self::getSqlAdd($CMS->input);
 
-        $sql = "SELECT * FROM " . root_table . "order WHERE {$sql_add} 1=1 ORDER BY {$default_field} {$default_order}";
+        $sql = "SELECT * FROM " . root_table . "order_item WHERE {$sql_add} 1=1 ORDER BY {$default_field} {$default_order}";
 
         // Create SQL Query for listing Data
         if ($disabled_paging == 1) {
@@ -99,16 +100,41 @@ class order
 
         $sql_add = '';
 
-        if (isset($data['ord_time_from']) && $data['ord_time_from'] !== '') {
-            $ord_time_from = $CMS->class->date->date2time($data['ord_time_from'], 1);
-            $sql_add .= " {$prefix}ord_time>=$ord_time_from AND ";
+        if (isset($data['ordi_time_from']) && $data['ordi_time_from'] !== '') {
+            $ordi_time_from = $CMS->class->date->date2time($data['ordi_time_from'], 1);
+            $sql_add .= " {$prefix}ordi_time>=$ordi_time_from AND ";
         }
 
-        if (isset($data['ord_time_to']) && $data['ord_time_to'] !== '') {
-            $ord_time_to = $CMS->class->date->date2time($data['ord_time_to'], 1) + (3600 * 24);
-            $sql_add .= " {$prefix}ord_time<$ord_time_to AND ";
+        if (isset($data['ordi_time_to']) && $data['ordi_time_to'] !== '') {
+            $ordi_time_to = $CMS->class->date->date2time($data['ordi_time_to'], 1) + (3600 * 24);
+            $sql_add .= " {$prefix}ordi_time<$ordi_time_to AND ";
         }
 
         return $sql_add;
+    }
+
+    /**
+     * Convert original record to show
+     * @param array $data
+     * @return array
+     */
+    static public function convertValue($data = [])
+    {
+        global $CMS;
+
+        $data['data_bk'] = $data_bk = $data;
+
+        // Replace search content
+        $data = $CMS->class->search->convertvalue($data);
+
+        $data['ordi_time'] = $data_bk['ordi_time'] ? date::format($data['ordi_time']) : '';
+        $data['ordi_booking_time'] = $data_bk['ordi_booking_time'] ? date::format($data['ordi_booking_time'], 'full') : '';
+
+        $data['ordi_total'] = $CMS->class->input->currency($data_bk['ordi_total']);
+
+        $data['record_cnt'] = self::$record_cnt;
+        self::$record_cnt++;
+
+        return $data;
     }
 }
