@@ -390,6 +390,8 @@ $lang = array(
 
     "menu_abandoned"    => "Abandoned",
     "act_shipping_fee"    => "Shipping fee",
+
+    "act_service_history" => "Service history",
 );
 
 ?>

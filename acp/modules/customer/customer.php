@@ -59,6 +59,9 @@ class Customer {
             case 'export':
                 $this->export();
                 break;
+            case 'service_history':
+                $this->service_history();
+                break;
 			default:
 
 				if(\lib\input::get('subact') == "quicksearch")
@@ -587,6 +590,22 @@ class Customer {
         $CMS->customer->autocomplete();
     }
 
+    public function service_history()
+    {
+        global $CMS, $tpl;
+
+        $tpl->today = \lib\date::format(time());
+        $tpl->yesterday = \lib\date::format(time() - (3600 * 24));
+        $tpl->this_week = $CMS->class->date->getFisrtLastInCurrentWeek('timestamp');
+        $tpl->last_week = $CMS->class->date->getFisrtLastInLastWeek('timestamp');
+        $tpl->this_month = $CMS->class->date->getFisrtLastInCurrentMonth('timestamp');
+        $tpl->last_month = $CMS->class->date->getFisrtLastInLastMonth('timestamp');
+        $tpl->this_year = $CMS->class->date->getFisrtLastInThisYear('timestamp');
+        $tpl->last_year = $CMS->class->date->getFisrtLastInLastYear('timestamp');
+
+        // Output data
+        $CMS->output .= ezy::html("service_history_list");
+    }
 }
 
 ?>

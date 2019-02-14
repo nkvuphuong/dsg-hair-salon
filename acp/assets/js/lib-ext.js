@@ -36,5 +36,12 @@ var LibExt = {
             }
         }
         return "";
+    },
+    setDatetimeStartEndInput: function(valueObj, startObj, endObj) {
+        let start = valueObj.attr("start");
+        let end = valueObj.attr("end");
+
+        startObj.val(start);
+        endObj.val(end);
     }
 }

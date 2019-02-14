@@ -665,32 +665,108 @@ class date {
         return $result;
     }
 
-	function getFisrtLastInCurrentWeek()
+    /**
+     * @param string $type: unix_timestamp | timestamp
+     * @return array
+     */
+	function getFisrtLastInCurrentWeek($type = 'unix_timestamp')
     {
-        global $CMS;
+        $start = strtotime('this week');
+        $end = $start + (6*24*3600);
 
-        // Start with Monday by default
-        // Monday = 1
-        // Sunday = 2
+        if ($type == 'timestamp') {
+            $start = $this->date_format($start);
+            $end = $this->date_format($end);
+        }
 
-        $firstday = isset($CMS->vars['site_firstdayofweek']) ? ($CMS->vars['site_firstdayofweek'] == "Monday" ? 0 : 1) : 1;
-
-        $start = $this->clear_time(strtotime('this week'), 1)-($firstday*24*3600);
-        $end = $start + (7*24*3600);
         return [$start, $end];
     }
 
-    function getFisrtLastInCurrentMonth()
+    /**
+     * @param string $type: unix_timestamp | timestamp
+     * @return array
+     */
+    function getFisrtLastInCurrentMonth($type = 'unix_timestamp')
     {
         $start = strtotime(date('Y-m-01'));
         $end = strtotime(date('Y-m-t'));
+
+        if ($type == 'timestamp') {
+            $start = $this->date_format($start);
+            $end = $this->date_format($end);
+        }
+
         return [$start, $end];
     }
 
-    function getFisrtLastInLastWeek()
+    /**
+     * @param string $type: unix_timestamp | timestamp
+     * @return array
+     */
+    function getFisrtLastInLastWeek($type = 'unix_timestamp')
     {
-        $start = strtotime('this week')-(8*24*3600);
+        $start = strtotime('last week');
         $end = $start + (6*24*3600);
+
+        if ($type == 'timestamp') {
+            $start = $this->date_format($start);
+            $end = $this->date_format($end);
+        }
+
+        return [$start, $end];
+    }
+
+    /**
+     * @param string $type: unix_timestamp | timestamp
+     * @return array
+     */
+    function getFisrtLastInLastMonth($type = 'unix_timestamp')
+    {
+        $time = strtotime('last month');
+        $start = strtotime(date('Y-m-01', $time));
+        $end = strtotime(date('Y-m-t', $time));
+
+        if ($type == 'timestamp') {
+            $start = $this->date_format($start);
+            $end = $this->date_format($end);
+        }
+
+        return [$start, $end];
+    }
+
+    /**
+     * @param string $type: unix_timestamp | timestamp
+     * @return array
+     */
+    function getFisrtLastInThisYear($type = 'unix_timestamp')
+    {
+        $time = strtotime('this year');
+        $start = strtotime(date('Y-01-01', $time));
+        $end = strtotime(date('Y-12-31', $time));
+
+        if ($type == 'timestamp') {
+            $start = $this->date_format($start);
+            $end = $this->date_format($end);
+        }
+
+        return [$start, $end];
+    }
+
+    /**
+     * @param string $type: unix_timestamp | timestamp
+     * @return array
+     */
+    function getFisrtLastInLastYear($type = 'unix_timestamp')
+    {
+        $time = strtotime('last year');
+        $start = strtotime(date('Y-01-01', $time));
+        $end = strtotime(date('Y-12-31', $time));
+
+        if ($type == 'timestamp') {
+            $start = $this->date_format($start);
+            $end = $this->date_format($end);
+        }
+
         return [$start, $end];
     }
 

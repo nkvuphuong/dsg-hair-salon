@@ -216,6 +216,7 @@
         <act><name>delete</name></act>
         <act><name>search</name></act>
         <act><name>arrange</name></act>
+        <act><name>service_history</name></act>
     </menu>
 
     <menu>

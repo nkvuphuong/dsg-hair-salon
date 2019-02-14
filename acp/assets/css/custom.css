@@ -892,7 +892,7 @@ ul li.el_addnew a {
 .add_table .input-group .btn.dropdown-toggle {
 	background: #fff;
 	border: 1px solid #e3e3e3;
-	padding: 9px 10px 9px 10px;
+	/*padding: 9px 10px 9px 10px;*/
 	margin-right: -2px
 }
 .add_table .colspan {

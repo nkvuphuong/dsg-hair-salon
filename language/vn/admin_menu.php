@@ -391,6 +391,8 @@ $lang = array(
 
     "menu_abandoned" => "Giỏ hàng nhỡ",
     "act_shipping_fee"    => "Phí vận chuyển",
+
+    "act_service_history" => "Lược sử dịch vụ",
 );
 
 ?>
