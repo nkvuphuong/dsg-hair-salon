@@ -30,7 +30,9 @@
                 </div>
             </div>
 
-            <form method="get" action="<?=$CMS->vars['root_domain']?>/?site=<?=\lib\input::get('site')?>&act=service_history">
+            <form method="get" action="<?=$CMS->vars['root_domain']?>">
+                <input type="hidden" name="site" value="<?=\lib\input::get('site')?>">
+                <input type="hidden" name="act" value="service_history">
                 <div class="form-group col-xl-12 box_date_change">
                     <div class="row">
                         <div class="col-xl-2">
@@ -57,7 +59,7 @@
                         <div class="col-xl-2">
                             <label class="form-label" style="height: 18px;"></label>
                             <div class="input-group">
-                                <button type="button"
+                                <button type="submit"
                                         class="btn btn-primary btn_view_report">Lọc
                                 </button>
                             </div>
@@ -109,7 +111,7 @@
                         <td class="order_group"><?=$item['ord_id']?></td>
                         <td><?=$item['ordi_name']?></td>
                         <td><?=$item['ordi_booking_time']?></td>
-                        <td><?=$item['staff_id']?></td>
+                        <td><?=$item['ordi_staff']?></td>
                         <td><?=$item['ordi_total']?></td>
                         <td><?=$item['ordi_time']?></td>
                     </tr>

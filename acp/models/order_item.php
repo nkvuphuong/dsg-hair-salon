@@ -101,12 +101,12 @@ class order_item
         $sql_add = '';
 
         if (isset($data['ordi_time_from']) && $data['ordi_time_from'] !== '') {
-            $ordi_time_from = $CMS->class->date->date2time($data['ordi_time_from'], 1);
+            $ordi_time_from = $CMS->class->date->date2time(urldecode($data['ordi_time_from']), 1);
             $sql_add .= " {$prefix}ordi_time>=$ordi_time_from AND ";
         }
 
         if (isset($data['ordi_time_to']) && $data['ordi_time_to'] !== '') {
-            $ordi_time_to = $CMS->class->date->date2time($data['ordi_time_to'], 1) + (3600 * 24);
+            $ordi_time_to = $CMS->class->date->date2time(urldecode($data['ordi_time_to']), 1) + (3600 * 24);
             $sql_add .= " {$prefix}ordi_time<$ordi_time_to AND ";
         }
 
