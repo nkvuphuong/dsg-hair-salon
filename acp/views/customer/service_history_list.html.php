@@ -111,7 +111,7 @@
                         <td class="order_group"><?=$item['ord_id']?></td>
                         <td><?=$item['ordi_name']?></td>
                         <td><?=$item['ordi_booking_time']?></td>
-                        <td><?=$item['ordi_staff']?></td>
+                        <td><?=\lib\input::arrayValue($item['staff'], 'user_display_name')?></td>
                         <td><?=$item['ordi_total']?></td>
                         <td><?=$item['ordi_time']?></td>
                     </tr>

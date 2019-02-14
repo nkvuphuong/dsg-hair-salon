@@ -53,6 +53,11 @@ class order_item
     static public $suffixPaging = '';
 
     /**
+     * @var array
+     */
+    static private $tmp = [];
+
+    /**
      * Get list orders
      * @param string $sql_add
      * @param integer $disabled_paging
@@ -132,9 +137,18 @@ class order_item
 
         $data['ordi_total'] = $CMS->class->input->currency($data_bk['ordi_total']);
 
+        //Staff convert
+        static::$tmp['staffs'] = static::$tmp['staffs'] ? static::$tmp['staffs'] : [];
+        if (isset(static::$tmp['staffs'][$data_bk['ordi_staff']])) {
+            $data['staff'] = static::$tmp['staffs'][$data_bk['ordi_staff']];
+        } else {
+            $staff = $CMS->user->get_info($data_bk['ordi_staff']);
+            $data['staff'] = $staff;
+            static::$tmp['staffs'][$data_bk['ordi_staff']] = $staff;
+        }
+
         $data['record_cnt'] = self::$record_cnt;
         self::$record_cnt++;
-
         return $data;
     }
 }
