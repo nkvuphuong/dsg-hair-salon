@@ -33,6 +33,7 @@
             <form method="get" action="<?=$CMS->vars['root_domain']?>">
                 <input type="hidden" name="site" value="<?=\lib\input::get('site')?>">
                 <input type="hidden" name="act" value="service_history">
+                <input type="hidden" name="cus_id" value="<?=\lib\input::get('cus_id', 0) * 1?>">
                 <div class="form-group col-xl-12 box_date_change">
                     <div class="row">
                         <div class="col-xl-2">
@@ -40,7 +41,7 @@
                             <div class="input-group">
                                 <input type="text" name="ordi_time_from" id="time_from"
                                        class="form-control date-picker" placeholder="Time from"
-                                       value="">
+                                       value="<?=urldecode(\lib\input::get('ordi_time_from'))?>">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </div>
@@ -50,7 +51,7 @@
                             <label class="form-label">Đến ngày</label>
                             <div class="input-group">
                                 <input type="text" name="ordi_time_to" id="time_to"  class="form-control date-picker"
-                                       placeholder="Time to" value="">
+                                       placeholder="Time to" value="<?=urldecode(\lib\input::get('ordi_time_to'))?>">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </div>
