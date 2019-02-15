@@ -485,7 +485,7 @@ EOF;
 			    <div class="col-md-6">
 			        <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-xs-12">
-                            <h5 class="m-t-lg with-border">{$CMS->lang['cus_basic_info']}</h5>
+                            <h5 class="m-t-lg with-border">{$CMS->lang['cus_basic_info']} <a href="{$CMS->vars['root_domain']}/?site=customer&act=service_history&cus_id={$data['data_bk']['cus_id']}" class="btn btn-primary"><i class="fa fa-history" aria-hidden="true"></i> Xem lược sử dịch vụ</a></h5>
                             <fieldset class="form-group row">
                                 <label class="col-xl-4 form-control-label2" >{$CMS->lang['cus_full_name']}</label>
                                 <div class="col-xl-8 form-control-span2"> 
