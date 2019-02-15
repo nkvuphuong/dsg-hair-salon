@@ -150,14 +150,14 @@ class order_item
         }
 
         //Customer convert
-        static::$tmp['customers'] = static::$tmp['customers'] ? static::$tmp['customers'] : [];
+        /*static::$tmp['customers'] = static::$tmp['customers'] ? static::$tmp['customers'] : [];
         if (isset(static::$tmp['customers'][$data_bk['cus_id']])) {
             $data['customer'] = static::$tmp['customers'][$data_bk['cus_id']];
         } else {
             $customer = $CMS->customer->getInfo($data_bk['cus_id']);
             $data['customer'] = $staff;
             static::$tmp['customers'][$data_bk['cus_id']] = $customer;
-        }
+        }*/
 
         $data['record_cnt'] = self::$record_cnt;
         self::$record_cnt++;

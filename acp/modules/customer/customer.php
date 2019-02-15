@@ -604,7 +604,11 @@ class Customer {
         $tpl->this_year = $CMS->class->date->getFisrtLastInThisYear('timestamp');
         $tpl->last_year = $CMS->class->date->getFisrtLastInLastYear('timestamp');
 
-        $tpl->data = \models\order_item::listing();
+        //Search by cus_id
+        $cus_id = input::get('cus_id', 0) * 1;
+        $sqlAdd = " O.cus_id={$cus_id} AND ";
+
+        $tpl->data = \models\order_item::listing($sqlAdd);
 
         // Output data
         $CMS->output .= ezy::html("service_history_list");
