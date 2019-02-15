@@ -4,33 +4,33 @@
             <div class="form-group col-xl-12">
                 <div class="form-control-wrapper">
                     <button type="button" class="btn btn-inline btn-success change_time"
-                            start="<?=$tpl->yesterday?>" end="<?=$tpl->yesterday?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to'))">Hôm qua
+                            start="<?=$tpl->yesterday?>" end="<?=$tpl->yesterday?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to')); $('#form_service_history').submit();">Hôm qua
                     </button>
                     <button type="button" class="btn btn-inline btn-success change_time"
-                            start="<?=$tpl->today?>" end="<?=$tpl->today?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to'))">Hôm nay
+                            start="<?=$tpl->today?>" end="<?=$tpl->today?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to')); $('#form_service_history').submit();">Hôm nay
                     </button>
                     <button type="button" class="btn btn-inline btn-success change_time"
-                            start="<?=$tpl->last_week[0]?>" end="<?=$tpl->last_week[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to'))">Tuần trước
+                            start="<?=$tpl->last_week[0]?>" end="<?=$tpl->last_week[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to')); $('#form_service_history').submit();">Tuần trước
                     </button>
                     <button type="button" class="btn btn-inline btn-success change_time"
-                            start="<?=$tpl->this_week[0]?>" end="<?=$tpl->this_week[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to'))">Tuần này
+                            start="<?=$tpl->this_week[0]?>" end="<?=$tpl->this_week[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to')); $('#form_service_history').submit();">Tuần này
                     </button>
                     <button type="button" class="btn btn-inline btn-success change_time"
-                            start="<?=$tpl->last_month[0]?>" end="<?=$tpl->last_month[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to'))">Tháng trước
+                            start="<?=$tpl->last_month[0]?>" end="<?=$tpl->last_month[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to')); $('#form_service_history').submit();">Tháng trước
                     </button>
                     <button type="button" class="btn btn-inline btn-success change_time"
-                            start="<?=$tpl->this_month[0]?>" end="<?=$tpl->this_month[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to'))">Tháng này
+                            start="<?=$tpl->this_month[0]?>" end="<?=$tpl->this_month[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to')); $('#form_service_history').submit();">Tháng này
                     </button>
                     <button type="button" class="btn btn-inline btn-success change_time"
-                            start="<?=$tpl->last_year[0]?>" end="<?=$tpl->last_year[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to'))">Năm trước
+                            start="<?=$tpl->last_year[0]?>" end="<?=$tpl->last_year[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to')); $('#form_service_history').submit();">Năm trước
                     </button>
                     <button type="button" class="btn btn-inline btn-success change_time"
-                            start="<?=$tpl->this_year[0]?>" end="<?=$tpl->this_year[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to'))">Năm này
+                            start="<?=$tpl->this_year[0]?>" end="<?=$tpl->this_year[1]?>" onclick="LibExt.setDatetimeStartEndInput($(this), $('#time_from'), $('#time_to')); $('#form_service_history').submit();">Năm này
                     </button>
                 </div>
             </div>
 
-            <form method="get" action="<?=$CMS->vars['root_domain']?>">
+            <form method="get" action="<?=$CMS->vars['root_domain']?>" id="form_service_history">
                 <input type="hidden" name="site" value="<?=\lib\input::get('site')?>">
                 <input type="hidden" name="act" value="service_history">
                 <input type="hidden" name="cus_id" value="<?=\lib\input::get('cus_id', 0) * 1?>">
