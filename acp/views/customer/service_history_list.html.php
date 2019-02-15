@@ -108,7 +108,7 @@
                 ?>
                     <tr class="row-item-<?=$item['data_bk']['ord_id']?>" style="<?=$bgcolor ? "background-color: {$bgcolor}" : ""?>">
                         <td>#<?=$item['ordi_id']?></td>
-                        <td class="order_group"><?=$item['ord_id']?></td>
+                        <td class="order_group"><?=$item['ord_name']?></td>
                         <td><?=$item['ordi_name']?></td>
                         <td><?=$item['ordi_booking_time']?></td>
                         <td><?=\lib\input::arrayValue($item['staff'], 'user_display_name')?></td>

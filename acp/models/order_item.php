@@ -79,9 +79,11 @@ class order_item
 
         $CMS->input['keyword'] = input::get('keyword', input::get('term'));
 
-        $sql_add .= self::getSqlAdd($CMS->input);
+        $sql_add .= self::getSqlAdd($CMS->input, 'I.');
 
-        $sql = "SELECT * FROM " . root_table . "order_item WHERE {$sql_add} 1=1 ORDER BY {$default_field} {$default_order}";
+        $sql = "SELECT * FROM " . root_table . "order_item I RIGHT JOIN " . root_table . "order O
+         ON I.ord_id = O.ord_id
+         WHERE {$sql_add} 1=1 ORDER BY {$default_field} {$default_order}";
 
         // Create SQL Query for listing Data
         if ($disabled_paging == 1) {
@@ -145,6 +147,16 @@ class order_item
             $staff = $CMS->user->get_info($data_bk['ordi_staff']);
             $data['staff'] = $staff;
             static::$tmp['staffs'][$data_bk['ordi_staff']] = $staff;
+        }
+
+        //Customer convert
+        static::$tmp['customers'] = static::$tmp['customers'] ? static::$tmp['customers'] : [];
+        if (isset(static::$tmp['customers'][$data_bk['cus_id']])) {
+            $data['customer'] = static::$tmp['customers'][$data_bk['cus_id']];
+        } else {
+            $customer = $CMS->customer->getInfo($data_bk['cus_id']);
+            $data['customer'] = $staff;
+            static::$tmp['customers'][$data_bk['cus_id']] = $customer;
         }
 
         $data['record_cnt'] = self::$record_cnt;
