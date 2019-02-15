@@ -75,7 +75,7 @@
 
 <section class="add_table main_form have_tab">
     <figure class="heading">
-        <h3><span id="detail_title">Thông tin</span>: <span class="time_title"></span></h3>
+        <h3><span id="detail_title">Thông tin</span>: <span class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp; <?=$tpl->customer['cus_full_name']?></span> <span class="btn btn-default"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;&nbsp;<?=urldecode(\lib\input::get('ordi_time_from', 'N/A'))?> - </i> <?=urldecode(\lib\input::get('ordi_time_to', 'N/A'))?></span></h3>
     </figure>
     <figure class="box-typical border">
         <table id="table-edit" class="table table-bordered table-hover">

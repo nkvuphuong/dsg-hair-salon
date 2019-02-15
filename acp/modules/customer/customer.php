@@ -606,6 +606,14 @@ class Customer {
 
         //Search by cus_id
         $cus_id = input::get('cus_id', 0) * 1;
+
+        $tpl->customer = $CMS->customer->getInfo($cus_id);
+
+        if (!$tpl->customer) {
+            $_SESSION['msg'] = $CMS->lang['no_data'];
+            $CMS->global->redirectReferer();
+        }
+
         $sqlAdd = " O.cus_id={$cus_id} AND ";
 
         $tpl->data = \models\order_item::listing($sqlAdd);
