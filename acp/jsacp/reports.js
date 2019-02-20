@@ -1,7 +1,8 @@
 var SalesReport = {
     salesGeneralReport: null,
+    salesGeneralReportID: "salesGeneralReportChart",
     salesGeneralReportChart: (start, end) => {
-        var ctx = document.getElementById("salesGeneralReportChart");
+        var ctx = document.getElementById(SalesReport.salesGeneralReportID);
         this.salesGeneralReport = new Chart(ctx, {
             type: 'pie',
             // data: data,
@@ -24,11 +25,15 @@ var SalesReport = {
     },
     salesGeneralReportChartUpdate: (start, end) => {
         let _this = this;
+        blockLoading($("#" + SalesReport.salesGeneralReportID).parent());
         $.ajax({
             url: site_root_domain + `/?site=report&act=sales&chart=general&data_type=json&start=${start}&end=${end}`,
             dataType: 'json',
             success: (data) => {
                 SalesReport.setData(_this.salesGeneralReport, data)
+            },
+            complete: () => {
+                unblockLoading($("#" + SalesReport.salesGeneralReportID).parent());
             }
         });
     },
@@ -73,12 +78,16 @@ var SalesReport = {
     },
     salesReportByTimeChartUpdate: (start, end, date_type) => {
         let _this = this;
+        blockLoading($("#" + SalesReport.salesReportByTimeID).parent());
         $.ajax({
             url: site_root_domain + `/?site=report&act=sales&chart=by_time&data_type=json&start=${start}&end=${end}&date_type=${date_type}`,
             dataType: 'json',
             success: (data) => {
                 SalesReport.setData(_this.salesReportByTime, data)
                 $("#" + SalesReport.salesReportByTimeID).css("height", data.labels.length * data.datasets.length * 15)
+            },
+            complete: () => {
+                unblockLoading($("#" + SalesReport.salesReportByTimeID).parent());
             }
         });
     },
