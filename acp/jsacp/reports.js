@@ -78,7 +78,7 @@ var SalesReport = {
             dataType: 'json',
             success: (data) => {
                 SalesReport.setData(_this.salesReportByTime, data)
-                $("#" + SalesReport.salesReportByTimeID).css("height", data.labels.length * data.datasets.length * 10)
+                $("#" + SalesReport.salesReportByTimeID).css("height", data.labels.length * data.datasets.length * 15)
             }
         });
     },
