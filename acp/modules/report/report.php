@@ -57,7 +57,7 @@ class report
         //Thống kê doanh thu theo cửa hàng
         if (\lib\input::get('data_type') == 'json') {
             if (\lib\input::get('chart') == 'general') {
-                \lib\input::jsonEncode(\models\report::salesGeneralReportChart());
+                \lib\input::jsonEncode(\models\report::salesGeneralReportChart($start, $end));
             } elseif (\lib\input::get('chart') == 'by_time') {
                 \lib\input::jsonEncode(\models\report::salesReportByTimeChart($start, $end, $date_type));
             } else {

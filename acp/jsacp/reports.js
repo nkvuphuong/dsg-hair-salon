@@ -93,5 +93,6 @@ var SalesReport = {
         let dateType = obj.attr('date-type');
 
         SalesReport.salesReportByTimeChartUpdate(start, end, dateType);
+        SalesReport.salesGeneralReportChartUpdate(start, end);
     }
 };

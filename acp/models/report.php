@@ -17,22 +17,32 @@ ezy::load_model('store');
 
 class report
 {
-    public static function salesReportByStore()
+    public static function salesReportByStore($sqlAdd = "")
     {
         global $DB;
 
         //Report sales by store
 
-        $sql = "SELECT S.store_id, S.store_name, SUM(ord_total) AS sales_total FROM " . root_table . "order O RIGHT JOIN " . root_table . "store S ON O.store_id = S.store_id WHERE store_deleted=0 AND ord_deleted=0 AND ord_status=2 GROUP BY S.store_id ORDER BY sales_total DESC";
+        $sql = "SELECT S.store_id, S.store_name, SUM(ord_total) AS sales_total FROM " . root_table . "order O RIGHT JOIN " . root_table . "store S ON O.store_id = S.store_id WHERE store_deleted=0 AND ord_deleted=0 AND ord_status=2 {$sqlAdd} GROUP BY S.store_id ORDER BY sales_total DESC";
 
         return $DB->fetch_data($sql);
     }
 
-    public static function salesGeneralReportChart()
+    public static function salesGeneralReportChart($start, $end)
     {
         global $DB, $CMS;
 
-        $rs = static::salesReportByStore();
+        $sqlAdd = "";
+
+        if ($start) {
+            $sqlAdd .= " AND ord_time >= {$start} ";
+        }
+
+        if ($end) {
+            $sqlAdd .= " AND ord_time < {$end} ";
+        }
+
+        $rs = static::salesReportByStore($sqlAdd);
 
         $datasets = [];
         $extra = [];
