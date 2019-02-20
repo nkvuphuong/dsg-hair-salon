@@ -76,6 +76,9 @@ class report
             $quarter = date::getQuarter($start);
             $timesteps = date::getMonthsOfQuarter($quarter['quarter']);
             $groupField = "QUARTER(DATE_FORMAT(FROM_UNIXTIME(ord_time), '%Y-%m-%d'))";
+        } else if ($type == 'year') {
+            $timesteps = date::monthsOfYear();
+            $groupField = "DATE_FORMAT(FROM_UNIXTIME(ord_time), '%m')";
         }
 
         if ($start) {
@@ -99,7 +102,10 @@ class report
                 $labels[] = substr("0{$timestep}", -2) . '-' . date('m', $start);
             }
             else if ($type == 'quarter') {
-                $labels[] = "Quý {$timestep}";
+                $labels[] = "Tháng {$timestep}";
+            }
+            else if ($type == 'year') {
+                $labels[] = "Tháng {$timestep}";
             }
         }
 
