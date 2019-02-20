@@ -103,5 +103,8 @@ var SalesReport = {
 
         SalesReport.salesReportByTimeChartUpdate(start, end, dateType);
         SalesReport.salesGeneralReportChartUpdate(start, end);
-    }
+
+        $(".change_time").removeClass("btn-primary").addClass("btn-success");
+        obj.removeClass("btn-success").addClass("btn-primary");
+    },
 };

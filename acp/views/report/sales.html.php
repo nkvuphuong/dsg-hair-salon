@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="form-group col-xl-12">
                             <div class="form-control-wrapper">
-                                <button type="button" class="btn btn-inline btn-success change_time"
+                                <button type="button" class="btn btn-inline btn-primary change_time"
                                         start="<?=$tpl->last_week[0]?>" end="<?=$tpl->last_week[1]?>" date-type="week" onclick="SalesReport.timeOptionClick($(this))">Tuần trước
                                 </button>
                                 <button type="button" class="btn btn-inline btn-success change_time"
