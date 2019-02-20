@@ -12,129 +12,105 @@ class input
      * Remove unnecessary or invalid data in URL (inputs)
      */
 
-	static public function parse_incoming()
-	{
-		global $CMS;
+    static public function parse_incoming()
+    {
+        global $CMS;
 
-    		//$this->get_magic_quotes = get_magic_quotes_gpc();
+        //$this->get_magic_quotes = get_magic_quotes_gpc();
 
-    		$return = array();
+        $data = $_REQUEST;
+        $data['request_method'] = strtolower($_SERVER['REQUEST_METHOD']);
+        $data = self::clear_request($data);
+        return $data;
+    }
 
-		if( is_array($_GET) )
-		{
-			while( list($k, $v) = each($_GET) )
-			{
-				if ( is_array($_GET[$k]) )
-				{
-					while( list($k2, $v2) = each($_GET[$k]) )
-					{
-						$return[ $CMS->class->filter->clean_key($k) ][ $CMS->class->filter->clean_key($k2) ] = $CMS->class->filter->clean_value($v2);
-					}
-				}
-				else
-				{
-					$return[ $CMS->class->filter->clean_key($k) ] = $CMS->class->filter->clean_value($v);
-				}
-			}
-		}
+    /**
+     * Đệ quy để clear value của request
+     * @param $data
+     * @return mixed
+     */
+    static function clear_request($data) {
+        global $CMS;
+        foreach ($data as $k => $v) {
+            if(!is_array($v)) {
+                $data[$k] = $CMS->class->filter->clean_value($v);
+            } else {
+                $data[$k] = self::clear_request($v);
+            }
+        }
+        return $data;
+    }
 
-		//-----------------------------------------
-		// Overwrite GET data with post data
-		//-----------------------------------------
+    public function number_asc( $test )
+    {
+        $data = $test;
+        $new = array();
 
-		if( is_array($_POST) )
-		{
-			while( list($k, $v) = each($_POST) )
-			{
-				if ( is_array($_POST[$k]) )
-				{
-					while( list($k2, $v2) = each($_POST[$k]) )
-					{
-						$return[ $CMS->class->filter->clean_key($k) ][ $CMS->class->filter->clean_key($k2) ] = $CMS->class->filter->clean_value($v2);
-					}
-				}
-				else
-				{
-					$return[ $CMS->class->filter->clean_key($k) ] = $CMS->class->filter->clean_value($v);
-				}
-			}
-		}
+        for ( $i = 0; $i < count( $data ); $i++ )
+        {
+            $trunggian = $data[$i];
+            //$backup = 0;
+            $dinhvi = 0;
 
-		$return['request_method'] = strtolower($_SERVER['REQUEST_METHOD']);
+            for ( $j = $i; $j < count( $data ); $j++ )
+            {
+                if ( $trunggian > $data[$j] )
+                {
+                    $trunggian = $data[$j];
+                    $dinhvi = $j;
+                }
+            }
 
-		return $return;
-	}
+            $backup = $data[$i];
+            $data[$i] = $trunggian;
+            $data[$dinhvi] = $backup;
 
-	public function number_asc( $test )
-	{
-		$data = $test;
-		$new = array();
-		
-		for ( $i = 0; $i < count( $data ); $i++ )
-		{
-			$trunggian = $data[$i];
-			//$backup = 0;
-			$dinhvi = 0;
-			
-			for ( $j = $i; $j < count( $data ); $j++ )
-			{
-				if ( $trunggian > $data[$j] )
-				{
-					$trunggian = $data[$j];
-					$dinhvi = $j;
-				}
-			}
-		
-			$backup = $data[$i];
-			$data[$i] = $trunggian;
-			$data[$dinhvi] = $backup;
-		
-			$new[$i] = $data[$i];
-		
-			//print_r( $data );
-			//exit;
-		}
-		
-		return $new;
-	}
-	
-	public function number( $number, $type = ",", $dec=0)
-	{
-		$number = number_format( round( $number ), $dec, ' ', $type );
-	
-		return $number;
-	}
-	
-	public function currency( $input, $dec=0, $type=1 )
-	{
-		global $CMS;
+            $new[$i] = $data[$i];
 
-		$CMS->vars['currency_separate'] = $CMS->vars['currency_separate'] ? $CMS->vars['currency_separate'] : ".";
-		$CMS->vars['currency_type'] = $CMS->vars['currency_type'] ? $CMS->vars['currency_type'] : "$";
+            //print_r( $data );
+            //exit;
+        }
 
-		$currency = $type==1? "{$CMS->vars['currency_type']}" : $CMS->vars['currency_type'];
+        return $new;
+    }
+
+    public function number( $number, $type = ",", $dec=0)
+    {
+        $number = number_format( round( $number ), $dec, ' ', $type );
+
+        return $number;
+    }
+
+    public function currency( $input, $dec=0, $type=1 )
+    {
+        global $CMS;
+
+        $CMS->vars['currency_separate'] = $CMS->vars['currency_separate'] ? $CMS->vars['currency_separate'] : ".";
+        $CMS->vars['currency_type'] = $CMS->vars['currency_type'] ? $CMS->vars['currency_type'] : "$";
+
+        $currency = $type==1? "{$CMS->vars['currency_type']}" : $CMS->vars['currency_type'];
         if($CMS->vars['currency_type'] == '$')
         {
-        	$whole = floor($input);
-        	$fraction = $input - $whole;
-        	if($fraction > 0)
-        	{
-            	$output = $currency.number_format($input, 2, '.', ',');
-        	}else
-        	{
-        		$output = $currency.number_format($input, 0, '.', ',');
-        	}
+            $whole = floor($input);
+            $fraction = $input - $whole;
+            if($fraction > 0)
+            {
+                $output = $currency.number_format($input, 2, '.', ',');
+            }else
+            {
+                $output = $currency.number_format($input, 0, '.', ',');
+            }
         }
         else
-        {	
-        	$input =round($input);
+        {
+            $input =round($input);
             $output = $this->number($input, $CMS->vars['currency_separate'], $dec) . $currency;
         }
-		// /{$CMS->vars['currency_type']}
+        // /{$CMS->vars['currency_type']}
 
-		//$output = $this->number($input, $CMS->vars['currency_separate']) . "<sup>đ</sup>";
-		return $output;
-	}
+        //$output = $this->number($input, $CMS->vars['currency_separate']) . "<sup>đ</sup>";
+        return $output;
+    }
 
     public function is_email( $email )
     {
@@ -147,477 +123,477 @@ class input
     }
 
     public function is_html( $input )
-	{
-		$backup_output = $input;
-		$output = strip_tags($input, "");
-		$is_html = strlen($backup_output) > strlen($output) ? 1 : 0;
-		
-		return $is_html;
-	}
-	
-	public function is_nan( $input )
-	{
-    	return !is_numeric($input);
-	}
+    {
+        $backup_output = $input;
+        $output = strip_tags($input, "");
+        $is_html = strlen($backup_output) > strlen($output) ? 1 : 0;
 
-	public function compare( $str1, $str2, $method = 1 )
-	{
-		$str1 = strtolower($str1);
-		$str2 = strtolower($str2);
-		
-		switch ( $method )
-		{
-			case "0": // Begins with
-				if ( substr($str1, 0, strlen($str2)) == $str2 )
-				{
-					return true;
-				}
-			break;
-			case "1": // Is
-				if ( $str1 == $str2 )
-				{
-					return true;
-				}
-			break;
-			case "2": // Contains
-				if ( strlen( str_replace( $str2, "", $str1 ) ) != strlen($str1) )
-				{
-					return true;
-				}
-			break;
-			case "3": // Ends with
-	
-				if ( substr($str1, -strlen($str2)) == $str2 )
-				{
-					return true;
-				}
-			break;
-			default: // Is
-				if ( $str1 == $str2 )
-				{
-					return true;
-				}
-			break;
-		}
-		
-		return false;
-	}
-	
-	public function grab($source_to_grab, $delimiter_start, $delimiter_stop, $search='', $replace='')
-	{
-		$fd = ""; 
-		$start_pos = 0;
-		$end_pos = 0;
+        return $is_html;
+    }
+
+    public function is_nan( $input )
+    {
+        return !is_numeric($input);
+    }
+
+    public function compare( $str1, $str2, $method = 1 )
+    {
+        $str1 = strtolower($str1);
+        $str2 = strtolower($str2);
+
+        switch ( $method )
+        {
+            case "0": // Begins with
+                if ( substr($str1, 0, strlen($str2)) == $str2 )
+                {
+                    return true;
+                }
+                break;
+            case "1": // Is
+                if ( $str1 == $str2 )
+                {
+                    return true;
+                }
+                break;
+            case "2": // Contains
+                if ( strlen( str_replace( $str2, "", $str1 ) ) != strlen($str1) )
+                {
+                    return true;
+                }
+                break;
+            case "3": // Ends with
+
+                if ( substr($str1, -strlen($str2)) == $str2 )
+                {
+                    return true;
+                }
+                break;
+            default: // Is
+                if ( $str1 == $str2 )
+                {
+                    return true;
+                }
+                break;
+        }
+
+        return false;
+    }
+
+    public function grab($source_to_grab, $delimiter_start, $delimiter_stop, $search='', $replace='')
+    {
+        $fd = "";
+        $start_pos = 0;
+        $end_pos = 0;
         $result = "";
 
-		$source_to_grab = fopen($source_to_grab, "rb");
-	   	
-	   	while(true) 
-	   	{
-			if($end_pos > $start_pos) 
-		      	{
-				$result = substr($fd, $start_pos, $end_pos-$start_pos);
-		         	$result .= $delimiter_stop;
-				break;
-		      	}
-	
-			$data = fread($source_to_grab, 8192);
-	
-			if(strlen($data) == 0) break;
-			$fd .= $data;
-	
-			if(!$start_pos)
-			{
-				$start_pos = strpos($fd, $delimiter_start);
-			}
-	
-			if($start_pos)
-			{
-				$end_pos = strpos(substr($fd, $start_pos), $delimiter_stop) + $start_pos;
-			}
-	   	}
+        $source_to_grab = fopen($source_to_grab, "rb");
 
-	   	fclose($source_to_grab);
-		
-		if ( $search && $replace )
-		{
-			return preg_replace($search, $replace, $result);
-		}
-		else
-		{
-			return $result;
-		}
-	}
-	
-	public function geturl($replace, $replace_to = "", $remove_question_mark = 0)
-	{
-		global $CMS;
+        while(true)
+        {
+            if($end_pos > $start_pos)
+            {
+                $result = substr($fd, $start_pos, $end_pos-$start_pos);
+                $result .= $delimiter_stop;
+                break;
+            }
 
-		// Get URL
-		$url = parse_url($CMS->class->filter->clean_value($_SERVER['REQUEST_URI']));
-		
-		// Fix wrong type
-		$url = ($remove_question_mark ? "&" : "").str_replace("&amp;", "&", $url["query"]);
+            $data = fread($source_to_grab, 8192);
 
-		// Remove duplicate variable
-		if ( is_array($replace) == false )
-		{
-			if ( $replace )
-			{
-				$str_replace = "&{$replace}={$CMS->input[$replace]}";
-				$url = str_replace($str_replace, $replace_to, $url);
-			}
-		}
-		else
-		{
-			for ( $i = 0; $i < count($replace); $i++ )
-			{				
-				if ( $replace[$i] )
-				{
-					$str_replace = "&{$replace[$i]}={$CMS->input[$replace[$i]]}";
-					$url = str_replace($str_replace, $replace_to[$i], $url);
-				}
-			}
-		}
+            if(strlen($data) == 0) break;
+            $fd .= $data;
 
-		// Parse url to string
-		parse_str($url, $log_request);
-		
-		// Add question-mark 
-		$url = $remove_question_mark == 0 ? "?".$url : $url;
-		
-		return $url;
-	}
-	
-	//===========================================================================
-	//  NUMBER TO WORD
-	//===========================================================================
-	
-	public function read_words($input)
-	{
-		$array = array( "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy",
-                      "tám", "chín", "mười", "mười một", "mười hai", "mười ba",
-                      "mười bốn", "mười lăm", "mười sáu", "mười bảy", "mười tám",
-                      "mười chín", "hai mươi", 30 => "ba mươi", 40 => "bốn mươi",
-                      50 => "năm mươi", 60 => "sáu mươi", 70 => "bảy mươi", 80 => "tám mươi",
-                      90 => "chín mươi" );
+            if(!$start_pos)
+            {
+                $start_pos = strpos($fd, $delimiter_start);
+            }
 
-		// Complete block 3 units
-		$input = strlen($input) % 3 == 0 ? $input : "#".$input;
-		$input = strlen($input) % 3 == 0 ? $input : "#".$input;
-		
-		// Convert to array
-		$number = array();
-		$cnt = 0;
-		
-		for ( $i = 0; $i < strlen($input); $i++ )
-		{
-			$number[$cnt][$i-($cnt*3)] = substr($input,$i,1);
-			if ( ($i+1) % 3 == 0 ) { $cnt++; }
-		}
-		
-		// Unit to array
-		$unit = array("trăm", "nghìn", "triệu", "tỷ");
+            if($start_pos)
+            {
+                $end_pos = strpos(substr($fd, $start_pos), $delimiter_stop) + $start_pos;
+            }
+        }
 
-		// Start convert group
-		$output = "";
+        fclose($source_to_grab);
 
-		for ( $i = 0; $i < count($number); $i++ )
-		{
-			// First class
-			if ( $number[$i][0] != "#" )
-			{
-				// Check for zero
-				if ( $number[$i][0] == 0 AND $number[$i][1] == 0 AND $number[$i][2] == 0 )
-				{
-					// Remove all class
-					$number[$i][1] = "#";
-					$number[$i][2] = "#";
-				}
-				else
-				{
-					$output .= $array[$number[$i][0]]." ".$unit[0]." "; // count($number)-1-$i
-				}					
-			}
-				
-			// Second class
-			if ( $number[$i][1] != "#" )
-			{
-				// Check for zero
-				if ( $number[$i][1] == 0 AND $number[$i][2] == 0 )
-				{
-					// Remove Third class
-					$number[$i][2] = "#";
-				}
-				// Check for zero
-				else if ( $number[$i][2] != 0 AND $number[$i][1] == 0 )
-				{
-					$output .= " lẻ ";
-				}
-				// Check for 1
-				else if ( $number[$i][1] == 1 )
-				{
-					$output .= " mười ";
-				}
-				// Simple
-				else
-				{
-					$output .= $array[$number[$i][1]."0"]." ";
-				}
-			}
+        if ( $search && $replace )
+        {
+            return preg_replace($search, $replace, $result);
+        }
+        else
+        {
+            return $result;
+        }
+    }
 
-			// Third class
-			if ( $number[$i][2] != "#" )
-			{
-				// Check for previous zero
-				if ( $number[$i][1] != 0 AND $number[$i][2] == 0 )
-				{
-						
-				}
-				// Check for 1
-				else if ( $number[$i][1] > 0 AND $number[$i][2] == 1 )
-				{
-					$output .= " mốt ";
-				}
-				// Check for 5
-				else if ( $number[$i][1] > 0 AND $number[$i][2] == 5 )
-				{
-					$output .= " lăm ";
-				}
-				// Simple
-				else
-				{
-					$output .= $array[$number[$i][2]]." ";
-				}
-			}
+    public function geturl($replace, $replace_to = "", $remove_question_mark = 0)
+    {
+        global $CMS;
 
-			// Check for Unit
-			if ( ($number[$i][0] != 0 OR $number[$i][1] != 0 OR $number[$i][2] != 0) AND count($number)-1-$i  )
-			{
-				$output .= $unit[count($number)-1-$i]." ";
-			}
-		}
-		
-		return $output;
-	}
-	
-	public function number_to_words($input)
-	{
-		$output = $this->read_words($input);
-		$output = trim(strtoupper(substr($output,0,1)).substr($output,1,strlen($output)));
-		
-		return $output;
-	}
-	
-	//===========================================================================
-	//  ARRAY SORT
-	//===========================================================================
-	
-	public function array_sort($array, $on, $order = "asc", $i = "", $field_update = "")
-	{
-		$new_array = array();
-		$sortable_array = array();
-	
-		if (count($array) > 0) {
-			foreach ($array as $k => $v) {
-				if (is_array($v)) {
-					foreach ($v as $k2 => $v2) {
-						if ($k2 == $on) {
-							$sortable_array[$k] = $v2;
-						}
-					}
-				} else {
-					$sortable_array[$k] = $v;
-				}
-			}
-	
-			switch (strtolower($order)) {
-				case "asc":
-					asort($sortable_array);
-				break;
-				case "desc":
-					arsort($sortable_array);
-				break;
-			}
-			
-			// Start from sort...
-			if ( $i )
-			{
-				$i = intval($i);
-				foreach ($sortable_array as $k => $v) {
-					$new_array[$i] = $array[$k];
-					
-					// Field update
-					if ( $field_update )
-					{
-						$new_array[$i][$field_update] = $i;	
-					}
-					
-					$i++;
-				}
-			}
-			// Normal sort
-			else
-			{
-				foreach ($sortable_array as $k => $v) {
-					$new_array[$k] = $array[$k];
-					
-					// Field update
-					if ( $field_update )
-					{
-						$new_array[$i][$field_update] = $i;	
-					}
-					
-				}
-			}
-		}
+        // Get URL
+        $url = parse_url($CMS->class->filter->clean_value($_SERVER['REQUEST_URI']));
 
-		return $new_array;
-	}
-	
-	//===========================================================================
-	//  TRIM ALL, LHL-16/09/2010
-	//===========================================================================
-	
-	function trimall($str, $charlist = "\t\n\r\0\x0B")
-	{
-		$str = strip_tags($str);
-		$str = str_replace(str_split($charlist), '', $str);
+        // Fix wrong type
+        $url = ($remove_question_mark ? "&" : "").str_replace("&amp;", "&", $url["query"]);
 
-		return $str;
-	}
-	
-	//===========================================================================
-	//  COMPARE URL
-	//===========================================================================
-	
-	function compare_url($str, $str2)
-	{
-		global $CMS;
-		
-		// Remove string
-		$remove = array("_do");
-		
-		// Continue		
-		$str = parse_url($str);
-		$str2 = parse_url($str2);
-		
-		$str = explode("&", str_replace("&amp;", "&", $str['query']));
-		$str2 = explode("&", $str2['query']);
+        // Remove duplicate variable
+        if ( is_array($replace) == false )
+        {
+            if ( $replace )
+            {
+                $str_replace = "&{$replace}={$CMS->input[$replace]}";
+                $url = str_replace($str_replace, $replace_to, $url);
+            }
+        }
+        else
+        {
+            for ( $i = 0; $i < count($replace); $i++ )
+            {
+                if ( $replace[$i] )
+                {
+                    $str_replace = "&{$replace[$i]}={$CMS->input[$replace[$i]]}";
+                    $url = str_replace($str_replace, $replace_to[$i], $url);
+                }
+            }
+        }
 
-		// Set max value
-		if ( str_replace($remove, array(), $CMS->input['act']) == "search" )
-		{
-			$maxvalue = 3;	
-		}
-		else
-		{
-			$maxvalue = 4;	
-		}
+        // Parse url to string
+        parse_str($url, $log_request);
 
-		// Continue
-		for ( $i = 0; $i < $maxvalue; $i++ )
-		{
-			$str[$i] = str_replace($remove, array(), $str[$i]);
+        // Add question-mark
+        $url = $remove_question_mark == 0 ? "?".$url : $url;
 
-			if ( $str[$i] != $str2[$i] )
-			{
-				return false;	
-			}
-		}
+        return $url;
+    }
 
-		return true;
-	}
-	
-	//===========================================================================
-	//  Removes files and non-empty directories
-	//===========================================================================
+    //===========================================================================
+    //  NUMBER TO WORD
+    //===========================================================================
 
-	function removedir($dir)
-	{
-		if (is_dir($dir))
-		{ 
-			$objects = @scandir($dir); 
-		 	foreach ($objects as $object)
-			{ 
-		   		if ($object != "." && $object != "..")
-				{ 
-					if (filetype($dir."/".$object) == "dir") $this->removedir($dir."/".$object); else unlink($dir."/".$object); 
-		   		} 
-		 	}
-			@reset($objects);
-			@chmod($dir, 0777); 
-			@rmdir($dir); 
-		} 
-	}
-	
-	//===========================================================================
-	//  Copies files and directories
-	//===========================================================================
-	
-	function rcopy($src, $dst)
-	{
-		if (is_dir($src))
-		{
-    		mkdir($dst);
-    		$files = scandir($src);
-			
-    		foreach ($files as $file)
-   			{
-				if ($file != "." && $file != "..")
-				{
-					$this->rcopy("$src/$file", "$dst/$file");
-				}
-			}
-		}
-		else if (file_exists($src))
-		{
-			copy($src, $dst);
-		}
-	}
-	
-	//===========================================================================
-	//  Rename file or directory
-	//===========================================================================
-	
-	function rrename($src, $dst, $chmod = "")
-	{
-		// Check for chmod
-		if ( $chmod )
-		{
-			@chmod($src, $chmod);
-		}
-		
-		$return = @rename($src, $dst);
-		
-		// Check for chmod
-		if ( $chmod )
-		{
-			@chmod($dst, $chmod);
-		}
-		
-		return $return;
-	}
-	
-	//===========================================================================
-	//  Clear files on a dir
-	//===========================================================================
+    public function read_words($input)
+    {
+        $array = array( "không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy",
+            "tám", "chín", "mười", "mười một", "mười hai", "mười ba",
+            "mười bốn", "mười lăm", "mười sáu", "mười bảy", "mười tám",
+            "mười chín", "hai mươi", 30 => "ba mươi", 40 => "bốn mươi",
+            50 => "năm mươi", 60 => "sáu mươi", 70 => "bảy mươi", 80 => "tám mươi",
+            90 => "chín mươi" );
 
-	function cleardir($dir)
-	{
-		$dir = substr($dir,-1) == "/" ? $dir : $dir."/";		
-		$data = @scandir($dir);
-		
-		foreach ( $data as $file )
-		{
-			if ( @filetype($dir.$file) == "file" )
-			{
-				@unlink($dir.$file);
-			}
-		}
-		
-		return true;
-	}
+        // Complete block 3 units
+        $input = strlen($input) % 3 == 0 ? $input : "#".$input;
+        $input = strlen($input) % 3 == 0 ? $input : "#".$input;
+
+        // Convert to array
+        $number = array();
+        $cnt = 0;
+
+        for ( $i = 0; $i < strlen($input); $i++ )
+        {
+            $number[$cnt][$i-($cnt*3)] = substr($input,$i,1);
+            if ( ($i+1) % 3 == 0 ) { $cnt++; }
+        }
+
+        // Unit to array
+        $unit = array("trăm", "nghìn", "triệu", "tỷ");
+
+        // Start convert group
+        $output = "";
+
+        for ( $i = 0; $i < count($number); $i++ )
+        {
+            // First class
+            if ( $number[$i][0] != "#" )
+            {
+                // Check for zero
+                if ( $number[$i][0] == 0 AND $number[$i][1] == 0 AND $number[$i][2] == 0 )
+                {
+                    // Remove all class
+                    $number[$i][1] = "#";
+                    $number[$i][2] = "#";
+                }
+                else
+                {
+                    $output .= $array[$number[$i][0]]." ".$unit[0]." "; // count($number)-1-$i
+                }
+            }
+
+            // Second class
+            if ( $number[$i][1] != "#" )
+            {
+                // Check for zero
+                if ( $number[$i][1] == 0 AND $number[$i][2] == 0 )
+                {
+                    // Remove Third class
+                    $number[$i][2] = "#";
+                }
+                // Check for zero
+                else if ( $number[$i][2] != 0 AND $number[$i][1] == 0 )
+                {
+                    $output .= " lẻ ";
+                }
+                // Check for 1
+                else if ( $number[$i][1] == 1 )
+                {
+                    $output .= " mười ";
+                }
+                // Simple
+                else
+                {
+                    $output .= $array[$number[$i][1]."0"]." ";
+                }
+            }
+
+            // Third class
+            if ( $number[$i][2] != "#" )
+            {
+                // Check for previous zero
+                if ( $number[$i][1] != 0 AND $number[$i][2] == 0 )
+                {
+
+                }
+                // Check for 1
+                else if ( $number[$i][1] > 0 AND $number[$i][2] == 1 )
+                {
+                    $output .= " mốt ";
+                }
+                // Check for 5
+                else if ( $number[$i][1] > 0 AND $number[$i][2] == 5 )
+                {
+                    $output .= " lăm ";
+                }
+                // Simple
+                else
+                {
+                    $output .= $array[$number[$i][2]]." ";
+                }
+            }
+
+            // Check for Unit
+            if ( ($number[$i][0] != 0 OR $number[$i][1] != 0 OR $number[$i][2] != 0) AND count($number)-1-$i  )
+            {
+                $output .= $unit[count($number)-1-$i]." ";
+            }
+        }
+
+        return $output;
+    }
+
+    public function number_to_words($input)
+    {
+        $output = $this->read_words($input);
+        $output = trim(strtoupper(substr($output,0,1)).substr($output,1,strlen($output)));
+
+        return $output;
+    }
+
+    //===========================================================================
+    //  ARRAY SORT
+    //===========================================================================
+
+    public function array_sort($array, $on, $order = "asc", $i = "", $field_update = "")
+    {
+        $new_array = array();
+        $sortable_array = array();
+
+        if (count($array) > 0) {
+            foreach ($array as $k => $v) {
+                if (is_array($v)) {
+                    foreach ($v as $k2 => $v2) {
+                        if ($k2 == $on) {
+                            $sortable_array[$k] = $v2;
+                        }
+                    }
+                } else {
+                    $sortable_array[$k] = $v;
+                }
+            }
+
+            switch (strtolower($order)) {
+                case "asc":
+                    asort($sortable_array);
+                    break;
+                case "desc":
+                    arsort($sortable_array);
+                    break;
+            }
+
+            // Start from sort...
+            if ( $i )
+            {
+                $i = intval($i);
+                foreach ($sortable_array as $k => $v) {
+                    $new_array[$i] = $array[$k];
+
+                    // Field update
+                    if ( $field_update )
+                    {
+                        $new_array[$i][$field_update] = $i;
+                    }
+
+                    $i++;
+                }
+            }
+            // Normal sort
+            else
+            {
+                foreach ($sortable_array as $k => $v) {
+                    $new_array[$k] = $array[$k];
+
+                    // Field update
+                    if ( $field_update )
+                    {
+                        $new_array[$i][$field_update] = $i;
+                    }
+
+                }
+            }
+        }
+
+        return $new_array;
+    }
+
+    //===========================================================================
+    //  TRIM ALL, LHL-16/09/2010
+    //===========================================================================
+
+    function trimall($str, $charlist = "\t\n\r\0\x0B")
+    {
+        $str = strip_tags($str);
+        $str = str_replace(str_split($charlist), '', $str);
+
+        return $str;
+    }
+
+    //===========================================================================
+    //  COMPARE URL
+    //===========================================================================
+
+    function compare_url($str, $str2)
+    {
+        global $CMS;
+
+        // Remove string
+        $remove = array("_do");
+
+        // Continue
+        $str = parse_url($str);
+        $str2 = parse_url($str2);
+
+        $str = explode("&", str_replace("&amp;", "&", $str['query']));
+        $str2 = explode("&", $str2['query']);
+
+        // Set max value
+        if ( str_replace($remove, array(), $CMS->input['act']) == "search" )
+        {
+            $maxvalue = 3;
+        }
+        else
+        {
+            $maxvalue = 4;
+        }
+
+        // Continue
+        for ( $i = 0; $i < $maxvalue; $i++ )
+        {
+            $str[$i] = str_replace($remove, array(), $str[$i]);
+
+            if ( $str[$i] != $str2[$i] )
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    //===========================================================================
+    //  Removes files and non-empty directories
+    //===========================================================================
+
+    function removedir($dir)
+    {
+        if (is_dir($dir))
+        {
+            $objects = @scandir($dir);
+            foreach ($objects as $object)
+            {
+                if ($object != "." && $object != "..")
+                {
+                    if (filetype($dir."/".$object) == "dir") $this->removedir($dir."/".$object); else unlink($dir."/".$object);
+                }
+            }
+            @reset($objects);
+            @chmod($dir, 0777);
+            @rmdir($dir);
+        }
+    }
+
+    //===========================================================================
+    //  Copies files and directories
+    //===========================================================================
+
+    function rcopy($src, $dst)
+    {
+        if (is_dir($src))
+        {
+            mkdir($dst);
+            $files = scandir($src);
+
+            foreach ($files as $file)
+            {
+                if ($file != "." && $file != "..")
+                {
+                    $this->rcopy("$src/$file", "$dst/$file");
+                }
+            }
+        }
+        else if (file_exists($src))
+        {
+            copy($src, $dst);
+        }
+    }
+
+    //===========================================================================
+    //  Rename file or directory
+    //===========================================================================
+
+    function rrename($src, $dst, $chmod = "")
+    {
+        // Check for chmod
+        if ( $chmod )
+        {
+            @chmod($src, $chmod);
+        }
+
+        $return = @rename($src, $dst);
+
+        // Check for chmod
+        if ( $chmod )
+        {
+            @chmod($dst, $chmod);
+        }
+
+        return $return;
+    }
+
+    //===========================================================================
+    //  Clear files on a dir
+    //===========================================================================
+
+    function cleardir($dir)
+    {
+        $dir = substr($dir,-1) == "/" ? $dir : $dir."/";
+        $data = @scandir($dir);
+
+        foreach ( $data as $file )
+        {
+            if ( @filetype($dir.$file) == "file" )
+            {
+                @unlink($dir.$file);
+            }
+        }
+
+        return true;
+    }
 
     /*
      * Scan directory and load it.
@@ -663,47 +639,47 @@ class input
      * @return bool
      */
 
-	public function is_money($str)
-	{
-		  if(preg_match('#[^0-9]#', $str))
-		  {
-		   	return false;
-		  }
-		  return true;
- 	}
+    public function is_money($str)
+    {
+        if(preg_match('#[^0-9]#', $str))
+        {
+            return false;
+        }
+        return true;
+    }
 
 
- 	public function generate_code( $input = "", $maxlength = 0)
+    public function generate_code( $input = "", $maxlength = 0)
     {
         $str_len = strlen($input);
         $sub_str = $maxlength - $str_len;
         $len = "";
         for($i = 1; $i <= $sub_str; $i++)
         {
-            $len = $len ."0";  
+            $len = $len ."0";
 
         }
 
         return $len.$input;
 
     }
-	
-	public function check_price($price)
-	{
-		global $CMS;
-		
-		$price = intval($price);
-	 
-		$max_price = intval($CMS->vars['assets_max_price']) ? intval($CMS->vars['assets_max_price']) : 10000000000;
-		$min_price = intval($CMS->vars['assets_min_price']) ? intval($CMS->vars['assets_min_price']) : 0;
-	
-		if($price < $min_price || $price > $max_price)
-		{
-			return false;
-		}
-		
-		return true;	
-	}
+
+    public function check_price($price)
+    {
+        global $CMS;
+
+        $price = intval($price);
+
+        $max_price = intval($CMS->vars['assets_max_price']) ? intval($CMS->vars['assets_max_price']) : 10000000000;
+        $min_price = intval($CMS->vars['assets_min_price']) ? intval($CMS->vars['assets_min_price']) : 0;
+
+        if($price < $min_price || $price > $max_price)
+        {
+            return false;
+        }
+
+        return true;
+    }
 
     /**
      * LHL,09/04/17: Function to get real client IP
@@ -770,7 +746,7 @@ class input
                 // Remove data for self::$act or self::$subact
                 return "";
             }
-            else{ 
+            else{
                 // Continue without get ID.
                 return $input;
             }
@@ -782,45 +758,45 @@ class input
     // 04/07/2017 hvu added, using for report
     static function getTimeString($type="",$overflow = 1)
     {
-    	global $CMS;
+        global $CMS;
 
-    	$timezone = 0; //$CMS->vars['timezone']*3600
-        
-    	if($type == "yesterday")
-    	{
-    		$time_from = strtotime('yesterday')+$timezone;
-			$time_to = $overflow == 1 ? $time_from + 3600*24 : $time_from;
-    	}elseif($type == "today")
-    	{
-    		$time_from = strtotime('today')+$timezone;
-			$time_to = $overflow == 1 ? $time_from + 3600*24 : $time_from;
-    	}elseif($type == "last_week")
-    	{
-    		$time_from = strtotime('monday previous week') + $timezone;
-			$time_to = strtotime('sunday previous week') + $timezone;
-    	}elseif($type == "this_week")
-    	{
-    		$time_from = strtotime('monday this week')+$timezone;
-			$time_to = strtotime('sunday this week') + $timezone;
-    	}elseif($type == "last_month")
-    	{
-    		$time_from = strtotime('first day of previous month')+$timezone;
-			$time_to = strtotime('last day of previous month') + $timezone;
-    	}elseif($type == "this_month")
-    	{
-    		$time_from = strtotime('first day of this month')+$timezone;
-			$time_to = strtotime('last day of this month') + $timezone;
-    	}elseif($type == "last_year")
-    	{
-			$time_from = strtotime('first day of January '.date('Y',strtotime('previous year'))) + $timezone;
-			$time_to = strtotime('last day of December '.date('Y',strtotime('previous year'))) + $timezone;
-    	}elseif($type == "this_year")
-    	{
-    		$time_from = strtotime('first day of January '.date('Y')) + $timezone;
-			$time_to = strtotime('last day of December '.date('Y')) + $timezone;
-    	}
+        $timezone = 0; //$CMS->vars['timezone']*3600
 
-    	return array($time_from, $time_to);
+        if($type == "yesterday")
+        {
+            $time_from = strtotime('yesterday')+$timezone;
+            $time_to = $overflow == 1 ? $time_from + 3600*24 : $time_from;
+        }elseif($type == "today")
+        {
+            $time_from = strtotime('today')+$timezone;
+            $time_to = $overflow == 1 ? $time_from + 3600*24 : $time_from;
+        }elseif($type == "last_week")
+        {
+            $time_from = strtotime('monday previous week') + $timezone;
+            $time_to = strtotime('sunday previous week') + $timezone;
+        }elseif($type == "this_week")
+        {
+            $time_from = strtotime('monday this week')+$timezone;
+            $time_to = strtotime('sunday this week') + $timezone;
+        }elseif($type == "last_month")
+        {
+            $time_from = strtotime('first day of previous month')+$timezone;
+            $time_to = strtotime('last day of previous month') + $timezone;
+        }elseif($type == "this_month")
+        {
+            $time_from = strtotime('first day of this month')+$timezone;
+            $time_to = strtotime('last day of this month') + $timezone;
+        }elseif($type == "last_year")
+        {
+            $time_from = strtotime('first day of January '.date('Y',strtotime('previous year'))) + $timezone;
+            $time_to = strtotime('last day of December '.date('Y',strtotime('previous year'))) + $timezone;
+        }elseif($type == "this_year")
+        {
+            $time_from = strtotime('first day of January '.date('Y')) + $timezone;
+            $time_to = strtotime('last day of December '.date('Y')) + $timezone;
+        }
+
+        return array($time_from, $time_to);
     }
 
     /**
@@ -937,7 +913,7 @@ class input
      */
 
     static public function is_domain($domain = "")
-    {  
+    {
         return filter_var(gethostbyname($domain), FILTER_VALIDATE_IP);
     }
 
@@ -961,7 +937,7 @@ class input
      */
     static public function getThumb($path, $width=0, $folder = 'thumbnail')
     {
- 
+
         $thumb = \lib\image::getThumb($path, $folder, 'w'.$width.'_', 1, $width);
         return self::checkImage($thumb);
     }
@@ -1083,6 +1059,31 @@ class input
         return $string;
     }
 
+
+    /**
+     * Đệ quy để xử lý dữ liệu xuống dòng
+     * @param $data: array
+     * @return mixed
+     */
+    static function cleanNewlineForArray($data = []) {
+        global $CMS;
+
+        if(!is_array($data) || !count($data)) return $data;
+
+        foreach ($data as $k => $v) {
+            if(!is_array($v)) {
+                if (is_numeric($v) || is_bool($v) || is_null($v)) {
+                    $data[$k] = $v;
+                } else {
+                    $data[$k] = str_replace(array("\r\n","\r", "\n"),'\n',$v);
+                }
+            } else {
+                $data[$k] = self::cleanNewlineForArray($v);
+            }
+        }
+        return $data;
+    }
+
     /**
      * @param $data
      * @param int $echo
@@ -1091,6 +1092,8 @@ class input
      */
     static function jsonEncode($data, $echo = 1)
     {
+//        $data = static::cleanNewlineForArray($data);
+
         if($echo)
         {
             header("Content-type: application/json; charset=utf-8");
@@ -1158,12 +1161,16 @@ class input
      */
     static function urlDecode($data)
     {
-        if($data)
-        {
-            foreach($data as $k => $v)
-            {
-                $data[$k] = urldecode($v);
+        if(is_array($data)) {
+            foreach ($data as $k => $v) {
+                if(!is_array($v)) {
+                    $data[$k] = urldecode($v);
+                } else {
+                    $data[$k] = self::urlDecode($v);
+                }
             }
+        } else {
+            $data = urldecode($data);
         }
 
         return $data;
@@ -1260,7 +1267,7 @@ class input
         $phone = str_replace("_", "", $phone);
         $phone = str_replace("(", "", $phone);
         $phone = str_replace(")", "", $phone);
-        
+
         // Return
         return $phone;
     }
@@ -1274,5 +1281,48 @@ class input
     {
         $return = preg_replace('/^(\d{3})(\d{4})(\d{3,4})$/', '$1.$2.$3', $str);
         return $return ? $return : $str;
+    }
+
+    /**
+     * convert key data for api
+     * @param $keys
+     * @param $data
+     * @return array
+     */
+    public static function convertKeys($keys, $data, $dataTypeFields = [])
+    {
+        global $CMS, $DB;
+
+        $return = [];
+
+        $numberFields = input::arrayValue($dataTypeFields, 'number');
+        $jsonFields = input::arrayValue($dataTypeFields, 'json');
+        $booleanFields = input::arrayValue($dataTypeFields, 'boolean');
+        $htmlFields = input::arrayValue($dataTypeFields, 'html');
+
+        foreach ($data as $key => $value) {
+            if (isset($keys[$key])) {
+
+                if($jsonFields && in_array($keys[$key], $jsonFields)) {
+                    $value = input::jsonDecode($value);
+                }
+
+                if($booleanFields && in_array($keys[$key], $booleanFields)) {
+                    $value = $value ? true : false;
+                }
+
+                if($numberFields && in_array($keys[$key], $numberFields)) {
+                    $value *= 1;
+                }
+
+                if($htmlFields && in_array($keys[$key], $htmlFields)) {
+                    $value = htmlspecialchars_decode($value);
+                }
+
+                $return[$keys[$key]] = $value;
+            }
+        }
+
+        return $return;
     }
 }

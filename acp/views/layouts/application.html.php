@@ -783,27 +783,14 @@ if( $CMS->vars['site_routed_app'] == "web" )
 
 
 
-        <?if(\lib\input::arrayValue($CMS->permit,'report_read') and !\lib\input::arrayValue($CMS->vars, 'web_free')){?>
+        <?if(\lib\input::arrayValue($CMS->permit,'report_read')){?>
             <li class="with-sub" for="menu_report">
                 <span>
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
                     <span class="lbl" id="menu_config"><?= $CMS->lang['menu_report']; ?></span>
                 </span>
                 <ul for="menu_report">
-                    <?=\models\dashboard::renderHTMLMenu("report_sales",$CMS->lang['menu_report_invoice'], "?site=report&act=sales&subact=date");?>
-                    <?=\models\dashboard::renderHTMLMenu("report_order",$CMS->lang['menu_report_order'], "?site=report&act=order&subact=date");?>
-                    <?=\models\dashboard::renderHTMLMenu("report_product",$CMS->lang['menu_report_product'], "?site=report&act=product&subact=date");?>
-
-                    <? if($CMS->vars['addon_goods_enable'] == 1) { ?>
-                        <?=\models\dashboard::renderHTMLMenu("report_assets",$CMS->lang['menu_report_assets'], "?site=report&act=assets&subact=date");?>
-                        <?=\models\dashboard::renderHTMLMenu("report_inventory",$CMS->lang['menu_report_inventory'], "?site=report&act=inventory&subact=quantity");?>
-                    <? } ?>
-
-                    <?=\models\dashboard::renderHTMLMenu("report_customer",$CMS->lang['menu_report_customer'], "?site=report&act=customer&subact=overview");?>
-
-                    <? if($CMS->vars['addon_goods_enable'] == 1) { ?>
-                        <?=\models\dashboard::renderHTMLMenu("report_finance",$CMS->lang['menu_report_overview'], "?site=report&act=finance&subact=daily");?>
-                    <? } ?>
+                    <?=\models\dashboard::renderHTMLMenu("report_sales",$CMS->lang['menu_report_invoice'], "?site=report&act=sales");?>
                 </ul>
             </li>
         <? } ?>

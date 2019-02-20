@@ -328,7 +328,13 @@ $lang = array (
     "title_contact_phone"   => "Phone",
     "title_contact_address"   => "Address",
 
-
+    "day_0" => 'Mon',
+    "day_1" => 'Tue',
+    "day_2" => 'Wed',
+    "day_3" => 'Thu',
+    "day_4" => 'Fri',
+    "day_5" => 'Sat',
+    "day_6" => 'Sun',
 );
 
 ?>

@@ -2,6 +2,8 @@
 
 namespace lib;
 
+use function Sodium\compare;
+
 $CMS->class->date = new date;
 
 class date {
@@ -705,6 +707,23 @@ class date {
      * @param string $type: unix_timestamp | timestamp
      * @return array
      */
+    static function getFisrtLastOfMonth($time, $type = 'unix_timestamp')
+    {
+        $start = strtotime(date('Y-m-01', $time));
+        $end = strtotime(date('Y-m-t', $time));
+
+        if ($type == 'timestamp') {
+            $start = static::format($start);
+            $end = static::format($end);
+        }
+
+        return [$start, $end];
+    }
+
+    /**
+     * @param string $type: unix_timestamp | timestamp
+     * @return array
+     */
     function getFisrtLastInLastWeek($type = 'unix_timestamp')
     {
         $start = strtotime('last week');
@@ -713,6 +732,30 @@ class date {
         if ($type == 'timestamp') {
             $start = $this->date_format($start);
             $end = $this->date_format($end);
+        }
+
+        return [$start, $end];
+    }
+
+    /**
+     * @param $time: unix_timestamp | timestamp
+     * @param string $type
+     */
+    static function getFirstLastOfWeek($time, $type = 'unix_timestamp')
+    {
+        $date = date('Y-m-d', $time); // you can put any date you want
+        $nbDay = date('N', strtotime($date));
+        $monday = new \DateTime($date);
+        $sunday = new \DateTime($date);
+        $monday->modify('-'.($nbDay-1).' days');
+        $sunday->modify('+'.(7-$nbDay).' days');
+
+        $start = $monday->getTimestamp();
+        $end = $sunday->getTimestamp();
+
+        if ($type == 'timestamp') {
+            $start = static::format($start);
+            $end = static::date_format($end);
         }
 
         return [$start, $end];
@@ -767,6 +810,19 @@ class date {
         if ($type == 'timestamp') {
             $start = $this->date_format($start);
             $end = $this->date_format($end);
+        }
+
+        return [$start, $end];
+    }
+
+    static function getFisrtLastOfYear($year, $type = 'unix_timestamp')
+    {
+        $start = strtotime(date($year . '-01-01'));
+        $end = strtotime(date($year . '-12-31'));
+
+        if ($type == 'timestamp') {
+            $start = static::format($start);
+            $end = static::format($end);
         }
 
         return [$start, $end];
@@ -921,6 +977,129 @@ $item['timezone'] = $item['hour'] <0 ? "{$item['hour']}:{$item['min']}" : "+{$it
 
         $return = date($newFormat, $timestamp);
         return $return;
+    }
+
+    /**
+     * @return array
+     */
+    static function monthsOfYear()
+    {
+        $data = [];
+
+        for ($i=1; $i<=12; $i++) {
+            $month = substr("0{$i}", -2);
+            $data[] = "{$month}";
+        }
+
+        return $data;
+    }
+
+    /**
+     * @return array
+     */
+    static function quartersOfYear()
+    {
+        $data = [];
+
+        for ($i=1; $i<=4; $i++) {
+            $data[] = $i;
+        }
+
+        return $data;
+    }
+
+    /**
+     * @param $month
+     * @param $year
+     * @return array
+     */
+    static function daysOfMonth($year, $month)
+    {
+        $data = [];
+
+        $month = substr("0{$month}", -2);
+        $date = "{$year}-{$month}-01";
+
+        $endDay = date('t', strtotime($date));
+
+        for ($i=1; $i<=$endDay; $i++) {
+            $data[] = $i;
+        }
+
+        return $data;
+    }
+
+    /**
+     * @param $month
+     * @param $year
+     * @return array
+     */
+    static function getMonthsOfQuarter($quarter)
+    {
+        $data = [];
+
+        $quarter = $quarter % 4;
+        $quarter = $quarter < 0 ? 4 + $quarter : $quarter;
+        $quarter = $quarter == 0 ? 4 : $quarter;
+        $endMonth = ($quarter * 3);
+        $startMonth = $endMonth - 2;
+
+        for ($i = $startMonth; $i <= $endMonth; $i++) {
+            $data[] = $i;
+        }
+
+        return $data;
+    }
+
+    /**
+     * @return array
+     */
+    static function daysOfWeek()
+    {
+        $data = [];
+
+        for ($i=0; $i<=6; $i++) {
+            $data[] = $i;
+        }
+
+        return $data;
+    }
+
+    /**
+     * @param $time
+     * @return float
+     */
+    static function getQuarter($time)
+    {
+        $quarter = ceil(date('n', $time)/3);
+        $year = date('Y', $time);
+        return compact('quarter', 'year');
+    }
+
+    static function getFirstLastOfQuarter($quarter, $year, $type = 'unix_timestamp')
+    {
+        $addYear = ceil($quarter/4) - 1;
+        $quarter = $quarter - ($addYear * 4);
+        $year += $addYear;
+
+        $endMonth = ($quarter * 3);
+        $startMonth = $endMonth - 2;
+        $endMonth = substr("0{$endMonth}", -2);
+        $startMonth = substr("0{$startMonth}", -2);
+
+        $start = "{$year}-{$startMonth}-01";
+        $end = date('Y-m-t', strtotime("{$year}-{$endMonth}-01"));
+
+        $start = strtotime($start);
+        $end = strtotime($end);
+
+
+        if ($type == 'timestamp') {
+            $start = static::format($start);
+            $end = static::date_format($end);
+        }
+
+        return [$start, $end];
     }
 }
 

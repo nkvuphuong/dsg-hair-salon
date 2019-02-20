@@ -2770,14 +2770,14 @@ padding-bottom:.425rem
 .navbar-dark .navbar-divider {
 	background-color: rgba(255,255,255,.075)
 }
-.card-block {
+/*.card-block {
 	position: relative;
 	display: block;
 	background-color: #fff;
 	border: 1px solid #e5e5e5;
 	border-top:none;
 	border-bottom:none
-}
+}*/
 .card-block {
 	padding: 1.25rem
 }
@@ -15311,6 +15311,13 @@ font-size:.8125rem;
 	border-radius: 0
 }
 .card {
+	border-color: #d8e2e7;
+	position: relative;
+	display: block;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: .25rem;
+	border-radius: .25rem;
 }
 .card-footer, .card-header {
 	background: 0 0

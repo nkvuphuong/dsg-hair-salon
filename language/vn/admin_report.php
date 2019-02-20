@@ -335,6 +335,14 @@ $lang = array (
     "title_contact_email"   => "Email",
     "title_contact_phone"   => "Phone",
     "title_contact_address"   => "Address",
+
+    "day_0" => 'Thứ hai',
+    "day_1" => 'Thứ ba',
+    "day_2" => 'Thứ tư',
+    "day_3" => 'Thứ năm',
+    "day_4" => 'Thứ sáu',
+    "day_5" => 'Thứ bảy',
+    "day_6" => 'Chủ nhật',
 );
 
 ?>
