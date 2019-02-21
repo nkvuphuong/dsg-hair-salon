@@ -1,8 +1,8 @@
-var SalesReport = {
+var SalesReportByStore = {
     salesGeneralReport: null,
     salesGeneralReportID: "salesGeneralReportChart",
     salesGeneralReportChart: (start, end) => {
-        var ctx = document.getElementById(SalesReport.salesGeneralReportID);
+        var ctx = document.getElementById(SalesReportByStore.salesGeneralReportID);
         this.salesGeneralReport = new Chart(ctx, {
             type: 'pie',
             // data: data,
@@ -21,27 +21,27 @@ var SalesReport = {
                 }
             }
         });
-        SalesReport.salesGeneralReportChartUpdate(start, end);
+        SalesReportByStore.salesGeneralReportChartUpdate(start, end);
     },
     salesGeneralReportChartUpdate: (start, end) => {
         let _this = this;
-        blockLoading($("#" + SalesReport.salesGeneralReportID).parent());
+        blockLoading($("#" + SalesReportByStore.salesGeneralReportID).parent());
         $.ajax({
             url: site_root_domain + `/?site=report&act=sales&chart=general&data_type=json&start=${start}&end=${end}`,
             dataType: 'json',
             success: (data) => {
-                SalesReport.setData(_this.salesGeneralReport, data)
+                SalesReportByStore.setData(_this.salesGeneralReport, data)
             },
             complete: () => {
-                unblockLoading($("#" + SalesReport.salesGeneralReportID).parent());
+                unblockLoading($("#" + SalesReportByStore.salesGeneralReportID).parent());
             }
         });
     },
-    salesReportByTime: null,
-    salesReportByTimeID: "reportByTime",
-    salesReportByTimeChart: (start, end, date_type) => {
-        var ctx = document.getElementById(SalesReport.salesReportByTimeID);
-        this.salesReportByTime = new Chart(ctx, {
+    SalesReportByStoreByTime: null,
+    SalesReportByStoreByTimeID: "reportByTime",
+    SalesReportByStoreByTimeChart: (start, end, date_type) => {
+        var ctx = document.getElementById(SalesReportByStore.SalesReportByStoreByTimeID);
+        this.SalesReportByStoreByTime = new Chart(ctx, {
             type: 'horizontalBar',
             // data: data,
             options: {
@@ -74,20 +74,20 @@ var SalesReport = {
                 }
             }
         });
-        SalesReport.salesReportByTimeChartUpdate(start, end, date_type);
+        SalesReportByStore.SalesReportByStoreByTimeChartUpdate(start, end, date_type);
     },
-    salesReportByTimeChartUpdate: (start, end, date_type) => {
+    SalesReportByStoreByTimeChartUpdate: (start, end, date_type) => {
         let _this = this;
-        blockLoading($("#" + SalesReport.salesReportByTimeID).parent());
+        blockLoading($("#" + SalesReportByStore.SalesReportByStoreByTimeID).parent());
         $.ajax({
             url: site_root_domain + `/?site=report&act=sales&chart=by_time&data_type=json&start=${start}&end=${end}&date_type=${date_type}`,
             dataType: 'json',
             success: (data) => {
-                SalesReport.setData(_this.salesReportByTime, data)
-                $("#" + SalesReport.salesReportByTimeID).css("height", data.labels.length * data.datasets.length * 15)
+                SalesReportByStore.setData(_this.SalesReportByStoreByTime, data)
+                $("#" + SalesReportByStore.SalesReportByStoreByTimeID).css("height", data.labels.length * data.datasets.length * 15)
             },
             complete: () => {
-                unblockLoading($("#" + SalesReport.salesReportByTimeID).parent());
+                unblockLoading($("#" + SalesReportByStore.SalesReportByStoreByTimeID).parent());
             }
         });
     },
@@ -101,8 +101,78 @@ var SalesReport = {
         let end = obj.attr('end');
         let dateType = obj.attr('date-type');
 
-        SalesReport.salesReportByTimeChartUpdate(start, end, dateType);
-        SalesReport.salesGeneralReportChartUpdate(start, end);
+        SalesReportByStore.SalesReportByStoreByTimeChartUpdate(start, end, dateType);
+        SalesReportByStore.salesGeneralReportChartUpdate(start, end);
+
+        $(".change_time").removeClass("btn-primary").addClass("btn-success");
+        obj.removeClass("btn-success").addClass("btn-primary");
+    },
+};
+
+
+var SalesReportByStaff = {
+    setData: function (chart, data) {
+        chart.clear();
+        chart.data = data;
+        chart.update();
+    },
+    eleID: "reportChart",
+    chart: null,
+    chartInit: function() {
+        let ctx = document.getElementById(this.eleID);
+        this.chart = new Chart(ctx, {
+            type: 'horizontalBar',
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            let dataItem = data.datasets[tooltipItem.datasetIndex];
+                            let label = '';
+
+                            if (dataItem) {
+                                label = dataItem.label || '';
+                            }
+
+                            if (label) {
+                                label += ': ';
+                            }
+
+                            label += dataItem.extra[tooltipItem.index] || '';
+                            return label;
+                        }
+                    }
+                }
+            }
+        });
+    },
+    chartInitUpdate: function (start, end) {
+        let _this = this;
+        blockLoading($("#" + _this.eleID).parent());
+        $.ajax({
+            url: site_root_domain + `/?site=report&act=sales&subact=by_staffs&data_type=json&start=${start}&end=${end}`,
+            dataType: 'json',
+            success: (data) => {
+                SalesReportByStore.setData(_this.chart, data)
+                $("#" + _this.eleID).css("height", data.labels.length * data.datasets.length * 50)
+            },
+            complete: () => {
+                unblockLoading($("#" + _this.eleID).parent());
+            }
+        });
+    },
+    timeOptionClick: function (obj) {
+        let start = obj.attr('start');
+        let end = obj.attr('end');
+
+        this.chartInitUpdate(start, end);
 
         $(".change_time").removeClass("btn-primary").addClass("btn-success");
         obj.removeClass("btn-success").addClass("btn-primary");

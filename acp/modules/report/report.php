@@ -4,6 +4,7 @@ use \core\ezy;
 
 if (!defined('IN_ROOT')) exit();
 ezy::load_model("report");
+ezy::load_model("staff");
 
 new report;
 
@@ -50,6 +51,22 @@ class report
     {
         global $CMS, $tpl;
 
+        switch (\lib\input::get('subact')) {
+            case 'by_staffs':
+                $this->salesByStaffs();
+                break;
+            default:
+                $this->salesByStores();
+        }
+    }
+
+    /**
+     * Report sales by store
+     */
+    public function salesByStores()
+    {
+        global $CMS, $tpl;
+
         $start = $CMS->class->date->date2time(urldecode(\lib\input::get('start')));
         $end = $CMS->class->date->date2time(urldecode(\lib\input::get('end'))) + (3600*24);
         $date_type = \lib\input::get('date_type');
@@ -59,13 +76,37 @@ class report
             if (\lib\input::get('chart') == 'general') {
                 \lib\input::jsonEncode(\models\report::salesGeneralReportChart($start, $end));
             } elseif (\lib\input::get('chart') == 'by_time') {
-                \lib\input::jsonEncode(\models\report::salesReportByTimeChart($start, $end, $date_type));
+                \lib\input::jsonEncode(\models\report::SalesReportByStoreByTimeChart($start, $end, $date_type));
             } else {
                 \lib\input::jsonEncode(null);
             }
         }
 
         // Output data
-        $CMS->output .= ezy::html("sales");
+        $CMS->output .= ezy::html("sales_by_stores");
     }
+
+    /**
+     * Report sales by staff
+     */
+    public function salesByStaffs()
+    {
+        global $CMS, $tpl;
+
+        \models\report::reportSalesByStaffChart();
+
+        $start = $CMS->class->date->date2time(urldecode(\lib\input::get('start')));
+        $end = $CMS->class->date->date2time(urldecode(\lib\input::get('end'))) + (3600*24);
+
+        $tpl->stores = \models\store::getStores();
+
+        if (\lib\input::get('data_type') == 'json') {
+            \lib\input::jsonEncode(\models\report::reportSalesByStaffChart($start, $end));
+        }
+
+        // Output data
+        $CMS->output .= ezy::html("sales_by_staffs");
+    }
+
+
 }

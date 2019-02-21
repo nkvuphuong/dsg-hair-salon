@@ -23,6 +23,14 @@ class staff
     static public $sqlAdd="";
     static public $record_cnt=0;
 
+    static function getAll($sqlAdd = "")
+    {
+        global $DB;
+
+        $sql = "SELECT * FROM ".root_table."user WHERE user_deleted=0 {$sqlAdd}  ORDER BY user_id DESC";
+
+        return $DB->fetch_data($sql, "user");
+    }
 
     static function listing()
     {
@@ -38,7 +46,7 @@ class staff
         $sql = "SELECT * FROM ".root_table."user WHERE user_deleted=0 AND user_is_staff=1 {$clause} ORDER BY user_id DESC";
 
         // Create SQL Query for listing Data
-        list($CMS->show_page, $results) = $DB->fetch_listing($sql, self::$maxPage, self::$prefixPaging, self::$suffixPaging, $CMS->input['page'], 'user.staff');
+        list($CMS->show_page, $results) = $DB->fetch_listing($sql, self::$maxPage, self::$prefixPaging, self::$suffixPaging, $CMS->input['page'], 'user');
 
         $data = [];
 

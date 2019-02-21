@@ -14,10 +14,11 @@ use \PHPExcel_Style_Border;
 use \PHPExcel_IOFactory;
 
 ezy::load_model('store');
+ezy::load_model('staff');
 
 class report
 {
-    public static function salesReportByStore($sqlAdd = "")
+    public static function SalesReportByStoreByStore($sqlAdd = "")
     {
         global $DB;
 
@@ -42,7 +43,7 @@ class report
             $sqlAdd .= " AND ord_time < {$end} ";
         }
 
-        $rs = static::salesReportByStore($sqlAdd);
+        $rs = static::SalesReportByStoreByStore($sqlAdd);
 
         $datasets = [];
         $extra = [];
@@ -59,7 +60,7 @@ class report
         return $data;
     }
 
-    public static function salesReportByTime($groupField, $sqlAdd = "")
+    public static function SalesReportByStoreByTime($groupField, $sqlAdd = "")
     {
         global $CMS, $DB;
 
@@ -68,7 +69,7 @@ class report
         return $DB->fetch_data($sql);
     }
 
-    public static function salesReportByTimeChart($start, $end, $type = 'week')
+    public static function SalesReportByStoreByTimeChart($start, $end, $type = 'week')
     {
         global $CMS;
 
@@ -99,7 +100,7 @@ class report
             $sqlAdd .= " AND ord_time < {$end} ";
         }
 
-        $rs = static::salesReportByTime($groupField, $sqlAdd);
+        $rs = static::SalesReportByStoreByTime($groupField, $sqlAdd);
 
         $labels = []; //Global labels
         $datasets = [];
@@ -138,6 +139,57 @@ class report
         }
 
         return compact('labels', 'datasets');
+    }
+
+    static function reportSalesByStaff($sqlAdd)
+    {
+        global $CMS, $DB;
+
+        $sql = "SELECT ordi_staff, user_display_name, SUM(ordi_total) AS val 
+        FROM " . root_table . "order_item I
+        RIGHT JOIN " . root_table . "user U ON ordi_staff = U.user_id
+        LEFT JOIN " . root_table . "order O ON O.ord_id = I.ord_id
+        WHERE ord_deleted = 0 AND ord_status = 2 AND ordi_deleted = 0 AND U.user_deleted=0 {$sqlAdd}
+        GROUP BY ordi_staff
+        ORDER BY val DESC";
+
+        return $DB->fetch_data($sql);
+    }
+
+    static function reportSalesByStaffChart($start = "", $end = "", $store = 0)
+    {
+        global $CMS;
+
+        $sqlAdd = "";
+
+        if ($start) {
+            $sqlAdd .= " AND ord_time >= {$start} ";
+        }
+
+        if ($end) {
+            $sqlAdd .= " AND ord_time < {$end} ";
+        }
+
+        $rs = static::reportSalesByStaff($sqlAdd);
+        $labels = array_column($rs, 'user_display_name');
+        $datasetLabel = "Doanh số";
+        $datasetData = array_column($rs, 'val');
+        $datasetExtra = array_map(function($x) use ($CMS) {
+            return $CMS->class->input->currency($x);
+        }, $datasetData);
+
+        $data = [
+            'labels' => $labels,
+            'datasets' => [
+                [
+                    'label' => $datasetLabel,
+                    'data' => $datasetData,
+                    'extra' => $datasetExtra,
+                ]
+            ]
+        ];
+
+        return $data;
     }
 }  
 
