@@ -9,28 +9,28 @@
                         <div class="form-group col-xl-12">
                             <div class="form-control-wrapper">
                                 <button type="button" class="btn btn-inline btn-primary change_time"
-                                        start="<?=$tpl->last_week[0]?>" end="<?=$tpl->last_week[1]?>" date-type="week" onclick="SalesReport.timeOptionClick($(this))">Tuần trước
-                                </button>
-                                <button type="button" class="btn btn-inline btn-success change_time"
                                         start="<?=$tpl->this_week[0]?>" end="<?=$tpl->this_week[1]?>" date-type="week" onclick="SalesReport.timeOptionClick($(this))">Tuần này
                                 </button>
                                 <button type="button" class="btn btn-inline btn-success change_time"
-                                        start="<?=$tpl->last_month[0]?>" end="<?=$tpl->last_month[1]?>" date-type="month" onclick="SalesReport.timeOptionClick($(this))">Tháng trước
+                                        start="<?=$tpl->last_week[0]?>" end="<?=$tpl->last_week[1]?>" date-type="week" onclick="SalesReport.timeOptionClick($(this))">Tuần trước
                                 </button>
                                 <button type="button" class="btn btn-inline btn-success change_time"
                                         start="<?=$tpl->this_month[0]?>" end="<?=$tpl->this_month[1]?>" date-type="month" onclick="SalesReport.timeOptionClick($(this))">Tháng này
                                 </button>
                                 <button type="button" class="btn btn-inline btn-success change_time"
-                                        start="<?=$tpl->last_quarter[0]?>" end="<?=$tpl->last_quarter[1]?>" date-type="quarter" onclick="SalesReport.timeOptionClick($(this))">Quý trước
+                                        start="<?=$tpl->last_month[0]?>" end="<?=$tpl->last_month[1]?>" date-type="month" onclick="SalesReport.timeOptionClick($(this))">Tháng trước
                                 </button>
                                 <button type="button" class="btn btn-inline btn-success change_time"
                                         start="<?=$tpl->this_quarter[0]?>" end="<?=$tpl->this_quarter[1]?>" date-type="quarter" onclick="SalesReport.timeOptionClick($(this))">Quý này
                                 </button>
                                 <button type="button" class="btn btn-inline btn-success change_time"
-                                        start="<?=$tpl->last_year[0]?>" end="<?=$tpl->last_year[1]?>" date-type="year" onclick="SalesReport.timeOptionClick($(this))">Năm trước
+                                        start="<?=$tpl->last_quarter[0]?>" end="<?=$tpl->last_quarter[1]?>" date-type="quarter" onclick="SalesReport.timeOptionClick($(this))">Quý trước
                                 </button>
                                 <button type="button" class="btn btn-inline btn-success change_time"
                                         start="<?=$tpl->this_year[0]?>" end="<?=$tpl->this_year[1]?>" date-type="year" onclick="SalesReport.timeOptionClick($(this))">Năm này
+                                </button>
+                                <button type="button" class="btn btn-inline btn-success change_time"
+                                        start="<?=$tpl->last_year[0]?>" end="<?=$tpl->last_year[1]?>" date-type="year" onclick="SalesReport.timeOptionClick($(this))">Năm trước
                                 </button>
                             </div>
                         </div>
