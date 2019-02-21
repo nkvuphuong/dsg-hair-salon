@@ -111,11 +111,9 @@ class report
                 $labels[] = input::lang('day_' . $timestep);
             } else if ($type == 'month') {
                 $labels[] = substr("0{$timestep}", -2) . '-' . date('m', $start);
-            }
-            else if ($type == 'quarter') {
+            } else if ($type == 'quarter') {
                 $labels[] = "Tháng {$timestep}";
-            }
-            else if ($type == 'year') {
+            } else if ($type == 'year') {
                 $labels[] = "Tháng {$timestep}";
             }
         }
@@ -170,11 +168,15 @@ class report
             $sqlAdd .= " AND ord_time < {$end} ";
         }
 
+        if ($store) {
+            $sqlAdd .= " AND I.store_id = {$store} ";
+        }
+
         $rs = static::reportSalesByStaff($sqlAdd);
         $labels = array_column($rs, 'user_display_name');
         $datasetLabel = "Doanh số";
         $datasetData = array_column($rs, 'val');
-        $datasetExtra = array_map(function($x) use ($CMS) {
+        $datasetExtra = array_map(function ($x) use ($CMS) {
             return $CMS->class->input->currency($x);
         }, $datasetData);
 

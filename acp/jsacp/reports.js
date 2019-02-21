@@ -116,9 +116,10 @@ var SalesReportByStaff = {
         chart.data = data;
         chart.update();
     },
+    frmID: "chartOptions",
     eleID: "reportChart",
     chart: null,
-    chartInit: function() {
+    chartInit: function () {
         let ctx = document.getElementById(this.eleID);
         this.chart = new Chart(ctx, {
             type: 'horizontalBar',
@@ -153,15 +154,19 @@ var SalesReportByStaff = {
             }
         });
     },
-    chartInitUpdate: function (start, end) {
+    chartInitUpdate: function () {
         let _this = this;
+        let data = $("#" + _this.frmID).serialize();
         blockLoading($("#" + _this.eleID).parent());
         $.ajax({
-            url: site_root_domain + `/?site=report&act=sales&subact=by_staffs&data_type=json&start=${start}&end=${end}`,
+            url: site_root_domain + `/?site=report&act=sales&subact=by_staffs&data_type=json`,
+            data: data,
             dataType: 'json',
             success: (data) => {
-                SalesReportByStore.setData(_this.chart, data)
-                $("#" + _this.eleID).css("height", data.labels.length * data.datasets.length * 50)
+                _this.setData(_this.chart, data);
+                let h =  data.labels.length * data.datasets.length * 50;
+                h = h > 100 ? h : 100;
+                $("#" + _this.eleID).css("height", h);
             },
             complete: () => {
                 unblockLoading($("#" + _this.eleID).parent());
@@ -169,12 +174,22 @@ var SalesReportByStaff = {
         });
     },
     timeOptionClick: function (obj) {
-        let start = obj.attr('start');
-        let end = obj.attr('end');
 
-        this.chartInitUpdate(start, end);
+        $("#" + this.frmID + " [name=start]").val(obj.attr('start'));
+        $("#" + this.frmID + " [name=end]").val(obj.attr('end'));
+
+        this.chartInitUpdate();
 
         $(".change_time").removeClass("btn-primary").addClass("btn-success");
+        obj.removeClass("btn-success").addClass("btn-primary");
+    },
+    storeOptionClick: function (obj) {
+
+        $("#" + this.frmID + " [name=store]").val(obj.attr('store'));
+
+        this.chartInitUpdate();
+
+        $(".change_store").removeClass("btn-primary").addClass("btn-success");
         obj.removeClass("btn-success").addClass("btn-primary");
     },
 };

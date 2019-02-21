@@ -32,7 +32,7 @@ class report
 
         $quarter = \lib\date::getQuarter(time());
         $tpl->this_quarter = \lib\date::getFirstLastOfQuarter($quarter['quarter'], $quarter['year'], 'timestamp');
-        $tpl->last_quarter = \lib\date::getFirstLastOfQuarter($quarter['quarter']-1, $quarter['year'], 'timestamp');
+        $tpl->last_quarter = \lib\date::getFirstLastOfQuarter($quarter['quarter'] - 1, $quarter['year'], 'timestamp');
 
         switch ($CMS->input['act']) {
             case 'sales':
@@ -68,7 +68,7 @@ class report
         global $CMS, $tpl;
 
         $start = $CMS->class->date->date2time(urldecode(\lib\input::get('start')));
-        $end = $CMS->class->date->date2time(urldecode(\lib\input::get('end'))) + (3600*24);
+        $end = $CMS->class->date->date2time(urldecode(\lib\input::get('end'))) + (3600 * 24);
         $date_type = \lib\input::get('date_type');
 
         //Thống kê doanh thu theo cửa hàng
@@ -96,12 +96,13 @@ class report
         \models\report::reportSalesByStaffChart();
 
         $start = $CMS->class->date->date2time(urldecode(\lib\input::get('start')));
-        $end = $CMS->class->date->date2time(urldecode(\lib\input::get('end'))) + (3600*24);
+        $end = $CMS->class->date->date2time(urldecode(\lib\input::get('end'))) + (3600 * 24);
+        $store = \lib\input::get('store') * 1;
 
         $tpl->stores = \models\store::getStores();
 
         if (\lib\input::get('data_type') == 'json') {
-            \lib\input::jsonEncode(\models\report::reportSalesByStaffChart($start, $end));
+            \lib\input::jsonEncode(\models\report::reportSalesByStaffChart($start, $end, $store));
         }
 
         // Output data
