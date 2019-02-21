@@ -37,6 +37,14 @@
                         <div class="col-xl-12">
                             <h5 class="">Thời gian: </h5>
                             <button type="button" class="btn btn-primary change_time"
+                                    start="<?= $tpl->today ?>" end="<?= $tpl->today ?>" date-type="day"
+                                    onclick="SalesReportByStaff.timeOptionClick($(this))">Hôm nay
+                            </button>
+                            <button type="button" class="btn btn-success change_time"
+                                    start="<?= $tpl->yesterday ?>" end="<?= $tpl->yesterday ?>" date-type="day"
+                                    onclick="SalesReportByStaff.timeOptionClick($(this))">Hôm qua
+                            </button>
+                            <button type="button" class="btn btn-success change_time"
                                     start="<?= $tpl->this_week[0] ?>" end="<?= $tpl->this_week[1] ?>" date-type="week"
                                     onclick="SalesReportByStaff.timeOptionClick($(this))">Tuần này
                             </button>
@@ -90,8 +98,8 @@
 </div>
 
 <form id="chartOptions">
-    <input type="hidden" name="start" value="<?= $tpl->this_week[0] ?>">
-    <input type="hidden" name="end" value="<?= $tpl->this_week[1] ?>">
+    <input type="hidden" name="start" value="<?= $tpl->today ?>">
+    <input type="hidden" name="end" value="<?= $tpl->today ?>">
     <input type="hidden" name="store" value="0">
 </form>
 
