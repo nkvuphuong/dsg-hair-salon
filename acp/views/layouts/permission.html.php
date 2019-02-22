@@ -519,6 +519,7 @@
         <act><name>finance</name></act>
         <act><name>inventory</name></act>
         <act><name>assets</name></act>
+        <act><name>users</name></act>
     </menu>
 
     <menu>

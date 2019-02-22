@@ -9,7 +9,7 @@
                         <div class="btn-group" role="group" aria-label="...">
                             <a class="btn btn-secondary" href="<?=$CMS->vars['root_domain']?>/?site=report&act=sales">Cửa tiệm</a>
                             <a class="btn btn-default" href="<?=$CMS->vars['root_domain']?>/?site=report&act=sales&subact=by_staffs">Nhân viên</a>
-                            <a class="btn btn-secondary"
+                            <a class="btn btn-default"
                                href="<?= $CMS->vars['root_domain'] ?>/?site=report&act=sales&subact=by_services">Dịch vụ</a>
                         </div>
 

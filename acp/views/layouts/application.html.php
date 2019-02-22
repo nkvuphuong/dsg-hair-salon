@@ -791,6 +791,7 @@ if( $CMS->vars['site_routed_app'] == "web" )
                 </span>
                 <ul for="menu_report">
                     <?=\models\dashboard::renderHTMLMenu("report_sales",$CMS->lang['menu_report_invoice'], "?site=report&act=sales");?>
+                    <?=\models\dashboard::renderHTMLMenu("report_users",$CMS->lang['menu_report_user'], "?site=report&act=users");?>s
                 </ul>
             </li>
         <? } ?>
