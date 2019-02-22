@@ -55,6 +55,9 @@ class report
             case 'by_staffs':
                 $this->salesByStaffs();
                 break;
+            case 'by_services':
+                $this->salesByServices();
+                break;
             default:
                 $this->salesByStores();
         }
@@ -107,6 +110,27 @@ class report
 
         // Output data
         $CMS->output .= ezy::html("sales_by_staffs");
+    }
+
+    /**
+     * Report sales by staff
+     */
+    public function salesByServices()
+    {
+        global $CMS, $tpl;
+
+        $start = $CMS->class->date->date2time(urldecode(\lib\input::get('start')));
+        $end = $CMS->class->date->date2time(urldecode(\lib\input::get('end'))) + (3600 * 24);
+        $store = \lib\input::get('store') * 1;
+
+        $tpl->stores = \models\store::getStores();
+
+        if (\lib\input::get('data_type') == 'json') {
+            \lib\input::jsonEncode(\models\report::reportSalesByServicesChart($start, $end, $store));
+        }
+
+        // Output data
+        $CMS->output .= ezy::html("sales_by_services");
     }
 
 

@@ -18,6 +18,10 @@ ezy::load_model('staff');
 
 class report
 {
+    /**
+     * @param string $sqlAdd
+     * @return mixed
+     */
     public static function SalesReportByStoreByStore($sqlAdd = "")
     {
         global $DB;
@@ -29,6 +33,11 @@ class report
         return $DB->fetch_data($sql);
     }
 
+    /**
+     * @param $start
+     * @param $end
+     * @return mixed
+     */
     public static function salesGeneralReportChart($start, $end)
     {
         global $DB, $CMS;
@@ -60,6 +69,11 @@ class report
         return $data;
     }
 
+    /**
+     * @param $groupField
+     * @param string $sqlAdd
+     * @return mixed
+     */
     public static function SalesReportByStoreByTime($groupField, $sqlAdd = "")
     {
         global $CMS, $DB;
@@ -69,6 +83,12 @@ class report
         return $DB->fetch_data($sql);
     }
 
+    /**
+     * @param $start
+     * @param $end
+     * @param string $type
+     * @return array
+     */
     public static function SalesReportByStoreByTimeChart($start, $end, $type = 'week')
     {
         global $CMS;
@@ -139,7 +159,11 @@ class report
         return compact('labels', 'datasets');
     }
 
-    static function reportSalesByStaff($sqlAdd)
+    /**
+     * @param $sqlAdd
+     * @return mixed
+     */
+    static function reportSalesByStaff($sqlAdd = "")
     {
         global $CMS, $DB;
 
@@ -154,6 +178,12 @@ class report
         return $DB->fetch_data($sql);
     }
 
+    /**
+     * @param string $start
+     * @param string $end
+     * @param int $store
+     * @return array
+     */
     static function reportSalesByStaffChart($start = "", $end = "", $store = 0)
     {
         global $CMS;
@@ -174,6 +204,65 @@ class report
 
         $rs = static::reportSalesByStaff($sqlAdd);
         $labels = array_column($rs, 'user_display_name');
+        $datasetLabel = "Doanh số";
+        $datasetData = array_column($rs, 'val');
+        $datasetExtra = array_map(function ($x) use ($CMS) {
+            return $CMS->class->input->currency($x);
+        }, $datasetData);
+
+        $data = [
+            'labels' => $labels,
+            'datasets' => [
+                [
+                    'label' => $datasetLabel,
+                    'data' => $datasetData,
+                    'extra' => $datasetExtra,
+                ]
+            ]
+        ];
+
+        return $data;
+    }
+
+    /**
+     * @param $sqlAdd
+     * @return mixed
+     */
+    static function reportSalesByServices($sqlAdd = "")
+    {
+        global $CMS, $DB;
+
+        $sql = "SELECT P.product_id, product_name, SUM(ordi_total) AS val 
+        FROM " . root_table . "order_item I
+        RIGHT JOIN " . root_table . "product P ON I.product_id = P.product_id
+        LEFT JOIN " . root_table . "order O ON O.ord_id = I.ord_id
+        WHERE ord_deleted = 0 AND ord_status = 2 AND ordi_deleted = 0 AND P.product_deleted=0 {$sqlAdd}
+        GROUP BY P.product_id
+        ORDER BY val DESC";
+
+        return $DB->fetch_data($sql);
+    }
+
+    static function reportSalesByServicesChart($start = "", $end = "", $store = 0)
+    {
+        global $CMS;
+
+        $sqlAdd = "";
+
+        if ($start) {
+            $sqlAdd .= " AND ord_time >= {$start} ";
+        }
+
+        if ($end) {
+            $sqlAdd .= " AND ord_time < {$end} ";
+        }
+
+        if ($store) {
+            $sqlAdd .= " AND I.store_id = {$store} ";
+        }
+
+        $rs = static::reportSalesByServices($sqlAdd);
+        $labels = array_column($rs, 'product_name');
         $datasetLabel = "Doanh số";
         $datasetData = array_column($rs, 'val');
         $datasetExtra = array_map(function ($x) use ($CMS) {

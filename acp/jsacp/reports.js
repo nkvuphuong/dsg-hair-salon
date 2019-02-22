@@ -193,3 +193,87 @@ var SalesReportByStaff = {
         obj.removeClass("btn-success").addClass("btn-primary");
     },
 };
+
+var SalesReportByService = {
+    setData: function (chart, data) {
+        chart.clear();
+        chart.data = data;
+        chart.update();
+    },
+    frmID: "chartOptions",
+    eleID: "reportChart",
+    chart: null,
+    chartInit: function () {
+        let ctx = document.getElementById(this.eleID);
+        this.chart = new Chart(ctx, {
+            type: 'horizontalBar',
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                tooltips: {
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            let dataItem = data.datasets[tooltipItem.datasetIndex];
+                            let label = '';
+
+                            if (dataItem) {
+                                label = dataItem.label || '';
+                            }
+
+                            if (label) {
+                                label += ': ';
+                            }
+
+                            label += dataItem.extra[tooltipItem.index] || '';
+                            return label;
+                        }
+                    }
+                }
+            }
+        });
+    },
+    chartInitUpdate: function () {
+        let _this = this;
+        let data = $("#" + _this.frmID).serialize();
+        blockLoading($("#" + _this.eleID).parent());
+        $.ajax({
+            url: site_root_domain + `/?site=report&act=sales&subact=by_services&data_type=json`,
+            data: data,
+            dataType: 'json',
+            success: (data) => {
+                _this.setData(_this.chart, data);
+                let h =  data.labels.length * data.datasets.length * 50;
+                h = h > 100 ? h : 100;
+                $("#" + _this.eleID).css("height", h);
+            },
+            complete: () => {
+                unblockLoading($("#" + _this.eleID).parent());
+            }
+        });
+    },
+    timeOptionClick: function (obj) {
+
+        $("#" + this.frmID + " [name=start]").val(obj.attr('start'));
+        $("#" + this.frmID + " [name=end]").val(obj.attr('end'));
+
+        this.chartInitUpdate();
+
+        $(".change_time").removeClass("btn-primary").addClass("btn-success");
+        obj.removeClass("btn-success").addClass("btn-primary");
+    },
+    storeOptionClick: function (obj) {
+
+        $("#" + this.frmID + " [name=store]").val(obj.attr('store'));
+
+        this.chartInitUpdate();
+
+        $(".change_store").removeClass("btn-primary").addClass("btn-success");
+        obj.removeClass("btn-success").addClass("btn-primary");
+    },
+};

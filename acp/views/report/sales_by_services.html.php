@@ -9,10 +9,10 @@
                         <div class="btn-group" role="group" aria-label="...">
                             <a class="btn btn-default" href="<?= $CMS->vars['root_domain'] ?>/?site=report&act=sales">Cửa
                                 tiệm</a>
-                            <a class="btn btn-secondary"
+                            <a class="btn btn-default"
                                href="<?= $CMS->vars['root_domain'] ?>/?site=report&act=sales&subact=by_staffs">Nhân
                                 viên</a>
-                            <a class="btn btn-default"
+                            <a class="btn btn-secondary"
                                href="<?= $CMS->vars['root_domain'] ?>/?site=report&act=sales&subact=by_services">Dịch vụ</a>
                         </div>
 
@@ -22,13 +22,13 @@
                         <div class="col-xl-12">
                             <h5 class="">Cửa tiệm: </h5>
                             <button type="button" class="btn btn-primary change_store"
-                                    store="0" onclick="SalesReportByStaff.storeOptionClick($(this))">Tất cả
+                                    store="0" onclick="SalesReportByService.storeOptionClick($(this))">Tất cả
                             </button>
                             <? if ($tpl->stores) { ?>
                                 <? foreach ($tpl->stores as $store) { ?>
                                     <button type="button" class="btn btn-success change_store"
                                             store="<?= $store['store_id'] ?>"
-                                            onclick="SalesReportByStaff.storeOptionClick($(this))"><?= $store['store_name'] ?>
+                                            onclick="SalesReportByService.storeOptionClick($(this))"><?= $store['store_name'] ?>
                                     </button>
                                 <? } ?>
                             <? } ?>
@@ -40,43 +40,43 @@
                             <h5 class="">Thời gian: </h5>
                             <button type="button" class="btn btn-primary change_time"
                                     start="<?= $tpl->today ?>" end="<?= $tpl->today ?>" date-type="day"
-                                    onclick="SalesReportByStaff.timeOptionClick($(this))">Hôm nay
+                                    onclick="SalesReportByService.timeOptionClick($(this))">Hôm nay
                             </button>
                             <button type="button" class="btn btn-success change_time"
                                     start="<?= $tpl->yesterday ?>" end="<?= $tpl->yesterday ?>" date-type="day"
-                                    onclick="SalesReportByStaff.timeOptionClick($(this))">Hôm qua
+                                    onclick="SalesReportByService.timeOptionClick($(this))">Hôm qua
                             </button>
                             <button type="button" class="btn btn-success change_time"
                                     start="<?= $tpl->this_week[0] ?>" end="<?= $tpl->this_week[1] ?>" date-type="week"
-                                    onclick="SalesReportByStaff.timeOptionClick($(this))">Tuần này
+                                    onclick="SalesReportByService.timeOptionClick($(this))">Tuần này
                             </button>
                             <button type="button" class="btn btn-success change_time"
                                     start="<?= $tpl->last_week[0] ?>" end="<?= $tpl->last_week[1] ?>" date-type="week"
-                                    onclick="SalesReportByStaff.timeOptionClick($(this))">Tuần trước
+                                    onclick="SalesReportByService.timeOptionClick($(this))">Tuần trước
                             </button>
                             <button type="button" class="btn btn-success change_time"
                                     start="<?= $tpl->this_month[0] ?>" end="<?= $tpl->this_month[1] ?>"
-                                    date-type="month" onclick="SalesReportByStaff.timeOptionClick($(this))">Tháng này
+                                    date-type="month" onclick="SalesReportByService.timeOptionClick($(this))">Tháng này
                             </button>
                             <button type="button" class="btn btn-success change_time"
                                     start="<?= $tpl->last_month[0] ?>" end="<?= $tpl->last_month[1] ?>"
-                                    date-type="month" onclick="SalesReportByStaff.timeOptionClick($(this))">Tháng trước
+                                    date-type="month" onclick="SalesReportByService.timeOptionClick($(this))">Tháng trước
                             </button>
                             <button type="button" class="btn btn-success change_time"
                                     start="<?= $tpl->this_quarter[0] ?>" end="<?= $tpl->this_quarter[1] ?>"
-                                    date-type="quarter" onclick="SalesReportByStaff.timeOptionClick($(this))">Quý này
+                                    date-type="quarter" onclick="SalesReportByService.timeOptionClick($(this))">Quý này
                             </button>
                             <button type="button" class="btn btn-success change_time"
                                     start="<?= $tpl->last_quarter[0] ?>" end="<?= $tpl->last_quarter[1] ?>"
-                                    date-type="quarter" onclick="SalesReportByStaff.timeOptionClick($(this))">Quý trước
+                                    date-type="quarter" onclick="SalesReportByService.timeOptionClick($(this))">Quý trước
                             </button>
                             <button type="button" class="btn btn-success change_time"
                                     start="<?= $tpl->this_year[0] ?>" end="<?= $tpl->this_year[1] ?>" date-type="year"
-                                    onclick="SalesReportByStaff.timeOptionClick($(this))">Năm này
+                                    onclick="SalesReportByService.timeOptionClick($(this))">Năm này
                             </button>
                             <button type="button" class="btn btn-success change_time"
                                     start="<?= $tpl->last_year[0] ?>" end="<?= $tpl->last_year[1] ?>" date-type="year"
-                                    onclick="SalesReportByStaff.timeOptionClick($(this))">Năm trước
+                                    onclick="SalesReportByService.timeOptionClick($(this))">Năm trước
                             </button>
                         </div>
                     </div>
@@ -112,6 +112,6 @@
 <script type="text/javascript" src="<?= $CMS->vars['parent_domain'] ?>/acp/jsacp/reports.js"></script>
 <script>
     $(".container-fluid.messenger").removeClass("container-fluid").removeClass("messenger");
-    SalesReportByStaff.chartInit();
-    SalesReportByStaff.chartInitUpdate()
+    SalesReportByService.chartInit();
+    SalesReportByService.chartInitUpdate()
 </script>
