@@ -38,6 +38,9 @@ class report
             case 'sales':
                 $this->sales();
                 break;
+            case 'users':
+                $this->users();
+                break;
             default:
                 $this->sales();
                 break;
@@ -133,5 +136,30 @@ class report
         $CMS->output .= ezy::html("sales_by_services");
     }
 
+    /**
+     * Report sales
+     */
+    public function users()
+    {
+        global $CMS, $tpl;
 
+        $start = $CMS->class->date->date2time(urldecode(\lib\input::get('start')));
+        $end = $CMS->class->date->date2time(urldecode(\lib\input::get('end'))) + (3600 * 24);
+        $store = \lib\input::get('store') * 1;
+
+        $tpl->stores = \models\store::getStores();
+
+        if (\lib\input::get('data_type') == 'json') {
+            if (\lib\input::get('chart') == 'sales') {
+                \lib\input::jsonEncode(\models\report::reportSalesByStaffChart($start, $end, $store));
+            } elseif (\lib\input::get('chart') == 'orders') {
+                \lib\input::jsonEncode(\models\report::reportSalesByStaffChart($start, $end, $store, "COUNT(0)", "Đơn hàng", null));
+            } else {
+                \lib\input::jsonEncode(null);
+            }
+        }
+
+        // Output data
+        $CMS->output .= ezy::html("users");
+    }
 }

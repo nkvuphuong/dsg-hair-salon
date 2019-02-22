@@ -164,7 +164,7 @@ var SalesReportByStaff = {
             dataType: 'json',
             success: (data) => {
                 _this.setData(_this.chart, data);
-                let h =  data.labels.length * data.datasets.length * 50;
+                let h = data.labels.length * data.datasets.length * 50;
                 h = h > 100 ? h : 100;
                 $("#" + _this.eleID).css("height", h);
             },
@@ -248,7 +248,7 @@ var SalesReportByService = {
             dataType: 'json',
             success: (data) => {
                 _this.setData(_this.chart, data);
-                let h =  data.labels.length * data.datasets.length * 50;
+                let h = data.labels.length * data.datasets.length * 50;
                 h = h > 100 ? h : 100;
                 $("#" + _this.eleID).css("height", h);
             },
@@ -272,6 +272,137 @@ var SalesReportByService = {
         $("#" + this.frmID + " [name=store]").val(obj.attr('store'));
 
         this.chartInitUpdate();
+
+        $(".change_store").removeClass("btn-primary").addClass("btn-success");
+        obj.removeClass("btn-success").addClass("btn-primary");
+    },
+};
+
+
+var UsersReport = {
+    frmID: "chartOptions",
+    init: function () {
+      this.sales.init();
+      this.orders.init();
+    },
+    update: function () {
+      this.sales.update();
+      this.orders.update();
+    },
+    chartOption: {
+        type: 'horizontalBar',
+        options: {
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, data) {
+                        let dataItem = data.datasets[tooltipItem.datasetIndex];
+                        let label = '';
+
+                        if (dataItem) {
+                            label = dataItem.label || '';
+                        }
+
+                        if (label) {
+                            label += ': ';
+                        }
+
+                        label += dataItem.extra[tooltipItem.index] || '';
+                        return label;
+                    }
+                }
+            }
+        }
+    },
+    sales: {
+        eleID: 'salesChart',
+        chart: null,
+        init: function () {
+            let ctx = document.getElementById(this.eleID);
+            this.chart = new Chart(ctx, Object.assign({}, UsersReport.chartOption));
+            this.update();
+        },
+        update: function () {
+            console.log('sales');
+            let _this = this;
+            let data = $("#" + UsersReport.frmID).serialize();
+            blockLoading($("#" + _this.eleID).parent());
+            $.ajax({
+                url: site_root_domain + `/?site=report&act=users&chart=sales&data_type=json`,
+                data: data,
+                dataType: 'json',
+                success: (data) => {;
+                    UsersReport.setData(_this.chart, data);
+                    let h = data.labels.length * data.datasets.length * 50;
+                    h = h > 100 ? h : 100;
+                    $("#" + _this.eleID).css("height", h);
+                },
+                complete: () => {
+                    unblockLoading($("#" + _this.eleID).parent());
+                }
+            });
+        }
+    },
+    orders: {
+        eleID: 'ordersChart',
+        chart: null,
+        init: function () {
+            let ctx = document.getElementById(this.eleID);
+            this.chart = new Chart(ctx, Object.assign({}, UsersReport.chartOption));
+            this.update();
+        },
+        update: function () {
+            console.log('orders');
+            let _this = this;
+            let data = $("#" + UsersReport.frmID).serialize();
+            blockLoading($("#" + _this.eleID).parent());
+            $.ajax({
+                url: site_root_domain + `/?site=report&act=users&chart=orders&data_type=json`,
+                data: data,
+                dataType: 'json',
+                success: (data) => {
+                    UsersReport.setData(_this.chart, data);
+                    let h = data.labels.length * data.datasets.length * 50;
+                    h = h > 100 ? h : 100;
+                    $("#" + _this.eleID).css("height", h);
+                },
+                complete: () => {
+                    unblockLoading($("#" + _this.eleID).parent());
+                }
+            });
+        }
+    },
+    ratings: {
+        eleID: 'ratingsChart',
+        chart: null
+    },
+    setData: function (chart, data) {
+        chart.clear();
+        chart.data = data;
+        chart.update();
+    },
+    timeOptionClick: function (obj) {
+
+        $("#" + this.frmID + " [name=start]").val(obj.attr('start'));
+        $("#" + this.frmID + " [name=end]").val(obj.attr('end'));
+
+        this.update();
+
+        $(".change_time").removeClass("btn-primary").addClass("btn-success");
+        obj.removeClass("btn-success").addClass("btn-primary");
+    },
+    storeOptionClick: function (obj) {
+
+        $("#" + this.frmID + " [name=store]").val(obj.attr('store'));
+
+        this.update();
 
         $(".change_store").removeClass("btn-primary").addClass("btn-success");
         obj.removeClass("btn-success").addClass("btn-primary");

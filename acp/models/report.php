@@ -163,11 +163,11 @@ class report
      * @param $sqlAdd
      * @return mixed
      */
-    static function reportSalesByStaff($sqlAdd = "")
+    static function reportSalesByStaff($sqlAdd = "", $statsVal = "SUM(ordi_total)")
     {
         global $CMS, $DB;
 
-        $sql = "SELECT ordi_staff, user_display_name, SUM(ordi_total) AS val 
+        $sql = "SELECT ordi_staff, user_display_name, {$statsVal} AS val 
         FROM " . root_table . "order_item I
         RIGHT JOIN " . root_table . "user U ON ordi_staff = U.user_id
         LEFT JOIN " . root_table . "order O ON O.ord_id = I.ord_id
@@ -184,7 +184,7 @@ class report
      * @param int $store
      * @return array
      */
-    static function reportSalesByStaffChart($start = "", $end = "", $store = 0)
+    static function reportSalesByStaffChart($start = "", $end = "", $store = 0, $statsVal = "SUM(ordi_total)", $label = "Doanh số", $valType = 'currency')
     {
         global $CMS;
 
@@ -202,12 +202,12 @@ class report
             $sqlAdd .= " AND I.store_id = {$store} ";
         }
 
-        $rs = static::reportSalesByStaff($sqlAdd);
+        $rs = static::reportSalesByStaff($sqlAdd, $statsVal);
         $labels = array_column($rs, 'user_display_name');
-        $datasetLabel = "Doanh số";
+        $datasetLabel = $label;
         $datasetData = array_column($rs, 'val');
-        $datasetExtra = array_map(function ($x) use ($CMS) {
-            return $CMS->class->input->currency($x);
+        $datasetExtra = array_map(function ($x) use ($CMS, $valType) {
+            return $valType == 'currency' ? $CMS->class->input->currency($x) : $x;
         }, $datasetData);
 
         $data = [
