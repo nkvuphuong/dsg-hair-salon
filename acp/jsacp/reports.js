@@ -330,7 +330,6 @@ var UsersReport = {
             this.update();
         },
         update: function () {
-            console.log('sales');
             let _this = this;
             let data = $("#" + UsersReport.frmID).serialize();
             blockLoading($("#" + _this.eleID).parent());
@@ -359,7 +358,6 @@ var UsersReport = {
             this.update();
         },
         update: function () {
-            console.log('orders');
             let _this = this;
             let data = $("#" + UsersReport.frmID).serialize();
             blockLoading($("#" + _this.eleID).parent());
