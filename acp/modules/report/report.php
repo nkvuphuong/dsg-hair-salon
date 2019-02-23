@@ -5,6 +5,7 @@ use \core\ezy;
 if (!defined('IN_ROOT')) exit();
 ezy::load_model("report");
 ezy::load_model("staff");
+ezy::load_model("rating");
 
 new report;
 
@@ -154,6 +155,8 @@ class report
                 \lib\input::jsonEncode(\models\report::reportSalesByStaffChart($start, $end, $store));
             } elseif (\lib\input::get('chart') == 'orders') {
                 \lib\input::jsonEncode(\models\report::reportSalesByStaffChart($start, $end, $store, "COUNT(0)", "Đơn hàng", null));
+            } elseif (\lib\input::get('chart') == 'ratings') {
+                \lib\input::jsonEncode(\models\report::reportRatingChart($start, $end, $store));
             } else {
                 \lib\input::jsonEncode(null);
             }

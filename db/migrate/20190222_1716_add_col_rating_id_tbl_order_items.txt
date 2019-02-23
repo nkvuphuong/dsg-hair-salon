@@ -1,0 +1,3 @@
+alter table nh_order_item
+	add rating_id int default 0 null;
+

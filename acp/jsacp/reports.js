@@ -282,12 +282,14 @@ var SalesReportByService = {
 var UsersReport = {
     frmID: "chartOptions",
     init: function () {
-      this.sales.init();
-      this.orders.init();
+        this.sales.init();
+        this.orders.init();
+        this.ratings.init();
     },
     update: function () {
-      this.sales.update();
-      this.orders.update();
+        this.sales.update();
+        this.orders.update();
+        this.ratings.update();
     },
     chartOption: {
         type: 'horizontalBar',
@@ -337,7 +339,8 @@ var UsersReport = {
                 url: site_root_domain + `/?site=report&act=users&chart=sales&data_type=json`,
                 data: data,
                 dataType: 'json',
-                success: (data) => {;
+                success: (data) => {
+                    ;
                     UsersReport.setData(_this.chart, data);
                     let h = data.labels.length * data.datasets.length * 50;
                     h = h > 100 ? h : 100;
@@ -379,7 +382,44 @@ var UsersReport = {
     },
     ratings: {
         eleID: 'ratingsChart',
-        chart: null
+        chart: null,
+        init: function () {
+            let ctx = document.getElementById(this.eleID);
+            this.chart = new Chart(ctx, {
+                type: 'horizontalBar',
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                }
+            });
+
+            this.update();
+        },
+        update: function () {
+            let _this = this;
+            let data = $("#" + UsersReport.frmID).serialize();
+            blockLoading($("#" + _this.eleID).parent());
+            $.ajax({
+                url: site_root_domain + `/?site=report&act=users&chart=ratings&data_type=json`,
+                data: data,
+                dataType: 'json',
+                success: (data) => {
+                    UsersReport.setData(_this.chart, data);
+                    let h = data.labels.length * data.datasets.length * 20;
+                    h = h > 100 ? h : 100;
+                    $("#" + _this.eleID).css("height", h);
+                },
+                complete: () => {
+                    unblockLoading($("#" + _this.eleID).parent());
+                }
+            });
+        }
     },
     setData: function (chart, data) {
         chart.clear();

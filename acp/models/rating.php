@@ -530,9 +530,9 @@ class rating
         return \models\report::excel_output($file_name);
     }
 
-    static public function getAll($sql_add="")
+    static public function getAll($sql_add="", $order_field = "rating_id", $order_desc = "desc")
     {
-        return self::listing($sql_add, 1);
+        return self::listing($sql_add, 1, $order_field, $order_desc);
     }
 
     /**

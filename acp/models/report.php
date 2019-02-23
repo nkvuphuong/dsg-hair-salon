@@ -15,6 +15,7 @@ use \PHPExcel_IOFactory;
 
 ezy::load_model('store');
 ezy::load_model('staff');
+ezy::load_model('rating');
 
 class report
 {
@@ -281,6 +282,77 @@ class report
         ];
 
         return $data;
+    }
+
+    /**
+     * @param string $sqlAdd
+     * @param string $statsVal
+     * @return mixed
+     */
+    static function reportRating($sqlAdd = "", $statsVal = "COUNT(0)")
+    {
+        global $CMS, $DB;
+
+        $sql = "SELECT ordi_staff, rating_id, user_display_name, {$statsVal} AS val 
+        FROM " . root_table . "order_item I
+        RIGHT JOIN " . root_table . "user U ON ordi_staff = U.user_id
+        LEFT JOIN " . root_table . "order O ON O.ord_id = I.ord_id
+        WHERE ord_deleted = 0 AND ord_status = 2 AND ordi_deleted = 0 AND U.user_deleted=0 {$sqlAdd}
+        GROUP BY ordi_staff, rating_id
+        ORDER BY ordi_staff, rating_id";
+
+        return $DB->fetch_data($sql);
+    }
+
+    /**
+     * @param string $start
+     * @param string $end
+     * @param int $store
+     * @return array
+     */
+    static function reportRatingChart($start = "", $end = "", $store = 0)
+    {
+        global $CMS;
+
+        $sqlAdd = "";
+
+        if ($start) {
+            $sqlAdd .= " AND ord_time >= {$start} ";
+        }
+
+        if ($end) {
+            $sqlAdd .= " AND ord_time < {$end} ";
+        }
+
+        if ($store) {
+            $sqlAdd .= " AND I.store_id = {$store} ";
+        }
+
+        $rs = static::reportRating($sqlAdd);
+        foreach ($rs as $r) {
+            $groupData[$r['rating_id']][$r['ordi_staff']] = $r['val'];
+        }
+
+        $staffIds = array_values(array_unique(array_column($rs, 'ordi_staff')));
+        $staffNames =  array_values(array_unique(array_column($rs, 'user_display_name')));
+
+
+        $labels =  $staffNames;
+
+        $ratings = rating::getAll('', 'rating_id', 'asc');
+
+        $datasets = [];
+
+        foreach ($ratings as $rating) {
+            $item['label'] = $rating['rating_name'];
+            $item['data'] = [];
+            foreach ($staffIds as $staffId) {
+                $item['data'][] = input::arrayValue(input::arrayValue($groupData, $rating['rating_id'], []), $staffId, 0) * 1;
+            }
+            $datasets[] = $item;
+        }
+
+        return compact('labels', 'datasets');
     }
 }  
 
