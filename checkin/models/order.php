@@ -259,11 +259,12 @@ class order
      * @param $rate
      * @return array
      */
-    static function rate($ord_id, $rate)
+    static function rate($ord_id, $rate, $ratingID)
     {
         global $CMS, $DB;
         $ord_id *= 1;
         $rate *= 1;
+        $ratingID *= 1;
 
         $CMS->input['id'] = $ord_id;
         $CMS->input['comment_content'] = "Hoàn thành đơn hàng từ trang Checkin";
@@ -294,6 +295,9 @@ class order
                     if ($CMS->order->updatelog()) {
 
                         if ($DB->update('order', ['ord_id' => $ord_id, 'ord_commission_rating' => $rate, 'ord_rating_status' => 1], 'ord_id')) {
+
+                            $DB->update('order_item', ['ord_id' => $ord_id, 'ordi_commission_rating' => $rate, 'rating_id' => $ratingID * 1], 'ord_id');
+
                             $rs = [
                                 'data' => self::getOrder($ord_id),
                                 'status' => 'success',

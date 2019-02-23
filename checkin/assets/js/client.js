@@ -33,6 +33,7 @@ socket.on('open_rating_order', function (data) {
 var SocketIOClient = {
     rate: function () {
         let value = +$("#rating-value").val();
+        let ratingID = +$("#rating-id").val();
         let ordId = +$("#ord-id").val();
 
         if (!value) {
@@ -49,7 +50,8 @@ var SocketIOClient = {
             url: "../?act=rate",
             data: {
                 id: ordId,
-                value: value
+                value: value,
+                ratingID: ratingID
             },
             dataType: 'json',
             success: function (res) {
@@ -94,6 +96,7 @@ var SocketIOClient = {
         $("#FeedbackthankyouWrap").hide();
         obj.addClass("active");
         $("#rating-value").val(+obj.attr("value"));
+        $("#rating-id").val(+obj.attr("rating-id"));
     },
     initRatingValue: function(defaultVal = 100) {
         $(".feebback-wrap[value='" + defaultVal + "']").trigger("click");

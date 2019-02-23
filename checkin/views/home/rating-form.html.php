@@ -27,7 +27,7 @@
                                 <? if ($tpl->data->ratings) { ?>
                                     <? foreach ($tpl->data->ratings as $rating) { ?>
                                         <div class="col-md">
-                                            <div class="feebback-wrap" onclick="SocketIOClient.chooseRatingValue($(this)); SocketIOClient.rate();" value="<?= $rating['rating_value'] ?>">
+                                            <div class="feebback-wrap" onclick="SocketIOClient.chooseRatingValue($(this)); SocketIOClient.rate();" value="<?= $rating['rating_value'] ?>" rating-id=<?= $rating['rating_id'] ?> >
                                                 <?= html_entity_decode($rating['rating_label']) ?>
                                             </div>
                                         </div>
@@ -43,6 +43,7 @@
                             <input type="hidden" name="store_id" id="store_id" value="<?= \lib\input::arrayValue($tpl->data->store, 'id') ?>">
                             <input type="hidden" name="ord-id" id="ord-id" value="0">
                             <input type="hidden" name="rating-value" id="rating-value" value="100">
+                            <input type="hidden" name="rating-id" id="rating-id" value="1">
                         </div>
                     </div>
 

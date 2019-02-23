@@ -47,6 +47,6 @@ class home
     {
         global $CMS, $DB;
 
-        input::jsonEncode(\CheckIn\Model\order::rate(input::get('id'), input::get('value')));
+        input::jsonEncode(\CheckIn\Model\order::rate(input::get('id'), input::get('value'), input::get('ratingID')));
     }
 }
