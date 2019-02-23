@@ -1,0 +1,4 @@
+UPDATE nh_order_item I, nh_order O SET ordi_commission_rating = ord_commission_rating WHERE I.ord_id = 0.ord_id;
+UPDATE nh_order_item SET rating_id = 1 WHERE ordi_commission_rating = 100;
+UPDATE nh_order_item SET rating_id = 2 WHERE ordi_commission_rating = 75;
+UPDATE nh_order_item SET rating_id = 3 WHERE ordi_commission_rating = 50;
