@@ -297,7 +297,7 @@ class report
         FROM " . root_table . "order_item I
         RIGHT JOIN " . root_table . "user U ON ordi_staff = U.user_id
         LEFT JOIN " . root_table . "order O ON O.ord_id = I.ord_id
-        WHERE ord_deleted = 0 AND ord_status = 2 AND ordi_deleted = 0 AND U.user_deleted=0 {$sqlAdd}
+        WHERE ord_deleted = 0 AND ord_rating_status = 1 AND ordi_deleted = 0 AND U.user_deleted=0 {$sqlAdd}
         GROUP BY ordi_staff, rating_id
         ORDER BY ordi_staff, rating_id";
 
