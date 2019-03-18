@@ -114,10 +114,10 @@ class price
             if ($checkValid['valid']) {
                 $data = $CMS->input;
 
-                $data['price_start_time'] = isset($data['price_start_time']) ? $CMS->class->date->date2time($data['price_start_time'], 1) : 0;
-                $data['price_end_time'] = isset($data['price_end_time']) ? $CMS->class->date->date2time($data['price_end_time'], 1) : 0;
-                $data['price_stores'] = $data['price_stores'] ? input::jsonEncode($data['price_stores'], 0) : null;
-                $data['price_cus_groups'] = $data['price_cus_groups'] ? input::jsonEncode($data['price_cus_groups'], 0) : null;
+                $data['price_start_time'] = isset($data['price_start_time']) ? $CMS->class->date->date2time($data['price_start_time'], 1) * 1 : 0;
+                $data['price_end_time'] = isset($data['price_end_time']) ? $CMS->class->date->date2time($data['price_end_time'], 1) * 1 : 0;
+                $data['price_stores'] = $data['price_stores'] ? input::jsonEncode(array_values($data['price_stores']), 0) : null;
+                $data['price_cus_groups'] = $data['price_cus_groups'] ? input::jsonEncode(array_values($data['price_cus_groups']), 0) : null;
 
                 if ($newData = \models\price::add($data)) {
                     if ($CMS->input['action_redirect'] == 'add') {
@@ -165,10 +165,10 @@ class price
             if ($checkValid['valid']) {
                 $data = $CMS->input;
                 $data['price_id'] = intval($CMS->input['id']);
-                $data['price_start_time'] = isset($data['price_start_time']) ? $CMS->class->date->date2time($data['price_start_time'], 1) : 0;
-                $data['price_end_time'] = isset($data['price_end_time']) ? $CMS->class->date->date2time($data['price_end_time'], 1) : 0;
-                $data['price_stores'] = $data['price_stores'] ? input::jsonEncode($data['price_stores'], 0) : null;
-                $data['price_cus_groups'] = $data['price_cus_groups'] ? input::jsonEncode($data['price_cus_groups'], 0) : null;
+                $data['price_start_time'] = isset($data['price_start_time']) ? $CMS->class->date->date2time($data['price_start_time'], 1) * 1 : 0;
+                $data['price_end_time'] = isset($data['price_end_time']) ? $CMS->class->date->date2time($data['price_end_time'], 1) * 1 : 0;
+                $data['price_stores'] = $data['price_stores'] ? input::jsonEncode(array_values($data['price_stores']), 0) : null;
+                $data['price_cus_groups'] = $data['price_cus_groups'] ? input::jsonEncode(array_values($data['price_cus_groups']), 0) : null;
 
                 if (\models\price::edit($data)) {
                     if ($CMS->input['action_redirect'] == 'edit') {
