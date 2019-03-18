@@ -10,7 +10,7 @@ class price
     {
         global $CMS;
         $storeId = input::get("store_id");
-        $sqlAdd = "(price_stores IS NULL OR price_stores='' OR price_stores LIKE '%:\"{$storeId}\"%') AND"; //Get by store
+        $sqlAdd = "(price_stores IS NULL OR price_stores='' OR price_stores LIKE '%\"{$storeId}\"%') AND"; //Get by store
 
         //Get by customer group
         ezy::load_model("customer", "pos_data");
@@ -26,7 +26,7 @@ class price
                foreach ($customer['groupIds'] as $cusGroupId) {
                    $cusGroupId *= 1;
                    if($cusGroupId) {
-                       $addCons[] = "price_cus_groups LIKE '%:\"{$cusGroupId}\"%' ";
+                       $addCons[] = "price_cus_groups LIKE '%\"{$cusGroupId}\"%' ";
                    }
                }
             }
