@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o --host pos.localhost",
+    "start": "ng serve -o --host dsg.test",
     "build": "ng build --prod --build-optimizer --base-href /pos/",
     "test": "ng test",
     "lint": "ng lint",

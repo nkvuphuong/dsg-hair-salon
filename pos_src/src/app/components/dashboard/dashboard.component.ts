@@ -60,7 +60,7 @@ export class DashboardComponent implements OnInit {
     @ViewChild(PrintBillComponent) printBillComponent: PrintBillComponent;
     customerFrm: FormGroup;
     productSlide: any;
-    productSlideSort: string = 'desc';
+    productSlideSort: string = 'asc';
     products: Product[];
     oriProducts: Product[];
     productCategories: ProductCategory[] = [];
@@ -254,7 +254,7 @@ export class DashboardComponent implements OnInit {
 
         this.productLoading = true;
 
-        this.productService.getProducts('price', this.productSlideSort).subscribe(
+        this.productService.getProducts('name', this.productSlideSort).subscribe(
             products => {
                 this.productLoading = false;
                 if (this.productSlide) {

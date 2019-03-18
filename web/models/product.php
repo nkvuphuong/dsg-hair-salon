@@ -964,7 +964,9 @@ class product
         //             WHERE product_deleted=0 AND product_type=0 {$sql_add} ORDER BY  product_order ASC";
 
         // Manufacture
-        $sql_manufacture = "SELECT product_manufacture AS manufacture_id FROM " . root_table . "product WHERE product_deleted=0 AND product_type=0 {$sql_add} GROUP BY manufacture_id ORDER BY product_order ASC";
+//        $sql_manufacture = "SELECT product_manufacture AS manufacture_id FROM " . root_table . "product WHERE product_deleted=0 AND product_type=0 {$sql_add} GROUP BY manufacture_id ORDER BY product_order ASC";
+        $sql_manufacture = "SELECT DISTINCT(product_manufacture) AS manufacture_id, product_order FROM " . root_table . "product WHERE product_deleted=0 AND product_type=0 {$sql_add} ORDER BY product_order ASC";
+
         $manufacture = $DB->fetch_data($sql_manufacture, 'manufacture');
         $curr_man=array();
         // $tpl->dataListManufacture: lấy từ application
