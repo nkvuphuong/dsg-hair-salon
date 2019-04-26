@@ -1,13 +1,16 @@
 <?php
+
 use core\ezy;
 
-class skin_store {
-    public function head() {
+class skin_store
+{
+    public function head()
+    {
         global $CMS, $DB, $member;
         //Test sync 0010
-        $output='';
-        $CMS->input['title']=str_replace('%20',' ',$CMS->input['title']);
-        $output.=<<<EOF
+        $output = '';
+        $CMS->input['title'] = str_replace('%20', ' ', $CMS->input['title']);
+        $output .= <<<EOF
 
 
 
@@ -25,15 +28,14 @@ class skin_store {
 			</div>
 EOF;
 
-        if($CMS->permit['store_add'] == 1)
-        {
-            $output .=<<<EOF
+        if ($CMS->permit['store_add'] == 1) {
+            $output .= <<<EOF
 
 			<a href="{$CMS->vars['root_domain']}/?site=store&act=add" title="" class="add_bill">{$CMS->lang['store_new']}</a>
 EOF;
 
         }
-        $output .=<<<EOF
+        $output .= <<<EOF
 			<a class="btn btn-warning" href="{$CMS->vars['root_domain']}/?site={$CMS->input['site']}&subact=clear_cache">{$CMS->lang['clear_cache']}</a>
 		</figure>
 	</figure>
@@ -51,9 +53,8 @@ EOF;
 						<tr>
 EOF;
 
-        if($_SESSION['is_mobile'] == false)
-        {
-            $output .=<<<EOF
+        if ($_SESSION['is_mobile'] == false) {
+            $output .= <<<EOF
 							 
 								<th width="5%" data-orderable="false" >{$CMS->lang['store_text_id']}</th>
 								<th width="15%" data-sortable="true" >{$CMS->lang['store_text_name']}</th>
@@ -65,9 +66,8 @@ EOF;
 								<th width="5%" data-orderable="false"  data-sortable="false" style="text-align:center"></th>
 EOF;
 
-        }
-        else{
-            $output .=<<<EOF
+        } else {
+            $output .= <<<EOF
 							 
 								<th width="3%" data-orderable="false" ></th>
 								<th width="15%" data-sortable="true" >{$CMS->lang['store_text_name']}</th>
@@ -80,7 +80,7 @@ EOF;
 								<th width="5%" style="text-align:center"></th>
 EOF;
         }
-        $output .=<<<EOF
+        $output .= <<<EOF
 						</tr>
 						</thead>
 						 
@@ -91,9 +91,10 @@ EOF;
         return $output;
     }
 
-    public function foot() {
+    public function foot()
+    {
         global $CMS, $DB, $member;
-        $output=<<<EOF
+        $output = <<<EOF
 		 
 
 
@@ -110,9 +111,8 @@ EOF;
 </section>
 EOF;
 
-        if($_SESSION['is_mobile'] == true)
-        {
-            $output .=<<<EOF
+        if ($_SESSION['is_mobile'] == true) {
+            $output .= <<<EOF
 				 <script>
 						$(function() {
 							$('#example').DataTable({
@@ -134,11 +134,9 @@ EOF;
 					</script>
 EOF;
 
-        }
-        else
-        {
+        } else {
 
-            $output .=<<<EOF
+            $output .= <<<EOF
  			 
 							
 							 <script>
@@ -159,39 +157,36 @@ EOF;
         }
 
 
-
         return $output;
     }
 
-    public function mid($data=NULL) {
+    public function mid($data = NULL)
+    {
         global $CMS, $DB, $member;
 
 
-        $output=<<<EOF
+        $output = <<<EOF
 			<tr>
 
 EOF;
 
-        if($_SESSION['is_mobile'] == true)
-        {
-            $output .=<<<EOF
+        if ($_SESSION['is_mobile'] == true) {
+            $output .= <<<EOF
 
 				<td></td>
 				<td><a href="{$CMS->vars['root_domain']}/?site=assets&store_id={$data['store_id']}">{$data['store_name']}</a></td>
 				<td>{$data['store_backend_type_c']}</td>
 				<td>{$data['store_id']}</td>
 EOF;
-        }
-        else
-        {
-            $output .=<<<EOF
+        } else {
+            $output .= <<<EOF
 
 				<td>{$data['store_id']}</td>
 				<td><a href="{$CMS->vars['root_domain']}/?site=assets&store_id={$data['store_id']}">{$data['store_name']}</a></td>
 				<td>{$data['store_backend_type_c']}</td>
 EOF;
         }
-        $output .=<<<EOF
+        $output .= <<<EOF
 
                 <td>{$data['store_type']}</td>
                 <td>{$data['assets_count']}</td>
@@ -199,30 +194,29 @@ EOF;
 				<td>{$data['store_time']}</td>
 				<td align="center">
 EOF;
-        if($CMS->permit['store_edit'] == 1)
-        {
-            $output .=<<<EOF
+        if ($CMS->permit['store_edit'] == 1) {
+            $output .= <<<EOF
 					<a href="{$CMS->vars['root_domain']}/?site=store&act=edit&id={$data['store_id']}"  class="edit"><i class="fa fa-edit"></i></a>
 EOF;
         }
-        if($CMS->permit['store_delete'] == 1)
-        {
-            $output .=<<<EOF
+        if ($CMS->permit['store_delete'] == 1) {
+            $output .= <<<EOF
 							<a onclick="delete_confirm('{$CMS->vars['root_domain']}/?site=store&act=del&id={$data['store_id']}');"   class="edit"><i class="fa fa-trash-o"></i></a>
 					 
 EOF;
 
         }
-        $output .=<<<EOF
+        $output .= <<<EOF
 			 		</td>
 				</tr>
 EOF;
         return $output;
     }
 
-    public function none() {
+    public function none()
+    {
         global $CMS, $DB, $member;
-        $output=<<<EOF
+        $output = <<<EOF
 				<tr>
 					<td colspan="8" align="center" class="no_data"><h6>Not Store</h6></td>
 				</tr>
@@ -230,9 +224,10 @@ EOF;
         return $output;
     }
 
-    public function show($data=NULL) {
+    public function show($data = NULL)
+    {
         global $CMS, $DB, $member;
-        $output=<<<EOF
+        $output = <<<EOF
 <header class="section-header">
 	<div class="tbl">
 		<div class="tbl-row">
@@ -315,10 +310,10 @@ EOF;
         return $output;
     }
 
-    public function edit($data=null) {
+    public function edit($data = null)
+    {
         global $CMS, $DB, $member;
-        if ( strlen($data['city_id']) < 2 )
-        {
+        if (strlen($data['city_id']) < 2) {
             $data['city_id'] = '0' . $data['city_id'];
         }
 
@@ -328,11 +323,11 @@ EOF;
 
         $display_status_checked = [];
         $CMS->input['store_display'] = \lib\input::get('store_display', 1);
-        foreach ([0,1] as $displayStatus) {
+        foreach ([0, 1] as $displayStatus) {
             $display_status_checked[$displayStatus] = $displayStatus == $data['store_display'] ? 'checked' : '';
         }
 
-        $output=<<<EOF
+        $output = <<<EOF
 <section class="add_form main_form">
 	<figure class="heading">
 		<h3>{$CMS->lang['store_edit']}</h3>
@@ -414,11 +409,10 @@ EOF;
 				            <select name="store_backend_type" defaultvalue="{$data['store_backend_type']}" class="form-control auto_select">
 				            	<option value="">{$CMS->lang['title_choose_plz']}</option>
 EOF;
-        foreach (ezy::$store_backend_type as $type)
-        {
+        foreach (ezy::$store_backend_type as $type) {
             $output .= "<option value='{$type}'>{$type}</option>";
         }
-        $output .=<<<EOF
+        $output .= <<<EOF
 
 				            </select>
 				            
@@ -530,6 +524,7 @@ $(document).ready(function(){
 EOF;
         return $output;
     }
+
     public function add()
     {
         global $CMS, $DB, $member;
@@ -540,12 +535,12 @@ EOF;
 
         $display_status_checked = [];
         $CMS->input['store_display'] = \lib\input::get('store_display', 1);
-        foreach ([0,1] as $displayStatus) {
+        foreach ([0, 1] as $displayStatus) {
             $display_status_checked[$displayStatus] = $displayStatus == \lib\input::get('store_display') ? 'checked' : '';
         }
 
 
-        $out=<<<EOF
+        $out = <<<EOF
 <section class="add_form main_form">
 	<figure class="heading">
 		<h3>{$CMS->lang['store_new']}</h3>
@@ -555,39 +550,52 @@ EOF;
 	<form id="form-signin_v1" name="form-signin_v1" action="{$CMS->vars['root_domain']}/?site=store&act=add_do&id={$data['store_id']}" method="POST" enctype="multipart/form-data">
 	  <figure class="box-typical box-typical box-typical-padding border">
 	  	<div class="row">
-	  		<div class="col-md-6">	
+	  		<div class="col-md-12">	
 	  			<h5 class="section-title no-pt">Basic</h5>
-	 			<fieldset class="form-group">
-						<label class="form-label" >{$CMS->lang['store_text_name']}<span style="color:red"> (*)</span></label>
-					<div style="position: relative; width: 100%;">
-						<input  class="form-control" name="store_name" id="store_name" size="45" type="text" value="" data-validation="[NOTEMPTY]" data-validation-message="{$CMS->lang['store_err_title']}">	
-					</div>
-				</fieldset>
-
-			    <div class="row">
-			    	<fieldset class="form-group">
-			    		<div class="col-md-12">
-				            <label class="form-label" >{$CMS->lang['store_address']}</label>
-				            <input  class="form-control" name="store_address" id="store_address" type="text" value="">	
-	                    </div>
-                    </fieldset>
+	  			<div class="row">
+	  			    <div class="col-md-8">
+	  			        <fieldset class="form-group">
+                            <label class="form-label" >{$CMS->lang['store_text_name']}<span style="color:red"> (*)</span></label>
+                            <div style="position: relative; width: 100%;">
+                                <input  class="form-control" name="store_name" id="store_name" size="45" type="text" value="" data-validation="[NOTEMPTY]" data-validation-message="{$CMS->lang['store_err_title']}">	
+                            </div>
+                        </fieldset>
+        
+                        <div class="row">
+                            <fieldset class="form-group">
+                                <div class="col-md-12">
+                                    <label class="form-label" >{$CMS->lang['store_address']}</label>
+                                    <input  class="form-control" name="store_address" id="store_address" type="text" value="">	
+                                </div>
+                            </fieldset>
+                        </div>
+                         <div class="row">
+                            <fieldset class="form-group">
+                                <div class="col-md-6">
+                                    <label class="form-label" >{$CMS->lang['city_id']}</label>
+                                    <select name="city_id" id="city_id" placeholder="{$CMS->lang['city_id']}" defaultvalue="{$CMS->input['city_id']}" class="form-control auto_select" >
+                                        {$CMS->global->get_optioncity()}
+                                    </select>
+                                </div>
+        
+                                <div class="col-md-6">
+                                    <label class="form-label" >{$CMS->lang['store_phone']}</label>
+                                    <input  class="form-control inputPhone" name="store_phone" id="store_phone" size="45" type="text" value="">	
+                                </div>
+                                
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <fieldset class="form-group">
+                            <label class="form-label" >Hình ảnh:</label>
+                            <div style="position: relative; width: 100%;">
+                                <input type="file" name="store_avatar" id="store_avatar">
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
- 				 <div class="row">
- 				 	<fieldset class="form-group">
- 				 		<div class="col-md-6">
-				            <label class="form-label" >{$CMS->lang['city_id']}</label>
-				           	<select name="city_id" id="city_id" placeholder="{$CMS->lang['city_id']}" defaultvalue="{$CMS->input['city_id']}" class="form-control auto_select" >
-								{$CMS->global->get_optioncity()}
-							</select>
-	                    </div>
-
- 				 		<div class="col-md-6">
-				            <label class="form-label" >{$CMS->lang['store_phone']}</label>
-				            <input  class="form-control inputPhone" name="store_phone" id="store_phone" size="45" type="text" value="">	
-	                    </div>
-	                    
-	                </fieldset>
-                </div>
+	 			
 				<fieldset class="form-group">
 					<label class="form-label">{$CMS->lang['googlemap_code']}</label>
 					<p class="typeahead-field">
@@ -598,87 +606,16 @@ EOF;
 				</fieldset>
 
 				<fieldset class="form-group">
-						<label class="form-label" >{$CMS->lang['store_type']}</label>
-                            <div class='radio w25'><input type="radio" class="input_radio" name="store_type" value="1" id='radio-1' checked="checked" onclick="update_type(1)" defaultvalue="{$data['store_type']}"><label for='radio-1'> {$CMS->lang['store_type_1']}
-                            </label></div>
-                         
-                                <div class='radio w25'> <input type="radio" id='radio-2'   class="input_radio" name="store_type" value="2" onclick="update_type(2)" defaultvalue="{$data['store_type']}"> <label for='radio-2'> {$CMS->lang['store_type_2']}
-                            </label></div>  
-							  <div {$style_1} name="store_type_des_1_div" id="store_type_des_1_div">
-                                                {$CMS->lang['store_type_des_1']}
-                                            </div>
-                                                
-                                            <div {$style_2} name="store_type_des_2_div" id="store_type_des_2_div">
-                                                {$CMS->lang['store_type_des_2']}
-                               </div>
-				</fieldset>
-			</div><!-- col-md-6 -->	
-			<div class="col-md-6">
-				<h5 class="section-title no-pt">Advanced</h5>	
-				<div class="row">
-					<fieldset class="form-group">
-				        <div class="col-md-6">
-				            <label class="form-label" >{$CMS->lang['store_url']}</label>
-				            <input  class="form-control" name="store_backend_url" id="store_backend_url" type="text" value="" placeholder="Ex: abc.shopify.com">	
-	                    </div>
-	                    <div class="col-md-6">
-				            <label class="form-label" >{$CMS->lang['store_backend_type']}</label>
-				            <select name="store_backend_type" defaultvalue="{$data['store_backend_type']}" class="form-control auto_select">
-				            	<option value="">{$CMS->lang['title_choose_plz']}</option>
-EOF;
-        foreach (ezy::$store_backend_type as $type)
-        {
-            $out .= "<option value='{$type}'>{$type}</option>";
-        }
-        $out .=<<<EOF
-				            </select>
-
-	                    </div>
-                    </fieldset>
-                </div>
-
-                <div class="row">
-			    	<fieldset class="form-group">
-				        <div class="col-md-12">
-				            <label class="form-label" >{$CMS->lang['store_backend_key']}</label>
-				            <input  class="form-control" name="store_backend_key" id="store_backend_key" type="text" value="">	
-	                    </div>
-	                </fieldset>
-	                <fieldset class="form-group">
-	                    <div class="col-md-12">
-				            <label class="form-label" >{$CMS->lang['store_backend_secret']}</label>
-				            <input  class="form-control" name="store_backend_secret" id="store_backend_secret" type="text" value="">	
-	                    </div>
-                    </fieldset>
-                </div>
-
-                <div class="row">
-                	<fieldset class="form-group">
-                		<div class="col-md-6">
-	                    	<label class="form-label" >{$CMS->lang['store_use_is_sync']}</label>
-				            <div class="radio" style="display: inline-block; margin-right: 20px;">
-								<input type="radio" name="store_backend_sync" id="sync-1" value="1">
-								<label for="sync-1">{$CMS->lang['yes']}</label>
-							</div>
-							<div class="radio" style="display: inline-block;">
-								<input type="radio" name="store_backend_sync" id="sync-2" value="0" checked="checked">
-								<label for="sync-2">{$CMS->lang['no']}</label>
-							</div>
-	                    </div>
-	                    <div class="col-md-6">
-	                    	<label class="form-label" >{$CMS->lang['display_status']}</label>
-				            <div class="radio" style="display: inline-block; margin-right: 20px;">
-								<input type="radio" name="store_display" id="store_display_1" value="1" {$display_status_checked[1]}>
-								<label for="store_display_1">{$CMS->lang['display_1']}</label>
-							</div>
-							<div class="radio" style="display: inline-block;">
-								<input type="radio" name="store_display" id="store_display_2" value="0" {$display_status_checked[0]}>
-								<label for="store_display_2">{$CMS->lang['display_0']}</label>
-							</div>
-	                    </div>
-                	</fieldset>
-                </div>
-			 </div><!-- col-md-6 -->					
+				        <label class="form-label" >{$CMS->lang['display_status']}</label>
+                        <div class="radio" style="display: inline-block; margin-right: 20px;">
+                            <input type="radio" name="store_display" id="store_display_1" value="1" {$display_status_checked[1]}>
+                            <label for="store_display_1">{$CMS->lang['display_1']}</label>
+                        </div>
+                        <div class="radio" style="display: inline-block;">
+                            <input type="radio" name="store_display" id="store_display_2" value="0" {$display_status_checked[0]}>
+                            <label for="store_display_2">{$CMS->lang['display_0']}</label>
+                        </div>
+				</fieldset>			
 	 </div><!-- row -->	
 			
   

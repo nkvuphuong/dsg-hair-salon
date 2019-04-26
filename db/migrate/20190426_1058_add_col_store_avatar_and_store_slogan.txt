@@ -1,0 +1,6 @@
+alter table nh_store
+	add store_avatar char(255) null after store_name;
+
+alter table nh_store
+	add store_slogan varchar(255) null after store_avatar;
+

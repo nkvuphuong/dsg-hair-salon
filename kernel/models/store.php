@@ -30,6 +30,7 @@ class ModStore{
         $store_name = trim($CMS->input['store_name']);
         $store_phone = trim($CMS->input['store_phone']);
         $store_address = trim($CMS->input['store_address']);
+        $store_slogan = trim($CMS->input['store_slogan']);
         $store_type = intval($CMS->input['store_type']);
         $city_id = intval($CMS->input['city_id']);
         $googlemap_code = $CMS->input['googlemap_code'];
@@ -56,11 +57,11 @@ class ModStore{
         }
 
         // Check input
-        if (!$store_type)
+        /*if (!$store_type)
         {
             $_SESSION['msg'] .= $CMS->errormsg .= $CMS->lang['store_empty_type'];
             return false;
-        }
+        }*/
 
         // Check exist
         if($this->check_exist("store_name",$store_name))
@@ -69,8 +70,21 @@ class ModStore{
             return false;
         }
 
+        //Upload file.
+        if ($_FILES['store_avatar']) {
+            $uploadImg = $CMS->class->image->uploadImage($_FILES['store_avatar'], 'store');
+            if ($uploadImg['status'] != 'success') {
+                $_SESSION['msg'] .= "Upload avatar failed: " . $uploadImg['msg'];
+                return false;
+            } else {
+                $store_avatar = $uploadImg['file'];
+            }
+        } else {
+            $store_avatar = '';
+        }
+
         // Insert data
-        $DB->query("INSERT INTO ".root_table."store (store_time, user_id, store_name, store_type, store_phone, store_address, city_id, googlemap_code, store_backend_url, store_backend_type, store_backend_key, store_backend_secret, store_backend_sync, store_display) VALUES ('{$store_time}', '{$user_id}', '{$store_name}', '{$store_type}', '{$store_phone}', '{$store_address}', '{$city_id}', '{$googlemap_code}', '{$store_backend_url}', '{$store_backend_type}', '{$store_backend_key}', '{$store_backend_secret}', '{$store_backend_sync}', '{$store_display}')");
+        $DB->query("INSERT INTO ".root_table."store (store_time, user_id, store_name, store_type, store_phone, store_address, city_id, googlemap_code, store_backend_url, store_backend_type, store_backend_key, store_backend_secret, store_backend_sync, store_display, store_avatar, store_slogan) VALUES ('{$store_time}', '{$user_id}', '{$store_name}', '{$store_type}', '{$store_phone}', '{$store_address}', '{$city_id}', '{$googlemap_code}', '{$store_backend_url}', '{$store_backend_type}', '{$store_backend_key}', '{$store_backend_secret}', '{$store_backend_sync}', '{$store_display}', '{$store_avatar}', '{$store_slogan}')");
 
         $CMS->class->cache->mdelete($this->cache_prefix);
 
