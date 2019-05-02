@@ -5223,7 +5223,7 @@ EOF;
 	function check_stock($ord_id = "")
 	{
 		global $CMS, $DB, $member;
-		// Check enable kho hàng
+		// Check enable salon
 		if($CMS->vars['addon_goods_enable'] == 0)
 		{ 
 			return 0;

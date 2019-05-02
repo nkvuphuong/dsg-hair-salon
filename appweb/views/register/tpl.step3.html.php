@@ -17,8 +17,8 @@
 								<img class="img-responsive"src="images/store-ecom-web.png">
 							</div>
 							<div class="col-md-10">
-								<h3 class="text-normal">Quản lý kho hàng + Website bán hàng</h3>
-								<p>Web4s cung cấp cho bạn một hệ thống Quản lý Kho hàng tối ưu kèm theo một website với đầy đủ tính năng bán hàng chuyên nghiệp</p>
+								<h3 class="text-normal">Quản lý salon + Website bán hàng</h3>
+								<p>Web4s cung cấp cho bạn một hệ thống Quản lý Salon tối ưu kèm theo một website với đầy đủ tính năng bán hàng chuyên nghiệp</p>
 								<form action="<?=$CMS->vars['root_domain']?>/dang-ky-dung-thu/step3" method="POST" class="form-step3">
 									<input type="text" name="warehouse" value="1" hidden>
 									<input type="submit" class="btn btn-black-green ani submit" value="tôi dùng gói này">	

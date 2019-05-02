@@ -6,7 +6,7 @@
 					<a href="#1a" data-toggle="tab">Tính năng chuyên nghiệp</a>
 				</li>
 				<li class="">
-					<a href="#2a" data-toggle="tab">Quản lý kho hàng</a>
+					<a href="#2a" data-toggle="tab">Quản lý salon</a>
 				</li>
 				<li class="">
 					<a href="#3a" data-toggle="tab">Web bán hàng</a>
@@ -70,7 +70,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<br><br><br>
-							<h1 class="text-orange">Quản lý kho hàng</h1>
+							<h1 class="text-orange">Quản lý salon</h1>
 							<p class="intro-detail">Đang cập nhật thông tin...</p>
 						</div>
 					</div>

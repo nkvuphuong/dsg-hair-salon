@@ -445,7 +445,7 @@ class p_s {
         	}else
         	{
         		$data_info = $CMS->product->getInfo($CMS->input['id']);
-        		// Web us không dùng kho hàng
+        		// Web us không dùng salon
 				if ($data_info) 
 				{
 					if($CMS->product->deleted($data_info['product_id']) == true)

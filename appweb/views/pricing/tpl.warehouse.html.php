@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center storage-price-table-wrap">
-					<h1 class="section-title text-orange" >Bảng giá Gói Combo Kho hàng + website bán hàng</h1>
+					<h1 class="section-title text-orange" >Bảng giá Gói Combo Salon + website bán hàng</h1>
 					<p class="intro-detail">Các gói dịch vụ áp dụng chung cho toàn bộ khách hàng và việc thanh toán phí để sử dụng phần mềm<br> khi dùng gói Standard trở lên hoàn toàn được bảo mật và thực hiện trực tuyến qua cổng thanh toán</p>
 				</div>
 			</div>

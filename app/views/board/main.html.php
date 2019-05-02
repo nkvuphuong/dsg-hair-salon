@@ -28,7 +28,7 @@
             <div class="col-lg-6 col-md-12">
                 <ul class="list">
                     <li><i class="fa fa-check"></i>Quản lý sản phẩm / Dịch vụ</li>
-                    <li><i class="fa fa-check"></i>Quản lý kho hàng</li>
+                    <li><i class="fa fa-check"></i>Quản lý salon</li>
                     <li><i class="fa fa-check"></i>Quản lý tài sản</li>
                     <li><i class="fa fa-check"></i>Quản lý bán hàng / Sau bán hàng</li>
                     <li><i class="fa fa-check"></i>Quản lý công nợ</li>

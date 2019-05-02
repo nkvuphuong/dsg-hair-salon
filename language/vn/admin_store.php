@@ -1,9 +1,9 @@
 <?php
 $lang = array(
-	"store_title" => "Kho hàng",
+	"store_title" => "Salon",
 	"store_new" => "Tạo kho",
 	"store_edit" => "Lưu lại",
-	"store_del" => "Xoá kho hàng",
+	"store_del" => "Xoá salon",
 	
 	"store_head" => "Quản lý kho",
 	"store_list" => "Danh sách kho",
@@ -50,7 +50,7 @@ $lang = array(
 	"store_text_name" => "Tên kho",
 	"store_type" => "Kiểu kho",
 	"store_type_1" => "Tài sản",
-	"store_type_2" => "Kho hàng",
+	"store_type_2" => "Salon",
 	"store_empty_name" => "Bạn chưa nhập tên kho",
 	"store_empty_type" => "Bạn chưa chọn loại kho",
 	"store_is_exist" => "Tên kho đã tồn tại, vui lòng nhập tên khác",
@@ -74,10 +74,10 @@ $lang = array(
     "invalid_key" => "Vui lòng nhập chuỗi khóa",
     "invalid_secret" => "Vui lòng nhập chuỗi khóa bảo mật",
 
-    "store_add" => "Thêm kho hàng", 
-    "store_update" => "Cập nhật kho hàng", 
-    "store_add_success" => "Thêm kho hàng thành công", 
-    "store_update_success" => "Cập nhật kho hàng thành công",
+    "store_add" => "Thêm salon",
+    "store_update" => "Cập nhật salon",
+    "store_add_success" => "Thêm salon thành công",
+    "store_update_success" => "Cập nhật salon thành công",
 
     "store_text_url" => "Store backend",
     "store_text_be_type" => "Store backend", 

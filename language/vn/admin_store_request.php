@@ -68,7 +68,7 @@ $lang = array(
 	
 	"request_err_name" => "Bạn chưa nhập tên phiếu yêu cầu",
 	"request_err_code" => "Bạn chưa nhập mã phiếu yêu cầu",
-	"request_err_store" => "Vui lòng chọn kho hàng",
+	"request_err_store" => "Vui lòng chọn salon",
 	"request_err_shipment" => "Vui lòng chọn lô hàng",
 	"request_err_parent" => "Bạn chưa chọn danh mục",
 	"request_err_quantity" => "Bạn chưa nhập số lượng",
@@ -80,7 +80,7 @@ $lang = array(
 	
 	"shi_id" => "Lô hàng",
 	"parent_id" => "Danh mục",
-        "store_id" => "Kho hàng",
+        "store_id" => "Salon",
         "request_purchase_price" => "Giá nhập",
         "request_price" => "Giá bán",
         "request_quantity" => "Số lượng",

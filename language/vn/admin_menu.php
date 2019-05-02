@@ -202,7 +202,7 @@ $lang = array(
 
 
 "menu_setup" => "Cài đặt",
-"menu_store" => "Kho hàng",
+"menu_store" => "Salon",
 "menu_store_request_xn" => "Phiếu xuất/nhập",
 "menu_store_request_xnk" => "Phiếu xuất/nhập kho",
 
@@ -245,7 +245,7 @@ $lang = array(
     "menu_list_returns" => "Trả hàng",
     "menu_assets"					=> "Tài sản",
     "menu_shipment"				=> "Lô hàng",
-    "menu_list_store"				=> "Kho hàng",
+    "menu_list_store"				=> "Salon",
 
     "menu_transactions"				=> "Giao dịch",
     "menu_transactions_sales"		=> "Doanh thu",
@@ -308,7 +308,7 @@ $lang = array(
     "menua_expense" => "Chi phí",
     "menua_payment" => "Thanh toán",
     "menua_bill" => "Phiếu chi",
-    "menua_warehouse" => "Kho hàng",
+    "menua_warehouse" => "Salon",
     "menua_import" => "Nhập hàng",
     "menua_export" => "Trả hàng",
     "menua_inventory" => "Kiểm kho",
@@ -381,8 +381,8 @@ $lang = array(
     "menu_shift_work" => "Ca trực",
     "menu_work_schedule" => "Lịch trực",
 
-    "act_assign_to_store" => "Thêm vào kho hàng", 
-    "act_unassign_store" => "Bỏ ra khỏi kho hàng", 
+    "act_assign_to_store" => "Thêm vào salon",
+    "act_unassign_store" => "Bỏ ra khỏi salon",
 
     "menu_variants" => "Biến thể sản phẩm",
 

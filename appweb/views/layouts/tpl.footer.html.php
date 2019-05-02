@@ -10,7 +10,7 @@
                     <a href="/bao-gia-thiet-ke-web/website-ban-hang.html">Thiết kế web bán hàng</a>
                 </li>
                 <li>
-                    <a href="/">Quản lý kho hàng </a>
+                    <a href="/">Quản lý salon </a>
                 </li>
                 <li>
                     <a href="/">Bán hàng tại cửa hàng</a>
