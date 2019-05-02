@@ -9,6 +9,7 @@
 namespace controller;
 
 use core\ezy;
+use lib\input;
 use models\app;
 use models\service;
 
@@ -31,6 +32,9 @@ class pages
         $arr_page_dsg = array("educate", "price", "cosmetic" , "bang-gia" , "dao-tao");
 
         $arr_info = \models\pages::getInfo(ezy::$act);
+
+        $actArr = explode('?', ezy::$act);
+        ezy::$act = input::arrayValue($actArr, 0);
 
         if( in_array(ezy::$act, $arr_page) and isset($CMS->vars['is_cs']) and $CMS->vars['is_cs'] == 1 and !$arr_info)
         {
