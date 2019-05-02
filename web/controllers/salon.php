@@ -143,6 +143,7 @@ class salon
 
         $store = store::getInfo($storeId);
         if($store) {
+            $store = $CMS->store->convertvalue($store);
             $tpl->store = $store;
             $tpl->selected_store = $storeId;
         } else {

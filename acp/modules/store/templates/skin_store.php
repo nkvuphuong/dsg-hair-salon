@@ -58,10 +58,8 @@ EOF;
 							 
 								<th width="5%" data-orderable="false" >{$CMS->lang['store_text_id']}</th>
 								<th width="15%" data-sortable="true" >{$CMS->lang['store_text_name']}</th>
-								<th width="15%" data-sortable="true" >{$CMS->lang['store_text_be_type']}</th>
-								<th width="5%"  >{$CMS->lang['store_type']}</th>
-								<th width="15%"  >{$CMS->lang['store_ton']}</th>
-								<th width="15%" data-orderable="false"  data-sortable="false" >{$CMS->lang['user_id']}</th>
+								<th width="15%" data-sortable="false" >Hình đại diện</th>
+								<th width="15%" data-orderable="false"  data-sortable="false" >Slogan</th>
 								<th width="10%" data-orderable="false"  data-sortable="false" >{$CMS->lang['store_time']}</th>
 								<th width="5%" data-orderable="false"  data-sortable="false" style="text-align:center"></th>
 EOF;
@@ -71,11 +69,8 @@ EOF;
 							 
 								<th width="3%" data-orderable="false" ></th>
 								<th width="15%" data-sortable="true" >{$CMS->lang['store_text_name']}</th>
-								<th width="15%" data-sortable="true" >{$CMS->lang['store_text_url']}</th>
-								<th width="5%" data-orderable="false" >{$CMS->lang['store_text_be_type']}</th>
-								<th width="15%"  >{$CMS->lang['store_type']}</th>
-								<th width="15%"  >{$CMS->lang['store_ton']}</th>
-								<th width="15%" >{$CMS->lang['user_id']}</th>
+								<th width="15%" data-sortable="false" >Hình đại diện</th>
+								<th width="15%" >Slogan</th>
 								<th width="10%" >{$CMS->lang['store_time']}</th>
 								<th width="5%" style="text-align:center"></th>
 EOF;
@@ -164,6 +159,9 @@ EOF;
     {
         global $CMS, $DB, $member;
 
+        if ($data['store_avatar']) {
+            $img =  "<img width=\"100%\" src=\"{$data['store_avatar']}\">";
+        }
 
         $output = <<<EOF
 			<tr>
@@ -175,7 +173,6 @@ EOF;
 
 				<td></td>
 				<td><a href="{$CMS->vars['root_domain']}/?site=assets&store_id={$data['store_id']}">{$data['store_name']}</a></td>
-				<td>{$data['store_backend_type_c']}</td>
 				<td>{$data['store_id']}</td>
 EOF;
         } else {
@@ -183,14 +180,11 @@ EOF;
 
 				<td>{$data['store_id']}</td>
 				<td><a href="{$CMS->vars['root_domain']}/?site=assets&store_id={$data['store_id']}">{$data['store_name']}</a></td>
-				<td>{$data['store_backend_type_c']}</td>
 EOF;
         }
         $output .= <<<EOF
-
-                <td>{$data['store_type']}</td>
-                <td>{$data['assets_count']}</td>
-				<td><a href="{$CMS->vars['root_domain']}/?site=user&act=show&id={$data['user_id']}" target="_blank">{$data['user_name']}</a></td>
+                <td>{$img}</td>
+				<td>{$data['store_slogan']}</td>
 				<td>{$data['store_time']}</td>
 				<td align="center">
 EOF;
@@ -317,6 +311,7 @@ EOF;
             $data['city_id'] = '0' . $data['city_id'];
         }
 
+        $convertedData = $CMS->store->convertvalue($data);
 
         $style_1 = $data['store_type'] == 1 ? 'style="font-size:13px;color:red;font-stype:italic;"' : 'style="font-size:13px;color:red;font-stype:italic;display:none"';
         $style_2 = $data['store_type'] == 2 ? 'style="font-size:13px;color:red;font-stype:italic;"' : 'style="font-size:13px;color:red;font-stype:italic;display:none"';
@@ -325,6 +320,11 @@ EOF;
         $CMS->input['store_display'] = \lib\input::get('store_display', 1);
         foreach ([0, 1] as $displayStatus) {
             $display_status_checked[$displayStatus] = $displayStatus == $data['store_display'] ? 'checked' : '';
+        }
+
+        $store_avatar = "";
+        if ($convertedData['store_avatar']) {
+            $store_avatar = "<img style='max-width: 100%' class='img-responsive' src='{$convertedData['store_avatar']}'>";
         }
 
         $output = <<<EOF
@@ -337,40 +337,63 @@ EOF;
 	<form id="form-signin_v1" name="form-signin_v1" action="{$CMS->vars['root_domain']}/?site=store&act=edit_do&id={$data['store_id']}" method="POST" enctype="multipart/form-data">
 	  <figure class="box-typical box-typical box-typical-padding border">
 	  	<div class="row">
-	  		<div class="col-md-6">
+	  		<div class="col-md-12">
 	  			<h5 class="section-title no-pt">Basic</h5>	
-	 			<fieldset class="form-group">
-						<label class="form-label" >{$CMS->lang['store_text_name']}<span style="color:red"> (*)</span></label>
-					<div style="position: relative; width: 100%;">
-						<input  class="form-control" name="store_name" id="store_name" size="45" type="text" value="{$data['store_name']}" data-validation="[NOTEMPTY]" data-validation-message="{$CMS->lang['store_err_title']}">	
-					</div>
+	 			<div class="row">
+	 			    <div class="col-md-8">
+	 			        <fieldset class="form-group">
+                                <label class="form-label" >{$CMS->lang['store_text_name']}<span style="color:red"> (*)</span></label>
+                            <div style="position: relative; width: 100%;">
+                                <input  class="form-control" name="store_name" id="store_name" size="45" type="text" value="{$data['store_name']}" data-validation="[NOTEMPTY]" data-validation-message="{$CMS->lang['store_err_title']}">	
+                            </div>
+                        </fieldset>
+        
+                        
+                        
+                        <div class="row">
+                            <fieldset class="form-group">
+                                <div class="col-md-12">
+                                    <label class="form-label" >{$CMS->lang['store_address']}</label>
+                                    <input  class="form-control" name="store_address" id="store_address" type="text" value="{$data['store_address']}">	
+                                </div>
+                            </fieldset>
+                        </div>
+                         <div class="row">
+                            <fieldset class="form-group">
+                                <div class="col-md-6">
+                                    <label class="form-label" >{$CMS->lang['city_id']}</label>
+                                    <select name="city_id" id="city_id" defaultvalue="{$data['city_id']}" class="form-control auto_select" >
+                                        {$CMS->global->get_optioncity()}
+                                    </select>
+                                </div>
+        
+                                <div class="col-md-6">
+                                    <label class="form-label" >{$CMS->lang['store_phone']}</label>
+                                    <input  class="form-control inputPhone" name="store_phone" id="store_phone" size="45" type="text" value="{$data['store_phone']}">	
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <fieldset class="form-group">
+                            <label class="form-label" >Hình ảnh:</label>
+                            <div style="position: relative; width: 100%;">
+                                <input type="file" name="store_avatar" id="store_avatar">
+                                {$store_avatar}
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                
+                <fieldset class="form-group">
+					<label class="form-label">Slogan</label>
+					<p class="typeahead-field">
+						<span class="typeahead-query">
+			 				<textarea name="store_slogan" id="store_slogan" rows="3" cols="50" class="form-control" style="height: 120px;">{$data['store_slogan']}</textarea>
+			 			</span>
+					</p>
 				</fieldset>
-
-				
-				
-			    <div class="row">
-			    	<fieldset class="form-group">
-			    		<div class="col-md-12">
-				            <label class="form-label" >{$CMS->lang['store_address']}</label>
-				            <input  class="form-control" name="store_address" id="store_address" type="text" value="{$data['store_address']}">	
-	                    </div>
-                    </fieldset>
-                </div>
- 				 <div class="row">
- 				 	<fieldset class="form-group">
- 				 		<div class="col-md-6">
-				            <label class="form-label" >{$CMS->lang['city_id']}</label>
-				           	<select name="city_id" id="city_id" defaultvalue="{$data['city_id']}" class="form-control auto_select" >
-								{$CMS->global->get_optioncity()}
-							</select>
-	                    </div>
-
- 				 		<div class="col-md-6">
-				            <label class="form-label" >{$CMS->lang['store_phone']}</label>
-				            <input  class="form-control inputPhone" name="store_phone" id="store_phone" size="45" type="text" value="{$data['store_phone']}">	
-	                    </div>
-	                </fieldset>
-                </div>
+                
                 <fieldset class="form-group">
 					<label class="form-label">{$CMS->lang['googlemap_code']}</label>
 					<p class="typeahead-field">
@@ -381,87 +404,17 @@ EOF;
 				</fieldset>
 
 				<fieldset class="form-group">
-						<label class="form-label" >{$CMS->lang['store_type']}</label>
-                            <div class='radio w25'><input type="radio" class="input_radio" name="store_type" value="1" id='radio-1' onclick="update_type(1)" defaultvalue="{$data['store_type']}"><label for='radio-1'> {$CMS->lang['store_type_1']}
-                            </label></div>
-                         
-                                <div class='radio w25'> <input type="radio" id='radio-2'   class="input_radio" name="store_type" value="2" onclick="update_type(2)" defaultvalue="{$data['store_type']}"> <label for='radio-2'> {$CMS->lang['store_type_2']}
-                            </label></div>  
-							  <div {$style_1} name="store_type_des_1_div" id="store_type_des_1_div">
-                                                {$CMS->lang['store_type_des_1']}
-                                            </div>
-                                                
-                                            <div {$style_2} name="store_type_des_2_div" id="store_type_des_2_div">
-                                                {$CMS->lang['store_type_des_2']}
-                               </div>
+					<label class="form-label" >{$CMS->lang['display_status']}</label>
+                    <div class="radio" style="display: inline-block; margin-right: 20px;">
+                        <input type="radio" name="store_display" id="store_display_1" value="1" {$display_status_checked[1]}>
+                        <label for="store_display_1">{$CMS->lang['display_1']}</label>
+                    </div>
+                    <div class="radio" style="display: inline-block;">
+                        <input type="radio" name="store_display" id="store_display_2" value="0" {$display_status_checked[0]}>
+                        <label for="store_display_2">{$CMS->lang['display_0']}</label>
+                    </div>
 				</fieldset>
-			</div><!-- col-md-6 -->	
-			<div class="col-md-6">
-				<h5 class="section-title no-pt">Advanced</h5>	
-				<div class="row">
-					<fieldset class="form-group">
-				        <div class="col-md-6">
-				            <label class="form-label" >{$CMS->lang['store_url']}</label>
-				            <input  class="form-control" name="store_backend_url" id="store_backend_url" type="text" value="{$data['store_backend_url']}" placeholder="Ex: abc.shopify.com">	
-	                    </div>
-	                    <div class="col-md-6">
-				            <label class="form-label" >{$CMS->lang['store_backend_type']}</label>
-				            <select name="store_backend_type" defaultvalue="{$data['store_backend_type']}" class="form-control auto_select">
-				            	<option value="">{$CMS->lang['title_choose_plz']}</option>
-EOF;
-        foreach (ezy::$store_backend_type as $type) {
-            $output .= "<option value='{$type}'>{$type}</option>";
-        }
-        $output .= <<<EOF
-
-				            </select>
-				            
-	                    </div>
-                    </fieldset>
-                </div>
-
-                <div class="row">
-			    	<fieldset class="form-group">
-				        <div class="col-md-12">
-				            <label class="form-label" >{$CMS->lang['store_backend_key']}</label>
-				            <input  class="form-control" name="store_backend_key" id="store_backend_key" type="text" value="{$data['store_backend_key']}">	
-	                    </div>
-	                </fieldset>
-	                <fieldset class="form-group">
-	                    <div class="col-md-12">
-				            <label class="form-label" >{$CMS->lang['store_backend_secret']}</label>
-				            <input  class="form-control" name="store_backend_secret" id="store_backend_secret" type="text" value="{$data['store_backend_secret']}">	
-	                    </div>
-                    </fieldset>
-                </div>
-
-                <div class="row">
-                	<fieldset class="form-group">
-	                	<div class="col-md-6">
-	                    	<label class="form-label" >{$CMS->lang['store_use_is_sync']}</label>
-				            <div class="radio" style="display: inline-block; margin-right: 20px;">
-								<input type="radio" name="store_backend_sync" id="sync-1" value="1">
-								<label for="sync-1">{$CMS->lang['yes']}</label>
-							</div>
-							<div class="radio" style="display: inline-block;">
-								<input type="radio" name="store_backend_sync" id="sync-2" value="0" checked="checked">
-								<label for="sync-2">{$CMS->lang['no']}</label>
-							</div>
-	                    </div>
-	                    <div class="col-md-6">
-	                    	<label class="form-label" >{$CMS->lang['display_status']}</label>
-				            <div class="radio" style="display: inline-block; margin-right: 20px;">
-								<input type="radio" name="store_display" id="store_display_1" value="1" {$display_status_checked[1]}>
-								<label for="store_display_1">{$CMS->lang['display_1']}</label>
-							</div>
-							<div class="radio" style="display: inline-block;">
-								<input type="radio" name="store_display" id="store_display_2" value="0" {$display_status_checked[0]}>
-								<label for="store_display_2">{$CMS->lang['display_0']}</label>
-							</div>
-	                    </div>
-	                </fieldset>
-                </div>
-			 </div><!-- col-md-6 -->					
+			</div><!-- col-md-6 -->			
 	 </div><!-- row -->
 
  	</figure>
@@ -595,6 +548,15 @@ EOF;
                         </fieldset>
                     </div>
                 </div>
+	 			
+	 			<fieldset class="form-group">
+					<label class="form-label">Slogan</label>
+					<p class="typeahead-field">
+						<span class="typeahead-query">
+			 				<textarea name="store_slogan" id="store_slogan" rows="3" cols="50" class="form-control" style="height: 120px;"></textarea>
+			 			</span>
+					</p>
+				</fieldset>
 	 			
 				<fieldset class="form-group">
 					<label class="form-label">{$CMS->lang['googlemap_code']}</label>

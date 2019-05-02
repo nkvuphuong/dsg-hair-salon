@@ -46,9 +46,14 @@
                         <div class="contact-brand-container">
                             <div class="row">
                                 <div class="col-md-6 col-lg-5 contact-brand-item">
-                                    <img class="full-width" src="images/brand-1.jpg">
+                                    <? if ($tpl->store['store_avatar']) { ?>
+                                        <img class="full-width" src="<?= $tpl->store['store_avatar'] ?>">
+                                    <? } ?>
 
                                     <h3><?=$tpl->store['store_name']?></h3>
+                                    <? if($tpl->store['store_slogan']) { ?>
+                                        <p><i class="fa fa-quote-left" aria-hidden="true"></i> <?=$tpl->store['store_slogan']?> <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+                                    <? } ?>
                                     <div class="icon-div">
                                         <p>
                                             <b><?=$tpl->store['store_address']?></b>

@@ -487,6 +487,7 @@ EOF;
         $store_type = intval($CMS->input['store_type']);
         $city_id = intval($CMS->input['city_id']);
         $googlemap_code = $CMS->input['googlemap_code'];
+        $store_slogan = $CMS->input['store_slogan'];
 
         $store_backend_url = trim($CMS->input['store_backend_url']);
         $store_backend_type = trim($CMS->input['store_backend_type']);
@@ -510,11 +511,11 @@ EOF;
         }
 
         // Check input
-        if (!$store_type)
+        /*if (!$store_type)
         {
             $_SESSION['msg'] = $CMS->lang['store_empty_type'];
             return false;
-        }
+        }*/
 
         // Check exist
         if($this->check_exist("store_name",$store_name,$store['store_name']))
@@ -523,8 +524,21 @@ EOF;
             return false;
         }
 
+        //Upload file.
+        if ($_FILES['store_avatar']['error'] != 4) {
+            $uploadImg = $CMS->class->image->uploadImage($_FILES['store_avatar'], 'store', null, $oldData['store_avatar']);
+            if ($uploadImg['status'] != 'success') {
+                $_SESSION['msg'] .= "Upload avatar failed: " . $uploadImg['msg'];
+                return false;
+            } else {
+                $store_avatar = $uploadImg['file'];
+            }
+        } else {
+            $store_avatar = $oldData['store_avatar'];
+        }
+
         // Insert data
-        $DB->query("UPDATE ".root_table."store SET store_name='{$store_name}',store_type='{$store_type}', store_phone='{$store_phone}',store_address='{$store_address}', city_id='{$city_id}', googlemap_code='{$googlemap_code}', store_backend_url='{$store_backend_url}', store_backend_type='{$store_backend_type}', store_backend_key='{$store_backend_key}', store_backend_secret='{$store_backend_secret}', store_backend_sync='{$store_backend_sync}', store_display='{$store_display}' WHERE store_id='{$store['store_id']}'");
+        $DB->query("UPDATE ".root_table."store SET store_name='{$store_name}',store_type='{$store_type}', store_phone='{$store_phone}',store_address='{$store_address}', city_id='{$city_id}', googlemap_code='{$googlemap_code}', store_backend_url='{$store_backend_url}', store_backend_type='{$store_backend_type}', store_backend_key='{$store_backend_key}', store_backend_secret='{$store_backend_secret}', store_backend_sync='{$store_backend_sync}', store_display='{$store_display}', store_avatar='{$store_avatar}', store_slogan='{$store_slogan}' WHERE store_id='{$store['store_id']}'");
 
         $CMS->class->cache->mdelete($this->cache_prefix);
         $_SESSION['msg']=$CMS->class->logs->insert("{$member['cus_username']} edited <b>store {$store_name}</b>");
@@ -676,6 +690,9 @@ EOF;
     {
         global $CMS;
 
+        $oriData = $data;
+
+        $data['oriData'] = $data;
         $data['store_type'] = $CMS->lang["store_type_{$data['store_type']}"];
         $data['user_name'] = $CMS->user->get_info($data['user_id'],"user_name");
         $data['store_time'] = $CMS->class->date->date_format($data['store_time'],1);
@@ -683,6 +700,8 @@ EOF;
 
         $data['store_backend_url_c'] = $data['store_backend_url'] ? '<a target="_blank" href="'.$data['store_backend_url'].'">'.$data['store_backend_url'].'<a>' : '...';
         $data['store_backend_type_c'] = $data['store_backend_type'] ? $data['store_backend_type'] : '...';
+
+        $data['store_avatar'] = \lib\image::getSrc($oriData['store_avatar'].'', null);
 
         return $data;
     }
