@@ -42,7 +42,7 @@ $lang = array(
 	'script_google_tag'=>'Script google tag manager',
 	
 	'setting_page_privacy_text'=>'Chính sách bảo mật',
-	'setting_page_terms_text'=>'Điều salonản dịch vụ',
+	'setting_page_terms_text'=>'Điều khoản dịch vụ',
 	'setting_page_support_text'=>'Hỗ trợ',
 	
 	'setting_key_text'=>'Khoá',

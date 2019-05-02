@@ -22,7 +22,7 @@
 			<div class="row">
 				<div class='col-md-12 text-center agree-term'>
 					<p>
-					* Khi đăng ký là bạn đã đồng ý với <a target="_blank" href="/thong-tin/dieu-khoan-su-dung.html">điều salonản sử dụng</a> <br>
+					* Khi đăng ký là bạn đã đồng ý với <a target="_blank" href="/thong-tin/dieu-khoan-su-dung.html">điều khoản sử dụng</a> <br>
 					& <a target="_blank" href="/thong-tin/chinh-sach-bao-mat.html">chính sách bảo mật</a> của Web4s
 					</p>
 				</div>							

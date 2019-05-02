@@ -228,7 +228,7 @@ EOF;
 								<select name="trx_method"  class="form-control select2">
 									<option value="">-- Thanh toán --</option>
 									<option $method_selected[0] value="0">Tiền mặt</option>
-									<option $method_selected[1] value="1">Chuyển salonản</option>
+									<option $method_selected[1] value="1">Chuyển khoản</option>
 								</select>
 						</li>
 

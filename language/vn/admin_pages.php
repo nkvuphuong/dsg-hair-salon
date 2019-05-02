@@ -44,7 +44,7 @@ $lang = array (
 "pages_add_info" => "Thông tin thêm",
 "pages_station" => "Nơi hiển thị",
 "pages_key" => "Mã Trang",
-"pages_key_desc" => "(Không có salonảng trống và ký tự đặc biệt)",
+"pages_key_desc" => "(Không có khoảng trống và ký tự đặc biệt)",
 "pages_url" => "URL Trang",
 
 "meta_title" => "Meta title",

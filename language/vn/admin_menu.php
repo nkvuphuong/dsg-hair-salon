@@ -209,8 +209,8 @@ $lang = array(
 
 
 
-"menu_accounts"					=> "Tài salonản ngân hàng",
-"menu_accounts_type"			=> "Tài salonản kế toán",
+"menu_accounts"					=> "Tài khoản ngân hàng",
+"menu_accounts_type"			=> "Tài khoản kế toán",
 
 "menu_store_request_yc"    		=> "Phiếu yêu cầu",
 "menu_store_request"    		=> "Quyền trên phiếu",
@@ -320,14 +320,14 @@ $lang = array(
     "menuh_adduser" => "Thêm người dùng",
     "menuh_listuser" => "Quản lý người dùng",
     "menuh_listgroup" => "Quản lý nhóm",
-    "menuh_listbank" => "Tài salonản ngân hàng",
-    "menuh_listaccount" => "Tài salonản kế toán",
+    "menuh_listbank" => "Tài khoản ngân hàng",
+    "menuh_listaccount" => "Tài khoản kế toán",
     "menuh_configsite" => "Thiết lập phần mềm",
     "menuh_listprint" => "Quản lý mẫu in",
     "menuh_history" => "Lịch sử hoạt động",
     "menuh_subscription" => "Quản lý thanh toán",
 
-    "menuh_accountinfo" => "Thông tin tài salonản",
+    "menuh_accountinfo" => "Thông tin tài khoản",
     "menuh_logout" => "Đăng xuất",
 	"menuh_change_fanpage" => "Thay đổi fanpage",
 	

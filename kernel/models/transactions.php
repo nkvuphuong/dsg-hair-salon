@@ -2850,7 +2850,7 @@ EOF;
                 'en' => 'Cash',
             ],
             'trx_method_1' => [
-                'vn' => 'Chuyển salonản',
+                'vn' => 'Chuyển khoản',
                 'en' => 'Bank transfer',
             ],
             'tri_type_0' => [
@@ -2870,11 +2870,11 @@ EOF;
                 'en' => 'Reference number',
             ],
             'account_name' => [
-                'vn' => 'Tài salonản',
+                'vn' => 'Tài khoản',
                 'en' => 'Account',
             ],
             'accounting_account' => [
-                'vn' => 'Định salonản',
+                'vn' => 'Định khoản',
                 'en' => 'Record the transaction',
             ],
             'contract_code' => [
@@ -2890,7 +2890,7 @@ EOF;
                 'en' => 'Cash',
             ],
             'payment_method_1' => [
-                'vn' => 'Chuyển salonản',
+                'vn' => 'Chuyển khoản',
                 'en' => 'Bank transfer',
             ],
             'trx_payment_date' => [
@@ -3356,7 +3356,7 @@ EOF;
             }
 
             /**
-             * Check accounting account(định salonản)
+             * Check accounting account(định khoản)
              */
             if(trim($data['accounting_account']) != '')
             {

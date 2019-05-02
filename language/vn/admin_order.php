@@ -26,15 +26,15 @@ $lang = array(
     "order_status_4" => "Đang  gia hạn",
     "order_status_6" => "Đã lưu",
 
-	"bank_err"      => "Vui lòng chọn tài salonản ngân hàng",
+	"bank_err"      => "Vui lòng chọn tài khoản ngân hàng",
 	"payment_method" =>	"Phương thức Thanh toán",
-	"account_id"    => "Tài salonản ngân hàng",
+	"account_id"    => "Tài khoản ngân hàng",
 	"order_time" 	=> 	"Thời gian",
  	"cus_id"        =>  "Khách hàng",
  	"invoice_no"    => "Giao dịch",
  	"order_total"   => "Tổng tiền",
  	"payment_method_0" => "Tiền mặt",
- 	"payment_method_1" => "Chuyển salonản",
+ 	"payment_method_1" => "Chuyển khoản",
     "payment_method_2" => "Thanh toán khi nhận hàng",
     "payment_method_3" => "Internet banking",
     "payment_method_4" => "ATM",
@@ -45,7 +45,7 @@ $lang = array(
  	"payment_method_error" => "Vui lòng chọn hình thức thanh toán",
  	"service_type"   => "Loại dịch vụ",
 	"find_product"  => "Sản phẩm/dịch vụ", 
-	"order_cus_err" => "Chọn tài salonản khách hàng!",
+	"order_cus_err" => "Chọn tài khoản khách hàng!",
 	"order_empty_item_err" => "Vui lòng chọn sản phẩm/dịch vụ!",
 	"order_added"	=> "Thêm đơn hàng mới thành công!",
 	"order_edited"  => "Sửa thông tin đơn hàng thành công ",
@@ -176,7 +176,7 @@ $lang = array(
     "checkbox_shipping" => "Thông tin vận chuyển",
 
     // Bank
-    "ord_banknote" => "Doanh số dự kiến sẽ chuyển và được ghi nhận vào tài salonản ngân hàng đã chọn",
+    "ord_banknote" => "Doanh số dự kiến sẽ chuyển và được ghi nhận vào tài khoản ngân hàng đã chọn",
 
     "ord_changenote" => "Các thay đổi ở form này sẽ được cập nhật tự động vào phiếu giao dịch tương ứng",
 
@@ -217,7 +217,7 @@ $lang = array(
     "order_commission_rating" => "Đánh giá",
 
     //18052017
-    "notify_select_customer" => "Vui lòng chọn tài salonản khách hàng!",
+    "notify_select_customer" => "Vui lòng chọn tài khoản khách hàng!",
     "cycle_type" => "Chu kỳ thanh toán",
     "cycle_type_1" => "Hàng tháng",
     "cycle_type_2" => "Năm",

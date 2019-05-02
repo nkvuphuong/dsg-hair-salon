@@ -26,13 +26,13 @@
 												<select id='payTabSelect' class="form-control" >
 											        <option value='0' href="#b1" tab="1" data-toggle="tab">Thanh toán trực tiếp</option>
 											        <option value='8' href="#b2" tab="2" data-toggle="tab">Thanh toán qua Ngân Lượng</option>
-											        <option value='1' href="#b3" tab="3" data-toggle="tab">Thanh toán qua chuyển salonản</option>
+											        <option value='1' href="#b3" tab="3" data-toggle="tab">Thanh toán qua chuyển khoản</option>
 											    	<?php
 										if($_SESSION['member']['cus_is_reseller'] == 1)
 									{
 									?>
 
-												 <option value='4' href="#b4" tab="4" data-toggle="tab">Thanh toán qua tài salonản đại lý</option>
+												 <option value='4' href="#b4" tab="4" data-toggle="tab">Thanh toán qua tài khoản đại lý</option>
 
  
 									<?php } ?>			
@@ -64,7 +64,7 @@
 													<label class="radio-item">
 														 <input class="radio-cb" type="radio"  name="payment_method" value="1">  
 														<span class="radio-mark"></span>
-														<span class="radio-desc">Thanh toán qua <br>chuyển salonản</a></span>
+														<span class="radio-desc">Thanh toán qua <br>chuyển khoản</a></span>
 													</label>
 												</li>
 									<?php
@@ -77,7 +77,7 @@
 													<label class="radio-item">
 														 <input class="radio-cb" type="radio"  name="payment_method" value="4">  
 														<span class="radio-mark"></span>
-														<span class="radio-desc">Thanh toán qua<br> tài salonản đại lý</a></span>
+														<span class="radio-desc">Thanh toán qua<br> tài khoản đại lý</a></span>
 													</label>
 												</li>
 									<?php } ?>			

@@ -9,7 +9,7 @@
 
 <div class="container">
         <header class="title-section">
-            <h3>Tạo tài salonản Ezybook của bạn</h3>
+            <h3>Tạo tài khoản Ezybook của bạn</h3>
             <div class="sub"> </div>
         </header>
         <div class="row">

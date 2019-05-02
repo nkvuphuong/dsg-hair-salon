@@ -23,7 +23,7 @@ $lang = array (
 	"member_country" => "-- Vui lòng chọn quận/Huyện --",
 	"member_button_1" => "Thanh toán bằng Paypal",
 	"member_button_0" => "Đặt hàng",
-	"member_policy" => "Khi chọn 'Thanh toán với Paypal', bạn đồng ý với chính sách bảo mật và điều salonản dịch vụ của chúng tôi, và đồng ý về việc nhận các bản cập nhật định kỳ, giảm giá, và các ưu đãi đặc biệt từ chúng tôi.",
+	"member_policy" => "Khi chọn 'Thanh toán với Paypal', bạn đồng ý với chính sách bảo mật và điều khoản dịch vụ của chúng tôi, và đồng ý về việc nhận các bản cập nhật định kỳ, giảm giá, và các ưu đãi đặc biệt từ chúng tôi.",
 	"member_your_cart" => "Giỏ hàng của bạn",
 	"member_empty" => "Giỏ hàng rổng",
 	"member_shipping_fee" => "Phí vận chuyển",
@@ -82,7 +82,7 @@ $lang = array (
         "member_cod"=>'Thanh toán khi nhận hàng',
         "member_nganluong"=>"Thanh toán qua Ngân Lượng",
         "member_baokim"=>"Thanh toán qua Bảo Kim",
-        "member_transfer"=>"Chuyển salonản ngân hàng",
+        "member_transfer"=>"Chuyển khoản ngân hàng",
 
     "discount_code" => "Mã giảm giá",
     "discount" => "Giảm giá",

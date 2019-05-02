@@ -23,11 +23,11 @@
 		</div>
 		<div class="col-md-8">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Tài salonản ID Nhân Hòa" name="email" value="<?=($CMS->input['referer'] == 0) ? $CMS->input['email'] : ''?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Vui lòng nhập tài salonản ID Nhân Hòa">
+				<input type="text" class="form-control" placeholder="Tài khoản ID Nhân Hòa" name="email" value="<?=($CMS->input['referer'] == 0) ? $CMS->input['email'] : ''?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Vui lòng nhập tài khoản ID Nhân Hòa">
 				<?php if ($CMS->input['referer'] == 0 && $tpl->error['email']) { ?>
 				<i class="fa fa-times-circle ani"></i>
 				<?php } else { ?>
-				<i class="fa fa-question-circle ani" title="Tài salonản ID Nhân Hòa"></i>
+				<i class="fa fa-question-circle ani" title="Tài khoản ID Nhân Hòa"></i>
 				<?php } ?>
 			</div>	
 		</div>    										

@@ -46,7 +46,7 @@
 									<td><i class="fa fa-check text-green"></i></td>
 								</tr>
 								<tr>
-									<td>Tài salonản quản trị <i class="fa fa-question-circle" title="Lorem ipsum dolor sit amet<br> consectetur adipiscing elit"></i></td>
+									<td>Tài khoản quản trị <i class="fa fa-question-circle" title="Lorem ipsum dolor sit amet<br> consectetur adipiscing elit"></i></td>
 									<td>2</td>
 								</tr>
 								<tr>
@@ -105,7 +105,7 @@
 									<td><i class="fa fa-check text-green"></i></td>
 								</tr>
 								<tr>
-									<td>Tài salonản quản trị <i class="fa fa-question-circle" title="Lorem ipsum dolor sit amet<br> consectetur adipiscing elit"></i></td>
+									<td>Tài khoản quản trị <i class="fa fa-question-circle" title="Lorem ipsum dolor sit amet<br> consectetur adipiscing elit"></i></td>
 									<td>10</td>
 								</tr>
 								<tr>
@@ -164,7 +164,7 @@
 									<td><i class="fa fa-check text-green"></i></td>
 								</tr>
 								<tr>
-									<td>Tài salonản quản trị <i class="fa fa-question-circle" title="Lorem ipsum dolor sit amet<br> consectetur adipiscing elit"></i></td>
+									<td>Tài khoản quản trị <i class="fa fa-question-circle" title="Lorem ipsum dolor sit amet<br> consectetur adipiscing elit"></i></td>
 									<td>20</td>
 								</tr>
 								<tr>
@@ -223,7 +223,7 @@
 									<td><i class="fa fa-check text-green"></i></td>
 								</tr>
 								<tr>
-									<td>Tài salonản quản trị <i class="fa fa-question-circle" title="Lorem ipsum dolor sit amet<br> consectetur adipiscing elit"></i></td>
+									<td>Tài khoản quản trị <i class="fa fa-question-circle" title="Lorem ipsum dolor sit amet<br> consectetur adipiscing elit"></i></td>
 									<td>50</td>
 								</tr>
 								<tr>

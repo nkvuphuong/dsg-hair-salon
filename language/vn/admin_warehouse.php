@@ -18,7 +18,7 @@ $lang = array(
 	'item_color'=>'Màu',
 	'item_size'=>'Kích thước',
 	
-	'section_name_err'=>'Chỉ nhập ký tự, số, salonảng trắng, gạch ngang, gạch dưới',
+	'section_name_err'=>'Chỉ nhập ký tự, số, khoảng trắng, gạch ngang, gạch dưới',
 	'section_add_success'=>'Thành công! Đạ tạo khu vực ',
 	'section_edit_success'=>'Thành công! Đã chỉnh sữa khu vực ',
 	'section_not'=>'Không có khu vực ',

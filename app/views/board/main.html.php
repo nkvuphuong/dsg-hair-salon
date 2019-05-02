@@ -58,7 +58,7 @@
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <p>Khi doanh nghiệp chỉ sử dụng 1-2 tài salonản quản trị. Giá thấp hơn so với các phần mềm cùng tính năng của trong nước và nước ngoài, doanh nghiệp có cơ hội trải nghiệ miễn phí trước khi quyết định đầu tư mở rộng tài salonản hơn.</p>
+                                <p>Khi doanh nghiệp chỉ sử dụng 1-2 tài khoản quản trị. Giá thấp hơn so với các phần mềm cùng tính năng của trong nước và nước ngoài, doanh nghiệp có cơ hội trải nghiệ miễn phí trước khi quyết định đầu tư mở rộng tài khoản hơn.</p>
                             </div>
                         </div>
                     </div>
@@ -196,7 +196,7 @@
                     <div class="price-block-inner">
                         <ul class="price-block-list">
                             <li>Đầy đủ tính năng: <strong>Có</strong></li>
-                            <li>Tài salonản quản trị: <strong>2</strong></li>
+                            <li>Tài khoản quản trị: <strong>2</strong></li>
                             <li>Dung lượng lưu trữ: <strong>200MB</strong></li>
                         </ul>
                     </div>
@@ -214,7 +214,7 @@
                     <div class="price-block-inner">
                         <ul class="price-block-list">
                             <li>Đầy đủ tính năng: <strong>Có</strong></li>
-                            <li>Tài salonản quản trị: <strong>10</strong></li>
+                            <li>Tài khoản quản trị: <strong>10</strong></li>
                             <li>Dung lượng lưu trữ: <strong>5GB</strong></li>
                         </ul>
                     </div>
@@ -232,7 +232,7 @@
                     <div class="price-block-inner">
                         <ul class="price-block-list">
                             <li>Đầy đủ tính năng: <strong>Có</strong></li>
-                            <li>Tài salonản quản trị: <strong>20</strong></li>
+                            <li>Tài khoản quản trị: <strong>20</strong></li>
                             <li>Dung lượng lưu trữ: <strong>50GB</strong></li>
                         </ul>
                     </div>
@@ -250,7 +250,7 @@
                     <div class="price-block-inner">
                         <ul class="price-block-list">
                             <li>Đầy đủ tính năng: <strong>Có</strong></li>
-                            <li>Tài salonản quản trị: <strong>50</strong></li>
+                            <li>Tài khoản quản trị: <strong>50</strong></li>
                             <li>Dung lượng lưu trữ: <strong>200GB</strong></li>
                         </ul>
                     </div>

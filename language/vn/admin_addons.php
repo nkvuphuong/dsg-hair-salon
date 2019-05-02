@@ -29,7 +29,7 @@ $lang = array (
 	"text_breadcrumb_setting_freshdesk" => "Cấu hình freshdesk",
 	"text_breadcrumb_logs_freshdesk" => "Lịch sử freshdesk",
 	
-	"label_fresh_desk_description" => "Với Freshdesk, các nhóm của bạn có thể làm việc cùng nhau để giải quyết các vấn đề của khách hàng nhanh hơn. <a href='https://freshdesk.com/signup' target='_blank'>Nếu bạn không có tài salonản tại đây để đăng ký</a>",
+	"label_fresh_desk_description" => "Với Freshdesk, các nhóm của bạn có thể làm việc cùng nhau để giải quyết các vấn đề của khách hàng nhanh hơn. <a href='https://freshdesk.com/signup' target='_blank'>Nếu bạn không có tài khoản tại đây để đăng ký</a>",
 	"title_header_setting_freshdesk" => "Cấu hình Freshdesk",
 	"title_header_logs_freshdesk" => "Lịch sử Freshdesk",
 	"save_config" => "Cập nhật",

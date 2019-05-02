@@ -237,7 +237,7 @@ $lang = array (
     // title report menu finance
     "title_menu_finance" => "Finance",
     "title_menu_finance_daily" => "Store Daily Retail", // Bán lẻ hằng ngày theo salon
-    "title_menu_finance_record" => "Record Transaction", // Theo định salonản
+    "title_menu_finance_record" => "Record Transaction", // Theo định khoản
     "title_menu_finance_revenue" => "Store Revenue",
 
     "title_buy_times" => "Number of purchases",

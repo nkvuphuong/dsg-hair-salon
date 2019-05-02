@@ -35,8 +35,8 @@ $lang = array (
     "menu_tracker" => "Tracker", 
 
     //Global
-    "create_account" => "Tạo một tài salonản", 
-    "have_account" => "Bạn đã có mật tài salonản ?", 
+    "create_account" => "Tạo một tài khoản",
+    "have_account" => "Bạn đã có mật tài khoản ?",
     "logout" => "Đăng xuất",
     "login" => "Đăng nhập",
     "cart" => "Giỏ hàng",
@@ -161,7 +161,7 @@ $lang = array (
 
     // Payment method
     "payment_method_0" => "Tiền mặt",
-    "payment_method_1" => "Chuyển salonản qua ngân hàng",
+    "payment_method_1" => "Chuyển khoản qua ngân hàng",
     "payment_method_2" => "Thanh toán khi nhận hàng (COD)",
     "payment_method_3" => "Thanh toán online",
     "payment_method_4" => "ATM",

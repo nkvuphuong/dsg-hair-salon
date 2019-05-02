@@ -1173,7 +1173,7 @@ class Order{
         // Thanh toán tiền mặt
         $payment_method[0]=$CMS->lang['payment_method_0'];
 
-        // Thanh toán chuyển salonản ngân hàng nội địa
+        // Thanh toán chuyển khoản ngân hàng nội địa
         if($CMS->vars['ck_active']==1) {
             $payment_method[1] = $CMS->lang['payment_method_1'];
         }

@@ -29,7 +29,7 @@ $lang = array (
 "no_customer" => "Chưa có thành viên nào",
 "no_campaigns" => "Chưa có chiến dịch nào",
 
-"title_username" => "Tài salonản",
+"title_username" => "Tài khoản",
 "title_number_campaigns" => "Tổng số chiến dịch",
 "title_number_profit" => "Tổng lợi nhuận",
 "title_number_drawn_profit" => "Lợi nhuận đã thanh toán",
@@ -116,7 +116,7 @@ $lang = array (
 "title_total_order" => "Tổng đơn hàng",
 "title_tags" => "Tags",
 "title_note" => "Ghi chú",
-"title_have_account" => "Đã có tài salonản",
+"title_have_account" => "Đã có tài khoản",
 
     "title_report_sale_num_order" => "STT",
     "title_report_sale_total_price" => "Doanh số",
@@ -173,13 +173,13 @@ $lang = array (
     // Title subact report product
     "title_product_follow_date" => "Theo ngày, tháng, năm",
     "title_product_follow_store" => "Theo salon",
-    "title_product_follow_price" => "Theo salonảng giá",
+    "title_product_follow_price" => "Theo khoảng giá",
     "title_product_best_seller" => "Bán chạy nhất",
     
     // Title subact report assets
     "title_assets_follow_date" => "Theo ngày, tháng, năm",
     "title_assets_follow_store" => "Theo salon",
-    "title_assets_follow_price" => "Theo salonảng giá",
+    "title_assets_follow_price" => "Theo khoảng giá",
     "title_assets_best_seller" => "Bán chạy nhất",
     
     // Title subact report customer
@@ -193,7 +193,7 @@ $lang = array (
     
     // Title subact report finance
     "title_finance_daily" => "Tổng bán lẻ hằng ngày theo salon",
-    "title_finance_record" => "Theo tài salonản kế toán",
+    "title_finance_record" => "Theo tài khoản kế toán",
     "title_finance_revenue" => "Thu chi theo ngày",
     
     // title report menu sales
@@ -218,14 +218,14 @@ $lang = array (
     // title report menu product
     "title_menu_product" => "Sản phẩm",
     "title_menu_product_bestseller" => "Bán chạy nhất",
-    "title_menu_product_price" => "Theo salonảng giá",
+    "title_menu_product_price" => "Theo khoảng giá",
     "title_menu_product_store" => "Theo salon",
     "title_menu_product_date" => "Theo ngày, tháng, năm",
     
     // title report menu assets
     "title_menu_assets" => "Tài sản",
     "title_menu_assets_bestseller" => "Bán chạy nhất",
-    "title_menu_assets_price" => "Theo salonảng giá",
+    "title_menu_assets_price" => "Theo khoảng giá",
     "title_menu_assets_store" => "Theo salon",
     "title_menu_assets_date" => "Theo ngày, tháng, năm",
     
@@ -242,7 +242,7 @@ $lang = array (
     // title report menu finance
     "title_menu_finance" => "Kế toán",
     "title_menu_finance_daily" => "Tổng bán lẻ hằng ngày theo salon", // Bán lẻ hằng ngày theo salon
-    "title_menu_finance_record" => "Theo tài salonản", // Theo định salonản
+    "title_menu_finance_record" => "Theo tài khoản", // Theo định khoản
     "title_menu_finance_revenue" => "Theo thu chi hằng ngày",
 
     "title_buy_times" => "Số lần mua hàng",
@@ -261,8 +261,8 @@ $lang = array (
     "title_cash_receipts" => "Tổng thu tiền mặt",
     "titel_cash_payment" => "Tổng chi tiền mặt",
     "title_cash_left" => "Tiền mặt còn lại",
-    "title_transfer_receipts" => "Chuyển salonản (Thu)",
-    "title_transfer_payment" => "Chuyển salonản (Chi)",
+    "title_transfer_receipts" => "Chuyển khoản (Thu)",
+    "title_transfer_payment" => "Chuyển khoản (Chi)",
     "title_debt" => "Công nợ",
     "title_at_code" => "Mã",
     "title_at_name" => "Tên",
@@ -284,9 +284,9 @@ $lang = array (
     "title_cash_plus" => "Tiềm mặt (+)",
     "title_cash_sub" => "Tiền mặt (-)",
     "title_total_cash" => "Tổng tiền mặt",
-    "title_bank_plus" => "Chuyển salonản (+)",
-    "title_bank_sub" => "Chuyển salonản (-)",
-    "title_total_bank" => "Tổng chuyển salonản",
+    "title_bank_plus" => "Chuyển khoản (+)",
+    "title_bank_sub" => "Chuyển khoản (-)",
+    "title_total_bank" => "Tổng chuyển khoản",
     
     "title_object" => "Đối tượng",
     "titl_ass_avaiable" => "Trạng thái",

@@ -20,7 +20,7 @@ $lang = array (
 	"payment_country" => "-- Vui lòng chọn quận/Huyện --",
 	"payment_button_1" => "Thanh toán bằng Paypal",
 	"payment_button_0" => "Đặt hàng",
-	"payment_policy" => "Khi chọn 'Thanh toán với Paypal', bạn đồng ý với chính sách bảo mật và điều salonản dịch vụ của chúng tôi, và đồng ý về việc nhận các bản cập nhật định kỳ, giảm giá, và các ưu đãi đặc biệt từ chúng tôi.",
+	"payment_policy" => "Khi chọn 'Thanh toán với Paypal', bạn đồng ý với chính sách bảo mật và điều khoản dịch vụ của chúng tôi, và đồng ý về việc nhận các bản cập nhật định kỳ, giảm giá, và các ưu đãi đặc biệt từ chúng tôi.",
 	"payment_your_cart" => "Giỏ hàng của bạn",
 	"payment_empty" => "Giỏ hàng rổng",
 	"payment_shipping_fee" => "Phí vận chuyển",
@@ -80,7 +80,7 @@ $lang = array (
         "payment_cod"=>'Thanh toán khi nhận hàng',
         "payment_nganluong"=>"Thanh toán qua Ngân Lượng",
         "payment_baokim"=>"Thanh toán qua Bảo Kim",
-        "payment_transfer"=>"Chuyển salonản ngân hàng",
+        "payment_transfer"=>"Chuyển khoản ngân hàng",
 
     "discount_code" => "Mã giảm giá",
     "discount" => "Giảm giá",
@@ -108,9 +108,9 @@ $lang = array (
     "stripe_cvv_cvc" => "CVV/CVC",
 
 
-    'register_account'=>'Đăng ký tài salonản',
+    'register_account'=>'Đăng ký tài khoản',
     'guest_checkout'=>'Khách vãng lai thanh toán',
-    'step1_description'=>"Bằng cách tạo một tài salonản, bạn sẽ có thể mua sắm nhanh hơn, được cập nhật và theo dõi thứ tự bạn đã thực hiện trước đây.",
+    'step1_description'=>"Bằng cách tạo một tài khoản, bạn sẽ có thể mua sắm nhanh hơn, được cập nhật và theo dõi thứ tự bạn đã thực hiện trước đây.",
     'returning_customer'=>'Đăng nhập',
     'i_returning_customer'=>'Tôi là khách hàng cũ.',
 
@@ -170,7 +170,7 @@ $lang = array (
     "title_payment_method_short" => "Hình thức",
     "title_payment_method_note" => "Chọn hình thức thanh toán cho đơn hàng này", 
     "payment_method_0" => "Tiền mặt",
- 	"payment_method_1" => "Chuyển salonản",
+ 	"payment_method_1" => "Chuyển khoản",
     "payment_method_2" => "Thanh toán khi nhận hàng",
     "payment_method_3" => "Internet banking",
     "payment_method_4" => "ATM",

@@ -242,7 +242,7 @@ class client {
  				{	
  					unset($_SESSION['price_reseller']  );
  					unset($_SESSION['cart']['price_total'] );
- 					$_SESSION['price_reseller'] .= "<p style='text-align:center'>Thanh toán thông qua tài salonản đại lý để được hướng chiết khấu hấp dẫn.</p>";
+ 					$_SESSION['price_reseller'] .= "<p style='text-align:center'>Thanh toán thông qua tài khoản đại lý để được hướng chiết khấu hấp dẫn.</p>";
  					$_SESSION['price_reseller']  .= "<p style='text-align:center' class='text-orange'>Số tiền phải thanh toán: ".$CMS->class->input->currency($res['price_total'])."</p>";			
  				}
 	   		}
