@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 text-center">
-					<h1 class="section-title text-normal">Đăng ký tài khoản Nhân Hòa</h1>		
+					<h1 class="section-title text-normal">Đăng ký tài salonản Nhân Hòa</h1>		
 					<br>			
 				</div>
 			</div>
@@ -19,7 +19,7 @@
 						<div class="row <?=($tpl->error['email']) ? 'control with-errors' : '';?>">
 							<div class="col-md-4"></div>
 							<div class="col-md-8">
-								<h3>Thông tin tài khoản:</h3>
+								<h3>Thông tin tài salonản:</h3>
 							</div>
 							<div class="col-md-4" id="email_err">
 								<?php if ($tpl->error['email']) { ?>

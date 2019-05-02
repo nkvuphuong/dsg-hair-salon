@@ -1697,7 +1697,7 @@ EOF;
 	    		}
     		}elseif($type == 2)
     		{
-    			// Xuat chuyen kho
+    			// Xuat chuyen salon
     			$store_id = $store_from;
     			$store_id_to = intval($store_to);
     			foreach ($data as $key => $value) 
@@ -1722,7 +1722,7 @@ EOF;
 		    						$data_sub['sub_warranty'][] = $result2['ass_warranty'];
 		    						// Tạo key
 		    						$sub_key = MD5("{$result2['ass_name']}_{$store_id_to}_{$result2['shi_id']}_{$result2['ass_price']}_{$result2['product_id']}_{$result2['ass_warranty']}");
-		    						// Chuyển kho thằng con trước
+		    						// Chuyển salon thằng con trước
 		    						$DB->query("UPDATE ".root_table."assets SET ass_key = '{$sub_key}', store_id = '{$store_id_to}' WHERE ass_key = '{$result2['ass_key']}' AND ass_deleted = 0 AND parent_id = '{$result['ass_id']}'");
 		    					}
 		    				}

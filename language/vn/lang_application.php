@@ -35,8 +35,8 @@ $lang = array (
     "menu_tracker" => "Tracker", 
 
     //Global
-    "create_account" => "Tạo một tài khoản", 
-    "have_account" => "Bạn đã có mật tài khoản ?", 
+    "create_account" => "Tạo một tài salonản", 
+    "have_account" => "Bạn đã có mật tài salonản ?", 
     "logout" => "Đăng xuất",
     "login" => "Đăng nhập",
     "cart" => "Giỏ hàng",
@@ -119,7 +119,7 @@ $lang = array (
     "tags" => "Tags", 
     "breadcrumb_product" => "Sản phẩm",
     "add_to_cart" => "Thêm vào giỏ hàng", 
-    "keyword" => "Từ khoá", 
+    "keyword" => "Từ saloná", 
     "price_from" => "Giá từ", 
     "price_to" => "Giá đến", 
     "featured_products" => "Sản phẩm nổi bật", 
@@ -161,7 +161,7 @@ $lang = array (
 
     // Payment method
     "payment_method_0" => "Tiền mặt",
-    "payment_method_1" => "Chuyển khoản qua ngân hàng",
+    "payment_method_1" => "Chuyển salonản qua ngân hàng",
     "payment_method_2" => "Thanh toán khi nhận hàng (COD)",
     "payment_method_3" => "Thanh toán online",
     "payment_method_4" => "ATM",

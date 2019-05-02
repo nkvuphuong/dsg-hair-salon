@@ -558,7 +558,7 @@ class register {
 	    
 	    	$_SESSION['cart']['private_domain'] = $private_domain;
 	   		$_SESSION['cart']['code_storename'] = $reg_domain;
-	   		// Check tai khoan đai ly - get price thought api nh
+	   		// Check tai salonan đai ly - get price thought api nh
 	   
 	   		if($_SESSION['member']['cus_is_reseller'] == 1)
 	   		{
@@ -573,7 +573,7 @@ class register {
  				{	
  					unset($_SESSION['price_reseller']  );
  					unset($_SESSION['cart']['price_total'] );
- 					$_SESSION['price_reseller'] .= "<p style='text-align:center'>Thanh toán thông qua tài khoản đại lý để được hướng chiết khấu hấp dẫn.</p>";
+ 					$_SESSION['price_reseller'] .= "<p style='text-align:center'>Thanh toán thông qua tài salonản đại lý để được hướng chiết khấu hấp dẫn.</p>";
  					$_SESSION['price_reseller']  .= "<p style='text-align:center' class='text-orange'>Số tiền phải thanh toán: ".$CMS->class->input->currency($res['price_total'])."</p>";			
  				}
 	   		}

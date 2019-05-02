@@ -41,7 +41,7 @@ EOF;
 
         $lang = $CMS->vars['default_language'] == "vn" ? "vi" : "en";
 
-        //Fix loi dau '-' vi function khong duoc chua dau nay - nkvp - 2017.11.27
+        //Fix loi dau '-' vi function salonng duoc chua dau nay - nkvp - 2017.11.27
         $fnName = str_replace('-','_', $form_name);
 
         $output = "";
@@ -95,7 +95,7 @@ EOF;
     {
         global $CMS;
 
-        //Fix loi dau '-' vi function khong duoc chua dau nay - nkvp - 2017.11.27
+        //Fix loi dau '-' vi function salonng duoc chua dau nay - nkvp - 2017.11.27
         $fnName = str_replace('-','_', $form_name);
 
         if( $CMS->vars['recaptcha_google'] )

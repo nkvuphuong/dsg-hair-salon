@@ -182,7 +182,7 @@ $output .=<<<EOF
 					
 					<li class="col-xl-2 col-lg-4 col-md-3 col-sm-6 col-xs-12">
 						<p class="form-control-static">
-							<input type="text" class="form-control" placeholder="ID kiểm kho" name="inventory_id" id="inventory_id" value="{$inventory_id}"/>
+							<input type="text" class="form-control" placeholder="ID kiểm salon" name="inventory_id" id="inventory_id" value="{$inventory_id}"/>
 						</p>
 					</li>
 					

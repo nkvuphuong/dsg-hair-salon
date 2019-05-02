@@ -193,7 +193,7 @@ $lang = array(
 "menu_campaign" 	=>	"Chiến dịch",
 "menu_collection"	=>	"Nhóm sản phẩm",
 
-"menu_warehouse" 	=> 	"Nhà kho",
+"menu_warehouse" 	=> 	"Nhà salon",
 
 
 //06 02 17
@@ -204,18 +204,18 @@ $lang = array(
 "menu_setup" => "Cài đặt",
 "menu_store" => "Salon",
 "menu_store_request_xn" => "Phiếu xuất/nhập",
-"menu_store_request_xnk" => "Phiếu xuất/nhập kho",
+"menu_store_request_xnk" => "Phiếu xuất/nhập salon",
 
 
 
 
-"menu_accounts"					=> "Tài khoản ngân hàng",
-"menu_accounts_type"			=> "Tài khoản kế toán",
+"menu_accounts"					=> "Tài salonản ngân hàng",
+"menu_accounts_type"			=> "Tài salonản kế toán",
 
 "menu_store_request_yc"    		=> "Phiếu yêu cầu",
 "menu_store_request"    		=> "Quyền trên phiếu",
 "menu_request_ei"    		    => "Phiếu nhập",
-"menu_request_eistore"    		=> "Phiếu nhập kho",
+"menu_request_eistore"    		=> "Phiếu nhập salon",
 
 
 "menu_transaction_terms"    => "Danh sách kỳ hạn",
@@ -241,7 +241,7 @@ $lang = array(
     "menu_goods"    => "Hàng hóa",
     "menu_import_goods" => "Nhập hàng",
     "menu_export_goods" => "Xuất hàng",
-    "menu_inventory"    			=> "Kiểm kho",
+    "menu_inventory"    			=> "Kiểm salon",
     "menu_list_returns" => "Trả hàng",
     "menu_assets"					=> "Tài sản",
     "menu_shipment"				=> "Lô hàng",
@@ -290,7 +290,7 @@ $lang = array(
     "menu_report_user" => "Nhân viên",
     "menu_report_overview" => "Kế toán",
     "menu_report_profit" => "Lợi nhuận",
-    "menu_report_inventory" => "Tồn kho",
+    "menu_report_inventory" => "Tồn salon",
     "menu_report_themes" => "Giao diện",
     "menu_report_sites" => "Trang web",
 
@@ -311,7 +311,7 @@ $lang = array(
     "menua_warehouse" => "Salon",
     "menua_import" => "Nhập hàng",
     "menua_export" => "Trả hàng",
-    "menua_inventory" => "Kiểm kho",
+    "menua_inventory" => "Kiểm salon",
     "menua_asset" => "Tài sản",
     "menu_addons" => "Quản lý ứng dụng",
     "menu_coupons" => "Coupons",
@@ -320,14 +320,14 @@ $lang = array(
     "menuh_adduser" => "Thêm người dùng",
     "menuh_listuser" => "Quản lý người dùng",
     "menuh_listgroup" => "Quản lý nhóm",
-    "menuh_listbank" => "Tài khoản ngân hàng",
-    "menuh_listaccount" => "Tài khoản kế toán",
+    "menuh_listbank" => "Tài salonản ngân hàng",
+    "menuh_listaccount" => "Tài salonản kế toán",
     "menuh_configsite" => "Thiết lập phần mềm",
     "menuh_listprint" => "Quản lý mẫu in",
     "menuh_history" => "Lịch sử hoạt động",
     "menuh_subscription" => "Quản lý thanh toán",
 
-    "menuh_accountinfo" => "Thông tin tài khoản",
+    "menuh_accountinfo" => "Thông tin tài salonản",
     "menuh_logout" => "Đăng xuất",
 	"menuh_change_fanpage" => "Thay đổi fanpage",
 	
@@ -336,7 +336,7 @@ $lang = array(
     "act_product" => "Hàng hoá",
     "act_customer" => "Khách hàng",
     "act_finance" => "Tài chính",
-    "act_inventory" => "Tồn kho",
+    "act_inventory" => "Tồn salon",
     "act_assets" => "Tài sản",
     //16-05-2017
     "menu_sites" => "Quản lý Web",

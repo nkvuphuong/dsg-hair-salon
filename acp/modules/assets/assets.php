@@ -36,23 +36,23 @@ class assets{
 				{
 						$this->order_add();
 				}
-				else if(\lib\input::get('subact') == "order_add_multi")//Chuyen kho
+				else if(\lib\input::get('subact') == "order_add_multi")//Chuyen salon
 				{
 						$this->order_add_multi();
 				}
-				else if(\lib\input::get('subact') == "transfer")//Chuyen kho
+				else if(\lib\input::get('subact') == "transfer")//Chuyen salon
 				{
 						$this->transfer();
 				}
-				else if(\lib\input::get('subact') == "transfer_multi")//Chuyen kho
+				else if(\lib\input::get('subact') == "transfer_multi")//Chuyen salon
 				{
 						$this->transfer_multi();
 				}
-				else if(\lib\input::get('subact') == "export")//Chuyen kho
+				else if(\lib\input::get('subact') == "export")//Chuyen salon
 				{
 						$this->export();
 				}
-				else if(\lib\input::get('subact') == "export_multi")//Chuyen kho
+				else if(\lib\input::get('subact') == "export_multi")//Chuyen salon
 				{
 						$this->transfer_multi();
 				}
@@ -324,7 +324,7 @@ $CMS->class->language->load("product_group");
 
                     	if (!in_array($asset['store_id'], $store) AND count($store) > 0) {
                      
-						     $_SESSION['error_msg'] = "Vui lòng chọn tài sản cùng kho!";
+						     $_SESSION['error_msg'] = "Vui lòng chọn tài sản cùng salon!";
 						     $CMS->global->redirect("{$CMS->vars['root_domain']}/?site=assets");
 						}
                        $store[$i] = $asset['store_id'];
@@ -395,7 +395,7 @@ $CMS->class->language->load("product_group");
 					{
 						if (!in_array($asset['store_id'], $store) AND count($store) > 0) {
                      
-						     $_SESSION['error_msg'] = "Vui lòng chọn tài sản cùng kho!";
+						     $_SESSION['error_msg'] = "Vui lòng chọn tài sản cùng salon!";
 						     $CMS->global->redirect("{$CMS->vars['root_domain']}/?site=assets");
 						}
                         $store[$i] = $asset['store_id'];
@@ -475,7 +475,7 @@ $CMS->class->language->load("product_group");
 					{
 						if (!in_array($asset['store_id'], $store) AND count($store) > 0) {
                      
-						     $_SESSION['error_msg'] = "Vui lòng chọn tài sản cùng kho!";
+						     $_SESSION['error_msg'] = "Vui lòng chọn tài sản cùng salon!";
 						     $CMS->global->redirect("{$CMS->vars['root_domain']}/?site=assets");
 						}
                         $store[$i] = $asset['store_id'];
@@ -802,7 +802,7 @@ EOF;
 		}
 		$index = intval($CMS->input['item_id']);
 
-		$_SESSION['list_product'][$index]['ass_key'] = $ass_key;// Vi khong insert vao product nen ko co product_id
+		$_SESSION['list_product'][$index]['ass_key'] = $ass_key;// Vi salonng insert vao product nen ko co product_id
 		$_SESSION['list_product'][$index]['ass_id'] = $ass_key;
 		$_SESSION['list_product'][$index]['ass_name'] = $ass_name;
 		$_SESSION['list_product'][$index]['ass_code'] = $ass_code;

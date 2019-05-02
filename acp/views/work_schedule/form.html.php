@@ -168,7 +168,7 @@
                         <strong>Lưu ý: </strong>
                         <ul>
                             <li>- Tính năng này chỉ tự động điền dữ liệu. Vui lòng kiểm tra dữ liệu sau khi sao chép và nhấn "Cập nhật" để hoàn tất.</li>
-                            <li>- Dữ liệu sau khi sao chép có thể không hoàn toàn khớp với dữ liệu gốc. Do ảnh hưởng của lịch trực từ các cửa hàng khác trong cùng khoảng thời gian.</li>
+                            <li>- Dữ liệu sau khi sao chép có thể không hoàn toàn khớp với dữ liệu gốc. Do ảnh hưởng của lịch trực từ các cửa hàng khác trong cùng salonảng thời gian.</li>
                         </ul>
                     </div>
                     <div class="row">

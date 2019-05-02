@@ -139,7 +139,7 @@ class storecheck {
 		$in = $CMS->inventory->get_info($CMS->input['id']);
 		if(!is_array($in))
 		{
-			$_SESSION['error_msg'] = "Phiếu kiểm kho không tồn tại";
+			$_SESSION['error_msg'] = "Phiếu kiểm salon không tồn tại";
 			$CMS->global->redirect("{$CMS->vars['root_domain']}/?site=inventory");
 
 		}
@@ -147,7 +147,7 @@ class storecheck {
  		if($in['is_balance'] == 1)
  		{
  			//Phieu da lam bu tru
- 			$_SESSION['error_msg'] = "Phiếu kiểm kho này đã được bù trừ";
+ 			$_SESSION['error_msg'] = "Phiếu kiểm salon này đã được bù trừ";
 			$CMS->global->redirect("{$CMS->vars['root_domain']}/?site=inventory");
  		}
 		$CMS->output.=$this->html->approve($CMS->inventory->convertvalue($in));
@@ -162,7 +162,7 @@ class storecheck {
 		$in = $CMS->inventory->get_info($CMS->input['id']);
 		if(!is_array($in))
 		{
-			$_SESSION['error_msg'] = "Phiếu kiểm kho không tồn tại";
+			$_SESSION['error_msg'] = "Phiếu kiểm salon không tồn tại";
 			$CMS->global->redirect("{$CMS->vars['root_domain']}/?site=inventory");
 
 		}
@@ -186,7 +186,7 @@ class storecheck {
 				$msg =", Mã phiếu xuất/nhập: <a href='{$CMS->vars['root_domain']}/?site=store_request&stage=request_ei&act=show&id={$approve_return['data_output'][1]}'>REQ{$approve_return['data_output'][1]}</a>  ";
 			}
 
-			$_SESSION['msg'] = "Đã tạo phiếu xuất/nhập cho phiếu kiểm kho #{$in['inventory_name']} thành công  {$msg}";
+			$_SESSION['msg'] = "Đã tạo phiếu xuất/nhập cho phiếu kiểm salon #{$in['inventory_name']} thành công  {$msg}";
 			$CMS->global->redirect("{$CMS->vars['root_domain']}/?site=inventory");
 
 		}
@@ -292,14 +292,14 @@ class storecheck {
 		$in = $CMS->inventory->get_info($CMS->input['id']);
 		if(!is_array($in))
 		{
-			$_SESSION['msg'] = "Phiếu kiểm kho không tồn tại";
+			$_SESSION['msg'] = "Phiếu kiểm salon không tồn tại";
 			$CMS->global->redirect("{$CMS->vars['root_domain']}/?site=inventory");
 		}
 
   	    $item = $CMS->inventory->get_info_item($CMS->input['ini_id']);
   	    if(!is_array($item))
 		{
-			$_SESSION['msg'] = "Tài sản của phiếu kiểm kho không tồn tại";
+			$_SESSION['msg'] = "Tài sản của phiếu kiểm salon không tồn tại";
 			$CMS->global->redirect("{$CMS->vars['root_domain']}/?site=inventory");
 		}
 		$CMS->output.=$this->html->edit_item($CMS->inventory->convertvalue($in), $item  );
@@ -314,7 +314,7 @@ class storecheck {
 		$in = $CMS->inventory->get_info($CMS->input['id']);
 		if(!is_array($in))
 		{
-			$_SESSION['msg'] = "Phiếu kiểm kho không tồn tại";
+			$_SESSION['msg'] = "Phiếu kiểm salon không tồn tại";
 			$CMS->global->redirect("{$CMS->vars['root_domain']}/?site=inventory");
 		}
 
@@ -322,7 +322,7 @@ class storecheck {
 
   	    if(!is_array($item))
 		{
-			$_SESSION['msg'] = "Tài sản trong phiếu kiểm kho không tồn tại";
+			$_SESSION['msg'] = "Tài sản trong phiếu kiểm salon không tồn tại";
 			$CMS->global->redirect("{$CMS->vars['root_domain']}/?site=inventory");
 		}
 
@@ -539,17 +539,17 @@ class storecheck {
 
 				if($CMS->inventory->del_item($data_info['inventory_id']) == true)
 				{
-					$_SESSION['msg'] = "Xóa sản phẩm trong phiếu kiểm kho thành công";
+					$_SESSION['msg'] = "Xóa sản phẩm trong phiếu kiểm salon thành công";
 				}
 				else
 				{
-					$_SESSION['error_msg'] = "Có lỗi xảy ra khi xóa sản phẩm trong phiếu kiểm kho";
+					$_SESSION['error_msg'] = "Có lỗi xảy ra khi xóa sản phẩm trong phiếu kiểm salon";
 				}
 			 
 			}
 			else
 			{
-				$_SESSION['error_msg'] = "Phiếu kiểm kho không tồn tại";
+				$_SESSION['error_msg'] = "Phiếu kiểm salon không tồn tại";
 			}
 		}
 		$CMS->global->redirect("{$CMS->vars['root_domain']}/?site=inventory");
@@ -568,17 +568,17 @@ class storecheck {
 
 				if($CMS->inventory->deleted($data_info['inventory_id']) == true)
 				{
-					$_SESSION['msg'] = "Xóa phiếu kiểm kho thành công";
+					$_SESSION['msg'] = "Xóa phiếu kiểm salon thành công";
 				}
 				else
 				{
-					$_SESSION['error_msg'] = "Có lỗi xảy ra khi xóa phiếu kiểm kho";
+					$_SESSION['error_msg'] = "Có lỗi xảy ra khi xóa phiếu kiểm salon";
 				}
 			 
 			}
 			else
 			{
-				$_SESSION['error_msg'] = "Phiếu kiểm kho không tồn tại";
+				$_SESSION['error_msg'] = "Phiếu kiểm salon không tồn tại";
 			}
 		}
 		$CMS->global->redirect("{$CMS->vars['root_domain']}/?site=inventory");

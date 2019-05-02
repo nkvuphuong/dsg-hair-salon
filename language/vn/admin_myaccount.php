@@ -2,12 +2,12 @@
 
 $lang = array (
 
-"header" => "Thông tin tài khoản",
+"header" => "Thông tin tài salonản",
 
 // User
 "submit" => "Thay đổi",
 "reset" => "Nhập lại",
-"edited" => "Đã thay đổi thông tin tài khoản:",
+"edited" => "Đã thay đổi thông tin tài salonản:",
 
 // User Fields
 "user_oldpassword" => "Nhập mật khẩu hiện tại",

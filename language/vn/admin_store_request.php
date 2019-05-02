@@ -18,41 +18,41 @@ $lang = array(
 
 
     "request_add_0_request_ei" => "Thêm phiếu nhập",
-    "request_add_1_request_ei" => "Thêm phiếu nhập kiểm kho",
+    "request_add_1_request_ei" => "Thêm phiếu nhập kiểm salon",
 
-    "request_add_0_request_eis" => "Thêm phiếu nhập kho",
-    "request_add_1_request_eis" => "Thêm phiếu nhập kho (kiểm kho)",
+    "request_add_0_request_eis" => "Thêm phiếu nhập salon",
+    "request_add_1_request_eis" => "Thêm phiếu nhập salon (kiểm salon)",
 
     "request_add_export_request_ei" => "Thêm phiếu xuất",
-    "request_add_export_request_eis" => "Thêm phiếu xuất kho",
+    "request_add_export_request_eis" => "Thêm phiếu xuất salon",
 	"request_edit" => "Sửa phiếu yêu cầu",
     "request_edit_request" => "Cập nhật phiếu yêu cầu",
 
     "request_edit_0_request_ei" => "Sửa phiếu nhập",
-    "request_edit_1_request_ei" => "Sửa phiếu kiểm kho",
+    "request_edit_1_request_ei" => "Sửa phiếu kiểm salon",
 
-    "request_edit_0_request_eis" => "Sửa phiếu nhập kho",
-    "request_edit_1_request_eis" => "Sửa phiếu nhập kho (kiểm kho)",
+    "request_edit_0_request_eis" => "Sửa phiếu nhập salon",
+    "request_edit_1_request_eis" => "Sửa phiếu nhập salon (kiểm salon)",
 
     "request_edit_export_request_ei" => "Sửa phiếu xuất",
     "request_edit_export_3" => "Cập nhật phiếu xuất hàng",
-    "request_edit_export_4" => "Cập nhật phiếu xuất kiểm kho",
+    "request_edit_export_4" => "Cập nhật phiếu xuất kiểm salon",
     "request_edit_export_1_2" => "Cập nhật phiếu xuất cho khách hàng",
     "request_edit_export_1_1" => "Cập nhật phiếu trả hàng",
-    "request_edit_export_2" => "Cập nhật phiếu chuyển kho",
+    "request_edit_export_2" => "Cập nhật phiếu chuyển salon",
 
 
-    "request_edit_export_request_eis" => "Sửa phiếu xuất kho",
+    "request_edit_export_request_eis" => "Sửa phiếu xuất salon",
 	"request_delete" => "Xóa phiếu yêu cầu",
 	"request_head" => "Quản lý phiếu yêu cầu",
 	"request_list_1" => "Danh sách phiếu yêu cầu",
     "request_list_2" => "Danh sách phiếu xuất/nhập",
-    "request_list_3" => "Danh sách phiếu xuất/nhập kho",
+    "request_list_3" => "Danh sách phiếu xuất/nhập salon",
 	"request_info_request_0" => "Thông tin phiếu yêu cầu",
     "request_info_request_ei_0" => "Thông tin phiếu nhập",
     "request_info_request_ei_1" => "Thông tin phiếu xuất",
-    "request_info_request_eis_0" => "Thông tin phiếu nhập kho",
-    "request_info_request_eis_1" => "Thông tin phiếu xuất kho",
+    "request_info_request_eis_0" => "Thông tin phiếu nhập salon",
+    "request_info_request_eis_1" => "Thông tin phiếu xuất salon",
 	
 	"request_empty_name" => "Bạn chưa nhập tên phiếu yêu cầu",
 	"request_empty_phone" => "Bạn chưa nhập số điện thoại phiếu yêu cầu",
@@ -62,8 +62,8 @@ $lang = array(
     "request_deleted_import_request" => "Đã xóa phiếu yêu cầu",
     "request_deleted_import_request_ei" => "Đã xóa phiếu nhập",
     "request_deleted_export_request_ei" => "Đã xóa phiếu xuất",
-    "request_deleted_import_request_eis" => "Đã xóa phiếu nhập kho",
-    "request_deleted_export_request_eis" => "Đã xóa phiếu xuất kho",
+    "request_deleted_import_request_eis" => "Đã xóa phiếu nhập salon",
+    "request_deleted_export_request_eis" => "Đã xóa phiếu xuất salon",
 	"request_code_is_exist" => "Mã phiếu yêu cầu đã tồn tại",
 	
 	"request_err_name" => "Bạn chưa nhập tên phiếu yêu cầu",
@@ -216,38 +216,38 @@ $lang = array(
     "title_edit_asset" => "Sửa tài sản",
     "request_btn_approved_request" => "Duyệt phiếu yêu cầu",
     "request_btn_approved_0_request_ei" => "Duyệt phiếu nhập",
-    "request_btn_approved_1_request_ei" => "Duyệt phiếu kiểm kho",
+    "request_btn_approved_1_request_ei" => "Duyệt phiếu kiểm salon",
 
-    "request_btn_approved_request_eis" => "Duyệt phiếu nhập kho",
+    "request_btn_approved_request_eis" => "Duyệt phiếu nhập salon",
     "title_backlist" => "Trở về danh sách",
     "store_request_ei" => "Phiếu xuất/nhập",
-    "store_request_eis" => "Phiếu xuất/nhập kho",
+    "store_request_eis" => "Phiếu xuất/nhập salon",
     "store_request_done_store" => "Kho",
     "error_no_permit_approved" => "Bạn không có quyền duyệt phiếu",
 
     "title_approved_0_import_request" => "duyệt phiếu yêu cầu",
     "title_approved_0_import_request_ei" => "duyệt phiếu nhập",
-    "title_approved_1_import_request_ei" => "duyệt phiếu kiểm kho",
+    "title_approved_1_import_request_ei" => "duyệt phiếu kiểm salon",
 
     "title_approved_1_2_export_request_ei" => "duyệt phiếu xuất khách hàng",
     "title_approved_1_1_export_request_ei" => "duyệt phiếu xuất trả hàng",
-    "title_approved_2_export_request_ei" => "duyệt phiếu chuyển kho",
+    "title_approved_2_export_request_ei" => "duyệt phiếu chuyển salon",
     "title_approved_3_export_request_ei" => "duyệt phiếu xuất hàng",
-    "title_approved_4_export_request_ei" => "duyệt phiếu xuất kiểm kho",
+    "title_approved_4_export_request_ei" => "duyệt phiếu xuất kiểm salon",
 
     "title_approved_export_request_ei" => "duyệt phiếu xuất",
 
     "title_edit_import_request" => "sửa phiếu yêu cầu",
     "title_edit_0_import_request_ei" => "sửa phiếu nhập",
-    "title_edit_1_import_request_ei" => "sửa phiếu kiểm kho",
+    "title_edit_1_import_request_ei" => "sửa phiếu kiểm salon",
 
     "title_edit_export_request_ei" => "sửa phiếu xuất",
-    "title_edit_4_export_request_ei" => "sửa phiếu xuất kiểm kho",
+    "title_edit_4_export_request_ei" => "sửa phiếu xuất kiểm salon",
 
-    "title_edit_0_import_request_eis" => "sửa phiếu nhập kho",
-    "title_edit_1_import_request_eis" => "sửa phiếu nhập kho (kiểm kho)",
+    "title_edit_0_import_request_eis" => "sửa phiếu nhập salon",
+    "title_edit_1_import_request_eis" => "sửa phiếu nhập salon (kiểm salon)",
 
-    "title_edit_export_request_eis" => "sửa phiếu xuất kho",
+    "title_edit_export_request_eis" => "sửa phiếu xuất salon",
 
 
     "confirm_approve_bill" => "Bạn chắc chắn duyệt phiếu này?",
@@ -263,44 +263,44 @@ $lang = array(
     "request_type_1" => "Phiếu xuất",
 
     "request_bill_import_0" => "Phiếu nhập hàng",
-    "request_bill_import_1" => "Phiếu nhập kiểm kho",
+    "request_bill_import_1" => "Phiếu nhập kiểm salon",
     
     "request_bill_export_3" => "Phiếu xuất hàng",
     "request_bill_export_1_2" => "Phiếu xuất cho khách hàng",
     "request_bill_export_1_1" => "Phiếu trả hàng",
-    "request_bill_export_2" => "Phiếu chuyển kho",
-    "request_bill_export_4" => "Phiếu xuất kiểm kho",
+    "request_bill_export_2" => "Phiếu chuyển salon",
+    "request_bill_export_4" => "Phiếu xuất kiểm salon",
 
     "request_bill_add_import" => "Thêm phiếu nhập hàng",
     "request_bill_add_export_3" => "Thêm phiếu xuất hàng",
-    "request_bill_add_export_4" => "Thêm phiếu xuất kiểm kho",
+    "request_bill_add_export_4" => "Thêm phiếu xuất kiểm salon",
     "request_bill_add_export_1_2" => "Thêm phiếu xuất khách hàng",
     "request_bill_add_export_1_1" => "Thêm phiếu trả hàng",
-    "request_bill_add_export_2" => "Thêm phiếu chuyển kho",
+    "request_bill_add_export_2" => "Thêm phiếu chuyển salon",
     
 
     "msg_insert_success_1_import" => "tạo thành công phiếu yêu cầu",
     "msg_insert_success_2_import" => "tạo thành công phiếu nhập",
-    "msg_insert_success_3_import" => "tạo thành công phiếu nhập kho",
-    "msg_insert_success_2_1_import" => "tạo thành công phiếu nhập kiểm kho",
-    "msg_insert_success_3_1_import" => "tạo thành công phiếu nhập kho (kiểm kho)",
+    "msg_insert_success_3_import" => "tạo thành công phiếu nhập salon",
+    "msg_insert_success_2_1_import" => "tạo thành công phiếu nhập kiểm salon",
+    "msg_insert_success_3_1_import" => "tạo thành công phiếu nhập salon (kiểm salon)",
 
     "msg_insert_success_2_export" => "tạo thành công phiếu xuất",
-    "msg_insert_success_3_export" => "tạo thành công phiếu xuất kho",
+    "msg_insert_success_3_export" => "tạo thành công phiếu xuất salon",
 
     "msg_insert_error_1_import" => "tạo phiếu yêu cầu thất bại",
     "msg_insert_error_2_import" => "tạo phiếu nhập thất bại",
-    "msg_insert_error_3_import" => "tạo phiếu nhập kho thất bại",
-    "msg_insert_error_2_1_import" => "tạo phiếu nhập kiểm kho thất bại",
-    "msg_insert_error_3_1_import" => "tạo phiếu nhập kho (kiểm kho) thất bại",
+    "msg_insert_error_3_import" => "tạo phiếu nhập salon thất bại",
+    "msg_insert_error_2_1_import" => "tạo phiếu nhập kiểm salon thất bại",
+    "msg_insert_error_3_1_import" => "tạo phiếu nhập salon (kiểm salon) thất bại",
 
     "msg_insert_error_2_export" => "tạo phiếu xuất thất bại",
-    "msg_insert_error_3_export" => "tạo phiếu xuất kho thất bại",
+    "msg_insert_error_3_export" => "tạo phiếu xuất salon thất bại",
 
     "request_customer" => "Khách hàng",
 
     "request_subtype_1" => "Xuất trả nhà cung cấp / Khách hàng",
-    "request_subtype_2" => "Xuất chuyển kho",
+    "request_subtype_2" => "Xuất chuyển salon",
     "request_subtype_3" => "Xuất lý do khác",
     // "request_subtype_4" => "Xuất lý do khác",
 
@@ -308,7 +308,7 @@ $lang = array(
     "request_subtype_customer" => "Xuất cho khách hàng",
 
     "request_subtype" => "Loại phiếu xuất",
-    "request_store_id" => "Chọn kho chuyển",
+    "request_store_id" => "Chọn salon chuyển",
     "request_reason" => "Nhập lý do",
     "title_cus_add" => "Thêm khách hàng",
     "title_cus_edit" => "Sửa khách hàng",
@@ -320,16 +320,16 @@ $lang = array(
     "cus_email" => "Email",
 
     "request_approve_import_request_ei_0" => "Duyệt phiếu nhập",
-    "request_approve_import_request_ei_1" => "Duyệt phiếu kiểm kho",
+    "request_approve_import_request_ei_1" => "Duyệt phiếu kiểm salon",
     "request_approve_export_request_ei" => "Duyệt phiếu xuất",
 
     "request_approve_export_3" => "Duyệt phiếu xuất hàng",
-    "request_approve_export_4" => "Duyệt phiếu xuất kiểm kho",
+    "request_approve_export_4" => "Duyệt phiếu xuất kiểm salon",
     "request_approve_export_1_2" => "Duyệt phiếu xuất khách hàng",
     "request_approve_export_1_1" => "Duyệt phiếu trả hàng",
-    "request_approve_export_2" => "Duyệt phiếu chuyển kho",
+    "request_approve_export_2" => "Duyệt phiếu chuyển salon",
 
-    "request_approve_export_request_eis" => "Duyệt phiếu xuất kho",
+    "request_approve_export_request_eis" => "Duyệt phiếu xuất salon",
 
     "title_supplier_name" => "Tên NCC",
 
@@ -350,8 +350,8 @@ $lang = array(
     "msg_create_bill_for_import_bill" => "Tạo phiếu chi cho phiếu phiếu nhập", 
     "ret_id" => "Phiếu trả hàng",
     "trx_id" => "Mã giao dịch",
-    "request_inventory_check_0" => "Nhập kiểm kho",
-    "request_inventory_check_1" => "Xuất kiểm kho",
+    "request_inventory_check_0" => "Nhập kiểm salon",
+    "request_inventory_check_1" => "Xuất kiểm salon",
     //09/05/2017
     "title_product_barcode" => "Mã vạch",
 
@@ -379,8 +379,8 @@ $lang = array(
     "service_title_1" => "Dịch vụ",
     "assets_title_1" => "Tài sản",
     "assets_description_title_meta" => "Hàng hóa phục vụ cho việc sản xuất, kinh doanh của doanh nghiệp.",
-    "product_description_title_meta" => "Sản phẩm để phục vụ cho việc mua/bán và có kiểm tra số lượng tồn kho",
-    "service_description_title_meta" => "Dịch vụ cung cấp cho khách hàng, nhưng không kiểm tra số lượng tồn kho",
+    "product_description_title_meta" => "Sản phẩm để phục vụ cho việc mua/bán và có kiểm tra số lượng tồn salon",
+    "service_description_title_meta" => "Dịch vụ cung cấp cho khách hàng, nhưng không kiểm tra số lượng tồn salon",
 
     "product_service_infomation" => "Thông tin sản phẩm/dịch vụ",
     "sales_infomation" => "Thông tin giá",

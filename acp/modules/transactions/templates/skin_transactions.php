@@ -12,7 +12,7 @@ class skin_transactions {
     public function head() {
         global $CMS, $DB, $member;
 
-        // Check enable kho hang
+        // Check enable salon hang
         if($CMS->vars['addon_goods_enable'] == 1)
         {
             $addon_goods_enable = "block";
@@ -228,7 +228,7 @@ EOF;
 								<select name="trx_method"  class="form-control select2">
 									<option value="">-- Thanh toán --</option>
 									<option $method_selected[0] value="0">Tiền mặt</option>
-									<option $method_selected[1] value="1">Chuyển khoản</option>
+									<option $method_selected[1] value="1">Chuyển salonản</option>
 								</select>
 						</li>
 

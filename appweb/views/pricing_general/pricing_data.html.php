@@ -118,7 +118,7 @@
                     </td>
                 </tr>
                 <tr>                                
-                    <td>Tính năng đăng nhập/đăng ký tài khoản</td>
+                    <td>Tính năng đăng nhập/đăng ký tài salonản</td>
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
@@ -135,7 +135,7 @@
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
-                    <td>Quản lý tài khoản và Phân quyền quản trị </td>
+                    <td>Quản lý tài salonản và Phân quyền quản trị </td>
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
@@ -316,7 +316,7 @@
                     </td>
                 </tr>
                 <tr>                                
-                    <td>Tính năng đăng nhập/đăng ký tài khoản</td>
+                    <td>Tính năng đăng nhập/đăng ký tài salonản</td>
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
@@ -333,7 +333,7 @@
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
-                    <td>Quản lý tài khoản và Phân quyền quản trị  </td>
+                    <td>Quản lý tài salonản và Phân quyền quản trị  </td>
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
@@ -513,7 +513,7 @@
                     </td>
                 </tr>
                 <tr>                                
-                    <td>Tính năng đăng nhập/đăng ký tài khoản</td>
+                    <td>Tính năng đăng nhập/đăng ký tài salonản</td>
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
@@ -530,7 +530,7 @@
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
-                    <td>Quản lý tài khoản và Phân quyền quản trị </td>
+                    <td>Quản lý tài salonản và Phân quyền quản trị </td>
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
@@ -710,7 +710,7 @@
                     </td>
                 </tr>
                 <tr>                                
-                    <td>Tính năng đăng nhập/đăng ký tài khoản</td>
+                    <td>Tính năng đăng nhập/đăng ký tài salonản</td>
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
@@ -727,7 +727,7 @@
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
-                    <td>Quản lý tài khoản và Phân quyền quản trị  </td>
+                    <td>Quản lý tài salonản và Phân quyền quản trị  </td>
                     <td><i class="fa fa-check"></i></td>
                 </tr>
                 <tr>                                
@@ -989,7 +989,7 @@
                 </td>
             </tr>
             <tr>                                
-                <td>Tính năng đăng nhập/đăng ký tài khoản</td>
+                <td>Tính năng đăng nhập/đăng ký tài salonản</td>
                 <td><i class="fa fa-check"></i></td>
                 <td><i class="fa fa-check"></i></td>
                 <td><i class="fa fa-check"></i></td>
@@ -1018,7 +1018,7 @@
                 <td><i class="fa fa-check"></i></td>
             </tr>
             <tr>                                
-                <td>Quản lý tài khoản và Phân quyền quản trị  </td>
+                <td>Quản lý tài salonản và Phân quyền quản trị  </td>
                 <td><i class="fa fa-check"></i></td>
                 <td><i class="fa fa-check"></i></td>
                 <td><i class="fa fa-check"></i></td>

@@ -9,7 +9,7 @@
       <div class="col-sm-3">
         <div class="box mb-15">
           <div class="title_style">
-            <h3>Quản lý tài khoản</h3>
+            <h3>Quản lý tài salonản</h3>
           </div>
           <nav class="bs-docs-sidebar border">
             <ul class="nav bs-docs-sidenav">

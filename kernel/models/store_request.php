@@ -31,13 +31,13 @@ class store_request1{
  
 		if($type_insert)
 		{
-			// Dùng cho trường hợp insert trực tiếp từ bên kiểm kho
+			// Dùng cho trường hợp insert trực tiếp từ bên kiểm salon
  
 			// Input
 			$store_id = intval($data['store_id']);
 			$request_stage = intval($data['request_stage']); // Phiếu nhập
 			$request_type = intval($data['request_type']); //Loại: 0: Nhập; 1: xuất
-			$request_subtype = intval($data['request_subtype']); //Loại: 1: Nhập kiểm kho; 4: xuất kiểm kho
+			$request_subtype = intval($data['request_subtype']); //Loại: 1: Nhập kiểm salon; 4: xuất kiểm salon
 			$request_status = $data['request_status']; // Phiếu nhập đang chờ
 			$request_time = time();
 			$request_amount = $data['request_amount']; // Tổng tiền 
@@ -59,10 +59,10 @@ class store_request1{
 				$DB->query("UPDATE ".root_table."store_request SET request_code=concat('REQ',request_id) WHERE request_id = '{$request_id}'");
 				$CMS->class->logs->key= "store_request_{$request_id}";
 				$CMS->class->logs->insert("{$member['cus_username']} create <b>store_request #{$request_id}</b>");
-				// Update tai san sau khi xuat kho
-				if($request_type = 1 AND  $request_subtype == 1 AND $request_stage == 3 AND $request_status == 31)//Xuat kho
+				// Update tai san sau khi xuat salon
+				if($request_type = 1 AND  $request_subtype == 1 AND $request_stage == 3 AND $request_status == 31)//Xuat salon
 				{
-					// xuat kho
+					// xuat salon
 					$CMS->assets->updateIsAvailable(json_decode($request_product,true), 1);
 				}
 				unset($_SESSION['list_product']);
@@ -73,7 +73,7 @@ class store_request1{
 				return false;
 			}
 
-		} // End insert từ bên kiểm kho
+		} // End insert từ bên kiểm salon
 
 		// Input
 		$supplier_id = intval($CMS->input['supplier_id']);
@@ -285,7 +285,7 @@ class store_request1{
 
 			}elseif($request_subtype == 2)
 			{
-				// Xuất chuyển kho
+				// Xuất chuyển salon
 				$store_id_to = intval($CMS->input['store_id_to']);
 			}elseif($request_subtype == 3 or $request_subtype == 4)
 			{
@@ -336,7 +336,7 @@ class store_request1{
  // echo $store_id."<br />";
  // echo $store_id_to."<br />";
  // exit;
-			// Xuât Kho - cap nhat tai san ton trong kho //
+			// Xuât Kho - cap nhat tai san ton trong salon //
 				if($request_type = 1 AND $request_stage = 3 )
 				{
 					if($request_subtype == "1")
@@ -388,7 +388,7 @@ class store_request1{
 				}
 				elseif( $request_subtype == 2)
 				{   
-					// Cập nhật chuyển kho
+					// Cập nhật chuyển salon
 					$CMS->assets->updateIsAvailable($data_product, 2, $store_id, $store_id_to);
 				}elseif( $request_subtype == 3 or $request_subtype == 4) 
 				{
@@ -803,7 +803,7 @@ class store_request1{
 
 			}elseif($request_subtype == 2)
 			{
-				// Xuất chuyển kho
+				// Xuất chuyển salon
 				$store_id_to = intval($CMS->input['store_id_to']);
 			}elseif($request_subtype == 3 or $request_subtype == 4)
 			{
@@ -931,7 +931,7 @@ class store_request1{
 							
 						}elseif($request_subtype == 2)
 						{
-							// Cập nhật chuyển kho
+							// Cập nhật chuyển salon
 							$CMS->assets->updateIsAvailable($request_product_bk, 2, $store_id, $store_id_to);
 						}elseif($request_subtype == 3 or $request_subtype == 4)
 						{
@@ -1407,7 +1407,7 @@ EOF;
 			if($data['request_subtype'] == 2)
 			{
 				$icon = "fa-refresh";
-				$title = "Chuyển đến kho {$data['store_name_to']}";
+				$title = "Chuyển đến salon {$data['store_name_to']}";
 			}else
 			{
 				$icon = "fa-arrow-right";
@@ -1836,7 +1836,7 @@ EOF;
 	    			$store_name = $CMS->store->get_info($info['store_id'],"store_name");
 	    			if($number < $value['ass_quantity'])
 	    			{
-	    				$_SESSION['error_msg'] .= "<b>{$value['ass_name']}</b> trong kho <b>{$store_name}</b> chỉ còn <b>{$number}</b> sản phẩm<br/>";
+	    				$_SESSION['error_msg'] .= "<b>{$value['ass_name']}</b> trong salon <b>{$store_name}</b> chỉ còn <b>{$number}</b> sản phẩm<br/>";
 	    				$count ++;
 	    			}
     			}
@@ -1848,7 +1848,7 @@ EOF;
 	    			$store_name = $CMS->store->get_info($value['store_id'],"store_name");
 	    			if($number < $value['product_quantity'])
 	    			{
-	    				$_SESSION['error_msg'] .= "<b>{$value['product_name']}</b> trong kho <b>{$store_name}</b> chỉ còn <b>{$number}</b> sản phẩm<br/>";
+	    				$_SESSION['error_msg'] .= "<b>{$value['product_name']}</b> trong salon <b>{$store_name}</b> chỉ còn <b>{$number}</b> sản phẩm<br/>";
 	    				$count ++;
 	    			}
     			}

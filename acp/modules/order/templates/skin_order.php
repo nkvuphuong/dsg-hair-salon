@@ -14,7 +14,7 @@ class skin_order{
 
 	public function head() {
 		global $CMS, $DB, $member;
-		// Check enable kho hang
+		// Check enable salon hang
 		if($CMS->vars['addon_goods_enable'] == 1)
 		{
 			$addon_goods_enable = "block";
@@ -606,7 +606,7 @@ EOF;
 public function show($data=null, $order_item = "", $list_transaction = "") {
 		global $CMS, $DB, $member;
 
-		// Check enable kho hang
+		// Check enable salon hang
 		if($CMS->vars['addon_goods_enable'] == 1)
 		{
 			$addon_goods_enable = "block";
@@ -619,7 +619,7 @@ public function show($data=null, $order_item = "", $list_transaction = "") {
 		}
 
 
- 		// Check tồn kho
+ 		// Check tồn salon
   		$option_status = "";
  		
 		for ($i =0 ; $i <= 2; $i++) { 

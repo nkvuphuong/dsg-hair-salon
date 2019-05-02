@@ -50,7 +50,7 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-      <a class="pull-left" href="/register">Đăng ký tài khoản mới</a>
+      <a class="pull-left" href="/register">Đăng ký tài salonản mới</a>
       <a class="pull-right" href="/login/forgot-password/"  >Quên mật khẩu</a>
     </div>
   </div>

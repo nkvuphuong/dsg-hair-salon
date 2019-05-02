@@ -78,7 +78,7 @@ class class_login{
 		if(isset($CMS->input['ajax']) && $CMS->input['ajax'] == 1)
 		{
 			$result['status'] = 'ok';
-			$result['msg'] = "Đăng nhập tài khoản thành công!";
+			$result['msg'] = "Đăng nhập tài salonản thành công!";
 			$result['link'] = $link;
 
 			echo json_encode($result); exit;

@@ -78,7 +78,7 @@
                     <a href="/">Chúng tôi cần bạn</a>
                 </li>
                 <li>
-                    <a href="/thong-tin/dieu-khoan-su-dung.html">Điều khoản sử dụng</a>
+                    <a href="/thong-tin/dieu-khoan-su-dung.html">Điều salonản sử dụng</a>
                 </li>
                 <li>
                     <a href="/thong-tin/chinh-sach-bao-mat.html">Chính sách bảo mật</a>

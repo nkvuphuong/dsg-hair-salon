@@ -438,17 +438,17 @@ class api_nganluong
 				'04'  => 'Tên hàm API do merchant gọi tới không hợp lệ (không tồn tại)',
 				'05'  => 'Sai version của API',
 				'07'  => 'Sai mật khẩu của merchant',
-				'08'  => 'Địa chỉ email tài khoản nhận tiền không tồn tại',
-				'09'  => 'Tài khoản nhận tiền đang bị phong tỏa giao dịch',
+				'08'  => 'Địa chỉ email tài salonản nhận tiền không tồn tại',
+				'09'  => 'Tài salonản nhận tiền đang bị phong tỏa giao dịch',
 				'10'  => 'Mã đơn hàng không hợp lệ',
 				'11'  => 'Số tiền giao dịch lớn hơn hoặc nhỏ hơn quy định',
 				'12'  => 'Loại tiền tệ không hợp lệ',
 				'29'  => 'Token không tồn tại',
 				'80'  => 'Không thêm được đơn hàng',
 				'81'  => 'Đơn hàng chưa được thanh toán',
-				'110' => 'Địa chỉ email tài khoản nhận tiền không phải email chính',
-				'111' => 'Tài khoản nhận tiền đang bị khóa',
-				'113' => 'Tài khoản nhận tiền chưa cấu hình là người bán nội dung số',
+				'110' => 'Địa chỉ email tài salonản nhận tiền không phải email chính',
+				'111' => 'Tài salonản nhận tiền đang bị khóa',
+				'113' => 'Tài salonản nhận tiền chưa cấu hình là người bán nội dung số',
 				'114' => 'Giao dịch đang thực hiện, chưa kết thúc',
 				'115' => 'Giao dịch bị hủy',
 				'118' => 'tax_amount không hợp lệ',
@@ -591,7 +591,7 @@ class api_nganluong
 	 * HÀM TẠO ĐƯỜNG LINK THANH TOÁN QUA NGÂNLƯỢNG.VN VỚI THAM SỐ CƠ BẢN
 	 *
 	 * @param string $return_url: Đường link dùng để cập nhật tình trạng hoá đơn tại website của bạn khi người mua thanh toán thành công tại NgânLượng.vn
-	 * @param string $receiver: Địa chỉ Email chính của tài khoản NgânLượng.vn của người bán dùng nhận tiền bán hàng
+	 * @param string $receiver: Địa chỉ Email chính của tài salonản NgânLượng.vn của người bán dùng nhận tiền bán hàng
 	 * @param string $transaction_info: Tham số bổ sung, bạn có thể dùng để lưu các tham số tuỳ ý để cập nhật thông tin khi NgânLượng.vn trả kết quả về
 	 * @param string $order_code: Mã hoá đơn/Tên sản phẩm
 	 * @param int $price: Tổng tiền phải thanh toán
@@ -645,7 +645,7 @@ class api_nganluong
 	 * @param string $order_code: Mã hoá đơn/tên sản phẩm
 	 * @param string $price: Tổng tiền đã thanh toán
 	 * @param string $payment_id: Mã giao dịch tại NgânLượng.vn
-	 * @param int $payment_type: Hình thức thanh toán: 1 - Thanh toán ngay (tiền đã chuyển vào tài khoản NgânLượng.vn của người bán); 2 - Thanh toán Tạm giữ (tiền người mua đã thanh toán nhưng NgânLượng.vn đang giữ hộ)
+	 * @param int $payment_type: Hình thức thanh toán: 1 - Thanh toán ngay (tiền đã chuyển vào tài salonản NgânLượng.vn của người bán); 2 - Thanh toán Tạm giữ (tiền người mua đã thanh toán nhưng NgânLượng.vn đang giữ hộ)
 	 * @param string $error_text: Giao dịch thanh toán có bị lỗi hay không. $error_text == "" là không có lỗi. Nếu có lỗi, mô tả lỗi được chứa trong $error_text
 	 * @param string $secure_code: Mã checksum (mã kiểm tra)
 	 * @return unknown

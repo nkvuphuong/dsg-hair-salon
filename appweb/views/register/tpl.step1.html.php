@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<h1 class="section-title text-normal"> Bạn sẽ được sử dụng <br>tất cả các giao diện của chúng tôi</h1>
-					<p style="color: red;">Lưu ý: Một tài khoản chỉ được đăng ký dùng thử 01 lần !</p>
+					<p style="color: red;">Lưu ý: Một tài salonản chỉ được đăng ký dùng thử 01 lần !</p>
 					<br>			
 				</div>
 			</div>

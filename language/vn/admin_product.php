@@ -105,8 +105,8 @@ $lang = array (
 
     //07/05/2017
     "p_inventory" => "Tồn",
-    "check_store_title" => "Thông tin tồn kho",
-    "detail_store"	=> "Chi tiết kho",
+    "check_store_title" => "Thông tin tồn salon",
+    "detail_store"	=> "Chi tiết salon",
     "stock_store_name" => "Salon",
     "stock_store_quantity" => "Số lượng",
     "stock_store_url"  => "Liên kết",
@@ -233,7 +233,7 @@ $lang = array (
     "attr_uarea_4" => "Trường học",
     "attr_uarea_5" => "Trụ ATM",
     "attr_uarea_6" => "Quán Cà phê",
-    "attr_uarea_7" => "Nha khoa",
+    "attr_uarea_7" => "Nha salona",
     "attr_uarea_8" => "Trụ sở công an",
     "attr_uarea_9" => "Quán ăn",
     "attr_uarea_10" => "Nhà hàng",
@@ -306,10 +306,10 @@ $lang = array (
     "title_quick_edit_ps" => "Sửa nhanh",
     "title_delete_product" => "Xoá",
     "p_first_remain" => "Tồn đầu",
-    "p_show_instock"  => "Hiển thị tồn kho",
-    "ajust_inventory" => "Click vào đây để điều chỉnh số tồn kho",
+    "p_show_instock"  => "Hiển thị tồn salon",
+    "ajust_inventory" => "Click vào đây để điều chỉnh số tồn salon",
     "store_id" => "Salon",
-    "ass_err_store" => "Bạn chưa chọn kho",
+    "ass_err_store" => "Bạn chưa chọn salon",
     "p_store_addons" => "Thông tin salon",
 
     "food_option_1" => "Sản phẩm nổi bật",
@@ -353,7 +353,7 @@ $lang = array (
     "title_overview_product" => "Tổng quan",
     "title_information_product" => "Thông tin sản phẩm", 
     "title_seo_product" => "Thông tin SEO", 
-    "title_store_config" => "Cấu hình kho", 
+    "title_store_config" => "Cấu hình salon", 
     "title_click_here_to_update" => "<a [link]>Chọn vào đây</a> để cập nhật", 
     "notes_product_group_attribute_none" => "Nhóm sản phẩm được chọn chưa có thuộc tính được thêm vào. <a [link]>Chọn vào đây</a> để thêm thuộc tính và thử lại", 
     

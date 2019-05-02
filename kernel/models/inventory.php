@@ -80,7 +80,7 @@ class ClassInventory {
 			$where .= " AND `inventory_time` <= '{$CMS->input['time_to']}' ";
 		}
  
-		if($search_type == 1) // San phjam kiem kho
+		if($search_type == 1) // San phjam kiem salon
 		{
 
 			list($this->show_page, $this->sql_query) = $CMS->class->page->create("SELECT I.*, IT.*,  SUM(I.ini_quantity) as quantity, SUM(I.ini_check) as thucte FROM `".root_table."inventory_item` as I , ".root_table."inventory as IT  WHERE I.inventory_id = IT.inventory_id AND I.ini_deleted = 0  {$where_1} GROUP BY I.inventory_id,I.ass_key ORDER BY I.inventory_id DESC ",$this->per_page,$this->prefix_html,$this->suffix_html);
@@ -215,7 +215,7 @@ class ClassInventory {
 	 		$data['ref_store_request'] .= "{$CMS->lang['title_code_request_import']}: <a href='{$CMS->vars['root_domain']}/?site=store_request&stage={$stage}&act=show&id={$data['sr_import']}' data-toggle='tooltip' data-placement='bottom' title='{$status_rq}'>{$data_im['request_code']}</a><br/>";
 	 	}
 
-		// check loại kiểm kho theo danh mục
+		// check loại kiểm salon theo danh mục
 		if($data['inventory_type'] == 2 AND $data['inventory_pgroup'] != "")
 		{
 			$arr_inventory_pgroup = explode( ",",$data['inventory_pgroup']);
@@ -488,7 +488,7 @@ class ClassInventory {
 
 		$CMS->class->logs->key = $key;
 		$CMS->class->logs->save_detail("inventory",$item['inventory_id'],$new_item);
-		$CMS->class->logs->insert("Edit_inventory_item: #{$new_item['ini_id']} , Phiếu kiểm kho: #{$item['inventory_id']} ");
+		$CMS->class->logs->insert("Edit_inventory_item: #{$new_item['ini_id']} , Phiếu kiểm salon: #{$item['inventory_id']} ");
 
 		return true;
 	 
@@ -703,7 +703,7 @@ EOF;
 	 	$in = $this->get_info($inventory_id);
 	 	if(! is_array($in))
 	 	{
-	 		$_SESSION['error_msg'] = "Phiếu kiếm kho không tồn tại";
+	 		$_SESSION['error_msg'] = "Phiếu kiếm salon không tồn tại";
 	 		return false;
 	 	}
 	 	//
@@ -804,7 +804,7 @@ EOF;
 		$request_id = $request_im_id = 0;
 		if(count($data_ex) == 0 AND count($data_im) == 0)
 		{
-			//Check co tai san trong phieu kiem kho k?
+			//Check co tai san trong phieu kiem salon k?
 
 			$_SESSION['error_msg'] = "{$CMS->lang['emsg_add_assets_inventory']}";
 			return array("status" => false);

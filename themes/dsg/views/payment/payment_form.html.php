@@ -141,7 +141,7 @@
                 <? } ?>
                 <? if(isset($CMS->vars['ck_active']) && $CMS->vars['ck_active']) { ?>
                     <li class="payment-tab-choose-item" data-target="#transfer-bank" data-toggle="tab" data-payment-method="1">
-                        <a class="pointer"><i class="demo-icon2 icon-circle-empty"></i><i class="demo-icon2 icon-dot-circled"></i> <span class="name-tabs"><i class="arrow-left"></i>Chuyển khoản<i class="demo-icon2 fa fa-university" style="color: #3e3e3e;"></i></span></a>
+                        <a class="pointer"><i class="demo-icon2 icon-circle-empty"></i><i class="demo-icon2 icon-dot-circled"></i> <span class="name-tabs"><i class="arrow-left"></i>Chuyển salonản<i class="demo-icon2 fa fa-university" style="color: #3e3e3e;"></i></span></a>
                     </li>
                 <? } ?>
             </ul>

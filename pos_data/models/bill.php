@@ -169,7 +169,7 @@ class bill
                     'cus_id' => $data['customer']['oriData']['id'],
                     'trx_email' => input::arrayValue($data['customer']['oriData'], 'email'),
                     'trx_payment_date' => date::format(time()),
-                    'trx_method' => $data['paymentMethod']*1, //0: tiền mặt; 1: chuyển khoản
+                    'trx_method' => $data['paymentMethod']*1, //0: tiền mặt; 1: chuyển salonản
                     'trx_account' => 0,
                     'at_id' => 0,
                     'trx_msg' => '',

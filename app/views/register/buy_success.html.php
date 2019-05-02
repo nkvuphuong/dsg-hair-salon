@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-6 text-center">
                             <div class="register_title">
-                                <h3><span>Bạn chỉ cần ghi nhớ tài khoản và địa chỉ </span>truy cập Ezybook là có thể bắt đầu kinh doanh.</h3>
+                                <h3><span>Bạn chỉ cần ghi nhớ tài salonản và địa chỉ </span>truy cập Ezybook là có thể bắt đầu kinh doanh.</h3>
                                 <p>Ezybook không phải là phần mềm cài đặt.</p>
                                 <img src="images/register_step4.png">
                             </div>

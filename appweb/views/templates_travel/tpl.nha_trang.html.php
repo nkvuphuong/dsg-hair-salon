@@ -28,7 +28,7 @@
 			<div class="col-md-6  pt-50-hidden-sm">
 				<h3 class="webdanhnghiep-detail-title">Cơ hội kinh doanh Du lịch Nha Trang</h3>
 				<p class="text-medium">
-                    Nha Trang là một thành phố ven biển và là trung tâm chính trị, kinh tế, văn hóa, khoa học kỹ thuật và du lịch của tỉnh Khánh Hòa, Việt Nam.
+                    Nha Trang là một thành phố ven biển và là trung tâm chính trị, kinh tế, văn hóa, salona học kỹ thuật và du lịch của tỉnh Khánh Hòa, Việt Nam.
                     </br> </br> Nha Trang được mệnh danh là hòn ngọc của biển Đông, Viên ngọc xanh vì giá trị thiên nhiên, sắc đẹp cũng như khí hậu của nó</p>
 
 			</div>
@@ -108,7 +108,7 @@
 					<div class="product-intro-feature delay-2 scroll-to-show bottom-in">
 						<img src="images/features-tich-hop-nhieu-phuong-thuc-thanh-toan.png" alt="<?=$tpl->alt;?>">
 						<h5>Tích hợp nhiều phương thức thanh toán</h5>
-						<p>Cùng với việc tích hợp nhiều phương thức thanh toán, việc giao dịch với khách hàng không còn là mối lo lắng của bạn nữa. Chúng tôi sẽ giúp khách của bạn có thể thanh toán qua Paypal, Ngân Lượng, Napas, COD, chuyển khoản v.v…</p>
+						<p>Cùng với việc tích hợp nhiều phương thức thanh toán, việc giao dịch với khách hàng không còn là mối lo lắng của bạn nữa. Chúng tôi sẽ giúp khách của bạn có thể thanh toán qua Paypal, Ngân Lượng, Napas, COD, chuyển salonản v.v…</p>
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">

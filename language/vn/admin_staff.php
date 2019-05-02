@@ -80,7 +80,7 @@ $lang = array (
 "changed_group" => "<i><font color='red'>* Quyền hạn của thành viên này sẽ thay đổi sau khi nhấn Chỉnh sửa</font></i>",
 
 // Description
-"icon_locked" => "Tài khoản bị khóa",
+"icon_locked" => "Tài salonản bị khóa",
 "icon_leader" => "Trưởng Nhóm",
 "icon_staff" => "Người tạo",
 
@@ -97,7 +97,7 @@ $lang = array (
 "staff_monthreward" => "Xét thưởng tháng trước",
 "staff_anotherreward" => "Thưởng khác",
 "staff_salary" => "Lương",
-"staff_anothermoney" => "Các khoản trừ khác",
+"staff_anothermoney" => "Các salonản trừ khác",
 "staff_advancemoney" => "Tạm ứng",
 "staff_realsalary" => "Tiền lương lĩnh thực",
 "staff_monthunion" => "Công đoàn",
@@ -111,7 +111,7 @@ $lang = array (
 "staff_insure2" => "Tiền (BHXH +BHYT+ BHTN)",
 "staff_note" => "Ghi chú",
 "staff_contractperiod" => "Thời hạn hợp đồng",
-"staff_bankaccount" => "Số tài khoản",
+"staff_bankaccount" => "Số tài salonản",
 
 // Button
 "payroll_loaded" => "Đã cập nhật",

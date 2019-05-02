@@ -28,7 +28,7 @@ $output .= <<<EOF
 		<div class="alert alert-info alert-fill alert-close alert-dismissible fade in">
 			<ul>
 				<li>Tags liên quan là gì?</li>
-				<li>- Tags liên quan là danh sách những từ khoá tiêu biểu đại diện cho nội dung của 1 bài viết.</li>
+				<li>- Tags liên quan là danh sách những từ saloná tiêu biểu đại diện cho nội dung của 1 bài viết.</li>
 				 <li>- Nếu nhiều bài viết đã đăng trong những thời gian khác nhau mà có chung nội dung. Thì những bài viết này sẽ được nhập chung vào mục 'Tin liên quan' dựa vào những Tags liên quan này.</li>
 				
 			</ul>

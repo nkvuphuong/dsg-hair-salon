@@ -32,7 +32,7 @@
 				<div class="col-md-3 col-sm-6 text-center delay-0 scroll-to-show bottom-in">
 					<img class="img-responsive" src="images/4step1.png" alt="Lựu chọn giao diện website">
 					<h4 class="text-orange">1. Lựa chọn giao diện</h4>
-					<p class='text-small'>Tại kho giao diện của Web4s với gần 200 mẫu thiết kế đa dạng về ngành nghề - sản phẩm phong phú. Giúp bạn lựa chọn đúng mẫu website phù hợp với ngành nghề đang kinh doanh.</p>
+					<p class='text-small'>Tại salon giao diện của Web4s với gần 200 mẫu thiết kế đa dạng về ngành nghề - sản phẩm phong phú. Giúp bạn lựa chọn đúng mẫu website phù hợp với ngành nghề đang kinh doanh.</p>
 				</div>
 				<div class="col-md-3 col-sm-6 text-center delay-1 scroll-to-show bottom-in">
 					<img class="img-responsive" src="images/4step2.png" alt="Thanh toán website">

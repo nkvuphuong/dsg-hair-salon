@@ -51,7 +51,7 @@ $lang = array (
     "upgrade_package_desc" => "Các gói dịch vụ áp dụng cho toàn bộ khách hàng và việc thanh toán phí để sử dụng phần mềm khi dùng gói standard trở lên hoàn toàn được bảo mật và thực hiện trực tuyến thông qua cổng thanh toán trực tuyến.",
     "package_suggest" => "Gói đề xuất",
     "full_featured" => "Đầy đủ tính năng",
-    "admin_account" => "Tài khoản quản trị",
+    "admin_account" => "Tài salonản quản trị",
     "storage_capacity" => "Lưu trữ",
     "upgrade_package_note" => "* Lưu trữ: dung lượng chủ yếu lưu trữ hình ảnh sản phẩm/dịch vụ",
 

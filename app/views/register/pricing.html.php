@@ -17,7 +17,7 @@
                     <div class="price-block-inner">
                         <ul class="price-block-list">
                             <li>Đầy đủ tính năng: <strong>Có</strong></li>
-                            <li>Tài khoản quản trị: <strong>2</strong></li>
+                            <li>Tài salonản quản trị: <strong>2</strong></li>
                             <li>Dung lượng lưu trữ: <strong>200MB</strong></li>
                         </ul>
                     </div>
@@ -36,7 +36,7 @@
                     <div class="price-block-inner">
                         <ul class="price-block-list">
                             <li>Đầy đủ tính năng: <strong>Có</strong></li>
-                            <li>Tài khoản quản trị: <strong>10</strong></li>
+                            <li>Tài salonản quản trị: <strong>10</strong></li>
                             <li>Dung lượng lưu trữ: <strong>5GB</strong></li>
                         </ul>
                     </div>
@@ -55,7 +55,7 @@
                     <div class="price-block-inner">
                         <ul class="price-block-list">
                             <li>Đầy đủ tính năng: <strong>Có</strong></li>
-                            <li>Tài khoản quản trị: <strong>20</strong></li>
+                            <li>Tài salonản quản trị: <strong>20</strong></li>
                             <li>Dung lượng lưu trữ: <strong>50GB</strong></li>
                         </ul>
                     </div>
@@ -74,7 +74,7 @@
                     <div class="price-block-inner">
                         <ul class="price-block-list">
                             <li>Đầy đủ tính năng: <strong>Có</strong></li>
-                            <li>Tài khoản quản trị: <strong>50</strong></li>
+                            <li>Tài salonản quản trị: <strong>50</strong></li>
                             <li>Dung lượng lưu trữ: <strong>200GB</strong></li>
                         </ul>
                     </div>

@@ -1,7 +1,7 @@
 <?php
 $lang = array(
-	'warehouse'=>'Nhà kho',
-	'warehouse_manage'=>'Quản lý nhà kho',
+	'warehouse'=>'Nhà salon',
+	'warehouse_manage'=>'Quản lý nhà salon',
 	'section_list'=>'Danh sách khu vực',
 	'section_new'=>'Tạo khu vực mới',
 	'section_info'=>'Thông tin khu vực',
@@ -18,7 +18,7 @@ $lang = array(
 	'item_color'=>'Màu',
 	'item_size'=>'Kích thước',
 	
-	'section_name_err'=>'Chỉ nhập ký tự, số, khoảng trắng, gạch ngang, gạch dưới',
+	'section_name_err'=>'Chỉ nhập ký tự, số, salonảng trắng, gạch ngang, gạch dưới',
 	'section_add_success'=>'Thành công! Đạ tạo khu vực ',
 	'section_edit_success'=>'Thành công! Đã chỉnh sữa khu vực ',
 	'section_not'=>'Không có khu vực ',

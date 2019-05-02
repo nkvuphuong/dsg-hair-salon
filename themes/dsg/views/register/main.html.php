@@ -63,7 +63,7 @@
                   
                     <div class="text_login_now">
                         <p class="txt_login">
-                         Bạn đã có tài khoản? 
+                         Bạn đã có tài salonản? 
                             <a href="/login"><?=$CMS->lang['login'];?></a>
                         </p>
                     </div>

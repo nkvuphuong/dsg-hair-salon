@@ -89,7 +89,7 @@ $lang = array (
 "phone"        => "Điện thoại",
 "email"        => "Email",
 "address"        => "Địa chỉ",
-"username"        => "Tài khoản đăng nhập",
+"username"        => "Tài salonản đăng nhập",
 
 "email_err_exits"    => "Email đã được sử dụng",
 "storename_err_title"  => "Vui lòng nhập tên cửa hàng",
@@ -116,7 +116,7 @@ $lang = array (
 "unsuspend_site_error"  => "Lỗi khi unsuspend",
 "site_hosting_info" => "Thông tin hosting",
 "site_hosting_link" => "Url hosting",
-"hosting_username"  => "Tài khoản hosting",
+"hosting_username"  => "Tài salonản hosting",
 "hosting_password"  => "Mật khẩu hosting",
 
 //19-05-2017

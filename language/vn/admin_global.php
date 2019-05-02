@@ -12,12 +12,12 @@ $lang = array(
     "header_icon_add" => "Thêm",
     "header_icon_search" => "Tìm kiếm",
     "header_icon_notify" => "Lịch sử",
-    "header_icon_setting" => "Tài khoản",
+    "header_icon_setting" => "Tài salonản",
 
 	// Header
     "header_title" => "Bảng điều khiển",
     "header_home" => "Trang chủ",
-    "header_account" => "Tài khoản",
+    "header_account" => "Tài salonản",
     "header_logout" => "Thoát",
     "header_change" => "Đổi mật khẩu",
 
@@ -192,11 +192,11 @@ $lang = array(
    // "payment_method_1" => "Thanh toán qua Bảo kim",
     //"payment_method_2" => "Thẻ tín dụng qua Onepay",
     //"payment_method_3" => "Thẻ ATM qua Onepay",
-    //"payment_method_4" => "Thanh toán từ tài khoản",
+    //"payment_method_4" => "Thanh toán từ tài salonản",
     
     "payment" => "---Tất cả thanh toán---",
     "payment_short_type_0" => "Tiền mặt",
-    "payment_short_type_1" => "Chuyển khoản",
+    "payment_short_type_1" => "Chuyển salonản",
     "payment_short_type_2" => "Thanh toán khi nhận hàng",
     "payment_short_type_3" => "Internet banking",
     "payment_short_type_4" => "ATM",
@@ -208,14 +208,14 @@ $lang = array(
     "transaction_type_0" => "Cần thanh toán",
     "transaction_type_1" => "Đã thanh toán",
     "transaction_type_2" => "Nạp tiền",
-    "transaction_type_3" => "Thanh toán hóa đơn từ tài khoản đại lý",
+    "transaction_type_3" => "Thanh toán hóa đơn từ tài salonản đại lý",
     "transaction_type_4" => "Thu phí khác",
     "transaction_type_5" => "Nạp tiền vào đại lý",
     "transaction_type_6" => "Thu phí VAT",
     "transaction_type_0_color" => "<font color='blue'>Cần thanh toán</font>",
     "transaction_type_1_color" => "<font color='gray'>Đã thanh toán</font>",
     "transaction_type_2_color" => "<font color='violet'>Nạp tiền</font>",
-    "transaction_type_3_color" => "<font color='green'>Thanh toán hóa đơn từ tài khoản</font>",
+    "transaction_type_3_color" => "<font color='green'>Thanh toán hóa đơn từ tài salonản</font>",
     "transaction_type_4_color" => "<font color='blue'>Thu phí khác</font>",
     "transaction_type_5_color" => "<font color='violet'>Nạp tiền vào đại lý</font>",
     "transaction_type_6_color" => "<font color='blue'>Thu phí VAT</font>",
@@ -272,8 +272,8 @@ $lang = array(
     "time_to" => "Thời gian đến",
     "time_from_to" => "Thời gian từ - đến",
     "title_choose_plz" => "--- Vui lòng chọn ---",
-    "cat_key" => "Từ khoá",
-    "msg_catkey_exist" => "Từ khoá đã tồn tại, vui lòng nhập từ khoá khác.",
+    "cat_key" => "Từ saloná",
+    "msg_catkey_exist" => "Từ saloná đã tồn tại, vui lòng nhập từ saloná khác.",
     "msg_error_not_exist_avartar" => "Bạn chưa chọn hình đại diện",
 
     "plz_choose" => "-- Vui lòng chọn --",
@@ -285,7 +285,7 @@ $lang = array(
     "group_attribute_2" => "Size",
 
     "exproduct_1" => "Áo thun",
-    "exproduct_2" => "Áo khoác",
+    "exproduct_2" => "Áo salonác",
     "exproduct_3" => "Đầm",
     "exproduct_4" => "Ly",
     "exproduct_5" => "Phone case",
@@ -473,7 +473,7 @@ $lang = array(
     "gcommission_rating" => "Đánh giá theo huê hồng",
     "gtax" => "Thuế",
     "gtotal" => "Tổng tiền",
-    "stock_info" => "Thông tin tồn kho",
+    "stock_info" => "Thông tin tồn salon",
 
     //10/05/2017
     "lang_loading" => "Đang tải dữ liệu...",
@@ -489,8 +489,8 @@ $lang = array(
     "gnotice_cancel" => "Hủy",
 
     "gmsg_send_order_via_email" => "Gửi thông tin đơn hàng qua email?",
-    "gmsg_auto_addbill_import" => "Tự động tạo phiếu yêu cầu nhập kho?",
-    "gnotice_not_enough_inventory" => "Không đủ hàng tồn kho, bạn có muốn tiếp tục?",
+    "gmsg_auto_addbill_import" => "Tự động tạo phiếu yêu cầu nhập salon?",
+    "gnotice_not_enough_inventory" => "Không đủ hàng tồn salon, bạn có muốn tiếp tục?",
     "gnotice_cancel_invoice" => "Hủy hóa đơn",
     "gnotice_confirm_cancel_related_invoice" => "Bạn có muốn hủy những phiếu thanh toán liên quan?",
 

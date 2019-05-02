@@ -29,7 +29,7 @@ $lang = array (
 "no_customer" => "Chưa có thành viên nào",
 "no_campaigns" => "Chưa có chiến dịch nào",
 
-"title_username" => "Tài khoản",
+"title_username" => "Tài salonản",
 "title_number_campaigns" => "Tổng số chiến dịch",
 "title_number_profit" => "Tổng lợi nhuận",
 "title_number_drawn_profit" => "Lợi nhuận đã thanh toán",
@@ -43,7 +43,7 @@ $lang = array (
 "title_report_assets" => "Báo cáo tài sản",    
 "title_report_customers" => "Báo cáo khách hàng",
 "title_report_finance" => "Báo cáo tài chính",
-"title_report_inventory" => "Báo cáo tồn kho",
+"title_report_inventory" => "Báo cáo tồn salon",
 
 "title_quick_view" => "Xem nhanh",
 "title_yesterday" => "Hôm qua",
@@ -81,8 +81,8 @@ $lang = array (
 "title_amount" => "Tổng tiền",
 "title_statistic_status" => "Thống kê theo trạng thái",
 "title_status" => "Trạng thái",
-"title_assets_inventory" => "Số lượng tài sản tồn kho theo thời gian",
-"title_statistic_store" => "Thống kê tài sản theo kho",
+"title_assets_inventory" => "Số lượng tài sản tồn salon theo thời gian",
+"title_statistic_store" => "Thống kê tài sản theo salon",
 "title_assets_name" => "Tên tài sản",
 "title_store" => "Salon",
 "title_quantity_customer" => "Số lượng khách hàng", 
@@ -116,7 +116,7 @@ $lang = array (
 "title_total_order" => "Tổng đơn hàng",
 "title_tags" => "Tags",
 "title_note" => "Ghi chú",
-"title_have_account" => "Đã có tài khoản",
+"title_have_account" => "Đã có tài salonản",
 
     "title_report_sale_num_order" => "STT",
     "title_report_sale_total_price" => "Doanh số",
@@ -156,7 +156,7 @@ $lang = array (
     
     // Title subact report sales
     "title_sales_follow_time" => "Theo ngày, tháng, năm",
-    "title_sales_follow_store" => "Theo kho",
+    "title_sales_follow_store" => "Theo salon",
     "title_sales_follow_product" => "Theo sản phẩm",
     "title_sales_follow_assets" => "Theo tài sản",
     "title_sales_follow_pgroup" => "Theo nhóm sản phẩm",
@@ -172,14 +172,14 @@ $lang = array (
     
     // Title subact report product
     "title_product_follow_date" => "Theo ngày, tháng, năm",
-    "title_product_follow_store" => "Theo kho",
-    "title_product_follow_price" => "Theo khoảng giá",
+    "title_product_follow_store" => "Theo salon",
+    "title_product_follow_price" => "Theo salonảng giá",
     "title_product_best_seller" => "Bán chạy nhất",
     
     // Title subact report assets
     "title_assets_follow_date" => "Theo ngày, tháng, năm",
-    "title_assets_follow_store" => "Theo kho",
-    "title_assets_follow_price" => "Theo khoảng giá",
+    "title_assets_follow_store" => "Theo salon",
+    "title_assets_follow_price" => "Theo salonảng giá",
     "title_assets_best_seller" => "Bán chạy nhất",
     
     // Title subact report customer
@@ -187,19 +187,19 @@ $lang = array (
     "title_customer_follow_sales" => "Theo doanh thu",
     "title_customer_follow_product" => "Theo sản phẩm",
     "title_customer_follow_assets" => "Theo tài sản",
-    "title_customer_follow_store" => "Theo kho",
+    "title_customer_follow_store" => "Theo salon",
     "title_customer_follow_group" => "Theo nhóm sản phẩm",
     "title_customer_follow_regist" => "Theo thời gian đăng ký",
     
     // Title subact report finance
-    "title_finance_daily" => "Tổng bán lẻ hằng ngày theo kho",
-    "title_finance_record" => "Theo tài khoản kế toán",
+    "title_finance_daily" => "Tổng bán lẻ hằng ngày theo salon",
+    "title_finance_record" => "Theo tài salonản kế toán",
     "title_finance_revenue" => "Thu chi theo ngày",
     
     // title report menu sales
     "title_menu_sales" => "Doanh số",
     "title_menu_sales_date" => "Theo ngày, tháng, năm",
-    "title_menu_sales_store" => "Theo kho",
+    "title_menu_sales_store" => "Theo salon",
     "title_menu_sales_product" => "Theo sản phẩm",
     "title_menu_sales_assets" => "Theo tài sản",
     "title_menu_sales_pgroup" => "Theo nhóm sản phẩm",
@@ -213,20 +213,20 @@ $lang = array (
     "title_menu_order_assets" => "Theo tài sản",
     "title_menu_order_status" => "Theo trạng thái đơn hàng",
     "title_menu_order_user" => "Theo nhân viên",
-    "title_menu_order_store" => "Theo kho",
+    "title_menu_order_store" => "Theo salon",
     
     // title report menu product
     "title_menu_product" => "Sản phẩm",
     "title_menu_product_bestseller" => "Bán chạy nhất",
-    "title_menu_product_price" => "Theo khoảng giá",
-    "title_menu_product_store" => "Theo kho",
+    "title_menu_product_price" => "Theo salonảng giá",
+    "title_menu_product_store" => "Theo salon",
     "title_menu_product_date" => "Theo ngày, tháng, năm",
     
     // title report menu assets
     "title_menu_assets" => "Tài sản",
     "title_menu_assets_bestseller" => "Bán chạy nhất",
-    "title_menu_assets_price" => "Theo khoảng giá",
-    "title_menu_assets_store" => "Theo kho",
+    "title_menu_assets_price" => "Theo salonảng giá",
+    "title_menu_assets_store" => "Theo salon",
     "title_menu_assets_date" => "Theo ngày, tháng, năm",
     
     // title report menu customer
@@ -235,14 +235,14 @@ $lang = array (
     "title_menu_customer_sales" => "Doanh số",
     "title_menu_customer_product" => "Theo sản phẩm",
     "title_menu_customer_assets" => "Theo tài sản",
-    "title_menu_customer_store" => "Theo kho",
+    "title_menu_customer_store" => "Theo salon",
     "title_menu_customer_group" => "Theo nhóm khách hàng",
     "title_menu_customer_regist" => "Theo thời gian đăng ký",
     
     // title report menu finance
     "title_menu_finance" => "Kế toán",
-    "title_menu_finance_daily" => "Tổng bán lẻ hằng ngày theo kho", // Bán lẻ hằng ngày theo kho
-    "title_menu_finance_record" => "Theo tài khoản", // Theo định khoản
+    "title_menu_finance_daily" => "Tổng bán lẻ hằng ngày theo salon", // Bán lẻ hằng ngày theo salon
+    "title_menu_finance_record" => "Theo tài salonản", // Theo định salonản
     "title_menu_finance_revenue" => "Theo thu chi hằng ngày",
 
     "title_buy_times" => "Số lần mua hàng",
@@ -261,8 +261,8 @@ $lang = array (
     "title_cash_receipts" => "Tổng thu tiền mặt",
     "titel_cash_payment" => "Tổng chi tiền mặt",
     "title_cash_left" => "Tiền mặt còn lại",
-    "title_transfer_receipts" => "Chuyển khoản (Thu)",
-    "title_transfer_payment" => "Chuyển khoản (Chi)",
+    "title_transfer_receipts" => "Chuyển salonản (Thu)",
+    "title_transfer_payment" => "Chuyển salonản (Chi)",
     "title_debt" => "Công nợ",
     "title_at_code" => "Mã",
     "title_at_name" => "Tên",
@@ -284,9 +284,9 @@ $lang = array (
     "title_cash_plus" => "Tiềm mặt (+)",
     "title_cash_sub" => "Tiền mặt (-)",
     "title_total_cash" => "Tổng tiền mặt",
-    "title_bank_plus" => "Chuyển khoản (+)",
-    "title_bank_sub" => "Chuyển khoản (-)",
-    "title_total_bank" => "Tổng chuyển khoản",
+    "title_bank_plus" => "Chuyển salonản (+)",
+    "title_bank_sub" => "Chuyển salonản (-)",
+    "title_total_bank" => "Tổng chuyển salonản",
     
     "title_object" => "Đối tượng",
     "titl_ass_avaiable" => "Trạng thái",
@@ -306,19 +306,19 @@ $lang = array (
     "title_total_sales_sup" => "Tổng (Doanh số/Lợi nhuận)",
     
     // title report menu inventory - hvu 13/09/2017
-    "title_menu_inventory" => "Tồn kho",
-    "title_menu_inventory_quantity" => "Số lượng hàng tồn kho",
+    "title_menu_inventory" => "Tồn salon",
+    "title_menu_inventory_quantity" => "Số lượng hàng tồn salon",
     "title_menu_inventory_product" => "Sản phẩm theo kỳ",
     "title_menu_inventory_assets" => "Tài sản theo kỳ",
     "title_menu_inventory_group" => "Danh mục sản phẩm",
-    "title_menu_inventory_total" => "Tổng xuất nhập kho",
+    "title_menu_inventory_total" => "Tổng xuất nhập salon",
     
     // Title subact report inventory
-    "title_inventory_quantity" => "Số lượng hàng tồn kho",
+    "title_inventory_quantity" => "Số lượng hàng tồn salon",
     "title_inventory_product" => "Sản phẩm theo kỳ",
     "title_inventory_assets" => "Tài sản theo kỳ",
     "title_inventory_group" => "Danh mục sản phẩm",
-    "title_inventory_total" => "Tổng xuất nhập kho",
+    "title_inventory_total" => "Tổng xuất nhập salon",
     
     "detail_title_view_day" => "Hiển thị theo ngày",
     "detail_title_view_month" => "Hiển thị theo tháng",

@@ -75,7 +75,7 @@
                             <img src="images/logo_web4s_2.png" alt="Demo Page" style="max-height: 20px">
                         </a>
                         <a class="btn btn-black" href="/kho-giao-dien-thiet-ke-moi.html">
-                            <i class="fa fa-mail-reply"></i> Quay về kho giao diện
+                            <i class="fa fa-mail-reply"></i> Quay về salon giao diện
                         </a>
                     </div>
                     <div class="hidden-xs hidden-sm col-md-4 toolbar-center">

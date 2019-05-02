@@ -29,7 +29,7 @@
             </form>
           </div>
           <div class="">
-            Bạn chưa có tài khoản? <a href="/login">Đăng ký ngay</a>
+            Bạn chưa có tài salonản? <a href="/login">Đăng ký ngay</a>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@
                     <h3 class="webdanhnghiep-detail-title">Thiết kế website du lịch trong nước và ngoài nước</h3>
                     <p class="text-medium">
                         Tờ TTR Weekly, một trang thông tin chuyên ngành du lịch về ASEAN đưa tin cho biết, ngành du lịch Việt Nam dự kiến sẽ đạt doanh thu hàng năm lên đến 35 tỷ USD vào năm 2020.
-                    <br><br> Việt Nam hiện đang định hướng du lịch là ngành kinh tế mũi nhọn của đất nước trong 4 năm tới. Điều này đem đến dự báo sự tăng trưởng nhanh chóng của lượng du khách tới đất nước, từ 17 – 20 triệu du khách quốc tế và khoảng 82 triệu khách nội địa trong vòng 3 năm tới
+                    <br><br> Việt Nam hiện đang định hướng du lịch là ngành kinh tế mũi nhọn của đất nước trong 4 năm tới. Điều này đem đến dự báo sự tăng trưởng nhanh chóng của lượng du khách tới đất nước, từ 17 – 20 triệu du khách quốc tế và salonảng 82 triệu khách nội địa trong vòng 3 năm tới
                     <br><br> Bạn đã sẵn sàng chưa? Hãy để Web4s giúp bạn tiếp cận họ
                     </p>
                 </div>

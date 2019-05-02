@@ -1589,7 +1589,7 @@ class class_order {
  		}
  		else
  		{
- 			//Check ton kho
+ 			//Check ton salon
  			// if($this->check_stock($CMS->input['id']) > 1)
  			// {
  			// 	$_SESSION['error_msg'] = "{$CMS->lang['store_not_enought']}";
@@ -1606,7 +1606,7 @@ class class_order {
  		$CMS->class->logs->key = "order_{$id}";
 		$CMS->class->logs->old_data = $order;
 
-		// Update status cho order_item va Tao phieu xuat kho cho cac order_item 
+		// Update status cho order_item va Tao phieu xuat salon cho cac order_item 
 		$this->update_order_item($id, $status);
  
  	 	$DB->query("UPDATE ".root_table."order SET  ord_status = '{$status}' WHERE ord_id='{$id}'");
@@ -3858,7 +3858,7 @@ EOF;
 	{
 		global $CMS, $DB, $member;
  
-		// Check enable kho hang
+		// Check enable salon hang
 		if($CMS->vars['addon_goods_enable'] == 1)
 		{
 			$addon_goods_enable = "block";
@@ -4783,14 +4783,14 @@ EOF;
 			{
 				$before_status = "1".$before_status;
 			}
-			// Tao phieu xuat kho
-	  		// if($status == 2 AND $ord_i['bill_export_id'] == 0 ) // Trang thai dang giao va chua tao phieu xuat kho lan nao
+			// Tao phieu xuat salon
+	  		// if($status == 2 AND $ord_i['bill_export_id'] == 0 ) // Trang thai dang giao va chua tao phieu xuat salon lan nao
 	  		// {
 	  		// 	$bill_return = $this->bill_export($ordi, "");
 	  		// 	if($bill_return['status'] == true)
 	  		// 	{
 	  		// 		$bill_id = $bill_return['data_output'];
-	  		// 		//Tao phieu xuat kho thanh cong
+	  		// 		//Tao phieu xuat salon thanh cong
 	  		// 		$DB->query("UPDATE ".root_table."order_item SET ordi_status = '{$status}' , bill_export_id='{$bill_id}'  WHERE ordi_id='{$ordi}'");
 	  		// 	}
 	  		// 	else
@@ -4800,13 +4800,13 @@ EOF;
 	  		// 	}
 	  			 
 	  		// }
-	  		// elseif($status == 1 AND $ord_i['bill_export_id'] == 0 ) // Trang thai dang giao va chua tao phieu xuat kho lan nao
-	  		// {   // Tao phieu xuat kho =>buoc 3 cua phieu xuat kho
+	  		// elseif($status == 1 AND $ord_i['bill_export_id'] == 0 ) // Trang thai dang giao va chua tao phieu xuat salon lan nao
+	  		// {   // Tao phieu xuat salon =>buoc 3 cua phieu xuat salon
 	  		// 	$bill_return = $this->bill_export($ordi, 31);
 	  		// 	if($bill_return['status'] == true)
 	  		// 	{
 	  		// 		$bill_id = $bill_return['data_output'];
-	  		// 		//Tao phieu xuat kho thanh cong
+	  		// 		//Tao phieu xuat salon thanh cong
 	  		// 		$DB->query("UPDATE ".root_table."order_item SET ordi_status = '{$status}' , bill_export_id='{$bill_id}'  WHERE ordi_id='{$ordi}'");
 	  		// 	}
 	  		// 	else
@@ -4816,8 +4816,8 @@ EOF;
 	  		// 	}
 	  		// }	 
 	  		// // }elseif($status == 1 AND $ord_i['bill_export_id'] > 0 ) 
-			  // // 		//  Trang thai moi la "da nhan" ma da co phieu xuat kho roi thi update lại status 31 cho phieu xuat kho do
-	  		// // {   // Tao phieu xuat kho =>buoc 3 cua phieu xuat kho
+			  // // 		//  Trang thai moi la "da nhan" ma da co phieu xuat salon roi thi update lại status 31 cho phieu xuat salon do
+	  		// // {   // Tao phieu xuat salon =>buoc 3 cua phieu xuat salon
 	  			 
 	  		// // 	 $DB->query("UPDATE ".root_table."store_request SET request_status = '31'  WHERE request_id='{$ord_i['bill_export_id']}'");
 	  		// // }
@@ -4881,14 +4881,14 @@ EOF;
 	  				$ord_i = $DB->fetch_array($sql);
 					$before_status = $ord_i['ordi_status'];
 
-	  				// Tao phieu xuat kho
-			  		// if($status == 2 AND $ord_i['bill_export_id'] == 0 ) // Trang thai dang giao va chua tao phieu xuat kho lan nao
+	  				// Tao phieu xuat salon
+			  		// if($status == 2 AND $ord_i['bill_export_id'] == 0 ) // Trang thai dang giao va chua tao phieu xuat salon lan nao
 			  		// {
 			  		// 	$bill_return = $this->bill_export($ordi_id, "");
 			  		// 	if($bill_return['status'] == true)
 			  		// 	{
 			  		// 		$bill_id = $bill_return['data_output'];
-			  		// 		//Tao phieu xuat kho thanh cong
+			  		// 		//Tao phieu xuat salon thanh cong
 			  		// 		$DB->query("UPDATE ".root_table."order_item SET ordi_status = '{$status}' , bill_export_id='{$bill_id}'  WHERE ordi_id='{$ordi_id}'");
 			  		// 	}
 			  		// 	else
@@ -4898,13 +4898,13 @@ EOF;
 			  		// 	}
 			  			 
 			  		// }
-			  		// elseif($status == 1 AND $ord_i['bill_export_id'] == 0 ) // Trang thai dang giao va chua tao phieu xuat kho lan nao
-			  		// {   // Tao phieu xuat kho =>buoc 3 cua phieu xuat kho
+			  		// elseif($status == 1 AND $ord_i['bill_export_id'] == 0 ) // Trang thai dang giao va chua tao phieu xuat salon lan nao
+			  		// {   // Tao phieu xuat salon =>buoc 3 cua phieu xuat salon
 			  		// 	$bill_return = $this->bill_export($ordi_id, 31);
 			  		// 	if($bill_return['status'] == true)
 			  		// 	{
 			  		// 		$bill_id = $bill_return['data_output'];
-			  		// 		//Tao phieu xuat kho thanh cong
+			  		// 		//Tao phieu xuat salon thanh cong
 			  		// 		$DB->query("UPDATE ".root_table."order_item SET ordi_status = '{$status}' , bill_export_id='{$bill_id}'  WHERE ordi_id='{$ordi_id}'");
 			  		// 	}
 			  		// 	else
@@ -4915,8 +4915,8 @@ EOF;
 			  			 
 			  		// }
 			  		// // elseif($status == 1 AND $ord_i['bill_export_id'] > 0 ) 
-			  		// // //  Trang thai moi la "da nhan" ma da co phieu xuat kho roi thi update lại status 31 cho phieu xuat kho do
-			  		// // {   // Tao phieu xuat kho =>buoc 3 cua phieu xuat kho
+			  		// // //  Trang thai moi la "da nhan" ma da co phieu xuat salon roi thi update lại status 31 cho phieu xuat salon do
+			  		// // {   // Tao phieu xuat salon =>buoc 3 cua phieu xuat salon
 			  			 
 			  		// // 	 $DB->query("UPDATE ".root_table."store_request SET request_status = '31'  WHERE request_id='{$ord_i['bill_export_id']}'");
 			  		// // }
@@ -4977,7 +4977,7 @@ EOF;
 	  			while ($value = $DB->fetch_array($sql)) 
 	  			{
 	  				$ordi_id = $value['ordi_id'];
-	  				if( ( $value['bill_export_id'] == 0  OR $value['bill_export_id'] == "") AND $CMS->vars['addon_goods_enable'] == 1) // Trang thai dang giao va chua tao phieu xuat kho lan nao
+	  				if( ( $value['bill_export_id'] == 0  OR $value['bill_export_id'] == "") AND $CMS->vars['addon_goods_enable'] == 1) // Trang thai dang giao va chua tao phieu xuat salon lan nao
 			  		{	
 			  			// AND $value['ass_key'] !=''
 			  			if($value['product_id'] > 0)
@@ -4998,7 +4998,7 @@ EOF;
 				  				}
 				  				else
 				  				{
-				  					//Tao phieu nhap kho thanh cong
+				  					//Tao phieu nhap salon thanh cong
 				  					$DB->query("UPDATE ".root_table."order_item SET ordi_status = '{$status}' , bill_export_id='{$bill_id}'  WHERE ordi_id='{$ordi_id}'");
 				  				}
 				  				
@@ -5079,7 +5079,7 @@ EOF;
 		$request_id = $request_im_id = 0;
 		if(  count($ordi) == 0)
 		{
-			//Check co tai san trong phieu kiem kho k?
+			//Check co tai san trong phieu kiem salon k?
 			$_SESSION['error_msg'] = "{$CMS->lang['select_asset_to_export']}";
 			return array("status" => false);
 		}
@@ -5159,7 +5159,7 @@ EOF;
 			$ass_ex['request_subtype'] = 1;
 			if($status == 2)
 			{
-				// Tao phieu xuat kho (buoc 3 cua phieu xuat)
+				// Tao phieu xuat salon (buoc 3 cua phieu xuat)
 				$ass_ex['request_status'] = 31;
 				$ass_ex['request_stage'] = 3;
 			}
@@ -5253,7 +5253,7 @@ EOF;
 				$data_item[$i]['ass_quantity'] = $data['quantity'];
 				$data_item[$i]['ass_tax'] = 0;
 				// CHECK TON KHO CUA CAC SAN PHAM CHUAN BI XUAT
-				// // => Tam thoi tat check ton kho
+				// // => Tam thoi tat check ton salon
 				 if(!$CMS->store_request->check_inventory($data_item)  )
 				 {
 				 	unset($_SESSION['error_msg']);
@@ -5284,7 +5284,7 @@ EOF;
 					$data_pitem[$i]['product_tax'] = 0;
 	 				
 					// CHECK TON KHO CUA CAC SAN PHAM CHUAN BI XUAT
-					// // => Tam thoi tat check ton kho
+					// // => Tam thoi tat check ton salon
 					 if(!$CMS->store_request->check_inventory($data_pitem,1)  )
 					 {	 
 					 	unset($_SESSION['error_msg']);

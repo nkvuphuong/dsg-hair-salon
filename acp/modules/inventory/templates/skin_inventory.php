@@ -1073,7 +1073,7 @@ EOF;
 EOF;
 
 				}			 
-  				// Kiem kho theo sản pham
+  				// Kiem salon theo sản pham
   				if($data['inventory_type'] == 1)
 				{
 					$out .= <<<EOF
@@ -1448,7 +1448,7 @@ EOF;
 EOF;
 
 				}			 
-  				// Kiem kho theo sản pham
+  				// Kiem salon theo sản pham
   				if($data['inventory_type'] == 1)
 				{
 					$out .= <<<EOF
@@ -2104,14 +2104,14 @@ EOF;
 								if($ini_amount <= 0)
 								{
 									$out .= <<<EOF
-									 <td>Xuất kho {$data['store_name']}</td>
+									 <td>Xuất salon {$data['store_name']}</td>
 EOF;
 
 								}
 								else
 								{
 									$out .= <<<EOF
-									 <td>Nhập kho {$data['store_name']}</td>
+									 <td>Nhập salon {$data['store_name']}</td>
 EOF;
 								}
 								

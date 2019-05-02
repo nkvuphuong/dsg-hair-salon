@@ -109,7 +109,7 @@
 					<div class="product-intro-feature delay-2 scroll-to-show bottom-in">
 						<img src="images/features-tich-hop-nhieu-phuong-thuc-thanh-toan.png" alt="<?=$tpl->alt;?>">
 						<h5>Tích hợp nhiều phương thức thanh toán</h5>
-						<p>Cùng với việc tích hợp nhiều phương thức thanh toán, việc giao dịch với khách hàng không còn là mối lo lắng của bạn nữa. Chúng tôi sẽ giúp khách của bạn có thể thanh toán qua Paypal, Ngân Lượng, Napas, COD, chuyển khoản v.v…</p>
+						<p>Cùng với việc tích hợp nhiều phương thức thanh toán, việc giao dịch với khách hàng không còn là mối lo lắng của bạn nữa. Chúng tôi sẽ giúp khách của bạn có thể thanh toán qua Paypal, Ngân Lượng, Napas, COD, chuyển salonản v.v…</p>
 					</div>
 				</div>
 				<div class="col-sm-6 col-md-4">

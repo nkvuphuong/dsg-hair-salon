@@ -293,7 +293,7 @@ public function skin_admin_setting( $data, $cnt )
 	                        <th width="5%">Thứ tự</th>
 	                        <th width="25%">Tên</th>
 	                        <th width="40%">Giá trị</th>
-	                        <th width="25%">Từ khoá</th>
+	                        <th width="25%">Từ saloná</th>
 							<th width="5%"></th>
 	                    </tr>
 	                </thead>

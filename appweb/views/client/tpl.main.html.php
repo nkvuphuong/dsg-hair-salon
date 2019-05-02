@@ -11,7 +11,7 @@
 						<? if($_SESSION['res_site_error']) { ?>
 						<div class="row">
 							<div class="alert alert-danger">
-								<strong>Có lỗi!</strong> Mỗi tài khoản chỉ được đăng ký dùng thử một lần.
+								<strong>Có lỗi!</strong> Mỗi tài salonản chỉ được đăng ký dùng thử một lần.
 							</div>
 						</div>
 						<? unset($_SESSION['res_site_error']);
@@ -19,7 +19,7 @@
 						<? if($_SESSION['login_social']) { ?>
 						<div class="row">
 							<div class="alert alert-success">
-								<strong>Thành công!</strong> Vui lòng kiểm tra email để kích hoạt tài khoản.
+								<strong>Thành công!</strong> Vui lòng kiểm tra email để kích hoạt tài salonản.
 							</div>
 						</div>
 						<? unset($_SESSION['login_social']);

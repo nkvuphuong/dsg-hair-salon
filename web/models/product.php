@@ -1227,7 +1227,7 @@ class product
     {
         global $CMS, $DB;
 
-        // bỏ sau khoảng 1 tháng
+        // bỏ sau salonảng 1 tháng
         // bổ sung shorturl cho các url product group
         $sql = $DB->query("SELECT product_group_name, product_group_id FROM ".root_table."product_group WHERE pg_shorturl='' ");
         while ($data = $DB->fetch_array($sql)) {

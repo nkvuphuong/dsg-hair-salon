@@ -90,7 +90,7 @@
 			<div class="row">
 				<div class="col-md-8 col-md-push-2 text-center price-table-wrap">
 					<h1 class="section-title text-orange">Thiết kế website bán hàng chuẩn SEO</h1>
-					<p class="intro-detail">Web4s cung cấp kho giao diện phong phú đa dạng dành riêng cho từng nghành ghề, miễn phí tên miền Quốc tế, hỗ trợ giao diện trên mọi thiết bị, đa ngôn ngữ, và thêm nhiều tính năng ưu Việt khác ...</p>
+					<p class="intro-detail">Web4s cung cấp salon giao diện phong phú đa dạng dành riêng cho từng nghành ghề, miễn phí tên miền Quốc tế, hỗ trợ giao diện trên mọi thiết bị, đa ngôn ngữ, và thêm nhiều tính năng ưu Việt khác ...</p>
 					<a href="/dang-ky-dung-thu-website.html" class="text-green">Dùng thử 10 ngày miễn phí &gt;</a>
 				</div>
 			</div>

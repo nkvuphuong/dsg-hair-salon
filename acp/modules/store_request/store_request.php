@@ -597,7 +597,7 @@ class store_request{
 		}
 		$index = intval($CMS->input['item_id']);
 
-		$_SESSION['list_product'][$index]['product_id'] = $product_id;// Vi khong insert vao product nen ko co product_id
+		$_SESSION['list_product'][$index]['product_id'] = $product_id;// Vi salonng insert vao product nen ko co product_id
 		$_SESSION['list_product'][$index]['product_name'] = $product_name;
 		$_SESSION['list_product'][$index]['product_description'] = $product_description;
 		$_SESSION['list_product'][$index]['product_code'] = $product_code;

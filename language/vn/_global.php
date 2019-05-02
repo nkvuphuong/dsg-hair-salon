@@ -44,7 +44,7 @@ $lang = array (
     "title_item_price" => "Giá",
     "plh_enter_wards" => "Phường/xã",
     "plh_enter_street" => "Số nhà/đường/hẻm",
-    "title_key_search" => "Từ khoá",
+    "title_key_search" => "Từ saloná",
 
     "title_unit_price_agreed" => "Thoả thuận",
     "title_unit_billion" => "Tỷ",
@@ -105,7 +105,7 @@ $lang = array (
     "real_school" => "Trường học",
     "real_atm" => "Trụ ATM",
     "real_coffee" => "Quán Cà phê",
-    "real_dentistry" => "Nha khoa",
+    "real_dentistry" => "Nha salona",
     "real_police_office" => "Trụ sở công an",
     "real_diner" => "Quán ăn",
     "real_restaurant" => "Nhà hàng",
@@ -143,7 +143,7 @@ $lang = array (
 
     // Payment method
     "payment_method_0" => "Tiền mặt",
-    "payment_method_1" => "Chuyển khoản qua ngân hàng",
+    "payment_method_1" => "Chuyển salonản qua ngân hàng",
     "payment_method_2" => "Thanh toán khi nhận hàng (COD)",
     "payment_method_3" => "Thanh toán online",
     "payment_method_4" => "ATM",
