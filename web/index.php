@@ -45,6 +45,7 @@ ezy::$routes = array(
     "project"   => "project",
     "error"   => "error",
     "salon"   => "salon",
+    "pos"   => "pos",
 );
 
 // seo_name => [controller_name, controller_action];
