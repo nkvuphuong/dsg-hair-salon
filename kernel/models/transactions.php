@@ -1078,42 +1078,27 @@ EOF;
 		if (!empty($trx_id)) {
 			global $CMS, $DB, $member;
 
-			if($type == 'all')
+            if($group_by == 1)
             {
-                if($group_by == 1)
-                {
-                    $DB->query("
-                      SELECT *, SUM(tri_quantity) tri_quantity FROM `".root_table."transaction_item` WHERE `tri_deleted`=0 AND `trx_id`='{$trx_id}' AND product_id != 0 GROUP BY tri_description, tri_cycle_type, tri_cycle, tri_total, tri_tax,product_id
-                      UNION ALL
-                      SELECT *, SUM(tri_quantity) tri_quantity FROM `".root_table."transaction_item` WHERE `tri_deleted`=0 AND `trx_id`='{$trx_id}'  AND ass_key != '' AND ass_key IS NOT NULL GROUP BY tri_description, tri_cycle_type, tri_cycle, tri_total, tri_tax, ass_key
-                  ");
+
+                //Check version
+                $version = $DB->fetch_data("SHOW VARIABLES LIKE 'version'");
+
+                if ($version[0]['Value'] >= 5.7) {
+                    $sql = "
+                        SELECT * FROM " . root_table .  "transaction_item TI RIGHT JOIN (
+  (SELECT ANY_VALUE(tri_id) AS tri_id, SUM(tri_quantity) tri_quantity FROM `" . root_table .  "transaction_item` WHERE `tri_deleted`=0 AND `trx_id`='1' AND product_id != 0 GROUP BY tri_description, tri_cycle_type, tri_cycle, tri_total, tri_tax,product_id) AS tmp
+) ON TI.tri_id = tmp.tri_id;
+                    "; //Fix sql 5.7
+                } else {
+                    $sql = "SELECT *, SUM(tri_quantity) tri_quantity FROM `".root_table."transaction_item` WHERE `tri_deleted`=0 AND `trx_id`='{$trx_id}' AND product_id != 0 GROUP BY tri_description, tri_cycle_type, tri_cycle, tri_total, tri_tax,product_id ";
                 }
-                else
-                {
-                    $DB->query("SELECT * FROM `".root_table."transaction_item` WHERE `tri_deleted`=0 AND `trx_id`='{$trx_id}'");
-                }
-            }
-			else if($type == 'product')
-            {
-                if($group_by == 1)
-                {
-                    $DB->query("SELECT *, SUM(tri_quantity) tri_quantity FROM `".root_table."transaction_item` WHERE `tri_deleted`=0 AND `trx_id`='{$trx_id}' AND product_id != 0 GROUP BY tri_description, tri_cycle_type, tri_cycle, tri_total, tri_tax,product_id ");
-                }
-                else
-                {
-                    $DB->query("SELECT * FROM `".root_table."transaction_item` WHERE `tri_deleted`=0 AND `trx_id`='{$trx_id}' AND product_id != 0");
-                }
+
+                $DB->query($sql);
             }
             else
             {
-                if($group_by == 1)
-                {
-                    $DB->query("SELECT *, SUM(tri_quantity) tri_quantity FROM `".root_table."transaction_item` WHERE `tri_deleted`=0 AND `trx_id`='{$trx_id}'  AND ass_key != '' AND ass_key IS NOT NULL GROUP BY tri_description, tri_cycle_type, tri_cycle, tri_total, tri_tax, ass_key");
-                }
-                else
-                {
-                    $DB->query("SELECT * FROM `".root_table."transaction_item` WHERE `tri_deleted`=0 AND `trx_id`='{$trx_id}'  AND ass_key != '' AND ass_key IS NOT NULL");
-                }
+                $DB->query("SELECT * FROM `".root_table."transaction_item` WHERE `tri_deleted`=0 AND `trx_id`='{$trx_id}' AND product_id != 0");
             }
 
 			$arr = array();
