@@ -1,0 +1,1 @@
+UPDATE nh_transaction SET trx_excess_cash = 0 WHERE trx_excess_cash < 0

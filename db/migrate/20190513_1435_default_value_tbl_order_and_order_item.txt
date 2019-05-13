@@ -1,0 +1,13 @@
+alter table nh_order alter column account_id set default 0;
+
+alter table nh_order alter column ord_status_custom set default 0;
+
+alter table nh_order alter column custom_status_id set default 0;
+
+alter table nh_order alter column ship_id set default 0;
+
+alter table nh_order_item alter column ordi_expiry_date set default 0;
+
+alter table nh_order_item alter column ordi_commission_value set default 0.00;
+
+alter table nh_order_item alter column ordi_commision_value set default 0.00;

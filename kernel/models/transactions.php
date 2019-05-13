@@ -1194,7 +1194,7 @@ EOF;
 
         if($trx_subtype == 1)
         {
-            $trx_excess_cash = !empty($CMS->input['excess_cash']) ? $CMS->input['excess_cash'] : '0';
+            $trx_excess_cash = !empty($CMS->input['excess_cash']) && $CMS->input['excess_cash'] > 0 ? $CMS->input['excess_cash'] : '0';
         }
         else
         {
