@@ -199,7 +199,9 @@ export class PrintBillComponent implements OnInit {
         }
     </style>
 </head>
-<body onload="window.print();window.close()">
+<body onload="window.print(); setTimeout(function() {
+  window.close();
+}, 0)">
     ${printContents}
 </body>
 </html>
