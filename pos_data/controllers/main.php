@@ -54,6 +54,7 @@ class main
         $return['appPrintingBill'] = input::jsonDecode($return['appPrintingBill']);
 
         $return['logoWebsite'] = "{$return['uploadURL']}/attach/{$return['logoWebsite']}";
+        $return['printingLogo'] = "{$return['uploadURL']}/printingLogo.jpg";
 
         $CMS->lang = $cms_lang;
 
